@@ -1,8 +1,13 @@
 <aside role="nav" class="navbar navbar-fixed-left">
     <ul class="list-group">
-        {% for post in site.posts %}
+        {% comment %}Check if it is the home page {% endcomment %}
+        {% assign isHomePage = false %}
+        {% if site.name == page.title %}
+        {% assign isHomePage = true %}
+        {% endif %}
 
-        {% if page.title == post.title %}
+        {% for post in site.posts %}
+        {% if page.title == post.title or isHomePage and forloop.index == 1 %}
         {% assign active = 'active' %}
         {% else %}
         {% assign active = '' %}
