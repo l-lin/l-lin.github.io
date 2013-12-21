@@ -39,10 +39,12 @@
 {% include header.html %}
 <div id="main">
     {% include sidebar.html %}
-    <article id="content">
-        {{ content }}
-        {% include footer.html %}
-    </article>
+    <div id="content">
+        <article role="main">
+            {{ content }}
+            {% include footer.html %}
+        </article>
+    </div>
 </div>
 
 <script src="/vendor/jquery/jquery.min.js"></script>

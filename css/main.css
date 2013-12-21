@@ -5,10 +5,6 @@
 /*****************************************************************************/
 
 /* Global Reset */
-* {
-    font-size: 15px;
-}
-
 footer {
     border-top: 1px solid #EEE;
     padding-top: 20px;
@@ -35,7 +31,11 @@ footer li.pull-right {
     left: 10px;
     bottom: 0;
     top: 90px;
-    width: 350px;
+    width: 200px;
+}
+
+.navbar.navbar-fixed-left a, .navbar.navbar-fixed-left .badge {
+    font-size: 11px;
 }
 
 @media (max-width: 768px) {
@@ -47,30 +47,33 @@ footer li.pull-right {
     }
 }
 
-@media (min-width: 768px) {
-    #content {
-        width: 750px;
-    }
-}
+/*@media (min-width: 768px) {*/
+    /*#content {*/
+        /*width: 750px;*/
+    /*}*/
+/*}*/
 
-@media (min-width: 992px) {
-    #content {
-        width: 970px;
-    }
-}
+/*@media (min-width: 992px) {*/
+    /*#content {*/
+        /*width: 970px;*/
+    /*}*/
+/*}*/
 
-@media (min-width: 1200px) {
-    #content {
-        width: 1170px;
-    }
-}
+/*@media (min-width: 1200px) {*/
+    /*#content {*/
+        /*width: 1170px;*/
+    /*}*/
+/*}*/
 #content {
-    margin-top: 100px;
-    /*margin-left: 350px;*/
-    padding-left: 20px;
-    margin-right: auto;
+    max-width: 750px;
+    margin-top: 20px;
+    margin-left: 200px;
+    padding: 20px;
+}
+
+article {
+    margin: 0;
     word-wrap: break-word;
-    margin-left: auto;
 }
 
 .list-group-item.active {
