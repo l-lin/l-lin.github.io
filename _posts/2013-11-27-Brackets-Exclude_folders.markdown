@@ -2,7 +2,7 @@
 layout: post
 title:  "Brackets - Exclude folders"
 date:   2013-11-27
-tags: [brackets]
+tags: [Brackets]
 images: [brackets.png]
 ---
 
@@ -20,7 +20,7 @@ Currently, in the Spring 34 of Brackets, it is not possible to exclude files and
 Moreover, like I said in the beginning, the list of excluded files and folders is **hard coded**...
 So we are left with modifying the source.
 
-If you are using Ubuntu, modify the file `/opt/brackets/www/project/ProjectManager.js` (don't forget to save the file!):
+If you are using Ubuntu, modify the file `/opt/brackets/www/project/ProjectManager.js` (don't forget to backup the file!):
 
 {% highlight bash %}
 cd /opt/brackets/www/project

@@ -1,0 +1,14 @@
+<aside role="nav" class="navbar navbar-fixed-left">
+    <ul class="list-group">
+        {% for post in site.posts %}
+
+        {% if page.title == post.title %}
+        {% assign active = 'active' %}
+        {% else %}
+        {% assign active = '' %}
+        {% endif %}
+
+        {% include sidebar_item.html %}
+        {% endfor %}
+    </ul>
+</aside>

@@ -16,7 +16,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- syntax highlighting CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/vim.syntax.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -36,12 +36,13 @@
 <script src="/vendor/json3/lib/json3.min.js"></script>
 <![endif]-->
 
-<div class="container">
-    {% include header.html %}
-
-    {{ content }}
-
-    {% include footer.html %}
+{% include header.html %}
+<div id="main">
+    {% include sidebar.html %}
+    <article id="content">
+        {{ content }}
+        {% include footer.html %}
+    </article>
 </div>
 
 <script src="/vendor/jquery/jquery.min.js"></script>

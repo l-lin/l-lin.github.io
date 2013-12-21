@@ -26,10 +26,56 @@ footer li.pull-right {
 
 /*****************************************************************************/
 /*
-/* Home
+/* Sidebar
 /*
 /*****************************************************************************/
 
+.navbar.navbar-fixed-left {
+    position: fixed;
+    left: 10px;
+    bottom: 0;
+    top: 90px;
+    width: 350px;
+}
+
+@media (max-width: 768px) {
+    .navbar.navbar-fixed-left {
+        visibility: hidden;
+    }
+    #content {
+        margin-left: auto !important;
+    }
+}
+
+@media (min-width: 768px) {
+    #content {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    #content {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #content {
+        width: 1170px;
+    }
+}
+#content {
+    margin-top: 100px;
+    /*margin-left: 350px;*/
+    padding-left: 20px;
+    margin-right: auto;
+    word-wrap: break-word;
+    margin-left: auto;
+}
+
+.list-group-item.active {
+    background-color: #EEE;
+}
 
 /*****************************************************************************/
 /*

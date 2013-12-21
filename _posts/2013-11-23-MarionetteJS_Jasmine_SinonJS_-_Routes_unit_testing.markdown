@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Backone/Jasmine/SinonJS - Routes unit testing"
+title:  "MarionetteJS / Jasmine / SinonJS - Routes unit testing"
 date:   2013-11-23
 tags: [Javascript, JasmineJS, MarionetteJS, SinonJS]
 images: [marionettejs.png, jasminejs.png, sinonjs.png]
@@ -50,7 +50,7 @@ Of course, we also have to stop `Backbone.history` after each test so that the n
 describe('FooRouter', function() {
     // SET UP TEST --------------------------------------------------------
     beforeEach(function() {
-        ...
+        // ...
         // Create a mock version of our controller
         var FooControllerMock = Marionette.Controller.extend({
             showFooList: function() {},
@@ -64,7 +64,7 @@ describe('FooRouter', function() {
             controller: new FooControllerMock()
         });
     });
-    ...
+    // ...
 });
 {% endhighlight %}
 
@@ -83,8 +83,7 @@ it('can navigate to #foo', function() {
 We can now do some more complex tests. This is what I have done:
 
 {% highlight javascript %}
-define(['sinon', 'underscore', 'backbone', 'marionette', 'router/FooRouter'],
-function(sinon, _, Backbone, Marionette, FooRouter) {
+define(['sinon', 'underscore', 'backbone', 'marionette', 'router/FooRouter'], function(sinon, _, Backbone, Marionette, FooRouter) {
     'use strict';
 
     describe('FooRouter', function() {
