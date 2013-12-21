@@ -7,10 +7,14 @@ title: LLIN FooBar
 {% assign content = post.content %}
 {% include post_detail.html %}
 
-{% for post in site.posts %}
-
-<div class="jumbotron">
-    <h1><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></h1>
-    <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+<h2>Archives</h2>
+<div class="archives">
+    <ul class="list-group">
+        {% for post in site.posts %}
+        <li class="list-group-item">
+            <span class="badge">{{ post.date | date_to_string }}</span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
-{% endfor %}

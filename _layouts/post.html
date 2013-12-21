@@ -3,8 +3,24 @@ layout: default
 ---
 <div class="page-header">
     <h1>{{ page.title }}</h1>
+
+    <p class="meta">
+        {{ page.date | date_to_string }}
+        {% if page.tags %}
+        &nbsp;-&nbsp;
+        {% for tag in page.tags %}
+        {{ tag }}
+        {% endfor %}
+        {% endif %}
+    </p>
 </div>
-<div class="jumbotron">
-    <p class="meta">{{ page.date | date_to_string }}</p>
-    <p>{{ content }}</p>
-</div>
+
+{% if page.images %}
+<p class="post-images">
+    {% for image in page.images %}
+    <img src="/images/{{ image }}" />
+    {% endfor%}
+</p>
+{% endif %}
+
+{{ content }}
