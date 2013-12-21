@@ -1,0 +1,16 @@
+<div class="page-header">
+    <h1 class="entry-title">
+        <!--{% if page.title %}-->
+        <!--{{ page.title }}-->
+        <!--{% endif %}-->
+        {% if post.title %}
+        {{ post.title }}
+        {% endif %}
+    </h1>
+</div>
+<div class="jumbotron">
+    {% if post.title %}
+    <p class="meta">{{ post.date | date_to_string }}</p>
+    {% endif %}
+    <p>{{ content }}</p>
+</div>

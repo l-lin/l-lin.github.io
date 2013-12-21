@@ -1,1 +1,16 @@
-Hello world!
+---
+layout: default
+title: LLIN FooBar
+---
+
+{% assign post = site.posts.first %}
+{% assign content = post.content %}
+{% include post_detail.html %}
+
+{% for post in site.posts %}
+
+<div class="jumbotron">
+    <h1><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></h1>
+    <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+</div>
+{% endfor %}

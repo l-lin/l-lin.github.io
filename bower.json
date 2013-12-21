@@ -1,0 +1,11 @@
+{
+    "name": "l-lin.github.io",
+    "version": "1.0.0",
+    "author": "l.lin",
+    "dependencies": {
+        "jquery": "~1.10.2",
+        "json3": "~3.2.4",
+        "es5-shim": "~2.1.0"
+    },
+    "devDependencies": {}
+}
