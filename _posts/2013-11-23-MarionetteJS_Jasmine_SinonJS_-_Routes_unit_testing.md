@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MarionetteJS / Jasmine / SinonJS - Routes unit testing"
+title:  "Routes unit testing"
 date:   2013-11-23
 tags: [Javascript, JasmineJS, MarionetteJS, SinonJS]
 images: [marionettejs.png, jasminejs.png, sinonjs.png]

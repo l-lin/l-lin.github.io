@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AngularJS - Nested directives"
+title:  "Nested directives"
 date:   2013-12-30
 tags: [AngularJS]
 images: [angularjs.png]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Brackets - Exclude folders"
+title:  "Exclude folders"
 date:   2013-11-27
 tags: [Brackets]
 images: [brackets.png]
