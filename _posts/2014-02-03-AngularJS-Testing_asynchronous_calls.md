@@ -35,6 +35,7 @@ controller('foobarCtrl', function($scope, foobarFactory) {
 {% endhighlight %}
 
 To do so, I need to:
+
 * Mock the `foobarFactory` and return a fake when calling the method `getFooBar`
 
 {% highlight javascript %}
