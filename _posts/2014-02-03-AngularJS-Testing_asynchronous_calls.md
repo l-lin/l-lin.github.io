@@ -90,8 +90,8 @@ describe('foobarCtrl', function() {
             return foobarFactory.getFoobar.callCount > 0;
         }, 'Getting foobar timed out', 650);
         runs(function() {
-            expect(scope.foobar.id).toBeDefined();
-    		expect(scope.foobar.id).toEqual(123);
+            expect(scope.foobarId).toBeDefined();
+    		expect(scope.foobarId).toEqual(123);
         });
     });
 });
