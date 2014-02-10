@@ -182,7 +182,7 @@ describe('foobarCtrl', function() {
         foobarFactory = $injector.get('foobarFactory');
         var deferred = $q.defer();
         deferred.resolve(foobarMock);
-        spyOn(foobarFactory, 'getFoobar').andReturn(foobarMock);
+        spyOn(foobarFactory, 'getFoobar').andReturn(deferred.promise);
         foobarCtrl = $controller('foobarCtrl', {
             $scope: scope,
             foobarFactory: foobarFactory
