@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
 
 </head>
-<body>
+<body ng-app="llinApp">
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -37,18 +37,21 @@
 <![endif]-->
 
 {% include header.html %}
-<div id="main">
+<div class="main-container">
     {% include sidebar.html %}
-    <div id="content">
-        <article role="main">
+    <article role="main" class="main-content">
+        <div class="row">
             {{ content }}
-            {% include footer.html %}
-        </article>
-    </div>
+        </div>
+        {% include footer.html %}
+    </article>
 </div>
 
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/vendor/angular/angular.min.js"></script>
+<script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>

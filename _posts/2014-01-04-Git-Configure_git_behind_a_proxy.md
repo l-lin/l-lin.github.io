@@ -15,9 +15,21 @@ So in order to solve this problem, you have to use the protocols `HTTP` and `HTT
 
 The easy way is to tell GIT to use the protocol `HTTPS` instead of the protocol `GIT` with the following commands line:
 
-{% highlight bash %}
-$ git config --global url."https://".insteadOf git://
-$ git config --global http.proxy my.proxy:1234 
+{% highlight javascript %}
+app.controller('demoCtrl', function($scope, notifier) {
+	var notification = {
+		template: '<h3 ng-click="openNestedNotification()">Click me!</h3>',
+		scope: {
+			openNestedNotification: function() {
+				notifier.notify({template: 'I am a nested notification!', type: 'success'});
+			}
+		},
+		hasTimeout: false
+	};
+	$scope.nestedNotification = function() {
+		notifier.notify(notification);
+	};
+});
 {% endhighlight %}
 
 Now you can install bower components without problems.

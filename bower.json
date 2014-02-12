@@ -5,7 +5,9 @@
     "dependencies": {
         "jquery": "~1.10.2",
         "json3": "~3.2.4",
-        "es5-shim": "~2.1.0"
+        "es5-shim": "~2.1.0",
+        "angular": "~1.2.12",
+        "angular-bootstrap": "~0.10.0"
     },
     "devDependencies": {}
 }

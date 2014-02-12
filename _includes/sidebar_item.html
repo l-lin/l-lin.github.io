@@ -1,8 +1,7 @@
-<li class="list-group-item {{ active }}">
-    <span class="badge">{{ post.date | date_to_string }}</span>
-    <a href="{{ post.url }}">
+<li class="{{ active }}">
+    <a href="{{ post.url }}" popover="{{ post.date | date_to_string }}" popover-trigger="mouseenter">
         {% if post.images %}
-        <img src="/images/{{ post.images.first }}" width="30px"/>
+        	<img src="/images/{{ post.images.first }}" width="30px"/>
         {% endif %}
         {{ post.title }}
     </a>

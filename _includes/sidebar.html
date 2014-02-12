@@ -1,19 +1,24 @@
-<aside role="nav" class="navbar navbar-fixed-left">
-    <ul class="list-group">
+<aside role="nav" class="sidebar">
+    <ul class="sidebar-archive nav nav-list">
+        <li class="sidebar-collapse">
+            <a href="">
+                <i class="fa fa-arrow-circle-left hit"></i>
+            </a>
+        </li>
         {% comment %}Check if it is the home page {% endcomment %}
         {% assign isHomePage = false %}
         {% if site.name == page.title %}
-        {% assign isHomePage = true %}
+            {% assign isHomePage = true %}
         {% endif %}
 
         {% for post in site.posts %}
-        {% if page.title == post.title or isHomePage and forloop.index == 1 %}
-        {% assign active = 'active' %}
-        {% else %}
-        {% assign active = '' %}
-        {% endif %}
+            {% if page.title == post.title or isHomePage and forloop.index == 1 %}
+                {% assign active = 'active' %}
+            {% else %}
+                {% assign active = '' %}
+            {% endif %}
 
-        {% include sidebar_item.html %}
+            {% include sidebar_item.html %}
         {% endfor %}
     </ul>
 </aside>
