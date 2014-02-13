@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="/css/monokai.syntax.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/bootstrap.flatly.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 
 </head>
 <body ng-app="llinApp">
@@ -37,10 +37,10 @@
 <![endif]-->
 
 {% include header.html %}
-<div class="main-container">
+<div class="main-container" ng-controller="llinCtrl">
     {% include sidebar.html %}
-    <article role="main" class="main-content">
-        <div class="row">
+    <article role="main" class="main-content" ng-class="{collapsed: collapsed}">
+        <div class="page-content">
             {{ content }}
         </div>
         {% include footer.html %}

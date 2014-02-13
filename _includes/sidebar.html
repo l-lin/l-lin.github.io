@@ -1,10 +1,13 @@
-<aside role="nav" class="sidebar">
+<aside role="nav" class="sidebar" ng-class="{collapsed:collapsed}">
+    <div class="sidebar-collapse first">
+        <a ng-click="collapseSidebar()" class="sidebar-collapse-left" ng-show="!collapsed">
+            <i class="fa fa-arrow-circle-left hit"></i>
+        </a>
+        <a ng-click="collapseSidebar()" class="sidebar-collapse-right" ng-show="collapsed">
+            <i class="fa fa-arrow-circle-right hit"></i>
+        </a>
+    </div>
     <ul class="sidebar-archive nav nav-list">
-        <li class="sidebar-collapse">
-            <a href="">
-                <i class="fa fa-arrow-circle-left hit"></i>
-            </a>
-        </li>
         {% comment %}Check if it is the home page {% endcomment %}
         {% assign isHomePage = false %}
         {% if site.name == page.title %}
@@ -21,4 +24,12 @@
             {% include sidebar_item.html %}
         {% endfor %}
     </ul>
+    <div class="sidebar-collapse">
+        <a ng-click="collapseSidebar()" class="sidebar-collapse-left" ng-show="!collapsed">
+            <i class="fa fa-arrow-circle-left hit"></i>
+        </a>
+        <a ng-click="collapseSidebar()" class="sidebar-collapse-right" ng-show="collapsed">
+            <i class="fa fa-arrow-circle-right hit"></i>
+        </a>
+    </div>
 </aside>

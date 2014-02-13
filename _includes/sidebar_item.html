@@ -1,8 +1,10 @@
 <li class="{{ active }}">
-    <a href="{{ post.url }}" popover="{{ post.date | date_to_string }}" popover-trigger="mouseenter">
+    <a href="{{ post.url }}">
         {% if post.images %}
-        	<img src="/images/{{ post.images.first }}" width="30px"/>
+        	<img src="/images/{{ post.images.first }}" class="sidebar-img" />
         {% endif %}
-        {{ post.title }}
+        <div ng-hide="collapsed">
+        	{{ post.title }}
+        </div>
     </a>
 </li>
