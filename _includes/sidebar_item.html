@@ -3,7 +3,7 @@
         {% if post.images %}
         	<img src="/images/{{ post.images.first }}" class="sidebar-img" />
         {% endif %}
-        <div ng-hide="collapsed">
+        <div ng-class="{collapsed: collapsed}">
         	{{ post.title }}
         </div>
     </a>
