@@ -11,7 +11,7 @@
 			}
 		}
 	}).
-	controller('llinCtrl', function($scope, $llinService) {
+	controller('llinCtrl', function($scope, $location, $anchorScroll, $llinService) {
 		var KEY = 'LLIN_SIDEBAR_COLLAPSED_KEY',
 			collapsed;
 		if(angular.isDefined(localStorage)) {
@@ -26,6 +26,10 @@
 		$scope.collapseSidebar = function collapseSidebar() {
 			$scope.collapsed = !$scope.collapsed;
 			$llinService.saveToLocalStorage(KEY, $scope.collapsed);
+		};
+		$scope.goToTop = function() {
+			$location.hash('top');
+			$anchorScroll();
 		};
 	});
 })();
