@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Avoiding Null Pointers"
-date:   2014-02-22
+date:   2014-02-27
 tags: [Java]
 images: [java.png]
 ---
