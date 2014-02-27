@@ -4,11 +4,11 @@
         {{ post.title }}
     </h1>
     <p class="meta">
-        {{ post.date | date_to_string }}
+        <strong>{{ post.date | date_to_string }}</strong>
         {% if post.tags %}
         &nbsp;-&nbsp;
         {% for tag in post.tags %}
-        {{ tag }}
+        <code>{{ tag }}</code>
         {% endfor %}
         {% endif %}
     </p>
