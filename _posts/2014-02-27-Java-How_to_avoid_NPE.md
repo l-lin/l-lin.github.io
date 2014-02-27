@@ -38,8 +38,8 @@ if (foo != null) {
 This patch, although correct, is not the best fix.
 Indeed, correcting every `NullPointerException` with such fix will degrade your code, losing readibilty and such.
 
-Using the JSR308
-================
+Using the JSR305/JSR308
+=======================
 
 Tools like [Findbugs](http://findbugs.sourceforge.net/) are able to detect potential `NullPointerException`.
 It works well using annotation like `@NotNull` or `@Nullable`.
@@ -53,9 +53,9 @@ Using Maven, you can add the dependecy:
 
 ```xml
 <dependency>
-	<groupId>TODO</groupId>
-	<artifactId>TODO</artifactId>
-	<version>X.Y.Z</version>
+	<groupId>com.google.code.findbugs</groupId>
+    <artifactId>jsr305</artifactId>
+    <version>1.3.9</version>
 </dependency>
 ```
 
@@ -92,7 +92,7 @@ private void foo(@Nullable param) {
 }
 ```
 
-However, you need to specify that every parameters, return values are not `null`.
+However, you need to specify that every parameters and return values are not `null`.
 To do so, you need to create a `package-info.java` at the root of your source folder:
 
 ```
@@ -107,7 +107,9 @@ src
 with the following content:
 
 ```
-TODO
+@ParametersAreNonnullByDefault package com.oodrive.facturation;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 ```
 
 Using the NullPointerPattern
