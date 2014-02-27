@@ -6,13 +6,13 @@ tags: [Brackets]
 images: [brackets.png]
 ---
 
-[Brackets][brackets] (Spring **34**) has a static list of excluded files and folders. The default ignored files and folders are files like `.gitingore`, `DS_Store`, and so on...
+[Brackets][brackets] (Sprint **34**) has a static list of excluded files and folders. The default ignored files and folders are files like `.gitignore`, `DS_Store`, and so on...
 Sadly, this list is hard coded in the source...
 
 If you are like me, i.e. you use [Yeoman][yeoman] when creating new web projects, you will be left with two huge folders (`node_modules` and `bower_components` generated respectively by `NPM` and `bower`).
 Those folders contains a lot of files (JS, CSS,...) and most of them are not useful for our project.
 
-Brackets is indexing every files of the opened folder, so when quick-editing (`ctr+e`) a JS function or a CSS class, or when auto-completing (`ctr+space`), Brackets will try to search the given search word in every indexed files.
+Brackets is indexing every files of the opened folder, so when quick-editing (`ctrl+e`) a JS function or a CSS class, or when auto-completing (`ctrl+space`), Brackets will try to search the given search word in every indexed files.
 So you can imagine the performance when you are developing with Brackets...
 
 A quick solution is to exclude those folders from the *scope* of the Brackets work.
