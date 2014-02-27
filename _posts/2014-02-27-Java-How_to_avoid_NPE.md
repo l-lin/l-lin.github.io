@@ -93,7 +93,7 @@ private void foo(@Nullable param) {
 ```
 
 However, you need to specify that every parameters and return values are not `null`.
-To do so, you need to create a `package-info.java` at the root of your source folder:
+To do so, you need to create a `package-info.java` at the root of your package folder:
 
 ```
 src
@@ -101,7 +101,7 @@ src
 |--java
 |----com.lin.louis
 |------Main.java
-|--package-info.java
+|------package-info.java
 ```
 
 with the following content:
