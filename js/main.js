@@ -1,6 +1,9 @@
 (function() {
 	'use strict';
 	angular.module('llinApp', ['ui.bootstrap']).
+	run(function() {
+		backToTop.init();
+	}).
 	service('$llinService', function($log) {
 		this.saveToLocalStorage = function save(key, value) {
 			if(angular.isDefined(localStorage)) {
@@ -9,7 +12,7 @@
 			} else {
 				$log.warn('Could not save ' + value + ' in localeStorage[\'' + key + '\']');
 			}
-		}
+		};
 	}).
 	controller('llinCtrl', function($scope, $location, $anchorScroll, $llinService) {
 		var KEY = 'LLIN_SIDEBAR_COLLAPSED_KEY',

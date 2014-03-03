@@ -1,0 +1,28 @@
+{
+	"name": "backtotop",
+	"version": "0.0.1",
+	"author": "l-lin",
+	"main": [
+        "dist/backtotop.js",
+        "dist/backtotop.min.js",
+        "dist/backtotop.css",
+        "dist/backtotop.min.css"
+    ],
+    "ignore": [
+        ".bowerrc",
+        ".editorconfig",
+        ".git*",
+        ".jshintrc",
+        "Gruntfile.js",
+        "test",
+        "node_modules",
+        "src",
+        ".travis.yml",
+        "vendor"
+    ],
+    "dependencies": {
+        "jquery": ">= 1.11.0"
+    },
+    "devDependencies": {
+    }
+}

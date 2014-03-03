@@ -1,0 +1,36 @@
+{
+  "name": "backtotop",
+  "author": "l-lin",
+  "main": [
+    "dist/backtotop.js",
+    "dist/backtotop.min.js",
+    "dist/backtotop.css",
+    "dist/backtotop.min.css"
+  ],
+  "ignore": [
+    ".bowerrc",
+    ".editorconfig",
+    ".git*",
+    ".jshintrc",
+    "Gruntfile.js",
+    "test",
+    "node_modules",
+    "src",
+    ".travis.yml",
+    "vendor"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.11.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/l-lin/backtotop",
+  "_release": "798a7e005d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "798a7e005d8335dd5f89299167be5d14e5442a16"
+  },
+  "_source": "https://github.com/l-lin/backtotop.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/l-lin/backtotop.git"
+}
