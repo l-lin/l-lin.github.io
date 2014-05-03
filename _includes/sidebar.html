@@ -8,14 +8,8 @@
         </a>
     </div>
     <ul class="sidebar-archive nav nav-list">
-        {% comment %}Check if it is the home page {% endcomment %}
-        {% assign isHomePage = false %}
-        {% if site.name == page.title %}
-            {% assign isHomePage = true %}
-        {% endif %}
-
         {% for post in site.posts %}
-            {% if page.title == post.title or isHomePage and forloop.index == 1 %}
+            {% if page.title == post.title %}
                 {% assign active = 'active' %}
             {% else %}
                 {% assign active = '' %}

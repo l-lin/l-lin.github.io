@@ -6,9 +6,25 @@ title: LLIN FooBar
 {% assign post = site.posts.first %}
 {% assign content = post.content %}
 {% assign homePage = true %}
-{% include post_detail.html %}
 
-<h2>Archives</h2>
+<h1>Welcome to LLIN FooBar blog</h1>
+
+<p>
+    Hello! This blog was created mainly to store my tips and tricks, feedbacks, some patterns, some installation guide,...
+    Well some technical stuffs. That's all.
+    <br />
+    I decided to share some of my discoveries/thought (and bullshits?), so I hope you will find this blog interesting, if not, sorry about that.
+</p>
+<p>
+    You have certainly notice that English is not my native language.
+    Do not hesitate to remind me how awful my English is! :)
+    <br />
+    I will try to improve as much as I can.
+</p>
+<p>
+    Anyway, you can always check out my <a href="https://github.com/l-lin"><i class="fa fa-github-alt"></i>&nbsp;Github</a>.
+</p>
+<br />
 <div class="archives">
     <ul class="list-group">
         {% for post in site.posts %}
