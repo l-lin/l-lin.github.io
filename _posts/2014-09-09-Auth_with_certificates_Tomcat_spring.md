@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Authentication using certificates, Tomcat and Spring security"
-date: 2014-08-03
+date: 2014-09-09
 tags: [Tomcat]
 images: [tomcat.png, java.png, spring.png]
 ---
@@ -9,7 +9,7 @@ images: [tomcat.png, java.png, spring.png]
 Instead of the classic `login/password` way to access to a secured application, it's possible to authenticate through a certificate.
 What's more, you can also link a `ROLE` to each certificate.
 
-*TLDR*: Check the sample project on my [Github](https://github.com/l-lin/dev-cheat-sheet/sample-cert-auth).
+*TLDR*: Check the sample project on my [Github](https://github.com/l-lin/dev-cheat-sheet/tree/master/sample-cert-auth).
 
 This tutorial will show you:
 
@@ -39,8 +39,7 @@ The principle is quite simple. It's a mutual verification:
 The client check if the certificate given by the server is valid or not (through a certification authority that signs certificates).
 The server also check the certificate given by the client.
 
-![Certificate workflow]({{ site.url }}/images/certificate_workflow.png)
-Credits to [http://blog.netapsys.fr/](http://blog.netapsys.fr/).
+![Certificate workflow]({{ site.url }}/images/certificate_workflow.png "Credits to http://blog.netapsys.fr")
 
 * The `keystores` store the private keys destinated to encrypt the data before emitting
 * The `trustores` store the public keys destinated to identify the transmitter and then to decrypt their message
@@ -49,36 +48,45 @@ Credits to [http://blog.netapsys.fr/](http://blog.netapsys.fr/).
 
 ## Generating the certificate
 
-* Let's generate the keystore that will be used by Tomcat by executing the following commands:
+* First and foremost, we will generate our own Certification Authority:
 
 ```bash
-# Adapt the parameters to your liking.
-keytool -genkey -v -alias tomcat -keyalg RSA -validity 3650 -keystore foobar.jks -dname "CN=foobar.local.fr, OU=Integration, O=foobar, L=Paris, ST=IDF, C=FR" -storepass foobarpwd -keypass foobarpwd
+#######################################################
+# Certification Authority                             #
+#######################################################
 
-# Then, generate the CSR to sign:
-keytool -certreq -alias tomcat -file foobar.csr -keystore foobar.jks -storepass foobarpwd
-
-# Since we do not have any certification authority, we will generate our own.
-openssl genrsa -out rootCA.key 1024
-openssl req -new -x509 -days 3650 -key rootCA.key -out rootCA.crt -subj "/C=FR/ST=IDF/L=Paris/O=foobar/OU=Integration/CN=local.fr"
+# Since we do not have any certification authority, we will generate our own.
+openssl genrsa -out foobarCA.key 1024
+openssl req -new -x509 -days 3650 -key foobarCA.key -out foobarCA.crt -subj "/C=FR/ST=IDF/L=Paris/O=FoobarCA/OU=/CN=*.local.fr"
 mkdir -p demoCA/newcerts
 touch demoCA/index.txt
 echo '01' > demoCA/serial
 
-# Sign the certificate to the CA:
-openssl ca -batch -keyfile rootCA.key -cert rootCA.crt -policy policy_anything -out localhost.crt -infiles foobar.csr
-
-# Add the root certificate tot the keystores
-keytool -importcert -alias foobarrootca -file rootCA.crt -keystore foobar.jks -storepass foobarpwd -noprompt
-
-# Add signed certificate to the keystores
-keytool -importcert -alias tomcat -file demoCA/newcerts/01.pem -keystore foobar.jks -storepass foobarpwd -noprompt
-
-# Adding the root certificate to cacerts of your JVM
-keytool -import -noprompt -trustcacerts -alias foobar -file rootCA.crt -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
+# Add the root certificate to cacerts of your JVM
+keytool -delete -noprompt -trustcacerts -alias foobarCA -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
+keytool -import -noprompt -trustcacerts -alias foobarCA -file foobarCA.crt -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
 
 # Create the trustore with the root certificate in it
-keytool -import -keystore cacerts.jks -storepass cacertspassword -alias rootca -file rootCA.crt -noprompt
+keytool -import -keystore cacerts.jks -storepass cacertspassword -alias foobarCA -file foobarCA.crt -noprompt
+```
+
+* Let's generate the keystore that will be used by Tomcat by executing the following commands:
+
+```bash
+#######################################################
+# Foobar certificate                                  #
+#######################################################
+
+# Generate the keystore
+keytool -genkey -v -alias foobar -keyalg RSA -validity 3650 -keystore foobar.jks -dname "CN=foobar.local.fr, OU=, O=Foobar, L=Paris, ST=IDF, C=FR" -storepass foobarpwd -keypass foobarpwd
+# Then, generate the CSR to sign:
+keytool -certreq -alias foobar -file foobar.csr -keystore foobar.jks -storepass foobarpwd
+# Sign the certificate to the CA:
+openssl ca -batch -keyfile foobarCA.key -cert foobarCA.crt -policy policy_anything -out foobar.crt -infiles foobar.csr
+# Add the root certificate to the keystores
+keytool -importcert -alias foobarCA -file foobarCA.crt -keystore foobar.jks -storepass foobarpwd -noprompt
+# Add signed certificate to the keystores
+keytool -importcert -alias foobar -file demoCA/newcerts/01.pem -keystore foobar.jks -storepass foobarpwd -noprompt
 ```
 
 ## Configuring with Tomcat
@@ -401,43 +409,49 @@ public class X509CustomFilter extends GenericFilterBean {
 }
 ```
 
-Annnnnnd, we're done with the server. It's now 
+Annnnnnd, we're done with the server.
 
 # Accessing with a browser
+
+## Generating the certificate and allow access
 
 * Let's generate the keystore that will be used to authenticate to the application:
 
 ```bash
-# Adapt the parameters to your liking.
-keytool -genkey -v -alias tomcat -keyalg RSA -validity 3650 -keystore dev.jks -dname "CN=dev.local.fr, OU=Integration, O=dev, L=Paris, ST=IDF, C=FR" -storepass devpwd -keypass devpwd
+#######################################################
+# Certificate used in the browser                     #
+#######################################################
 
-# CSR to sign
-keytool -certreq -alias tomcat -file dev.csr -keystore dev.jks -storepass devpwd
-
-# "Master" CA generation for signing CSR requests
-openssl ca -batch -keyfile rootCA.key -cert rootCA.crt -policy policy_anything -out dev.crt -infiles dev.csr
-
-# Signing
-keytool -importcert -alias foobarootca -file rootCA.crt -keystore dev.jks -storepass devpwd -noprompt
-
-# Add the root certificate to the keystories
-keytool -importcert -alias foobarrootca -file rootCA.crt -keystore dev.jks -storepass devpwd -noprompt
-
-# Add signed certificate to the keystories
-keytool -importcert -alias tomcat -file demoCA/newcerts/02.pem -keystore dev.jks -storepass devpwd -noprompt
-
-# Adding the root certificate to cacerts of your JVM
-keytool -delete -noprompt -trustcacerts -alias foobar -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
-keytool -import -noprompt -trustcacerts -alias foobar -file rootCA.crt -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
-
-# Export certificates in PKCS12 format for test use (in browser) 
-keytool -importkeystore -srckeystore dev.jks -destkeystore dev.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass devpwd -deststorepass devpwd -srcalias tomcat -destalias devKey -srckeypass devpwd -destkeypass devpwd -noprompt
+# Generate the keystore
+keytool -genkey -v -alias browser -keyalg RSA -validity 3650 -keystore browser.jks -dname "CN=browser.local.fr, OU=, O=browser, L=Paris, ST=IDF, C=FR" -storepass browserpwd -keypass browserpwd
+# Then, generate the CSR to sign:
+keytool -certreq -alias browser -file browser.csr -keystore browser.jks -storepass browserpwd
+# Sign the certificate to the CA:
+openssl ca -batch -keyfile foobarCA.key -cert foobarCA.crt -policy policy_anything -out browser.crt -infiles browser.csr
+# Add the root certificate tot the keystores
+keytool -importcert -alias foobarCA -file foobarCA.crt -keystore browser.jks -storepass browserpwd -noprompt
+# Add signed certificate to the keystores
+keytool -importcert -alias browser -file demoCA/newcerts/02.pem -keystore browser.jks -storepass browserpwd -noprompt
+# Export certificates in PKCS12 format for test use (in browser)
+keytool -importkeystore -srckeystore browser.jks -destkeystore browser.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass browserpwd -deststorepass browserpwd -srcalias browser -destalias browserKey -srckeypass browserpwd -destkeypass browserpwd -noprompt
 ```
-
-## Generating the certificate and allow access
 
 ## Import certificate
 
+With Chrome:
+
+* Go to `Settings > HTTPS/SSL > Manage certificates`
+* Click on `import` and select the `browser.p12` file (password is `browserpwd`)
+
+![Adding certificate to browser]({{ site.url }}/images/add_cert_to_browser.png)
+
+* You are now granted to browser your app with your browser.
+
 # Accessing with an another web application
 
-## Generating the certificate and allow access
+If you need to access with another web application (using an HTTP client), you need to add the following parameters in your VM options of your web app (not the secured one, but the one that will make the call):
+
+```
+-Djavax.net.ssl.keyStore=/path/to/foobar.jks
+-Djavax.net.ssl.keyStorePassword=foobarpwd
+```
