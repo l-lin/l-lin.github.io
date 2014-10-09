@@ -87,7 +87,7 @@ I prefer the annotation `@Nullable` over `@NotNull` because in most case, parame
 So why bother putting `@NotNull` everywhere? With the annotation `@Nullable`, you tell findbugs that the parameters might be null and a null check is needed:
 
 ```java
-private void foo(@Nullable param) {
+private void foo(@Nullable String param) {
 	param.toString(); // Findbugs will not be happy here!
 }
 ```
