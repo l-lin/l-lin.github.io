@@ -65,7 +65,7 @@ Usage
 You can use those annotations in method parameters:
 
 ```java
-private void foo(@NotNull param) {
+private void foo(@NotNull String param) {
 	param.toString();
 }
 
