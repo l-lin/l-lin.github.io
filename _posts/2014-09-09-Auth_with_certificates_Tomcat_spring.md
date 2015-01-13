@@ -36,13 +36,13 @@ There are several solutions to do that (same network, OAuth, Basic Auth, and so 
 # The basics
 
 The principle is quite simple. It's a mutual verification:
-The client check if the certificate given by the server is valid or not (through a certification authority that signs certificates).
-The server also check the certificate given by the client.
+The client checks if the certificate given by the server is valid or not (through a certification authority that signs certificates).
+The server also checks the certificate given by the client.
 
 ![Certificate workflow]({{ site.url }}/images/certificate_workflow.png "Credits to http://blog.netapsys.fr")
 
-* The `keystores` store the private keys destinated to encrypt the data before emitting
-* The `trustores` store the public keys destinated to identify the transmitter and then to decrypt their message
+* The `keystores` stores the private keys aimed to encrypt the data before emitting
+* The `trustores` stores the public keys aimed to identify the transmitter and then to decrypt their message
 
 # SSL activation
 
@@ -98,10 +98,13 @@ keytool -importcert -alias foobar -file demoCA/newcerts/01.pem -keystore foobar.
         protocol="HTTP/1.1"
         port="8443" maxThreads="200"
         scheme="https" secure="true" SSLEnabled="true"
-        keystoreFile="/path/to/foobar.jks" keystorePass="foobarpassword"
+        keystoreFile="/path/to/foobar.jks" keystorePass="foobarpwd"
         truststoreFile="/path/to/cacerts.jks" truststorePass="cacertspassword"
         clientAuth="false" sslProtocol="TLS"/>
 ```
+
+**Note:** [Brian Bonner](https://disqus.com/by/disqus_pYeojAY9fN/) points out that in this configuration, a 403 error may show up.
+In that cas, you will need to change the `clientAuth="false"` to `clientAuth="want"`.
 
 ## Securing the application
 
@@ -239,7 +242,7 @@ Ok, now we finished configuring our Tomcat. Let's start implementing the securit
 </beans:beans>
 ```
 
-* First, let's implements the ̀`X509AuthenticationToken` class that will be used as the token to authenticate the user:
+* First, let's implement the ̀`X509AuthenticationToken` class that will be used as the token to authenticate the user:
 
 ```java
 public class X509AuthenticationToken extends UsernamePasswordAuthenticationToken {
@@ -254,7 +257,7 @@ public class X509AuthenticationToken extends UsernamePasswordAuthenticationToken
 }
 ```
 
-* Implements the `X509CustomEntryPoint` class:
+* Implement the `X509CustomEntryPoint` class:
 
 ```java
 public class X509CustomEntryPoint implements AuthenticationEntryPoint {
@@ -265,7 +268,7 @@ public class X509CustomEntryPoint implements AuthenticationEntryPoint {
 }
 ```
 
-* Implements the `X509CustomAuthenticationProvider` class:
+* Implement the `X509CustomAuthenticationProvider` class:
 
 ```java
 @Component
@@ -302,7 +305,7 @@ public class X509CustomAuthenticationProvider extends AbstractUserDetailsAuthent
 }
 ```
 
-* Finally, implements the `X509CustomFilter` class:
+* Finally, implement the `X509CustomFilter` class:
 
 ```java
 public class X509CustomFilter extends GenericFilterBean {
@@ -445,7 +448,7 @@ With Chrome:
 
 ![Adding certificate to browser]({{ site.url }}/images/add_cert_to_browser.png)
 
-* You are now granted to browser your app with your browser.
+* You are now granted to use your app with your browser.
 
 # Accessing with an another web application
 
