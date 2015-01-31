@@ -2,8 +2,8 @@
 layout: post
 title:  "Deploying a MeteorJS apps to Heroku"
 date:   2014-05-03
-tags: [MeteorJS, Heroku]
-images: [meteorjs.png, heroku.png]
+tags: [Heroku, MeteorJS]
+images: [heroku.png, meteorjs.png]
 ---
 
 I thought deploying a [MeteorJS](http://www.meteor.com) to [Heroku](https://www.heroku.com) would be a difficult task, but it turns out to be quite easy after all.
