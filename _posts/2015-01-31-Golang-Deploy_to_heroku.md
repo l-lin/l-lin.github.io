@@ -73,6 +73,7 @@ $ heroku addons:add heroku-postgresql:dev
 More information on [Heroku's documentation](https://www.heroku.com/postgres).
 
 Now to connect to the database, you will need:
+
 * to get the [Postgresql driver](github.com/lib/pq)
 * fetch Heroku's DB configuration from the **DATABASE_URL** environment variable
 
