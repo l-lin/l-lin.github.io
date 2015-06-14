@@ -58,10 +58,29 @@ $ heroku create example -b https://github.com/kr/heroku-buildpack-go.git
 Creating example... done, stack is cedar-14
 BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git
 http://example.herokuapp.com/ | git@heroku.com:example.git
-$ git push heroku master
+```
+
+Before pushing to Heroku, you will need to save your app dependencies.
+Heroku support [Godep](https://github.com/tools/godep) for dependency management.
+First install Godep:
+
+```bash
+$ go get -u github.com/tools/godep
+```
+
+Save your dependencies:
+
+```bash
+$ godep save
+$ git add -A
+$ git commit -m "Add Godep"
 ```
 
 Now, you are good to go!
+
+```bash
+$ git push heroku master
+```
 
 Adding a Database to your Web app
 =================================
