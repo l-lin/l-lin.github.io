@@ -54,7 +54,10 @@ Now, you will need to tell Heroku to add the following buildpack to your webapps
 
 ```bash
 $ cd /path/to/golang/app
-$ heroku config:add BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git
+$ heroku create example -b https://github.com/kr/heroku-buildpack-go.git
+Creating example... done, stack is cedar-14
+BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git
+http://example.herokuapp.com/ | git@heroku.com:example.git
 $ git push heroku master
 ```
 
