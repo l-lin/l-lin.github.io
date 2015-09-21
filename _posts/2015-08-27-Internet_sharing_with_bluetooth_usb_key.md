@@ -25,7 +25,7 @@ and Xubuntu.
 
 * In the **Network** tab, check the checkbox
 
-![Bluetooth local services]({{ site.url }}/images/2015-08-27/bluetooth_config_2.png)
+![Bluetooth network parameters]({{ site.url }}/images/2015-08-27/bluetooth_network_parameters.png)
 
 * Connect your phone to your bluetooth network
 * Configure your mobile so that it can go to the internet
