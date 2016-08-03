@@ -9,7 +9,7 @@ images: [marionettejs.png, jasminejs.png, sinonjs.png]
 To test [MarionetteJS][marionettejs] routes, it is not as obvious as testing Backbone Models.
 This is one way to test routers by using [JasmineJS][jasminejs] and [SinonJS][sinonjs] for mocking purpose.
 
-###Defining the routes
+### Defining the routes
 
 We are going to test a simple `Marionette.AppRouter`.
 We will name it `FooRouter` :
@@ -39,7 +39,7 @@ The controller structure is really simple. When the user is browsing to :
 * `/#foo/create`: he will execute the function `createFoo`
 * `/#foo/:id/modify`: he will execute the function `modifyFoo`
 
-###Testing
+### Testing
 
 Before rushing to test the router, we must first prepare ourselves.
 First and foremost, we need a `Backbone.history` before each test in order to simulate the access to the hash routes.

@@ -21,7 +21,7 @@ However, there are many ways to avoid and reduce such `NullPointerException`.
 
 Let's say the following piece of code throws the exception:
 
-````java
+```java
 Foo foo = fooFactory.getFoo(fooId);
 foo.getName(); // => Throws NPE
 ```

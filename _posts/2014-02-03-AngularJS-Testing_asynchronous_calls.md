@@ -6,7 +6,7 @@ tags: [AngularJS]
 images: [angularjs.png]
 ---
 
-###Testing with callback function
+### Testing with callback function
 Given the following factory that fetches a `foobar` through a REST call:
 
 {% highlight javascript %}
@@ -98,7 +98,7 @@ describe('foobarCtrl', function() {
 });
 {% endhighlight %}
 
-###Testing promises
+### Testing promises
 Given the following factory that also fetches a `foobar` through a REST call, but returns a promise:
 {% highlight javascript %}
 angular.module('foobarApp').

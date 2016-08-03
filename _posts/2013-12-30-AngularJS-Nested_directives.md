@@ -15,7 +15,7 @@ There are two ways (in my knowledge) to build nested directives.
 1. Using the directive `ng-include` and one custom directive
 2. Using two custom directives
 
-###1 - Using the directive `ng-include` and one custom directive
+### 1 - Using the directive `ng-include` and one custom directive
 
 Let's say, we want to display the given data in nested bullets list:
 
@@ -103,7 +103,7 @@ That's it! You have your nested directive.
 
 Complete code on [Plnkr][plnkr].
 
-###2 - Using two custom directives
+### 2 - Using two custom directives
 
 No need to reinvent the wheel, [someone already has found this solution][sebastianblog].
 

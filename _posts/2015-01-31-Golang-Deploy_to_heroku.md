@@ -85,7 +85,7 @@ $ git push heroku master
 Adding a Database to your Web app
 =================================
 
-Heroku really has made the life of developper really easier. To add a new database to your webapp, it's really easy.
+Heroku has made the life of developper easier. To add a new database to your webapp, it's really easy.
 For example, I needed to add a Postgresql. I just needed to execute one command line and the configuration is fetched from the environment variables:
 
 ```bash
