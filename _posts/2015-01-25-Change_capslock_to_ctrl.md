@@ -30,9 +30,9 @@ On Xubuntu:
 Now on the Add Application screen
 
 ```
-Name: Control and CapsLk swap
-Description: Swap the two keys
-Command: /usr/bin/setxkbmap -option "ctrl:swapcaps"
+Name: Remap CapsLk to Ctrl
+Description: Remaps the CapsLk key to Control
+Command: /usr/bin/setxkbmap -option "ctrl:nocaps"
 ```
 
 On Windows:
