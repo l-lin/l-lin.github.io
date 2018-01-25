@@ -1,0 +1,121 @@
+#baseURL = "http://localhost:1313/"
+baseURL = "https://l-lin.github.io/"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "Louis LIN"
+enableRobotsTXT = true
+enableEmoji = true
+theme = "even"
+
+hasCJKLanguage = true     # has chinese/japanese/korean ?
+paginate = 10
+disqusShortname = "llinfoobar"      # disqus_shortname
+googleAnalytics = "UA-48794776-1"      # UA-XXXXXXXX-X
+copyright = ""            # default: author.name ↓
+
+[author]                  # essential
+  name = "Louis LIN"
+
+[sitemap]                 # essential
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[[menu.main]]             # config your menu
+  name = "Home"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[menu.main]]
+  name = "Archives"
+  weight = 20
+  identifier = "archives"
+  url = "/post/"
+[[menu.main]]
+  name = "Tags"
+  weight = 30
+  identifier = "tags"
+  url = "/tags/"
+[[menu.main]]
+  name = "Categories"
+  weight = 40
+  identifier = "categories"
+  url = "/categories/"
+
+[params]
+  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+
+  since = "2018"            # Site creation time
+
+  # site info (optional)
+  logoTitle = "l-lin"        # default: the title value
+  keywords = ["software development"]
+  description = "A website on software development"
+
+  # paginate of archives, tags and categories
+  archive-paginate = 30
+
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006-01-02"
+
+  # show word count and read time ?
+  moreMeta = true
+
+  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+  toc = true
+  autoCollapseToc = false   # Auto expand and collapse toc
+  fancybox = true           # see https://github.com/fancyapps/fancybox
+  bootcdn = false           # In china. @Deprecated: use [params.publicCDN]
+  mathjax = false           # see https://www.mathjax.org/
+  mathjaxEnableSingleDollar = false
+  linkToMarkDown = false    # if you config contentCopyright and hugo output .md files.
+
+  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+
+  changyanAppid = ""        # Changyan app id
+  changyanAppkey = ""       # Changyan app key
+  livereUID = ""            # LiveRe UID
+  baidu_push = false        # baidu push
+  baidu_analytics = ""      # Baidu Analytics
+  baidu_verification = ""   # Baidu Verification
+  google_verification = ""  # Google_Verification
+
+  [params.publicCDN]        # load these files from public cdn
+    enable = false
+    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
+    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
+    fancyboxJs = '<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>'
+    fancyboxCss = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">'
+
+  [params.busuanzi]         # count web traffic by busuanzi
+    enable = false
+    siteUV = true
+    sitePV = true
+    pagePV = true
+
+  [params.reward]
+    enable = false
+    wechat = "/path/to/your/wechat-qr-code.png"
+    alipay = "/path/to/your/alipay-qr-code.png"
+
+  [params.social]
+    a-email = "mailto:louis.lin.87@gmail.com"
+    b-stack-overflow = "https://stackexchange.com/users/4436278/l-lin"
+    g-github = "https://github.com/l-lin"
+
+# Uncomment these options to make hugo output .md files.
+#[mediaTypes]
+#  [mediaTypes."text/plain"]
+#    suffix = "md"
+#
+#[outputFormats.MarkDown]
+#  mediaType = "text/plain"
+#  isPlainText = true
+#  isHTML = false
+#
+#[outputs]
+#  home = ["HTML", "RSS"]
+#  page = ["HTML", "MarkDown"]
+#  section = ["HTML", "RSS"]
+#  taxonomy = ["HTML", "RSS"]
+#  taxonomyTerm = ["HTML"]

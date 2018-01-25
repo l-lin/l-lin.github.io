@@ -1,0 +1,10 @@
+// ==============================
+// Custom style
+// ==============================
+// You can override the variables in _variables.scss to customize the style
+
+.post-image {
+    &.center {
+        text-align: center;
+    }
+}
