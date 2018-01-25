@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Louis LIN</title>
+    <link>https://l-lin.github.io/tags/java/</link>
+    <description>Recent content in Java on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 17 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to set locale for java bean validations</title>
+      <link>https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/</guid>
+      <description>&lt;p&gt;Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like &lt;code&gt;@NotBlank&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;
+
+&lt;p&gt;But if we only want to have english validation messages, it&amp;rsquo;s a bit tricky.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Authentication using certificates, Tomcat and Spring security</title>
+      <link>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
+      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
+What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
+
+&lt;p&gt;⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This tutorial will show you:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;how to activate the SSL secured by a certificate for our Tomcat&lt;/li&gt;
+&lt;li&gt;how to secure the URL pattern with Spring Security&lt;/li&gt;
+&lt;li&gt;how to access with a browser&lt;/li&gt;
+&lt;li&gt;how to access with a third party application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Avoiding Null Pointers</title>
+      <link>https://l-lin.github.io/post/2014-02-27-java-how_to_avoid_npe/</link>
+      <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-02-27-java-how_to_avoid_npe/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;Exception in thread &amp;quot;main&amp;quot; java.lang.NullPointerException
+    at ...
+    at ...
+    at ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The most common exception that pulls you hair a thousands of times.
+I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;
+
+&lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

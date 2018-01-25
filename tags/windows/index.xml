@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Louis LIN</title>
+    <link>https://l-lin.github.io/tags/windows/</link>
+    <description>Recent content in Windows on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Jan 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Changing the Caps Lock key to Ctrl</title>
+      <link>https://l-lin.github.io/post/2015-01-25-change_capslock_to_ctrl/</link>
+      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-01-25-change_capslock_to_ctrl/</guid>
+      <description>&lt;p&gt;How many times have you used the &lt;code&gt;caps lock&lt;/code&gt; key compare to the &lt;code&gt;ctrl&lt;/code&gt; button?
+Once a year maybe? You must have experienced at least once a situation where you
+must enter your password, but your caps lock is on, thus you entered your password wrong.&lt;/p&gt;
+
+&lt;p&gt;So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, how about changing to a button that you use
+everyday?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

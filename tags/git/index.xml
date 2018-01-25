@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Louis LIN</title>
+    <link>https://l-lin.github.io/tags/git/</link>
+    <description>Recent content in Git on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 07 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to migrate SVN projects to Git</title>
+      <link>https://l-lin.github.io/post/2016-07-03-migrate_svn_to_git/</link>
+      <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2016-07-03-migrate_svn_to_git/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Configuring git behind a proxy</title>
+      <link>https://l-lin.github.io/post/2014-01-04-git-configure_git_behind_a_proxy/</link>
+      <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-01-04-git-configure_git_behind_a_proxy/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

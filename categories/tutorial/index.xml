@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Louis LIN</title>
+    <link>https://l-lin.github.io/categories/tutorial/</link>
+    <description>Recent content in Tutorial on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Authentication using certificates, Tomcat and Spring security</title>
+      <link>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
+      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
+What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
+
+&lt;p&gt;⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This tutorial will show you:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;how to activate the SSL secured by a certificate for our Tomcat&lt;/li&gt;
+&lt;li&gt;how to secure the URL pattern with Spring Security&lt;/li&gt;
+&lt;li&gt;how to access with a browser&lt;/li&gt;
+&lt;li&gt;how to access with a third party application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

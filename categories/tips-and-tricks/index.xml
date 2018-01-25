@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tips and Tricks on Louis LIN</title>
+    <link>https://l-lin.github.io/categories/tips-and-tricks/</link>
+    <description>Recent content in Tips and Tricks on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 17 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to set locale for java bean validations</title>
+      <link>https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/</guid>
+      <description>&lt;p&gt;Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like &lt;code&gt;@NotBlank&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;
+
+&lt;p&gt;But if we only want to have english validation messages, it&amp;rsquo;s a bit tricky.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to migrate SVN projects to Git</title>
+      <link>https://l-lin.github.io/post/2016-07-03-migrate_svn_to_git/</link>
+      <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2016-07-03-migrate_svn_to_git/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to share internet connexion to mobile using bluetooth USB key</title>
+      <link>https://l-lin.github.io/post/2015-08-27-internet_sharing_with_bluetooth_usb_key/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-08-27-internet_sharing_with_bluetooth_usb_key/</guid>
+      <description>&lt;p&gt;This tutorial was done using the &lt;a href=&#34;http://www.amazon.fr/gp/product/B00CM83SC0&#34;&gt;ASUS USB-BT400 Mini Bluetooth 4,0 Dongle USB 2,0&lt;/a&gt;
+and Xubuntu.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to connect VisualVM to a remote Tomcat</title>
+      <link>https://l-lin.github.io/post/2015-07-23-connecting_visualvm_to_remote_tomcat/</link>
+      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-07-23-connecting_visualvm_to_remote_tomcat/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to kill inactive ssh sessions</title>
+      <link>https://l-lin.github.io/post/2015-07-21-how_to_kill_inactive_ssh/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-07-21-how_to_kill_inactive_ssh/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Do not prompt password and enable remote access</title>
+      <link>https://l-lin.github.io/post/2015-06-04-postgresql_enable_remote_connexion/</link>
+      <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-06-04-postgresql_enable_remote_connexion/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chrome extension and &#39;Access-Control-Allow-Origin&#39;</title>
+      <link>https://l-lin.github.io/post/2015-02-28-chrome_extension_and_origin_not_allowed/</link>
+      <pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-02-28-chrome_extension_and_origin_not_allowed/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Deploying a Golang web apps to Heroku</title>
+      <link>https://l-lin.github.io/post/2015-01-31-golang-deploy_to_heroku/</link>
+      <pubDate>Sat, 31 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-01-31-golang-deploy_to_heroku/</guid>
+      <description>&lt;p&gt;Deploying a &lt;a href=&#34;https://golang.org/&#34;&gt;Golang&lt;/a&gt; web apps to &lt;a href=&#34;https://www.heroku.com&#34;&gt;Heroku&lt;/a&gt; is quite easy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Changing the Caps Lock key to Ctrl</title>
+      <link>https://l-lin.github.io/post/2015-01-25-change_capslock_to_ctrl/</link>
+      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015-01-25-change_capslock_to_ctrl/</guid>
+      <description>&lt;p&gt;How many times have you used the &lt;code&gt;caps lock&lt;/code&gt; key compare to the &lt;code&gt;ctrl&lt;/code&gt; button?
+Once a year maybe? You must have experienced at least once a situation where you
+must enter your password, but your caps lock is on, thus you entered your password wrong.&lt;/p&gt;
+
+&lt;p&gt;So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, how about changing to a button that you use
+everyday?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Debugging Maven plugin with IntelliJ</title>
+      <link>https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/</link>
+      <pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deploying a MeteorJS apps to Heroku</title>
+      <link>https://l-lin.github.io/post/2014-05-03-meteor-deploy_to_heroku/</link>
+      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-05-03-meteor-deploy_to_heroku/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to extend properties of parent class</title>
+      <link>https://l-lin.github.io/post/2014-02-26-backbone-how_to_extend_properties/</link>
+      <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-02-26-backbone-how_to_extend_properties/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to test asynchronous calls with AngularJS</title>
+      <link>https://l-lin.github.io/post/2014-02-03-angularjs-testing_asynchronous_calls/</link>
+      <pubDate>Mon, 03 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-02-03-angularjs-testing_asynchronous_calls/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Configuring git behind a proxy</title>
+      <link>https://l-lin.github.io/post/2014-01-04-git-configure_git_behind_a_proxy/</link>
+      <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014-01-04-git-configure_git_behind_a_proxy/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nested directives</title>
+      <link>https://l-lin.github.io/post/2013-12-30-angularjs-nested_directives/</link>
+      <pubDate>Mon, 30 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2013-12-30-angularjs-nested_directives/</guid>
+      <description>&lt;p&gt;Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
+With two levels of nested arrays, it is easy to implement such thing.
+However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.&lt;/p&gt;
+
+&lt;p&gt;There are two ways (in my knowledge) to build nested directives.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Using the directive &lt;code&gt;ng-include&lt;/code&gt; and one custom directive&lt;/li&gt;
+&lt;li&gt;Using two custom directives&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to exclude folders in Brackets</title>
+      <link>https://l-lin.github.io/post/2013-11-27-brackets-exclude_folders/</link>
+      <pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2013-11-27-brackets-exclude_folders/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://brackets.io&#34;&gt;Brackets&lt;/a&gt; (Sprint &lt;strong&gt;34&lt;/strong&gt;) has a static list of excluded files and folders. The default ignored files and folders are files like &lt;code&gt;.gitignore&lt;/code&gt;, &lt;code&gt;DS_Store&lt;/code&gt;, and so on&amp;hellip;
+Sadly, this list is hard coded in the source&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;If you are like me, i.e. you use &lt;a href=&#34;http://yeoman.io&#34;&gt;Yeoman&lt;/a&gt; when creating new web projects, you will be left with two huge folders (&lt;code&gt;node_modules&lt;/code&gt; and &lt;code&gt;bower_components&lt;/code&gt; generated respectively by &lt;code&gt;NPM&lt;/code&gt; and &lt;code&gt;bower&lt;/code&gt;).
+Those folders contains a lot of files (JS, CSS,&amp;hellip;) and most of them are not useful for our project.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Routes unit testing</title>
+      <link>https://l-lin.github.io/post/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/</link>
+      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/</guid>
+      <description>&lt;p&gt;To test &lt;a href=&#34;http://marionettejs.com/&#34;&gt;MarionetteJS&lt;/a&gt; routes, it is not as obvious as testing Backbone Models.
+This is one way to test routers by using &lt;a href=&#34;http://pivotal.github.io/jasmine/&#34;&gt;JasmineJS&lt;/a&gt; and &lt;a href=&#34;http://sinonjs.org&#34;&gt;SinonJS&lt;/a&gt; for mocking purpose.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

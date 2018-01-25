@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marionettejs on Louis LIN</title>
+    <link>https://l-lin.github.io/tags/marionettejs/</link>
+    <description>Recent content in Marionettejs on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 23 Nov 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/marionettejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Routes unit testing</title>
+      <link>https://l-lin.github.io/post/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/</link>
+      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/</guid>
+      <description>&lt;p&gt;To test &lt;a href=&#34;http://marionettejs.com/&#34;&gt;MarionetteJS&lt;/a&gt; routes, it is not as obvious as testing Backbone Models.
+This is one way to test routers by using &lt;a href=&#34;http://pivotal.github.io/jasmine/&#34;&gt;JasmineJS&lt;/a&gt; and &lt;a href=&#34;http://sinonjs.org&#34;&gt;SinonJS&lt;/a&gt; for mocking purpose.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

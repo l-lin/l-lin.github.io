@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Authentication using certificates, Tomcat and Spring security - Louis LIN</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="Instead of the classic login/password way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate. What&amp;rsquo;s more, you can also link a ROLE to each certificate.
+⚠️ This tutorial is now obsolete and better solution can be used.
+TLDR: Check the sample project on my Github.
+This tutorial will show you:
+ how to activate the SSL secured by a certificate for our Tomcat how to secure the URL pattern with Spring Security how to access with a browser how to access with a third party application  In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.
+
+" />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.31-DEV" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="Authentication using certificates, Tomcat and Spring security" />
+<meta property="og:description" content="Instead of the classic login/password way to access to a secured application, it&rsquo;s possible to authenticate through a certificate.
+What&rsquo;s more, you can also link a ROLE to each certificate.
+
+⚠️ This tutorial is now obsolete and better solution can be used.
+
+TLDR: Check the sample project on my Github.
+
+This tutorial will show you:
+
+
+how to activate the SSL secured by a certificate for our Tomcat
+how to secure the URL pattern with Spring Security
+how to access with a browser
+how to access with a third party application
+
+
+In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/" />
+
+
+
+<meta property="article:published_time" content="2014-09-09T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2014-09-09T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Authentication using certificates, Tomcat and Spring security">
+<meta itemprop="description" content="Instead of the classic login/password way to access to a secured application, it&rsquo;s possible to authenticate through a certificate.
+What&rsquo;s more, you can also link a ROLE to each certificate.
+
+⚠️ This tutorial is now obsolete and better solution can be used.
+
+TLDR: Check the sample project on my Github.
+
+This tutorial will show you:
+
+
+how to activate the SSL secured by a certificate for our Tomcat
+how to secure the URL pattern with Spring Security
+how to access with a browser
+how to access with a third party application
+
+
+In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.
+
+">
+
+
+<meta itemprop="datePublished" content="2014-09-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2014-09-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1505">
+
+
+
+<meta itemprop="keywords" content="tomcat,spring,java," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Authentication using certificates, Tomcat and Spring security"/>
+<meta name="twitter:description" content="Instead of the classic login/password way to access to a secured application, it&rsquo;s possible to authenticate through a certificate.
+What&rsquo;s more, you can also link a ROLE to each certificate.
+
+⚠️ This tutorial is now obsolete and better solution can be used.
+
+TLDR: Check the sample project on my Github.
+
+This tutorial will show you:
+
+
+how to activate the SSL secured by a certificate for our Tomcat
+how to secure the URL pattern with Spring Security
+how to access with a browser
+how to access with a third party application
+
+
+In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Authentication using certificates, Tomcat and Spring security</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-09-09 </span>
+        <div class="post-category">
+            
+              <a href="/categories/tutorial/"> tutorial </a>
+            
+          </div>
+        
+        <span class="more-meta"> 8 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-image center">
+      <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" />
+    </div>
+
+    
+    <div class="post-content">
+      <p>Instead of the classic <code>login/password</code> way to access to a secured application, it&rsquo;s possible to authenticate through a certificate.
+What&rsquo;s more, you can also link a <code>ROLE</code> to each certificate.</p>
+
+<p>⚠️ This tutorial is now obsolete and better solution can be used.</p>
+
+<p><strong>TLDR</strong>: Check the sample project on my <a href="https://github.com/l-lin/dev-cheat-sheet/tree/master/sample-cert-auth">Github</a>.</p>
+
+<p>This tutorial will show you:</p>
+
+<ul>
+<li>how to activate the SSL secured by a certificate for our Tomcat</li>
+<li>how to secure the URL pattern with Spring Security</li>
+<li>how to access with a browser</li>
+<li>how to access with a third party application</li>
+</ul>
+
+<p>In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.</p>
+
+<p></p>
+
+<h1 id="the-specifications-of-the-application">The specifications of the application</h1>
+
+<p>You have to build an internal application (let&rsquo;s call it <code>foobar</code>) that needs to be a bit secured.
+This application will mainly be used as a web service application where other web applications will be able to plug in <code>foobar</code>. Let&rsquo;s be crazy and say that Paypal and Amazon are the web applications that will communicate with our great app.</p>
+
+
+<figure class="center">
+    
+        <img src="/images/2014-09-09/logical_archi.png" alt="Logical architecture" />
+    
+    
+    <figcaption>
+        <h4>Logical architecture</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>Simple right?</p>
+
+<p>Now, you want to enable access to <code>foobar</code> only to Paypal and Amazon.
+There are several solutions to do that (same network, OAuth, Basic Auth, and so on&hellip;), but you came for certificate authenticate, arent&rsquo;t you?</p>
+
+<h1 id="the-basics">The basics</h1>
+
+<p>The principle is quite simple. It&rsquo;s a mutual verification:
+The client checks if the certificate given by the server is valid or not (through a certification authority that signs certificates).
+The server also checks the certificate given by the client.</p>
+
+
+<figure class="center">
+    
+        <img src="/images/2014-09-09/certificate_workflow.png" alt="Certificate workflow" />
+    
+    
+    <figcaption>
+        <h4>Certificate workflow - Credits to http://blog.netapsys.fr</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<ul>
+<li>The <code>keystores</code> stores the private keys aimed to encrypt the data before emitting</li>
+<li>The <code>trustores</code> stores the public keys aimed to identify the transmitter and then to decrypt their message</li>
+</ul>
+
+<h1 id="ssl-activation">SSL activation</h1>
+
+<h2 id="generating-the-certificate">Generating the certificate</h2>
+
+<ul>
+<li>First and foremost, we will generate our own Certification Authority:</li>
+</ul>
+
+<pre><code class="language-bash">#######################################################
+# Certification Authority                             #
+#######################################################
+
+# Since we do not have any certification authority, we will generate our own.
+openssl genrsa -out foobarCA.key 1024
+openssl req -new -x509 -days 3650 -key foobarCA.key -out foobarCA.crt -subj &quot;/C=FR/ST=IDF/L=Paris/O=FoobarCA/OU=/CN=*.local.fr&quot;
+mkdir -p demoCA/newcerts
+touch demoCA/index.txt
+echo '01' &gt; demoCA/serial
+
+# Add the root certificate to cacerts of your JVM
+keytool -delete -noprompt -trustcacerts -alias foobarCA -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
+keytool -import -noprompt -trustcacerts -alias foobarCA -file foobarCA.crt -keystore ${JAVA_HOME}/jre/lib/security/cacerts -storepass changeit
+
+# Create the trustore with the root certificate in it
+keytool -import -keystore cacerts.jks -storepass cacertspassword -alias foobarCA -file foobarCA.crt -noprompt
+</code></pre>
+
+<ul>
+<li>Let&rsquo;s generate the keystore that will be used by Tomcat by executing the following commands:</li>
+</ul>
+
+<pre><code class="language-bash">#######################################################
+# Foobar certificate                                  #
+#######################################################
+
+# Generate the keystore
+keytool -genkey -v -alias foobar -keyalg RSA -validity 3650 -keystore foobar.jks -dname &quot;CN=foobar.local.fr, OU=, O=Foobar, L=Paris, ST=IDF, C=FR&quot; -storepass foobarpwd -keypass foobarpwd
+# Then, generate the CSR to sign:
+keytool -certreq -alias foobar -file foobar.csr -keystore foobar.jks -storepass foobarpwd
+# Sign the certificate to the CA:
+openssl ca -batch -keyfile foobarCA.key -cert foobarCA.crt -policy policy_anything -out foobar.crt -infiles foobar.csr
+# Add the root certificate to the keystores
+keytool -importcert -alias foobarCA -file foobarCA.crt -keystore foobar.jks -storepass foobarpwd -noprompt
+# Add signed certificate to the keystores
+keytool -importcert -alias foobar -file demoCA/newcerts/01.pem -keystore foobar.jks -storepass foobarpwd -noprompt
+</code></pre>
+
+<h2 id="configuring-with-tomcat">Configuring with Tomcat</h2>
+
+<ul>
+<li>Edit the <code>server.xml</code> of your Tomcat and add the following connector (change the path to your jks file):</li>
+</ul>
+
+<pre><code class="language-xml">&lt;Connector
+        protocol=&quot;HTTP/1.1&quot;
+        port=&quot;8443&quot; maxThreads=&quot;200&quot;
+        scheme=&quot;https&quot; secure=&quot;true&quot; SSLEnabled=&quot;true&quot;
+        keystoreFile=&quot;/path/to/foobar.jks&quot; keystorePass=&quot;foobarpwd&quot;
+        truststoreFile=&quot;/path/to/cacerts.jks&quot; truststorePass=&quot;cacertspassword&quot;
+        clientAuth=&quot;false&quot; sslProtocol=&quot;TLS&quot;/&gt;
+</code></pre>
+
+<p><strong>Note:</strong> <a href="https://disqus.com/by/disqus_pYeojAY9fN/">Brian Bonner</a> points out that in this configuration, a 403 error may show up.
+In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</code> to <code>clientAuth=&quot;want&quot;</code>.</p>
+
+<h2 id="securing-the-application">Securing the application</h2>
+
+<p>Ok, now we finished configuring our Tomcat. Let&rsquo;s start implementing the security in our application.</p>
+
+<ul>
+<li>So first, add dependency to Spring security with Maven:</li>
+</ul>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;
+	&lt;version&gt;4.0.3.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-security-config&lt;/artifactId&gt;
+	&lt;version&gt;4.0.3.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<ul>
+<li>Edit the <code>web.xml</code> with the following:</li>
+</ul>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;
+         version=&quot;3.0&quot;&gt;
+    &lt;display-name&gt;Foobar Application&lt;/display-name&gt;
+
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;
+            WEB-INF/foobar-web-app-context.xml
+        &lt;/param-value&gt;
+    &lt;/context-param&gt;
+
+    &lt;!-- Filter to ensure spring gets to handle requests and enforce security --&gt;
+    &lt;filter&gt;
+        &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+
+    &lt;listener&gt;
+        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+    &lt;/listener&gt;
+
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;foobarSpringDispatchServlet&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;WEB-INF/epayment-web-app-context.xml&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;foobarSpringDispatchServlet&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/api/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+    &lt;welcome-file-list&gt;
+        &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+        &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+    &lt;/welcome-file-list&gt;
+
+    &lt;security-constraint&gt;
+        &lt;web-resource-collection&gt;
+            &lt;web-resource-name&gt;All users&lt;/web-resource-name&gt;
+            &lt;url-pattern&gt;/favicon.ico&lt;/url-pattern&gt;
+        &lt;/web-resource-collection&gt;
+    &lt;/security-constraint&gt;
+
+    &lt;security-constraint&gt;
+        &lt;web-resource-collection&gt;
+            &lt;web-resource-name&gt;AuthUser&lt;/web-resource-name&gt;
+            &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;/web-resource-collection&gt;
+        &lt;auth-constraint&gt;
+            &lt;role-name&gt;AUTH_USER&lt;/role-name&gt;
+        &lt;/auth-constraint&gt;
+        &lt;user-data-constraint&gt;
+            &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
+        &lt;/user-data-constraint&gt;
+    &lt;/security-constraint&gt;
+
+    &lt;login-config&gt;
+        &lt;auth-method&gt;CLIENT-CERT&lt;/auth-method&gt;
+    &lt;/login-config&gt;
+
+    &lt;security-role&gt;
+        &lt;role-name&gt;AUTH_USER&lt;/role-name&gt;
+    &lt;/security-role&gt;
+&lt;/web-app&gt;
+</code></pre>
+
+<ul>
+<li>Edit the <code>foobar-web-app-context.xml</code> with the following:</li>
+</ul>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans:beans xmlns=&quot;http://www.springframework.org/schema/security&quot;
+             xmlns:security=&quot;http://www.springframework.org/schema/security&quot;
+             xmlns:beans=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd&quot;&gt;
+
+    &lt;security:http pattern=&quot;/favicon.ico&quot; security='none' /&gt;
+
+    &lt;security:http -point-ref=&quot;delegatingAEP&quot;&gt;
+        &lt;security:intercept-url pattern=&quot;/META-INF&quot; access=&quot;IS_AUTHENTICATED_FULLY&quot; /&gt;
+        &lt;security:custom-filter position=&quot;PRE_AUTH_FILTER&quot; ref=&quot;customFilter&quot;/&gt;
+    &lt;/security:http&gt;
+
+    &lt;beans:bean id=&quot;customAuthenticationProvider&quot; class=&quot;foo.bar.security.X509CustomAuthenticationProvider&quot;/&gt;
+    &lt;beans:bean id=&quot;delegatingAEP&quot; class=&quot;foo.bar.security.X509CustomEntryPoint&quot;/&gt;
+
+    &lt;security:authentication-manager alias=&quot;authenticationManager&quot;&gt;
+        &lt;security:authentication-provider ref=&quot;customAuthenticationProvider&quot; /&gt;
+    &lt;/security:authentication-manager&gt;
+
+    &lt;beans:bean id=&quot;customFilter&quot; class=&quot;foo.bar.security.X509CustomFilter&quot;&gt;
+        &lt;beans:property name=&quot;authenticationManager&quot; ref=&quot;authenticationManager&quot;/&gt;
+    &lt;/beans:bean&gt;
+&lt;/beans:beans&gt;
+</code></pre>
+
+<ul>
+<li>First, let&rsquo;s implement the ̀<code>X509AuthenticationToken</code> class that will be used as the token to authenticate the user:</li>
+</ul>
+
+<pre><code class="language-java">public class X509AuthenticationToken extends UsernamePasswordAuthenticationToken {
+
+    public X509AuthenticationToken(Object principal, Object credentials) {
+        super(principal, credentials);
+    }
+
+    public X509AuthenticationToken(Object principal, Object credentials, Collection&lt;? extends GrantedAuthority&gt; authorities) {
+        super(principal, credentials, authorities);
+    }
+}
+</code></pre>
+
+<ul>
+<li>Implement the <code>X509CustomEntryPoint</code> class:</li>
+</ul>
+
+<pre><code class="language-java">public class X509CustomEntryPoint implements AuthenticationEntryPoint {
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, &quot;Unauthorized&quot;);
+    }
+}
+</code></pre>
+
+<ul>
+<li>Implement the <code>X509CustomAuthenticationProvider</code> class:</li>
+</ul>
+
+<pre><code class="language-java">@Component
+public class X509CustomAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+
+    @Inject
+    CertificateUserService certificateUserService;
+
+    @Override
+    protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+        //Do nothing
+    }
+
+    @Override
+    protected X509CustomUser retrieveUser(String username, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+        List&lt;GrantedAuthority&gt; grantedAuths = new ArrayList&lt;&gt;();
+
+        X509Certificate certificate = (X509Certificate) authentication.getPrincipal();
+
+        // Use your service to fetch the certificate user from your DB, or LDAP or anywhere you like
+        CertificateUser certificateUser = certificateUserService.findByCertificateId(certificate.getSubjectDN().getName());
+
+        // Convert in a DTO that can be exploited
+        X509CustomUser user = new X509CustomUser(certificateUser.getCertificateId(), &quot;&quot;, grantedAuths);
+        BeanUtils.copyProperties(certificateUser, user);
+
+        return user;
+    }
+
+    @Override
+    public boolean supports(Class&lt;?&gt; authentication) {
+        return (X509AuthenticationToken.class.isAssignableFrom(authentication));
+    }
+}
+</code></pre>
+
+<ul>
+<li>Finally, implement the <code>X509CustomFilter</code> class:</li>
+</ul>
+
+<pre><code class="language-java">public class X509CustomFilter extends GenericFilterBean {
+    public static final String X509 = &quot;javax.servlet.request.X509Certificate&quot;;
+
+    private AuthenticationManager authenticationManager;
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        if (!(request instanceof HttpServletRequest &amp;&amp; response instanceof HttpServletResponse)) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        if (request.getAttribute(X509) == null) {
+            chain.doFilter(request, response);
+            return;
+        }
+
+        X509Certificate[] certificates = (X509Certificate[]) request.getAttribute(X509);
+        if (certificates.length &gt; 0) {
+            //Using the first certificate, we don't know how to identify several at once
+            doAuthenticate((HttpServletRequest) request, (HttpServletResponse) response, certificates[0]);
+        }
+
+        chain.doFilter(request, response);
+    }
+
+    private void doAuthenticate(HttpServletRequest request, HttpServletResponse response, X509Certificate certificate) {
+        Authentication authResult;
+
+        if (certificate == null) {
+            if (logger.isDebugEnabled()) {
+                logger.debug(&quot;No certificate found in request&quot;);
+            }
+
+            return;
+        }
+
+        if (logger.isDebugEnabled()) {
+            logger.debug(&quot;preAuthenticatedPrincipal = &quot; + certificate + &quot;, trying to authenticate&quot;);
+        }
+
+        try {
+            X509AuthenticationToken authRequest = new X509AuthenticationToken(certificate, getPreAuthenticatedCredentials(request));
+            authResult = authenticationManager.authenticate(authRequest);
+            successfulAuthentication(request, response, authResult);
+        } catch (AuthenticationException failed) {
+            unsuccessfulAuthentication(request, response, failed);
+            throw failed;
+        }
+    }
+
+    /**
+     * Sets authentication manager.
+     *
+     * @param authenticationManager the authentication manager
+     */
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
+
+    /**
+     * Gets pre authenticated credentials.
+     *
+     * @param request the request
+     * @return the pre authenticated credentials
+     * @see org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter#getPreAuthenticatedPrincipal(javax.servlet.http.HttpServletRequest)
+     */
+
+    protected Object getPreAuthenticatedCredentials(HttpServletRequest request) {
+        return &quot;N/A&quot;;
+    }
+
+    /**
+     * Unsuccessful authentication.
+     *
+     * @param request the request
+     * @param response the response
+     * @param failed the failed
+     */
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+        SecurityContextHolder.clearContext();
+
+        if (logger.isDebugEnabled()) {
+            logger.debug(&quot;Cleared security context due to exception&quot;, failed);
+        }
+
+        request.setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, failed);
+    }
+
+    /**
+     * Puts the &lt;code&gt;Authentication&lt;/code&gt; instance returned by the authentication manager into the secure context.
+     * @param request the request
+     * @param response the response
+     * @param authResult the auth result
+     */
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, Authentication authResult) {
+        if (logger.isDebugEnabled()) {
+            logger.debug(&quot;Authentication success: &quot; + authResult);
+        }
+        SecurityContextHolder.getContext().setAuthentication(authResult);
+    }
+}
+</code></pre>
+
+<p>Annnnnnd, we&rsquo;re done with the server.</p>
+
+<h1 id="accessing-with-a-browser">Accessing with a browser</h1>
+
+<p>## Generating the certificate and allow access</p>
+
+<ul>
+<li>Let&rsquo;s generate the keystore that will be used to authenticate to the application:</li>
+</ul>
+
+<pre><code class="language-bash">#######################################################
+# Certificate used in the browser                     #
+#######################################################
+
+# Generate the keystore
+keytool -genkey -v -alias browser -keyalg RSA -validity 3650 -keystore browser.jks -dname &quot;CN=browser.local.fr, OU=, O=browser, L=Paris, ST=IDF, C=FR&quot; -storepass browserpwd -keypass browserpwd
+# Then, generate the CSR to sign:
+keytool -certreq -alias browser -file browser.csr -keystore browser.jks -storepass browserpwd
+# Sign the certificate to the CA:
+openssl ca -batch -keyfile foobarCA.key -cert foobarCA.crt -policy policy_anything -out browser.crt -infiles browser.csr
+# Add the root certificate tot the keystores
+keytool -importcert -alias foobarCA -file foobarCA.crt -keystore browser.jks -storepass browserpwd -noprompt
+# Add signed certificate to the keystores
+keytool -importcert -alias browser -file demoCA/newcerts/02.pem -keystore browser.jks -storepass browserpwd -noprompt
+# Export certificates in PKCS12 format for test use (in browser)
+keytool -importkeystore -srckeystore browser.jks -destkeystore browser.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass browserpwd -deststorepass browserpwd -srcalias browser -destalias browserKey -srckeypass browserpwd -destkeypass browserpwd -noprompt
+</code></pre>
+
+<h2 id="import-certificate">Import certificate</h2>
+
+<p>With Chrome:</p>
+
+<ul>
+<li>Go to <code>Settings &gt; HTTPS/SSL &gt; Manage certificates</code></li>
+<li>Click on <code>import</code> and select the <code>browser.p12</code> file (password is <code>browserpwd</code>)</li>
+</ul>
+
+
+<figure class="center">
+    
+        <img src="/images/2014-09-09/add_cert_to_browser.png" alt="Adding certificate to browser" />
+    
+    
+    <figcaption>
+        <h4>Adding certificate to browser</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<ul>
+<li>You are now granted to use your app with your browser.</li>
+</ul>
+
+<h1 id="accessing-with-an-another-web-application">Accessing with an another web application</h1>
+
+<p>If you need to access with another web application (using an HTTP client), you need to add the following parameters in your VM options of your web app (not the secured one, but the one that will make the call):</p>
+
+<pre><code class="language-bash">-Djavax.net.ssl.keyStore=/path/to/foobar.jks
+-Djavax.net.ssl.keyStorePassword=foobarpwd
+</code></pre>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/tomcat/">tomcat</a>
+          
+          <a href="/tags/spring/">spring</a>
+          
+          <a href="/tags/java/">java</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2014-09-19-debug_maven_plugin/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Debugging Maven plugin with IntelliJ</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2014-05-03-meteor-deploy_to_heroku/">
+            <span class="next-text nav-default">Deploying a MeteorJS apps to Heroku</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:louis.lin.87@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-48794776-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
+</html>
