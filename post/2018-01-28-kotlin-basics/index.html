@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Kotlin Basics: syntax - Louis LIN</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.
+In this article, I will deal with Kotlin basics and see what&amp;rsquo;s differents with Java in terms of syntax, form and types.
+
+" />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.31-DEV" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2018-01-28-kotlin-basics/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="Kotlin Basics: syntax" />
+<meta property="og:description" content="Kotlin is a great language but it&rsquo;s more like a subset of Java.
+
+In this article, I will deal with Kotlin basics and see what&rsquo;s differents with Java in terms of syntax, form and types.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2018-01-28-kotlin-basics/" />
+
+
+
+<meta property="article:published_time" content="2018-01-28T17:37:03&#43;01:00"/>
+
+<meta property="article:modified_time" content="2018-01-28T17:37:03&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Kotlin Basics: syntax">
+<meta itemprop="description" content="Kotlin is a great language but it&rsquo;s more like a subset of Java.
+
+In this article, I will deal with Kotlin basics and see what&rsquo;s differents with Java in terms of syntax, form and types.
+
+">
+
+
+<meta itemprop="datePublished" content="2018-01-28T17:37:03&#43;01:00" />
+<meta itemprop="dateModified" content="2018-01-28T17:37:03&#43;01:00" />
+<meta itemprop="wordCount" content="697">
+
+
+
+<meta itemprop="keywords" content="kotlin,learning," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kotlin Basics: syntax"/>
+<meta name="twitter:description" content="Kotlin is a great language but it&rsquo;s more like a subset of Java.
+
+In this article, I will deal with Kotlin basics and see what&rsquo;s differents with Java in terms of syntax, form and types.
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Kotlin Basics: syntax</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-28 </span>
+        <div class="post-category">
+            
+              <a href="/categories/thoughts/"> thoughts </a>
+            
+          </div>
+        
+        <span class="more-meta"> 4 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#packages-and-imports">Packages and imports</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#string-templates">String templates</a></li>
+<li><a href="#classes">Classes</a></li>
+<li><a href="#for-loop">For loop</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-image center">
+      <img src="https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png" />
+    </div>
+
+    
+    <div class="post-content">
+      <p>Kotlin is a great language but it&rsquo;s more like a subset of Java.</p>
+
+<p>In this article, I will deal with Kotlin basics and see what&rsquo;s differents with Java in terms of syntax, form and types.</p>
+
+<p></p>
+
+<p>Before jumping to the subject, let&rsquo;s see how Kotlin syntax differs from Java syntax.</p>
+
+<h1 id="packages-and-imports">Packages and imports</h1>
+
+<p>Packages and imports are the same in Kotlin and Java. So let&rsquo;s skip those.</p>
+
+<h1 id="functions">Functions</h1>
+
+<p>In Java, declaring a function must follow some directives:</p>
+
+<pre><code class="language-text">&lt;visibility&gt; &lt;static&gt; &lt;returnType&gt; &lt;functionName&gt;(&lt;argumentType&gt; &lt;argumentName&gt;) {
+    // Content of the function
+}
+</code></pre>
+
+<p>Moreover, you need to create a class in order to create a function. So it&rsquo;s something like this:</p>
+
+<pre><code class="language-java">public class Foobar {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello world&quot;);
+    }
+}
+</code></pre>
+
+<p>Whereas in Kotlin, you do not need to create a class as it&rsquo;s not relevant to any class which is more logical.
+When declaring a function, it must follow the following:</p>
+
+<pre><code class="language-text">fun &lt;functionName&gt;(&lt;argumentName&gt;: &lt;argumentType&gt;): &lt;returnType&gt; {
+    // Content of the function
+}
+</code></pre>
+
+<p>So for the same exampe as Java, it will be something like this in Kotlin:</p>
+
+<pre><code class="language-kotlin">fun main(args: Arrays&lt;String&gt;) {
+    println(&quot;Hello world&quot;)
+}
+</code></pre>
+
+<p>You might notice several aspects that differs from Java:</p>
+
+<ul>
+<li>Functions in Kotlin are declared using the <code>fun</code> keyword</li>
+<li>I did not define the return type of the function: it&rsquo;s implicit, meaning if not defined, then it&rsquo;s a <code>void</code> or <code>Unit</code> in Kotlin</li>
+<li>I noticed that recent languages declare the argument name first before the argument type, so it&rsquo;s a bit like</li>
+<li>You do not need to call <code>System.out</code> in order to print a message, just call <code>print</code> or <code>println</code></li>
+<li>There are NO <code>;</code>!!! No need to waste time at looking for missing <code>;</code> !</li>
+</ul>
+
+<p>However, it&rsquo;s not the only way to declare a function in Kotlin.</p>
+
+<pre><code class="language-kotlin">fun sum(a: Int, b: Int) = a + b
+// is equivalent to
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+</code></pre>
+
+<ul>
+<li>The return type is not defined, it&rsquo;s also implicit and it will automatically detect the type from the return type (ie: type inference)</li>
+<li>It&rsquo;s declared like assigning a variable, but it&rsquo;s used like a real function:</li>
+</ul>
+
+<pre><code class="language-kotlin">fun main(args: Array&lt;String&gt; {
+    val result = sum(88, 12)
+    println(&quot;Sum of 88 and 12 is ${result}&quot;)
+}
+</code></pre>
+
+<h1 id="variables">Variables</h1>
+
+<p>In Java, when you are declaring a variable, you MUST declare its type:</p>
+
+<pre><code class="language-java">String message = &quot;Hello world!&quot;;
+</code></pre>
+
+<p>Whereis in Kotlin, the type inference is really strong:</p>
+
+<pre><code class="language-kotlin">// Read-only variable declaration
+val message = &quot;Hello world&quot; // Kotlin &quot;knows&quot; it's a String
+// Mutable variable
+var a = 1
+a += 2
+</code></pre>
+
+
+<figure class="center">
+    
+        <img src="https://memegenerator.net/img/instances/500x/67676028/by-reading-between-the-lines-an-inference-you-will-make.jpg" alt="Type inference" />
+    
+    
+</figure>
+
+
+<h1 id="comments">Comments</h1>
+
+<p>Comments are about the same in Java and Kotlin.</p>
+
+<pre><code class="language-kotlin">// This is an end-of-line comment
+
+/* This is a block comment
+   on multiple lines. */
+</code></pre>
+
+<h1 id="string-templates">String templates</h1>
+
+<p>In Java, when building a String, it&rsquo;s a bit messy:</p>
+
+<pre><code class="language-java">int a = 1;
+int b = 2;
+int result = a + b;
+String message = &quot;Hello world, this is the result of the computation of &quot; + a + &quot; and &quot; + b + &quot; which gives &quot; + result;
+</code></pre>
+
+<p>In kotlin, you can use the <code>$</code> along with <code>{</code> <code>}</code> to fetch its data:</p>
+
+<pre><code class="language-kotlin">val a = 1
+val b = 2
+val message = &quot;Hello world, this is the result of the computation of $a and $b which gives ${a + b}&quot;
+</code></pre>
+
+<h1 id="classes">Classes</h1>
+
+<p>Declaring a class in Java is done like this:</p>
+
+<pre><code class="language-java">public class Foobar {
+}
+</code></pre>
+
+<p>In Kotlin, it&rsquo;s about the same:</p>
+
+<pre><code class="language-kotlin">class Foobar {
+}
+</code></pre>
+
+<p>However, when declaring a new instance of the class:</p>
+
+<pre><code class="language-java">Foobar foobar = new Foobar();
+</code></pre>
+
+<p>Whereas in Kotlin, you don&rsquo;t need the <code>new</code> keyword:</p>
+
+<pre><code class="language-kotlin">var foobar = Foobar()
+</code></pre>
+
+<h1 id="for-loop">For loop</h1>
+
+<pre><code class="language-java">for (int i = 0; i &lt; 10; i++) {
+    System.out.println(i);
+}
+for (int j = 0; j &lt; 10; j++) {
+    System.out.println(j);
+}
+</code></pre>
+
+<pre><code class="language-kotlin">for (i in 0..9) {
+    println(i)
+}
+for (j in 0..9 step 2) {
+    println(j)
+}
+</code></pre>
+
+<ul>
+<li>It&rsquo;s more readable in Kotlin than in Java</li>
+<li>We do not need to specify the <code>var</code> or <code>val</code> keywords, again, it&rsquo;s implicit</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>So far, Kotlin brings a lots of &ldquo;common sense&rdquo;:</p>
+
+<ul>
+<li>clever type inference</li>
+<li>removal of the <code>new</code> keyword</li>
+<li>better functions declaration</li>
+<li>readable String templates</li>
+<li>readable for loops</li>
+</ul>
+
+<blockquote>
+<p>Good and maintainable code is human readable codes</p>
+</blockquote>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/kotlin/">kotlin</a>
+          
+          <a href="/tags/learning/">learning</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2018-01-25-journey_to_kotlin_planning/">
+            <span class="next-text nav-default">My journey to learning Kotlin - The planning</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:louis.lin.87@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-48794776-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
+</html>

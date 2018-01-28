@@ -6,10 +6,23 @@
     <description>Recent content in Kotlin on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Jan 2018 22:28:05 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jan 2018 17:37:03 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kotlin Basics: syntax</title>
+      <link>https://l-lin.github.io/post/2018-01-28-kotlin-basics/</link>
+      <pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-01-28-kotlin-basics/</guid>
+      <description>&lt;p&gt;Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p&gt;
+
+&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s differents with Java in terms of syntax, form and types.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>My journey to learning Kotlin - The planning</title>
