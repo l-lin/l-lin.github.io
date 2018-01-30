@@ -51,7 +51,7 @@ fun <functionName>(<argumentName>: <argumentType>): <returnType> {
 }
 ```
 
-So for the same exampe as Java, it will be something like this in Kotlin:
+So for the same example as Java, it will be something like this in Kotlin:
 
 ```kotlin
 fun main(args: Arrays<String>) {
@@ -76,6 +76,7 @@ fun sum(a: Int, b: Int): Int {
     return a + b
 }
 ```
+
 - The return type is not defined, it's also implicit and it will automatically detect the type from the return type (ie: type inference)
 - It's declared like assigning a variable, but it's used like a real function:
 
@@ -94,7 +95,7 @@ In Java, when you are declaring a variable, you MUST declare its type:
 String message = "Hello world!";
 ```
 
-Whereis in Kotlin, the type inference is really strong:
+Whereas in Kotlin, the type inference is really strong:
 
 ```kotlin
 // Read-only variable declaration
@@ -117,7 +118,7 @@ Comments are about the same in Java and Kotlin.
    on multiple lines. */
 ```
 
-# String templates
+# String interpolation
 
 In Java, when building a String, it's a bit messy:
 
@@ -189,7 +190,7 @@ for (j in 0..9 step 2) {
 
 # Conclusion
 
-So far, Kotlin brings a lots of "common sense":
+So far, Kotlin brings a lot of "common sense":
 
 - clever type inference
 - removal of the `new` keyword
@@ -198,4 +199,3 @@ So far, Kotlin brings a lots of "common sense":
 - readable for loops
 
 > Good and maintainable code is human readable codes
-
