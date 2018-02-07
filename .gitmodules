@@ -1,0 +1,3 @@
+[submodule "themes/even"]
+	path = themes/even
+	url = https://github.com/l-lin/hugo-theme-even
