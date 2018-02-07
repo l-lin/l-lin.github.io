@@ -12,7 +12,7 @@ contentCopyright: false
 
 Kotlin is a great language but it's more like a subset of Java.
 
-In this article, I will deal with Kotlin basics and see what's differents with Java in terms of syntax, form and types.
+In this article, I will deal with Kotlin basics and see what's different with Java in terms of syntax, form and types.
 
 <!--more-->
 
@@ -59,15 +59,15 @@ fun main(args: Arrays<String>) {
 }
 ```
 
-You might notice several aspects that differs from Java:
+You might notice several aspects that differ from Java:
 
 - Functions in Kotlin are declared using the `fun` keyword
 - I did not define the return type of the function: it's implicit, meaning if not defined, then it's a `void` or `Unit` in Kotlin
-- I noticed that recent languages declare the argument name first before the argument type, so it's a bit like 
+- I noticed that recent languages declare the argument name first before the argument type, so it's a bit like Golang
 - You do not need to call `System.out` in order to print a message, just call `print` or `println`
-- There are NO `;`!!! No need to waste time at looking for missing `;` !
+- There are NO `;`!!! No need to waste time looking for missing `;` !
 
-However, it's not the only way to declare a function in Kotlin.
+However, it's not the only way to declare a function in Kotlin:
 
 ```kotlin
 fun sum(a: Int, b: Int) = a + b
@@ -194,8 +194,8 @@ So far, Kotlin brings a lot of "common sense":
 
 - clever type inference
 - removal of the `new` keyword
-- better functions declaration
+- better function declarations
 - readable String templates
 - readable for loops
 
-> Good and maintainable code is human readable codes
+> Good and maintainable codes are human readable codes
