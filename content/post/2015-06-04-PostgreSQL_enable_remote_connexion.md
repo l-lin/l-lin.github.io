@@ -1,7 +1,7 @@
 ---
 title: "Do not prompt password and enable remote access"
 date: 2015-06-04
-imageUrl: "http://renaudguezennec.eu/wp-content/uploads/2017/07/logoPsql.png"
+imageUrl: "https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
 tags: ["postgresql"]
 categories: ["tips-and-tricks"]
 comment: true
