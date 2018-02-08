@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-02-08-git_extract_folders_with_history/</loc>
+    <lastmod>2018-02-08T10:42:13+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-01-28-kotlin-basics_syntax/</loc>
     <lastmod>2018-01-28T17:37:03+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -227,7 +234,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/git/</loc>
-    <lastmod>2016-03-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-08T10:42:13+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -325,7 +332,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-01-28T17:37:03+01:00</lastmod>
+    <lastmod>2018-02-08T10:42:13+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -367,7 +374,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/tips-and-tricks/</loc>
-    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-08T10:42:13+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

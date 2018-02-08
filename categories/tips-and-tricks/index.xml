@@ -6,10 +6,27 @@
     <description>Recent content in Tips and Tricks on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2018 10:42:13 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to extract folders with history with git</title>
+      <link>https://l-lin.github.io/post/2018-02-08-git_extract_folders_with_history/</link>
+      <pubDate>Thu, 08 Feb 2018 10:42:13 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-02-08-git_extract_folders_with_history/</guid>
+      <description>&lt;p&gt;Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.&lt;/p&gt;
+
+&lt;p&gt;Thus, you will need to extract the folder of the sub-project.&lt;/p&gt;
+
+&lt;p&gt;Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.&lt;/p&gt;
+
+&lt;p&gt;Git is an awesome tool which has a &amp;ldquo;magical&amp;rdquo; command.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to set locale for java bean validations</title>
