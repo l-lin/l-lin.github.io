@@ -6,10 +6,19 @@
     <description>Recent content in Tips and Tricks on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Feb 2018 10:42:13 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 09 Feb 2018 16:56:55 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to open firewall port on CentOS7</title>
+      <link>https://l-lin.github.io/post/2018-02-09-centos7_open_port/</link>
+      <pubDate>Fri, 09 Feb 2018 16:56:55 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-02-09-centos7_open_port/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to extract folders with history with git</title>

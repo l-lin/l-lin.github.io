@@ -23,6 +23,15 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>How to open firewall port on CentOS7</title>
+      <link>https://l-lin.github.io/post/2018-02-09-centos7_open_port/</link>
+      <pubDate>Fri, 09 Feb 2018 16:56:55 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-02-09-centos7_open_port/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>How to extract folders with history with git</title>
       <link>https://l-lin.github.io/post/2018-02-08-git_extract_folders_with_history/</link>
       <pubDate>Thu, 08 Feb 2018 10:42:13 +0100</pubDate>

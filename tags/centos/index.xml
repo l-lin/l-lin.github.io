@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Centos on Louis LIN</title>
+    <link>https://l-lin.github.io/tags/centos/</link>
+    <description>Recent content in Centos on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 09 Feb 2018 16:56:55 +0100</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to open firewall port on CentOS7</title>
+      <link>https://l-lin.github.io/post/2018-02-09-centos7_open_port/</link>
+      <pubDate>Fri, 09 Feb 2018 16:56:55 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-02-09-centos7_open_port/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
