@@ -20,7 +20,7 @@ This site is dedicated to storing some tips and tricks, some thoughts and especi
 - ![angularjs][] [Angular notifier](https://github.com/l-lin/angular-notifier)
 - ![angularjs][] [Bulletular](https://github.com/l-lin/bulletular)
 - ![jquery][] [Back to top](https://github.com/l-lin/backtotop)
-- ![openbadge][] [Open badge card](https://github.com/l-lin/open-badge-card)
+- ![openbadge][] [Open badge card](https://github.com/l-lin/openbadges-card)
 - ![datatables][] [Angular DataTables](https://github.com/l-lin/angular-datatables)
 - ![meteorjs][] [What lunch today?](https://github.com/l-lin/whatlunchtoday)
 - ![css3][] [Font awesome animation](https://github.com/l-lin/font-awesome-animation)
