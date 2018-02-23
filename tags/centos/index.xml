@@ -6,10 +6,22 @@
     <description>Recent content in Centos on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Feb 2018 16:56:55 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 23 Feb 2018 13:19:45 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to add a new Tomcat service on CentOS7</title>
+      <link>https://l-lin.github.io/post/2018-02-23-centos7_add_new_tomcat_service/</link>
+      <pubDate>Fri, 23 Feb 2018 13:19:45 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-02-23-centos7_add_new_tomcat_service/</guid>
+      <description>&lt;p&gt;Starting with version 7, CentOS is now using &lt;a href=&#34;https://freedesktop.org/wiki/Software/systemd/&#34;&gt;systemd&lt;/a&gt; as a service manager.
+Adding a new service is no longer done by creating a SH script in the &lt;code&gt;/etc/init.d&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to open firewall port on CentOS7</title>
