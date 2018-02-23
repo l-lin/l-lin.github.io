@@ -31,6 +31,8 @@ This site is dedicated to storing some tips and tricks, some thoughts and especi
 
 - ![golang][] [Web novels tracker API](https://github.com/l-lin/wn-tracker-api)
 - ![golang][] [Manga reader tracker API](https://github.com/l-lin/mr-tracker-api)
+- ![golang][] [Gotodo](https://github.com/l-lin/gotodo)
+- ![kotlin][] [Kotodo](https://github.com/l-lin/kotodo)
 
 [angularjs]: /images/angularjs_icon.png
 [chrome]: /images/chrome_icon.png
@@ -38,5 +40,6 @@ This site is dedicated to storing some tips and tricks, some thoughts and especi
 [datatables]: /images/datatables_icon.png
 [golang]: /images/golang_icon.png
 [jquery]: /images/jquery_icon.png
+[kotlin]: /images/kotlin_icon.png
 [meteorjs]: /images/meteorjs_icon.png
 [openbadge]: /images/openbadge_icon.png
