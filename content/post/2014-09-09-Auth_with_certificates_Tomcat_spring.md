@@ -423,7 +423,7 @@ Annnnnnd, we're done with the server.
 
 # Accessing with a browser
 
-## Generating the certificate and allow access
+## Generating the certificate and allow access
 
 * Let's generate the keystore that will be used to authenticate to the application:
 
