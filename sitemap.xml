@@ -10,6 +10,20 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-03-08-acl/</loc>
+    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2018-03-08-strangler_pattern/</loc>
+    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-02-23-centos7_add_new_tomcat_service/</loc>
     <lastmod>2018-02-23T13:19:45+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -206,6 +220,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/categories/architecture/</loc>
+    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/tags/backbonejs/</loc>
     <lastmod>2014-02-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -228,6 +249,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
+    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -352,6 +374,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/tags/patterns/</loc>
+    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/tags/postgresql/</loc>
     <lastmod>2015-06-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -360,7 +389,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-02-23T13:19:45+01:00</lastmod>
+    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

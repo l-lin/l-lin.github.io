@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architecture on Louis LIN</title>
+    <link>https://l-lin.github.io/categories/architecture/</link>
+    <description>Recent content in Architecture on Louis LIN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Mar 2018 21:09:19 +0100</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Anti-corruption layer pattern</title>
+      <link>https://l-lin.github.io/post/2018-03-08-acl/</link>
+      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-03-08-acl/</guid>
+      <description>&lt;p&gt;How to work around legacy apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Strangler pattern</title>
+      <link>https://l-lin.github.io/post/2018-03-08-strangler_pattern/</link>
+      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-03-08-strangler_pattern/</guid>
+      <description>&lt;p&gt;How to migrate legacy apps efficiently.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

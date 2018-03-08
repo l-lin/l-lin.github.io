@@ -23,6 +23,28 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Anti-corruption layer pattern</title>
+      <link>https://l-lin.github.io/post/2018-03-08-acl/</link>
+      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-03-08-acl/</guid>
+      <description>&lt;p&gt;How to work around legacy apps.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Strangler pattern</title>
+      <link>https://l-lin.github.io/post/2018-03-08-strangler_pattern/</link>
+      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-03-08-strangler_pattern/</guid>
+      <description>&lt;p&gt;How to migrate legacy apps efficiently.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>How to add a new Tomcat service on CentOS7</title>
       <link>https://l-lin.github.io/post/2018-02-23-centos7_add_new_tomcat_service/</link>
       <pubDate>Fri, 23 Feb 2018 13:19:45 +0100</pubDate>
