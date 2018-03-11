@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-03-11-gateway_routing/</loc>
+    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-03-08-acl/</loc>
     <lastmod>2018-03-08T21:09:19+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -221,7 +228,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/architecture/</loc>
-    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -249,7 +256,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -375,7 +382,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/patterns/</loc>
-    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -389,7 +396,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-03-08T21:09:19+01:00</lastmod>
+    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

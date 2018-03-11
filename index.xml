@@ -23,6 +23,17 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Gateway routing</title>
+      <link>https://l-lin.github.io/post/2018-03-11-gateway_routing/</link>
+      <pubDate>Sun, 11 Mar 2018 12:25:42 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-03-11-gateway_routing/</guid>
+      <description>&lt;p&gt;Route requests to multiple services using a single endpoint&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Anti-corruption layer pattern</title>
       <link>https://l-lin.github.io/post/2018-03-08-acl/</link>
       <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
