@@ -6,10 +6,27 @@
     <description>Recent content in Postgresql on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Mar 2018 11:25:34 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to link old and new IDs when migrating data from one table to another</title>
+      <link>https://l-lin.github.io/post/2018-03-29-postgresql_insert_and_link_ids/</link>
+      <pubDate>Thu, 29 Mar 2018 11:25:34 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-03-29-postgresql_insert_and_link_ids/</guid>
+      <description>&lt;p&gt;When proceeding a database migration, I often had to create a temporary table that will contains
+the data from the old database.&lt;/p&gt;
+
+&lt;p&gt;However, after the migration, I still need to have links between the old IDs and the new IDs for
+various post migration operation.&lt;/p&gt;
+
+&lt;p&gt;This post is about creating the table containing the linked ids.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Do not prompt password and enable remote access</title>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>My journey to learning Kotlin - The planning - Louis LIN</title>
+  <title>How to link old and new IDs when migrating data from one table to another - Louis LIN</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,9 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="Kotlin is really a promising programming language nowadays and is gaining lots of popularity. It will be a shame to pass by without trying to use this language.
+  <meta name="description" content="When proceeding a database migration, I often had to create a temporary table that will contains the data from the old database.
+However, after the migration, I still need to have links between the old IDs and the new IDs for various post migration operation.
+This post is about creating the table containing the linked ids.
 
 " />
 
@@ -31,7 +33,7 @@
 <meta name="generator" content="Hugo 0.35-DEV" />
 
 
-<link rel="canonical" href="https://l-lin.github.io/post/2018-01-25-journey_to_kotlin_planning/" />
+<link rel="canonical" href="https://l-lin.github.io/post/2018-03-29-postgresql_insert_and_link_ids/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,23 +51,24 @@
 <link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
-<meta property="og:title" content="My journey to learning Kotlin - The planning" />
-<meta property="og:description" content="Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.
+<meta property="og:title" content="How to link old and new IDs when migrating data from one table to another" />
+<meta property="og:description" content="When proceeding a database migration, I often had to create a temporary table that will contains
+the data from the old database.
+
+However, after the migration, I still need to have links between the old IDs and the new IDs for
+various post migration operation.
+
+This post is about creating the table containing the linked ids.
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2018-01-25-journey_to_kotlin_planning/" />
+<meta property="og:url" content="https://l-lin.github.io/post/2018-03-29-postgresql_insert_and_link_ids/" />
 
 
 
-<meta property="article:published_time" content="2018-01-25T22:28:05&#43;01:00"/>
+<meta property="article:published_time" content="2018-03-29T11:25:34&#43;02:00"/>
 
-<meta property="article:modified_time" content="2018-01-25T22:28:05&#43;01:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-03-29T11:25:34&#43;02:00"/>
 
 
 
@@ -73,23 +76,37 @@ It will be a shame to pass by without trying to use this language.
 
 
 
-<meta itemprop="name" content="My journey to learning Kotlin - The planning">
-<meta itemprop="description" content="Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.
+
+
+
+
+<meta itemprop="name" content="How to link old and new IDs when migrating data from one table to another">
+<meta itemprop="description" content="When proceeding a database migration, I often had to create a temporary table that will contains
+the data from the old database.
+
+However, after the migration, I still need to have links between the old IDs and the new IDs for
+various post migration operation.
+
+This post is about creating the table containing the linked ids.
 
 ">
 
 
-<meta itemprop="datePublished" content="2018-01-25T22:28:05&#43;01:00" />
-<meta itemprop="dateModified" content="2018-01-25T22:28:05&#43;01:00" />
-<meta itemprop="wordCount" content="184">
+<meta itemprop="datePublished" content="2018-03-29T11:25:34&#43;02:00" />
+<meta itemprop="dateModified" content="2018-03-29T11:25:34&#43;02:00" />
+<meta itemprop="wordCount" content="225">
 
 
 
-<meta itemprop="keywords" content="kotlin,learning," />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="My journey to learning Kotlin - The planning"/>
-<meta name="twitter:description" content="Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.
+<meta itemprop="keywords" content="postgresql," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="How to link old and new IDs when migrating data from one table to another"/>
+<meta name="twitter:description" content="When proceeding a database migration, I often had to create a temporary table that will contains
+the data from the old database.
+
+However, after the migration, I still need to have links between the old IDs and the new IDs for
+various post migration operation.
+
+This post is about creating the table containing the linked ids.
 
 "/>
 
@@ -169,17 +186,17 @@ It will be a shame to pass by without trying to use this language.
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">My journey to learning Kotlin - The planning</h1>
+      <h1 class="post-title">How to link old and new IDs when migrating data from one table to another</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-01-25 </span>
+        <span class="post-time"> 2018-03-29 </span>
         <div class="post-category">
             
-              <a href="/categories/thoughts/"> thoughts </a>
+              <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
             
           </div>
         
-        <span class="more-meta"> 1 min read </span>
+        <span class="more-meta"> 2 min read </span>
         
       </div>
     </header>
@@ -189,29 +206,65 @@ It will be a shame to pass by without trying to use this language.
 
     
     <div class="post-image center">
-      <img src="https://images.pexels.com/photos/461775/pexels-photo-461775.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" />
+      <img src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" />
     </div>
 
     
     <div class="post-content">
-      <p>Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.</p>
+      <p>When proceeding a database migration, I often had to create a temporary table that will contains
+the data from the old database.</p>
+
+<p>However, after the migration, I still need to have links between the old IDs and the new IDs for
+various post migration operation.</p>
+
+<p>This post is about creating the table containing the linked ids.</p>
 
 <p></p>
 
-<p>I&rsquo;d never written about my experience when learning new language. This blog post is mostly used to encourage myself to try to learn as much as I can and hopefully, to apply my learning in real situation.</p>
+<p>Imagine we have the following:</p>
 
-<p>I&rsquo;m a developer, but I mostly code in Java. So the purpose of this journey is to see what Kotlin can offer from Java from my own perspective and how I can apply it in my daily life.</p>
+<pre><code class="language-sql">CREATE TABLE old_table (
+  id int4,
+  name VARCHAR
+);
+INSERT INTO old_table (id, name) VALUES (3, 'foo');
+INSERT INTO old_table (id, name) VALUES (4, 'bar');
+INSERT INTO old_table (id, name) VALUES (6, 'foobar');
+INSERT INTO old_table (id, name) VALUES (10, 'foo bar');
+</code></pre>
 
-<h1 id="the-plan">The plan</h1>
+<p>I want to migrate to this new table:</p>
 
-<ol>
-<li>I&rsquo;m planning to first learn the basics from the <a href="https://kotlinlang.org/docs/tutorials/edu-tools-learner.html">Kotlin EduTools plugin</a> and <a href="https://kotlinlang.org/">Kotlin official documentation</a></li>
-<li>Then, I will try to create a simple TODO application using only Kotlin</li>
-<li>I will have to learn how to migrate a Java application into a Kotlin</li>
-<li>I will also learn to maintain and evolve a project containing both Java and Kotlin</li>
-<li>Finally, if I really like Kotlin (in favor of Java), I will try to advocate the programming language to my teammates</li>
-</ol>
+<pre><code class="language-sql">CREATE TABLE new_table (
+  id serial PRIMARY KEY,
+  new_name VARCHAR
+);
+</code></pre>
+
+<p>With some CTE magic, I should be able to get my temp table that contains the links:</p>
+
+<pre><code class="language-sql">WITH sel AS (
+  SELECT *, row_number() OVER (ORDER BY id) AS rn
+  FROM old_table
+  ORDER BY id
+),
+ins AS (
+  INSERT INTO new_table (new_name)
+  SELECT name
+  FROM old_table
+  ORDER BY id -- Optional, just to be sure
+  RETURNING id
+)
+SELECT i.id AS new_id, sel.id AS old_id
+FROM (SELECT id, row_number() OVER (ORDER BY id) AS rn FROM ins) i
+JOIN sel USING (rn);
+</code></pre>
+
+<p>And VOILA, this SQL query will return the link between the old and new IDs.</p>
+
+<p>Check this <a href="http://sqlfiddle.com/#!17/2b8d8/">sqlfiddle</a>.</p>
+
+<p>Source: <a href="https://stackoverflow.com/questions/29256888/insert-into-from-select-returning-id-mappings">Stackoverflow</a></p>
     </div>
 
     
@@ -223,23 +276,16 @@ It will be a shame to pass by without trying to use this language.</p>
     <footer class="post-footer">
       <div class="post-tags">
           
-          <a href="/tags/kotlin/">kotlin</a>
-          
-          <a href="/tags/learning/">learning</a>
+          <a href="/tags/postgresql/">postgresql</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/2018-01-28-kotlin-basics_syntax/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Kotlin Basics: syntax</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/2017-05-17-java-set_locale_bean_validations/">
-            <span class="next-text nav-default">How to set locale for java bean validations</span>
+          <a class="next" href="/post/2018-03-11-gateway_routing/">
+            <span class="next-text nav-default">Gateway routing</span>
             <span class="prev-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
