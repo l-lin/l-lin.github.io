@@ -64,7 +64,7 @@ JOIN sel USING (rn);
 
 And VOILA, this SQL query will return the link between the old and new IDs.
 
-Check this [sqlfiddle](http://sqlfiddle.com/#!17/2b8d8/).
+Check this [sqlfiddle](http://sqlfiddle.com/#!17/2b8d8/1).
 
 Source: [Stackoverflow](https://stackoverflow.com/questions/29256888/insert-into-from-select-returning-id-mappings)
 
