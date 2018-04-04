@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-04-04-sidecar/</loc>
+    <lastmod>2018-04-04T12:06:14+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-03-29-postgresql_insert_and_link_ids/</loc>
     <lastmod>2018-03-29T11:25:34+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -235,7 +242,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/architecture/</loc>
-    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
+    <lastmod>2018-04-04T12:06:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -263,7 +270,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
+    <lastmod>2018-04-04T12:06:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -389,7 +396,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/patterns/</loc>
-    <lastmod>2018-03-11T12:25:42+01:00</lastmod>
+    <lastmod>2018-04-04T12:06:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -403,7 +410,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-03-29T11:25:34+02:00</lastmod>
+    <lastmod>2018-04-04T12:06:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

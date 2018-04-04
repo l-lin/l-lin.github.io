@@ -23,6 +23,17 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Sidecar</title>
+      <link>https://l-lin.github.io/post/2018-04-04-sidecar/</link>
+      <pubDate>Wed, 04 Apr 2018 12:06:14 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-04-04-sidecar/</guid>
+      <description>&lt;p&gt;How to enhance your service with 3rd party apps/services&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>How to link old and new IDs when migrating data from one table to another</title>
       <link>https://l-lin.github.io/post/2018-03-29-postgresql_insert_and_link_ids/</link>
       <pubDate>Thu, 29 Mar 2018 11:25:34 +0200</pubDate>
