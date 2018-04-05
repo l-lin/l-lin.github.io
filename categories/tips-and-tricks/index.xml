@@ -6,10 +6,28 @@
     <description>Recent content in Tips and Tricks on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Mar 2018 11:25:34 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Unix terminal survival kit</title>
+      <link>https://l-lin.github.io/post/2018-04-05-unix_terminal/</link>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-04-05-unix_terminal/</guid>
+      <description>&lt;p&gt;Do you have to manage a server?&lt;/p&gt;
+
+&lt;p&gt;Do you need to perform some actions in bulk?&lt;/p&gt;
+
+&lt;p&gt;Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?&lt;/p&gt;
+
+&lt;p&gt;Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
+and menus. Another benefit is allowing access to many more commands and scripts.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to link old and new IDs when migrating data from one table to another</title>

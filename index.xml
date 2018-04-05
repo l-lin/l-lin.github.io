@@ -23,6 +23,24 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Unix terminal survival kit</title>
+      <link>https://l-lin.github.io/post/2018-04-05-unix_terminal/</link>
+      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-04-05-unix_terminal/</guid>
+      <description>&lt;p&gt;Do you have to manage a server?&lt;/p&gt;
+
+&lt;p&gt;Do you need to perform some actions in bulk?&lt;/p&gt;
+
+&lt;p&gt;Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?&lt;/p&gt;
+
+&lt;p&gt;Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
+and menus. Another benefit is allowing access to many more commands and scripts.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Sidecar</title>
       <link>https://l-lin.github.io/post/2018-04-04-sidecar/</link>
       <pubDate>Wed, 04 Apr 2018 12:06:14 +0200</pubDate>
