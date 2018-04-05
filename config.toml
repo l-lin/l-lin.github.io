@@ -22,11 +22,6 @@ copyright = ""            # default: author.name ↓
   filename = "sitemap.xml"
 
 [[menu.main]]             # config your menu
-  name = "Home"
-  weight = 10
-  identifier = "home"
-  url = "/"
-[[menu.main]]
   name = "Archives"
   weight = 20
   identifier = "archives"
