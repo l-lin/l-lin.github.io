@@ -153,9 +153,9 @@ apt-get install vim
 service nginx start
 ```
 
-# Basics commands
+# Basic commands
 
-## File and folder Navigation
+## File and folder navigation
 
 ```bash
 # Print Working Directory
