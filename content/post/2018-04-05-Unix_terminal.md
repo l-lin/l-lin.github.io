@@ -441,9 +441,9 @@ First of all, vim has 3 modes:
 
 - `insert` mode: you write text as if in normal text editor
   - use the `i` button to switch to this mode
-  - use the `a` button to switch to this mode and move the cursor the next character
+  - use the `a` button to switch to this mode and move the cursor to the next character
   - use the `o` button to switch to this mode and add a newline
-- `normal` mode: provides you efficient ways to navigate and manipulate texts
+- `normal` mode: provides efficient ways to navigate and manipulate texts
   - use the `Esc` button to switch to this mode
 - `visual` mode: select text using movement keys before deciding what to do with it
   - use the `v` button to switch to this mode
