@@ -6,10 +6,21 @@
     <description>Recent content in Patterns on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Apr 2018 12:06:14 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 13 May 2018 12:31:05 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/patterns/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Event sourcing</title>
+      <link>https://l-lin.github.io/post/2018-05-13-event_sourcing/</link>
+      <pubDate>Sun, 13 May 2018 12:31:05 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-05-13-event_sourcing/</guid>
+      <description>&lt;p&gt;How to record states in a non-destructive way.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Sidecar</title>
