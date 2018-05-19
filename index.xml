@@ -23,6 +23,17 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>CQRS</title>
+      <link>https://l-lin.github.io/post/2018-05-19-cqrs/</link>
+      <pubDate>Sat, 19 May 2018 23:13:31 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-05-19-cqrs/</guid>
+      <description>&lt;p&gt;Separate your model between write and read.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Event sourcing</title>
       <link>https://l-lin.github.io/post/2018-05-13-event_sourcing/</link>
       <pubDate>Sun, 13 May 2018 12:31:05 +0200</pubDate>

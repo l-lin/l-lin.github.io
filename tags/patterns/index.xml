@@ -6,10 +6,21 @@
     <description>Recent content in Patterns on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 May 2018 12:31:05 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 19 May 2018 23:13:31 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/patterns/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CQRS</title>
+      <link>https://l-lin.github.io/post/2018-05-19-cqrs/</link>
+      <pubDate>Sat, 19 May 2018 23:13:31 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-05-19-cqrs/</guid>
+      <description>&lt;p&gt;Separate your model between write and read.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Event sourcing</title>

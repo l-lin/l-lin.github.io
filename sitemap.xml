@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-05-19-cqrs/</loc>
+    <lastmod>2018-05-19T23:13:31+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-05-13-event_sourcing/</loc>
     <lastmod>2018-05-13T12:31:05+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -256,7 +263,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/architecture/</loc>
-    <lastmod>2018-05-13T12:31:05+02:00</lastmod>
+    <lastmod>2018-05-19T23:13:31+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -284,7 +291,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2018-05-13T12:31:05+02:00</lastmod>
+    <lastmod>2018-05-19T23:13:31+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -410,7 +417,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/patterns/</loc>
-    <lastmod>2018-05-13T12:31:05+02:00</lastmod>
+    <lastmod>2018-05-19T23:13:31+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -424,7 +431,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-05-13T12:31:05+02:00</lastmod>
+    <lastmod>2018-05-19T23:13:31+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
