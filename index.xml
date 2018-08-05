@@ -23,6 +23,17 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Retry pattern</title>
+      <link>https://l-lin.github.io/post/2018-08-05-retry_pattern/</link>
+      <pubDate>Sun, 05 Aug 2018 16:39:08 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-08-05-retry_pattern/</guid>
+      <description>&lt;p&gt;Handle transient failures to improve application stability.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>CQRS</title>
       <link>https://l-lin.github.io/post/2018-05-19-cqrs/</link>
       <pubDate>Sat, 19 May 2018 23:13:31 +0200</pubDate>
