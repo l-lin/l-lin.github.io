@@ -148,6 +148,38 @@
     
       <article class="post">
   <header class="post-header">
+    <a class="post-image" href="/post/2018-08-31-postgresql_remove_idle_transactions/" style="background-image: url('https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png')">
+      &nbsp;
+    </a>
+    <h1 class="post-title"><a class="post-link" href="/post/2018-08-31-postgresql_remove_idle_transactions/">Remove idle transactions</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-08-31 </span>
+      <div class="post-category">
+          
+            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+          
+        </div>
+      
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <pre><code class="language-sql">SELECT pg_terminate_backend(pid) 
+FROM pg_stat_activity 
+WHERE state LIKE 'idle %' 
+AND state_change &lt; now() - interval '1 hour';
+</code></pre>
+
+<p></p>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
     
     <h1 class="post-title"><a class="post-link" href="/post/2018-08-19-circuit_breaker/">Circuit breaker</a></h1>
     <div class="post-meta">
@@ -390,32 +422,6 @@ various post migration operation.</p>
   <div class="post-content">
     <div class="post-summary">
       <p>How to work around legacy apps.</p>
-
-<p></p>
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    
-    <h1 class="post-title"><a class="post-link" href="/post/2018-03-08-strangler_pattern/">Strangler pattern</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-03-08 </span>
-      <div class="post-category">
-          
-            <a href="/categories/architecture/"> architecture </a>
-          
-        </div>
-      
-      <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>How to migrate legacy apps efficiently.</p>
 
 <p></p>
     </div>

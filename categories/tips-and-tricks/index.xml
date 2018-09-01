@@ -6,10 +6,25 @@
     <description>Recent content in Tips and Tricks on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Aug 2018 16:10:12 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/tips-and-tricks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Remove idle transactions</title>
+      <link>https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/</link>
+      <pubDate>Fri, 31 Aug 2018 16:10:12 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT pg_terminate_backend(pid) 
+FROM pg_stat_activity 
+WHERE state LIKE &#39;idle %&#39; 
+AND state_change &amp;lt; now() - interval &#39;1 hour&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Unix terminal survival kit</title>
