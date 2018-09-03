@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.31-DEV" />
+<meta name="generator" content="Hugo 0.47.1" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -52,24 +52,12 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-
-
-
 <meta property="og:updated_time" content="2017-08-20T21:38:52&#43;08:00"/>
-
-
-
-
-
-
-
-
-
-
 <meta itemprop="name" content="Louis LIN">
 <meta itemprop="description" content="A website on software development">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Louis LIN"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Louis LIN"/>
 <meta name="twitter:description" content="A website on software development"/>
 
 <!--[if lte IE 9]>
@@ -145,6 +133,34 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <a class="post-image" href="/post/2018-09-03-docker_ubuntu_18_dns/" style="background-image: url('https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg')">
+      &nbsp;
+    </a>
+    <h1 class="post-title"><a class="post-link" href="/post/2018-09-03-docker_ubuntu_18_dns/">Using host DNS in Docker container with Ubuntu 18</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-09-03 </span>
+      <div class="post-category">
+          
+            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+          
+        </div>
+      
+      <span class="more-meta"> 2 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server <code>8.8.8.8</code> as their DNS server.</p>
+
+<p></p>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -403,32 +419,6 @@ various post migration operation.</p>
 </article>
 
     
-      <article class="post">
-  <header class="post-header">
-    
-    <h1 class="post-title"><a class="post-link" href="/post/2018-03-08-acl/">Anti-corruption layer pattern</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-03-08 </span>
-      <div class="post-category">
-          
-            <a href="/categories/architecture/"> architecture </a>
-          
-        </div>
-      
-      <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>How to work around legacy apps.</p>
-
-<p></p>
-    </div>
-  </div>
-</article>
-
-    
   </section>
   
   <nav class="pagination">
@@ -487,12 +477,16 @@ various post migration operation.</p>
 <script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-48794776-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48794776-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

@@ -30,7 +30,7 @@ But if we only want to have english validation messages, it&amp;rsquo;s a bit tr
 
 
 
-<meta name="generator" content="Hugo 0.31-DEV" />
+<meta name="generator" content="Hugo 0.47.1" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/" />
@@ -60,24 +60,8 @@ But if we only want to have english validation messages, it&rsquo;s a bit tricky
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/" />
-
-
-
-<meta property="article:published_time" content="2017-05-17T00:00:00&#43;00:00"/>
-
+<meta property="og:url" content="https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/" /><meta property="article:published_time" content="2017-05-17T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2017-05-17T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
 <meta itemprop="name" content="How to set locale for java bean validations">
 <meta itemprop="description" content="Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like @NotBlank.
 
@@ -95,7 +79,8 @@ But if we only want to have english validation messages, it&rsquo;s a bit tricky
 
 
 <meta itemprop="keywords" content="locale,bean validation,java," />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="How to set locale for java bean validations"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to set locale for java bean validations"/>
 <meta name="twitter:description" content="Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like @NotBlank.
 
 However, the hibernate validation library also provides default validation messages, for several languages (which is great).
@@ -374,12 +359,16 @@ org.hibernate.validator.constraints.br.TituloEleitoral.message      = invalid Br
 <script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-48794776-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48794776-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

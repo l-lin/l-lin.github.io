@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Using host DNS in Docker container with Ubuntu 18 - Louis LIN</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.
+
+" />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.47.1" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+<meta property="og:title" content="Using host DNS in Docker container with Ubuntu 18" />
+<meta property="og:description" content="Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/" /><meta property="article:published_time" content="2018-09-03T11:22:04&#43;02:00"/>
+<meta property="article:modified_time" content="2018-09-03T11:22:04&#43;02:00"/>
+<meta itemprop="name" content="Using host DNS in Docker container with Ubuntu 18">
+<meta itemprop="description" content="Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.
+
+">
+
+
+<meta itemprop="datePublished" content="2018-09-03T11:22:04&#43;02:00" />
+<meta itemprop="dateModified" content="2018-09-03T11:22:04&#43;02:00" />
+<meta itemprop="wordCount" content="252">
+
+
+
+<meta itemprop="keywords" content="ubuntu,docker," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Using host DNS in Docker container with Ubuntu 18"/>
+<meta name="twitter:description" content="Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+    <li class="mobile-menu-item">
+      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
+        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
+      </form>
+    </li>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+    <li class="menu-item">
+      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
+        <input id="search-field" type="text" placeholder="Search...">
+      </form>
+    </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Using host DNS in Docker container with Ubuntu 18</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-09-03 </span>
+        <div class="post-category">
+            
+              <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            
+          </div>
+        
+        <span class="more-meta"> 2 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-image center">
+      <img src="https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg" />
+    </div>
+
+    
+    <div class="post-content">
+      <p>Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server <code>8.8.8.8</code> as their DNS server.</p>
+
+<p></p>
+
+<p>Since Ubuntu 18, the file <code>/etc/resolv.conf</code> is a symlink to <code>/run/systemd/resolve/stub-resolv.conf</code> (<code>systemd-resolved</code> is set as default on Ubuntu 18) and its content always contains the local ip <code>127.0.0.53</code>:</p>
+
+<pre><code class="language-bash">$ cat /etc/resolv.conf
+nameserver 127.0.0.53
+search somedomain.name
+</code></pre>
+
+<p><a href="https://github.com/moby/moby/issues/23910#issuecomment-415576244">By default</a>, Docker reads <code>/etc/resolv.conf</code> and list all non-localhost IP. If the list is empty, then it uses google DNS servers <code>8.8.8.8</code> and <code>8.8.4.4</code>:</p>
+
+<pre><code class="language-bash">$ docker run -it --rm ubuntu:18.10 cat /etc/resolv.conf
+search somedomain.name
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+</code></pre>
+
+<p>That means your containers do not use your host DNS servers, thus, your internal URLs are not accessible inside your Docker containers.</p>
+
+<h2 id="forcing-the-host-network">Forcing the host network</h2>
+
+<p>One way is to force the container to use the same network as the host by using the parameter <code>--network host</code>:</p>
+
+<pre><code class="language-bash">$ docker run --network host --rm ubuntu:18.10 cat /etc/resolv.conf
+nameserver 127.0.0.53
+search somedomain.name
+</code></pre>
+
+<h2 id="setting-the-dns-server">Setting the DNS server</h2>
+
+<p>Another way is to set your DNS server when running your containers</p>
+
+<pre><code class="language-bash"># First find what your DNS server is
+$ nmcli dev show | grep 'IP4.DNS'
+IP4.DNS[1]:                             192.168.4.1
+$ docker run --dns 192.168.4.1 --rm ubuntu:18.10 cat /etc/resolv.conf
+search somedomain.name
+nameserver 192.168.4.1
+nameserver 8.8.8.8
+</code></pre>
+
+<p>If you want to fix permanently without the need to set the DNS each time, you need to:</p>
+
+<ul>
+<li>create/edit the file <code>/etc/docker/daemon.json</code> and add your DNS server:</li>
+</ul>
+
+<pre><code class="language-json">{
+  &quot;dns&quot;: [&quot;192.168.4.1&quot;, &quot;8.8.8.8&quot;]
+}
+</code></pre>
+
+<ul>
+<li>Restart your docker service:</li>
+</ul>
+
+<pre><code class="language-bash">sudo systemctl restart docker
+</code></pre>
+
+<p>Some sources:</p>
+
+<ul>
+<li><a href="https://github.com/moby/moby/issues/23910">https://github.com/moby/moby/issues/23910</a></li>
+<li><a href="https://askubuntu.com/questions/475764/docker-io-dns-doesnt-work-its-trying-to-use-8-8-8-8/826894">https://askubuntu.com/questions/475764/docker-io-dns-doesnt-work-its-trying-to-use-8-8-8-8/826894</a></li>
+<li><a href="https://development.robinwinslow.uk/2016/06/23/fix-docker-networking-dns/">https://development.robinwinslow.uk/2016/06/23/fix-docker-networking-dns/</a></li>
+<li><a href="https://superuser.com/questions/1130898/no-internet-connection-inside-docker-containers">https://superuser.com/questions/1130898/no-internet-connection-inside-docker-containers</a></li>
+</ul>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/ubuntu/">ubuntu</a>
+          
+          <a href="/tags/docker/">docker</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2018-08-31-postgresql_remove_idle_transactions/">
+            <span class="next-text nav-default">Remove idle transactions</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:louis.lin.87@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48794776-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<script type="text/javascript">
+  function duckSearch(id) {
+      var searchField = document.getElementById(id);
+      if (searchField && searchField.value) {
+          var query = escape('site:l-lin.github.io ' + searchField.value);
+          window.location.href = 'https://duckduckgo.com/?q=' + query;
+      }
+  }
+</script>
+
+</body>
+</html>

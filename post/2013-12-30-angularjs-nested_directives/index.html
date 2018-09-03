@@ -29,7 +29,7 @@ There are two ways (in my knowledge) to build nested directives.
 
 
 
-<meta name="generator" content="Hugo 0.31-DEV" />
+<meta name="generator" content="Hugo 0.47.1" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2013-12-30-angularjs-nested_directives/" />
@@ -64,24 +64,8 @@ Using two custom directives
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2013-12-30-angularjs-nested_directives/" />
-
-
-
-<meta property="article:published_time" content="2013-12-30T00:00:00&#43;00:00"/>
-
+<meta property="og:url" content="https://l-lin.github.io/post/2013-12-30-angularjs-nested_directives/" /><meta property="article:published_time" content="2013-12-30T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2013-12-30T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
 <meta itemprop="name" content="Nested directives">
 <meta itemprop="description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
@@ -104,7 +88,8 @@ Using two custom directives
 
 
 <meta itemprop="keywords" content="angularjs," />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Nested directives"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nested directives"/>
 <meta name="twitter:description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.
@@ -412,12 +397,16 @@ Moreover, we use <code>ng-repeat</code> on the array of items in order to displa
 <script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-48794776-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48794776-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

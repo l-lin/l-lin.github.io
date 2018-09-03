@@ -23,6 +23,17 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Using host DNS in Docker container with Ubuntu 18</title>
+      <link>https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/</link>
+      <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/</guid>
+      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Remove idle transactions</title>
       <link>https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/</link>
       <pubDate>Fri, 31 Aug 2018 16:10:12 +0200</pubDate>
@@ -337,7 +348,10 @@ everyday?&lt;/p&gt;
       <pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/</guid>
-      <description></description>
+      <description>If you need to debug your Maven plugin, first, run with the command mvnDebug &amp;lt;goal&amp;gt;. You will see something like this:
+$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
+Add a new Remote seettings:
+Finally, run and the maven command will automatically proceed.</description>
     </item>
     
     <item>

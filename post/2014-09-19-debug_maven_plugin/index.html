@@ -17,7 +17,10 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="" />
+  <meta name="description" content="If you need to debug your Maven plugin, first, run with the command mvnDebug &amp;lt;goal&amp;gt;. You will see something like this:
+$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
+Add a new Remote seettings:
+Finally, run and the maven command will automatically proceed." />
 
   <meta name="keywords" content="software development" />
 
@@ -26,7 +29,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.31-DEV" />
+<meta name="generator" content="Hugo 0.47.1" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/" />
@@ -48,28 +51,18 @@
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 <meta property="og:title" content="Debugging Maven plugin with IntelliJ" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="If you need to debug your Maven plugin, first, run with the command mvnDebug &lt;goal&gt;. You will see something like this:
+$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
+Add a new Remote seettings:
+Finally, run and the maven command will automatically proceed." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/" />
-
-
-
-<meta property="article:published_time" content="2014-09-19T00:00:00&#43;00:00"/>
-
+<meta property="og:url" content="https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/" /><meta property="article:published_time" content="2014-09-19T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2014-09-19T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
 <meta itemprop="name" content="Debugging Maven plugin with IntelliJ">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="If you need to debug your Maven plugin, first, run with the command mvnDebug &lt;goal&gt;. You will see something like this:
+$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
+Add a new Remote seettings:
+Finally, run and the maven command will automatically proceed.">
 
 
 <meta itemprop="datePublished" content="2014-09-19T00:00:00&#43;00:00" />
@@ -79,8 +72,12 @@
 
 
 <meta itemprop="keywords" content="intellij,maven,debug," />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Debugging Maven plugin with IntelliJ"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Debugging Maven plugin with IntelliJ"/>
+<meta name="twitter:description" content="If you need to debug your Maven plugin, first, run with the command mvnDebug &lt;goal&gt;. You will see something like this:
+$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
+Add a new Remote seettings:
+Finally, run and the maven command will automatically proceed."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -296,12 +293,16 @@ Listening for transport dt_socket at address: 8000
 <script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-48794776-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48794776-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

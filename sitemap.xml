@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/</loc>
+    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/</loc>
     <lastmod>2018-08-31T16:10:12+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -339,6 +346,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/tags/docker/</loc>
+    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/tags/experimenting/</loc>
     <lastmod>2014-05-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -452,7 +466,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-08-31T16:10:12+02:00</lastmod>
+    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -501,7 +515,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/tips-and-tricks/</loc>
-    <lastmod>2018-08-31T16:10:12+02:00</lastmod>
+    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -516,6 +530,13 @@
   <url>
     <loc>https://l-lin.github.io/categories/tutorial/</loc>
     <lastmod>2014-09-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/ubuntu/</loc>
+    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
