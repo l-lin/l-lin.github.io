@@ -23,6 +23,17 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>Throttling pattern</title>
+      <link>https://l-lin.github.io/post/2018-09-13-throttling_pattern/</link>
+      <pubDate>Thu, 13 Sep 2018 10:38:53 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-09-13-throttling_pattern/</guid>
+      <description>&lt;p&gt;Control the resource consumption by throttling them when limit is reached.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Using host DNS in Docker container with Ubuntu 18</title>
       <link>https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/</link>
       <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>

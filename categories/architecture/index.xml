@@ -6,10 +6,21 @@
     <description>Recent content in Architecture on Louis LIN</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Aug 2018 14:52:25 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 13 Sep 2018 10:38:53 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Throttling pattern</title>
+      <link>https://l-lin.github.io/post/2018-09-13-throttling_pattern/</link>
+      <pubDate>Thu, 13 Sep 2018 10:38:53 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-09-13-throttling_pattern/</guid>
+      <description>&lt;p&gt;Control the resource consumption by throttling them when limit is reached.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Circuit breaker</title>

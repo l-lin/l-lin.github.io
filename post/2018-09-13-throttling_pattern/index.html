@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Categories - Louis LIN</title>
+  <title>Throttling pattern - Louis LIN</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,10 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="A website on software development" />
+  <meta name="description" content="Control the resource consumption by throttling them when limit is reached.
+
+" />
+
   <meta name="keywords" content="software development" />
 
 
@@ -28,9 +31,7 @@
 <meta name="generator" content="Hugo 0.47.1" />
 
 
-<link rel="canonical" href="https://l-lin.github.io/categories/" />
-<link href="https://l-lin.github.io/categories/index.xml" rel="alternate" type="application/rss+xml" title="Louis LIN" />
-  <link href="https://l-lin.github.io/categories/index.xml" rel="feed" type="application/rss+xml" title="Louis LIN" />
+<link rel="canonical" href="https://l-lin.github.io/post/2018-09-13-throttling_pattern/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,17 +49,31 @@
 <link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
-<meta property="og:title" content="Categories" />
-<meta property="og:description" content="A website on software development" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://l-lin.github.io/categories/" />
-<meta property="og:updated_time" content="2018-09-13T10:38:53&#43;02:00"/>
-<meta itemprop="name" content="Categories">
-<meta itemprop="description" content="A website on software development">
+<meta property="og:title" content="Throttling pattern" />
+<meta property="og:description" content="Control the resource consumption by throttling them when limit is reached.
 
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2018-09-13-throttling_pattern/" /><meta property="article:published_time" content="2018-09-13T10:38:53&#43;02:00"/>
+<meta property="article:modified_time" content="2018-09-13T10:38:53&#43;02:00"/>
+<meta itemprop="name" content="Throttling pattern">
+<meta itemprop="description" content="Control the resource consumption by throttling them when limit is reached.
+
+">
+
+
+<meta itemprop="datePublished" content="2018-09-13T10:38:53&#43;02:00" />
+<meta itemprop="dateModified" content="2018-09-13T10:38:53&#43;02:00" />
+<meta itemprop="wordCount" content="17">
+
+
+
+<meta itemprop="keywords" content="patterns," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content="A website on software development"/>
+<meta name="twitter:title" content="Throttling pattern"/>
+<meta name="twitter:description" content="Control the resource consumption by throttling them when limit is reached.
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,42 +144,98 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          
-  
-    <div class="categories">
-      <div class="categories-title">
-        
-          4 Categories In Total
-        
-      </div>
-      <div class="categories-tags">
-        
-          <a class="category-link" href="/categories/tips-and-tricks/">
-            tips-and-tricks
-            <span class="category-count">24</span>
-          </a>
-        
-          <a class="category-link" href="/categories/architecture/">
-            architecture
-            <span class="category-count">9</span>
-          </a>
-        
-          <a class="category-link" href="/categories/thoughts/">
-            thoughts
-            <span class="category-count">6</span>
-          </a>
-        
-          <a class="category-link" href="/categories/tutorial/">
-            tutorial
-            <span class="category-count">1</span>
-          </a>
-        
-      </div>
-    </div>
-  
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Throttling pattern</h1>
 
+      <div class="post-meta">
+        <span class="post-time"> 2018-09-13 </span>
+        <div class="post-category">
+            
+              <a href="/categories/architecture/"> architecture </a>
+            
+          </div>
+        
+        <span class="more-meta"> 1 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>Control the resource consumption by throttling them when limit is reached.</p>
+
+<p></p>
+
+
+<figure class="center">
+    
+        <img src="https://raw.githubusercontent.com/l-lin/architecture-cheat-sheet/master/throttling/throttling.png" alt="Throttling" />
+    
+    
+    <figcaption>
+        <h4>Throttling</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>Example in the <a href="https://github.com/l-lin/architecture-cheat-sheet/tree/master/throttling">Github repo</a></p>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/patterns/">patterns</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2018-09-03-docker_ubuntu_18_dns/">
+            <span class="next-text nav-default">Using host DNS in Docker container with Ubuntu 18</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
       </div>
     </main>
 

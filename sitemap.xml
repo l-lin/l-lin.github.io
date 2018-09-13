@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-09-13-throttling_pattern/</loc>
+    <lastmod>2018-09-13T10:38:53+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-09-03-docker_ubuntu_18_dns/</loc>
     <lastmod>2018-09-03T11:22:04+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -291,7 +298,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/architecture/</loc>
-    <lastmod>2018-08-19T14:52:25+02:00</lastmod>
+    <lastmod>2018-09-13T10:38:53+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -319,7 +326,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2018-08-19T14:52:25+02:00</lastmod>
+    <lastmod>2018-09-13T10:38:53+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -452,7 +459,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/patterns/</loc>
-    <lastmod>2018-08-19T14:52:25+02:00</lastmod>
+    <lastmod>2018-09-13T10:38:53+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -466,7 +473,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
+    <lastmod>2018-09-13T10:38:53+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
