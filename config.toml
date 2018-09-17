@@ -10,7 +10,7 @@ theme = "even"
 hasCJKLanguage = true     # has chinese/japanese/korean ?
 paginate = 10
 disqusShortname = "llinfoobar"      # disqus_shortname
-googleAnalytics = "UA-48794776-1"      # UA-XXXXXXXX-X
+#googleAnalytics = "UA-48794776-1"      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓
 
 [author]                  # essential
