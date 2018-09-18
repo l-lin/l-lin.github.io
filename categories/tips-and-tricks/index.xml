@@ -120,8 +120,6 @@ Adding a new service is no longer done by creating a SH script in the &lt;code&g
 
 &lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;
 
-&lt;p&gt;But if we only want to have english validation messages, it&amp;rsquo;s a bit tricky.&lt;/p&gt;
-
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
