@@ -14,9 +14,22 @@ Using JSR303 Java bean validations is great! Using with hibernate validation ann
 
 However, the hibernate validation library also provides default validation messages, for several languages (which is great).
 
-But if we only want to have english validation messages, it's a bit tricky.
-
 <!--more-->
+
+You just need to instanciate a new bean `org.springframework.web.servlet.i18n.FixedLocaleResolver` in your app configuration:
+
+```java
+@Configuration
+public class OneLocaleValidatorConfig {
+    @Bean
+    LocaleResolver localeResolver() {
+        // Force english for Spring Security error messages
+        return new FixedLocaleResolver(Locale.ENGLISH);
+    }
+}
+```
+
+**Update**: The following solution works but it's not the ideal way to force the locale.
 
 One way is to provide our own `MessageSource` and define our own properties files, thus having only one message properties file for only one locale.
 
