@@ -94,7 +94,7 @@ copyright = ""            # default: author.name ↓
     alipay = "/path/to/your/alipay-qr-code.png"
 
   [params.social]
-    a-email = "mailto:louis.lin.87@gmail.com"
+    a-email = "mailto:lin.louis@protonmail.com"
     b-stack-overflow = "https://stackexchange.com/users/4436278/l-lin"
     g-github = "https://github.com/l-lin"
 
