@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Back to basics - Louis LIN</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code instead of explaining using common concepts to my peers.
+For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new guy freshly coming out of school.
+The purpose of this article is to remind myself the fundamental concepts and patterns.
+
+" />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.31-DEV" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2018-10-14-java_back_to_basics/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+
+<meta property="og:title" content="Back to basics" />
+<meta property="og:description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&rsquo;s the &ldquo;way&rdquo; to code
+instead of explaining using common concepts to my peers.
+
+For example, I hear myself say &ldquo;This feels more right doing this way because I feel that way should bring us less
+trouble in the future&rdquo;, even after several years of development&hellip; That&rsquo;s kinda sad as I&rsquo;m no longer some new
+guy freshly coming out of school.
+
+The purpose of this article is to remind myself the fundamental concepts and patterns.
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2018-10-14-java_back_to_basics/" />
+
+
+
+<meta property="article:published_time" content="2018-10-14T12:27:51&#43;02:00"/>
+
+<meta property="article:modified_time" content="2018-10-14T12:27:51&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Back to basics">
+<meta itemprop="description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&rsquo;s the &ldquo;way&rdquo; to code
+instead of explaining using common concepts to my peers.
+
+For example, I hear myself say &ldquo;This feels more right doing this way because I feel that way should bring us less
+trouble in the future&rdquo;, even after several years of development&hellip; That&rsquo;s kinda sad as I&rsquo;m no longer some new
+guy freshly coming out of school.
+
+The purpose of this article is to remind myself the fundamental concepts and patterns.
+
+">
+
+
+<meta itemprop="datePublished" content="2018-10-14T12:27:51&#43;02:00" />
+<meta itemprop="dateModified" content="2018-10-14T12:27:51&#43;02:00" />
+<meta itemprop="wordCount" content="1358">
+
+
+
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Back to basics"/>
+<meta name="twitter:description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&rsquo;s the &ldquo;way&rdquo; to code
+instead of explaining using common concepts to my peers.
+
+For example, I hear myself say &ldquo;This feels more right doing this way because I feel that way should bring us less
+trouble in the future&rdquo;, even after several years of development&hellip; That&rsquo;s kinda sad as I&rsquo;m no longer some new
+guy freshly coming out of school.
+
+The purpose of this article is to remind myself the fundamental concepts and patterns.
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+    <li class="mobile-menu-item">
+      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
+        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
+      </form>
+    </li>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+    <li class="menu-item">
+      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
+        <input id="search-field" type="text" placeholder="Search...">
+      </form>
+    </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Back to basics</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-10-14 </span>
+        <div class="post-category">
+            
+              <a href="/categories/concepts/"> concepts </a>
+            
+          </div>
+        
+        <span class="more-meta"> 7 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#fundamental-oop-concepts">Fundamental OOP concepts</a>
+<ul>
+<li><a href="#inheritance">Inheritance</a></li>
+<li><a href="#polymorphism">Polymorphism</a></li>
+<li><a href="#abstraction">Abstraction</a></li>
+<li><a href="#encapsulation">Encapsulation</a>
+<ul>
+<li><a href="#advantages-of-using-encapsulation">Advantages of using encapsulation</a></li>
+<li><a href="#encapsulation-vs-abstraction">Encapsulation vs Abstraction</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#associations-in-oop">Associations in OOP</a>
+<ul>
+<li><a href="#aggregation">Aggregation</a></li>
+<li><a href="#composition">Composition</a>
+<ul>
+<li><a href="#composition-over-inheritance">Composition over inheritance</a></li>
+</ul></li>
+<li><a href="#dependency">Dependency</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-image center">
+      <img src="https://dorothydalton.files.wordpress.com/2013/05/back-to-basics.jpg" />
+    </div>
+
+    
+    <div class="post-content">
+      <p>I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&rsquo;s the &ldquo;way&rdquo; to code
+instead of explaining using common concepts to my peers.</p>
+
+<p>For example, I hear myself say &ldquo;This feels more right doing this way because I feel that way should bring us less
+trouble in the future&rdquo;, even after several years of development&hellip; That&rsquo;s kinda sad as I&rsquo;m no longer some new
+guy freshly coming out of school.</p>
+
+<p>The purpose of this article is to remind myself the fundamental concepts and patterns.</p>
+
+<p></p>
+
+<p>Note: My primary language is Java, so all my examples will be in this language.</p>
+
+<h1 id="fundamental-oop-concepts">Fundamental OOP concepts</h1>
+
+<p>One of the main advantage of the Object Oriented Programing is to allow us to visualize and easily conceptualize
+our code by using real world objects. Moreover, OOPs makes development and maintenance easier, especially when
+the code grows as the project size increases.</p>
+
+<h2 id="inheritance">Inheritance</h2>
+
+<p>Inheritance provides objects to acquire the behaviors and fields from another (its parent object).</p>
+
+<p>We can considerate that the object <code>IS A</code> when talking about inheritance.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-java">public class Cat {
+    private final String furColor;
+
+    public Cat(String furColor) {
+        this.furColor = furColor;
+    }
+
+    public void shout() {
+        System.out.println(&quot;Meow&quot;);
+    }
+
+    public String getFurColor() {
+        return furColor;
+    }
+}
+
+// Ragdoll possesses the methods and fields from its parent class &quot;Cat&quot;
+public class Ragdoll extends Cat {
+    public Ragdoll() {
+        super(&quot;Blue&quot;);
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Cat cat = new Ragdoll();
+        System.out.println(cat.shout());
+        System.out.println(&quot;The fur color of the cat is: &quot; + cat.getFurColor());
+    }
+}
+</code></pre>
+
+<p>⚠️ Multiple inheritances is dangerous if not implemented carefully, as it can lead to the diamond issue:</p>
+
+<pre><code class="language-txt">   A
+  / \
+ B   C
+  \ /
+   D
+</code></pre>
+
+<p><code>B</code> and <code>C</code> inherit <code>A</code>. <code>D</code> inherit both <code>B</code> and <code>C</code>.</p>
+
+<p>Thus, if there is a method that <code>A</code> that <code>B</code> and <code>C</code> have overridden and <code>D</code> have not, then we have an ambiguity
+on which method <code>D</code> will use: <code>B</code>&rsquo;s or <code>C</code>&rsquo;s?</p>
+
+<h2 id="polymorphism">Polymorphism</h2>
+
+<p>Polymorphism is the ability for an object to have multiple forms.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-java">public interface Animal {
+    void shout();
+}
+
+public class Dog implements Animal {
+    @Override
+    public void shout() {
+        System.out.println(&quot;Woof&quot;);
+    }
+}
+
+public class Cat implements Animal {
+    @Override
+    public void shout() {
+        System.out.println(&quot;Meow&quot;);
+    }
+}
+</code></pre>
+
+<h2 id="abstraction">Abstraction</h2>
+
+<p>Abstraction is the process of hiding the internal details and only showing the behaviors. It is mainly aimed to specify what an object can do and let you focus on what the object does instead of how it does it.</p>
+
+<pre><code class="language-java">public abstract class Shape {
+    abstract void draw();
+}
+
+public class Square extends Shape {
+    @Override
+    public void draw() {
+        System.out.println(&quot;Drawing a square&quot;);
+    }
+}
+
+public class Circle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println(&quot;Drawing a circle&quot;);
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Shape shape = new Circle();
+        s.draw();
+    }
+}
+</code></pre>
+
+<h2 id="encapsulation">Encapsulation</h2>
+
+<p>Encapsulation is the way of binding data and code into a single unit. Hence, the attributes of the class
+are hidden from other classes and can only be accessed through the methods provided by the class.</p>
+
+<p>The methods are often the getters and setters of the class.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-java">public class Cat {
+    private String name;
+    private String furColor;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFurColor() {
+        return furColor;
+    }
+
+    public void setFurColor(String furColor) {
+        this.furColor = furColor;
+    }
+}
+</code></pre>
+
+<h3 id="advantages-of-using-encapsulation">Advantages of using encapsulation</h3>
+
+<p>The encapsulation mechanism prevents the code and the data to be randomly accessed by external codes.</p>
+
+<ul>
+<li>Encapsulated code is more flexible to changes, thus easier to maintain</li>
+<li>Encapsulation can make classes to be read-only</li>
+<li>The encapsulated class has total control over its fields</li>
+<li>Encapsulation hides the implementation of the details of the object</li>
+</ul>
+
+<h3 id="encapsulation-vs-abstraction">Encapsulation vs Abstraction</h3>
+
+<p>Abstraction is more about &ldquo;WHAT&rdquo; the class can do, whereas encapsulation is more about &ldquo;HOW&rdquo; to achieve the
+functionality.</p>
+
+<h1 id="associations-in-oop">Associations in OOP</h1>
+
+<p>One object may use the methods provided by another object. This relationship between those two objects can
+be defined as &ldquo;Association&rdquo;.</p>
+
+<p>We can considerate that the object <code>HAS A</code> when talking about Association.</p>
+
+<p>Association relationship can be defined by two types: Aggregation and Composition.</p>
+
+<h2 id="aggregation">Aggregation</h2>
+
+<p>In Aggregation, each object have their own life cycle, meaning when the life of the child object is not dependent
+of the parent object.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-java">public class Table {
+    private final String color;
+
+    public Table(String color) {
+        this.color = color;
+    }
+    
+    public String getColor() {
+        return color;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Table with color &quot; + color;
+    }
+}
+
+public class Room {
+    private Table table;
+
+    public Room(Table table) {
+        this.table = table;
+    }
+
+    public Table getTable() {
+        return table;
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Table table = new Table(&quot;black&quot;);
+        describeRoom(table);
+        // Here &quot;room&quot; no longer exists, but &quot;table&quot; still exists
+        System.out.println(table);
+    }
+
+    private static void describeRoom(Table table) {
+        Room room = new Room(table);
+        System.out.println(room.getTable());
+    }
+}
+</code></pre>
+
+<h2 id="composition">Composition</h2>
+
+<p>Composition is about the same as Aggregation, except that the relationship of the two objects is
+intrinsically linked to the parent object, i.e. the child cannot exist without its parent.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-java">public class Identity {
+    private final String firstName;
+    private final String lastName;
+
+    public Identity(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFullName() {
+        return firstName + &quot; &quot; + lastName;
+    }
+}
+
+public class Person {
+    // The &quot;final&quot; keyword will make sure the &quot;leg&quot; property is initialized
+    private final Identity identity;
+
+    public Person(String firstName, String lastName) {
+        // When &quot;person&quot; is destroyed, so is its property &quot;identity&quot;
+        identity = new Identity(firstName, lastName);
+    }
+
+    public Identity getIdentity() {
+        return identity;
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Person person = new Person(&quot;Louis&quot;, &quot;Lin&quot;);
+        Identity identity = person.getIdentity();
+        System.out.println(&quot;My name is &quot; + identity.getFullName());
+    }
+}
+</code></pre>
+
+<h3 id="composition-over-inheritance">Composition over inheritance</h3>
+
+<p>Composition offers higher flexibility then inheritance. It is better and easier to conceptualize what an object
+can do (<code>HAS A</code>) than extend what it is (<code>IS A</code>).</p>
+
+<p>Moreover, it is easier to change/add the behavior on one class than on all implementations that inherit the interface.</p>
+
+<pre><code class="language-java">public abstract class Person {
+    abstract String getRole();
+}
+
+public class Developer extends Person {
+    public String getRole() {
+        return &quot;developer&quot;;
+    }
+}
+
+public class Manager extends Person {
+    public String getRole() {
+        return &quot;manager&quot;;
+    }
+}
+</code></pre>
+
+<p>In this example, if we add a new method on the <code>Person</code> class, we will have to change all its implementations, i.e.
+<code>Developer</code> and <code>Manager</code>.</p>
+
+<p>Using composition:</p>
+
+<pre><code class="language-java">public class Role {
+    private final String name;
+
+    public Role(String name) {
+        this.name = name;
+    }
+}
+
+public class Developer {
+    private final Role role = new Role(&quot;developer&quot;);
+}
+
+public class Manager() {
+    private final Role role = new Role(&quot;manager&quot;);
+}
+</code></pre>
+
+<p>If we want to add new methods on <code>Role</code>, we don&rsquo;t have to change the classes that have a relationship with <code>Role</code>,
+thus only changing one class. In other words, inheritance brings tight coupling between the sub class and its
+super class: any change on the super class will force the sub class to change.</p>
+
+<p>Another negative points on inheritance are:</p>
+
+<ul>
+<li>implementation inherited from super class cannot be changed at runtime</li>
+<li>subclass details are exposed to super class, which means it breaks the encapsulation rule
+
+<ul>
+<li>in composition, the objects will never reach each other&rsquo;s protected data and will be forced to respect each other&rsquo;s interface</li>
+</ul></li>
+</ul>
+
+<p>However, that does not mean we must never use inheritance. It also has its uses, like for example, if we want
+to re-use methods on each implementation.</p>
+
+<h2 id="dependency">Dependency</h2>
+
+<p>Dependency is also a form of &ldquo;Association&rdquo;, albeit weaker than &ldquo;Aggregation&rdquo; and &ldquo;Composition&rdquo;.</p>
+
+<p>We talk about dependency when changing one object may affect another.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-java">public class Cat {
+    private String status = &quot;bored&quot;;
+
+    public void play() {
+        System.out.println(&quot;The cat is playing&quot;);
+        status = &quot;happy&quot;;
+    }
+}
+
+public class CatCoffee {
+    private List&lt;Cat&gt; cats;
+
+    public CatCoffee(List&lt;Cat&gt; cats) {
+        this.cats = cats;
+    }
+
+    public void play() {
+        cats.forEach(cat -&gt; cat.play);
+    }
+}
+</code></pre>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/java/">java</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2018-09-13-throttling_pattern/">
+            <span class="next-text nav-default">Throttling pattern</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+
+
+
+<script type="text/javascript">
+  function duckSearch(id) {
+      var searchField = document.getElementById(id);
+      if (searchField && searchField.value) {
+          var query = escape('site:l-lin.github.io ' + searchField.value);
+          window.location.href = 'https://duckduckgo.com/?q=' + query;
+      }
+  }
+</script>
+
+</body>
+</html>

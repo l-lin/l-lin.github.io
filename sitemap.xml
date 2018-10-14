@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-10-14-java_back_to_basics/</loc>
+    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-09-13-throttling_pattern/</loc>
     <lastmod>2018-09-13T10:38:53+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -346,6 +353,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/categories/concepts/</loc>
+    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/tags/debug/</loc>
     <lastmod>2014-09-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -396,7 +410,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/java/</loc>
-    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -473,7 +487,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-09-13T10:38:53+02:00</lastmod>
+    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

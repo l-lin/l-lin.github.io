@@ -27,7 +27,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.47.1" />
+<meta name="generator" content="Hugo 0.31-DEV" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/" />
@@ -60,8 +60,24 @@ AND state_change &lt; now() - interval &#39;1 hour&#39;;
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/" /><meta property="article:published_time" content="2018-08-31T16:10:12&#43;02:00"/>
+<meta property="og:url" content="https://l-lin.github.io/post/2018-08-31-postgresql_remove_idle_transactions/" />
+
+
+
+<meta property="article:published_time" content="2018-08-31T16:10:12&#43;02:00"/>
+
 <meta property="article:modified_time" content="2018-08-31T16:10:12&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
 <meta itemprop="name" content="Remove idle transactions">
 <meta itemprop="description" content="SELECT pg_terminate_backend(pid) 
 FROM pg_stat_activity 
@@ -79,8 +95,7 @@ AND state_change &lt; now() - interval &#39;1 hour&#39;;
 
 
 <meta itemprop="keywords" content="postgresql," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Remove idle transactions"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Remove idle transactions"/>
 <meta name="twitter:description" content="SELECT pg_terminate_backend(pid) 
 FROM pg_stat_activity 
 WHERE state LIKE &#39;idle %&#39; 
