@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Louis LIN</title>
+    <title>Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/</link>
-    <description>Recent content on Louis LIN</description>
+    <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
@@ -20,6 +20,27 @@
       <description>  My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today? Font awesome animation Web novels tracker chrome extention Manga reader tracker chrome extension  Back  Web novels tracker API Manga reader tracker API Gotodo Kotodo  </description>
+    </item>
+    
+    <item>
+      <title>(Rock) SOLID</title>
+      <link>https://l-lin.github.io/post/2018-10-21-java_solid/</link>
+      <pubDate>Sun, 21 Oct 2018 14:08:39 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018-10-21-java_solid/</guid>
+      <description>&lt;p&gt;This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.&lt;/p&gt;
+
+&lt;p&gt;This one will deal with the famous &lt;strong&gt;SOLID&lt;/strong&gt; design principles:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;ingle responsibility principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt;pen/closed principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt;iskov substitution principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt;nterface segregation principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt;ependecy inversion principle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

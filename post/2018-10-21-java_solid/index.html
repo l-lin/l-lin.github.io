@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>(Rock) SOLID - Louis LIN&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.
+This one will deal with the famous SOLID design principles:
+ Single responsibility principle Open/closed principle Liskov substitution principle Interface segregation principle Dependecy inversion principle  
+" />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.31-DEV" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2018-10-21-java_solid/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+
+<meta property="og:title" content="(Rock) SOLID" />
+<meta property="og:description" content="This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.
+
+This one will deal with the famous SOLID design principles:
+
+
+Single responsibility principle
+Open/closed principle
+Liskov substitution principle
+Interface segregation principle
+Dependecy inversion principle
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2018-10-21-java_solid/" />
+
+
+
+<meta property="article:published_time" content="2018-10-21T14:08:39&#43;02:00"/>
+
+<meta property="article:modified_time" content="2018-10-21T14:08:39&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="(Rock) SOLID">
+<meta itemprop="description" content="This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.
+
+This one will deal with the famous SOLID design principles:
+
+
+Single responsibility principle
+Open/closed principle
+Liskov substitution principle
+Interface segregation principle
+Dependecy inversion principle
+
+
+">
+
+
+<meta itemprop="datePublished" content="2018-10-21T14:08:39&#43;02:00" />
+<meta itemprop="dateModified" content="2018-10-21T14:08:39&#43;02:00" />
+<meta itemprop="wordCount" content="2060">
+
+
+
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="(Rock) SOLID"/>
+<meta name="twitter:description" content="This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.
+
+This one will deal with the famous SOLID design principles:
+
+
+Single responsibility principle
+Open/closed principle
+Liskov substitution principle
+Interface segregation principle
+Dependecy inversion principle
+
+
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+    <li class="mobile-menu-item">
+      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
+        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
+      </form>
+    </li>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+    <li class="menu-item">
+      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
+        <input id="search-field" type="text" placeholder="Search...">
+      </form>
+    </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">(Rock) SOLID</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-10-21 </span>
+        <div class="post-category">
+            
+              <a href="/categories/concepts/"> concepts </a>
+            
+          </div>
+        
+        <span class="more-meta"> 10 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#single-responsibility-principle">Single responsibility principle</a>
+<ul>
+<li><a href="#bad-example">Bad example</a></li>
+<li><a href="#one-solution">One solution</a></li>
+</ul></li>
+<li><a href="#open-closed-principle">Open/Closed principle</a>
+<ul>
+<li><a href="#bad-example-1">Bad example</a></li>
+<li><a href="#one-solution-1">One solution</a></li>
+</ul></li>
+<li><a href="#liskov-substitution-principle">Liskov substitution principle</a>
+<ul>
+<li><a href="#bad-example-2">Bad example</a></li>
+<li><a href="#one-solution-2">One solution</a></li>
+</ul></li>
+<li><a href="#interface-segregation-principle">Interface segregation principle</a>
+<ul>
+<li><a href="#bad-example-3">Bad example</a></li>
+<li><a href="#one-solution-3">One solution</a></li>
+</ul></li>
+<li><a href="#dependency-inversion-principle">Dependency inversion principle</a>
+<ul>
+<li><a href="#bad-example-4">Bad example</a></li>
+<li><a href="#one-solution-4">One solution</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-image center">
+      <img src="https://images.unsplash.com/photo-1532502413135-cea634d4b044?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=17af51dc9352b24342aeaf1995008570&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" />
+    </div>
+
+    
+    <div class="post-content">
+      <p>This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.</p>
+
+<p>This one will deal with the famous <strong>SOLID</strong> design principles:</p>
+
+<ul>
+<li><strong>S</strong>ingle responsibility principle</li>
+<li><strong>O</strong>pen/closed principle</li>
+<li><strong>L</strong>iskov substitution principle</li>
+<li><strong>I</strong>nterface segregation principle</li>
+<li><strong>D</strong>ependecy inversion principle</li>
+</ul>
+
+<p></p>
+
+<h1 id="single-responsibility-principle">Single responsibility principle</h1>
+
+<blockquote>
+<p>One class should have one and one responsibility.</p>
+</blockquote>
+
+<p>One of the few principles that is easy to understand but not simple to explain why it&rsquo;s important to respect this principle.
+We are often told to only have one responsibility for each class, or at a medium level, each component must do their part, or at a global level, each micro-service must perform one task in mind.</p>
+
+<p>Why is it so important? Why can&rsquo;t we have something that performs everything?</p>
+
+<p>A real life example: in a start-up, the CEO must perform multiple roles: the CEO, the accounting, the marketing, HR, &hellip;
+And it works&hellip; until the company reaches a certain scale when the CEO cannot perform every roles, otherwise, the CEO will be overwhelmed by the amount of work the CEO has to do.
+By delegating the roles to other people, the CEO can focus on what the CEO must do: giving the direction/vision of the company to its crew (IMHO).</p>
+
+<h2 id="bad-example">Bad example</h2>
+
+<p>In this example, we have a cat that can save itself.</p>
+
+<pre><code class="language-java">public class Cat {
+    private final CatDAO dao;
+    private final String name;
+
+    public Cat(String name, CatDAO dao) {
+        this.name = name;
+        this.repo = repo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void save() {
+        dao.save(this);
+    }
+}
+</code></pre>
+
+<p>Sure it works, but whenever we want to change the persistence, we will need to change this class.
+In small classes, there is no real impact, but when your class is starting to look like a <a href="https://sourcemaking.com/antipatterns/the-blob">Blob</a> or a God class that does everything, the cost to change its behavior will be huge, enough to make you throw up and have a hangover for years.</p>
+
+<h2 id="one-solution">One solution</h2>
+
+<p>One solution is to create another class <code>CatRepository</code> that deals with the persistence.</p>
+
+<pre><code class="language-java">public class Cat {
+    private final String name;
+
+    public Cat(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class CatRepository {
+    private final CatDAO dao;
+
+    public CatRepository(CatDAO dao) {
+        this.dao = dao;
+    }
+
+    public void save(Cat cat) {
+        dao.save(cat);
+    }
+}
+</code></pre>
+
+<p>Thus, moving the persistence to another class will clearly separate the responsibility and we are free to update the persistent methods without touching the <code>Cat</code> class.
+Hence, we will only touch the persistence functionalities without modifying the business logic.</p>
+
+<h1 id="open-closed-principle">Open/Closed principle</h1>
+
+<blockquote>
+<p>Software components should be open for extension, but closed for modification.</p>
+</blockquote>
+
+<p>It means to have a class that can be extensible in its functionalities, but prevent the users to change its core logic.</p>
+
+<h2 id="bad-example-1">Bad example</h2>
+
+<p>In this example, we have a <code>Cat</code> class that has a <code>meow</code> method that is different from each cat types.</p>
+
+<pre><code class="language-java">public class Meower {
+    private final String catType;
+
+    public Meower(String catType) {
+        this.catType = catType;
+    }
+
+    public String getCatType() {
+        return catType;
+    }
+
+    public final String meow() {
+        if (&quot;Ragdoll&quot;.equals(catType)) {
+            return &quot;Miaou&quot;;
+        } else if (&quot;Tadar sauce&quot;.equals(catType)) {
+            return &quot;Grumph&quot;
+        } else if (&quot;Nyan cat&quot;.equals(catType)) {
+            return &quot;Nyan nyan&quot;;
+        }
+        return &quot;Meow&quot;;
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        System.out.println(new Meower(&quot;Ragdoll&quot;).meow());
+        System.out.println(new Meower(&quot;Tadar sauce&quot;).meow());
+        System.out.println(new Meower(&quot;Nyan cat&quot;).meow());
+        System.out.println(new Meower(&quot;Dragon Li&quot;).meow());
+    }
+}
+</code></pre>
+
+<p>If we want to add a new type of cat, we will have to change the <code>Meower</code> class.</p>
+
+<p>One concrete example is that the <code>Meower</code> class is in a library you are using in your project.
+So, if you want to add a new type of cat, you will either have to copy/paste the <code>meow</code> method, or override it.</p>
+
+<pre><code class="language-java">public class CustomMeower extends Meower {
+    public CustomMeower(String catType) {
+        super(catType);
+    }
+
+    @Override
+    public String meow() {
+        // We are overriding the default behavior. If Cat change its method by adding some logic,
+        // we won't be able to benefit the new changes.
+        if (&quot;Dragon Li&quot;.equals(getCatType())) {
+            return &quot;Rawr&quot;;
+        }
+        return super.meow();
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        System.out.println(new Meower(&quot;Ragdoll&quot;).meow());
+        System.out.println(new Meower(&quot;Tadar sauce&quot;).meow());
+        System.out.println(new Meower(&quot;Nyan cat&quot;).meow());
+        System.out.println(new Meower(&quot;Dragon Li&quot;).meow()); // Will print &quot;Meow&quot;
+        System.out.println(new CustomMeower(&quot;Nyan cat&quot;).meow()); // Will print &quot;Rawr&quot;
+    }
+}
+</code></pre>
+
+<h2 id="one-solution-1">One solution</h2>
+
+<p>One solution is to simply use polymorphism and composition (or strategy design pattern) that helps the developer to extends the class without modifying the core logic.</p>
+
+<pre><code class="language-java">public interface Cat {
+    String meow();
+}
+
+public class Ragdoll implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Miaou&quot;;
+    }
+}
+
+public class TadarSauce implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Grumph&quot;;
+    }
+}
+
+public class NyanCat implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Nyan nyan&quot;;
+    }
+}
+
+// We can add without modifying the other forms of cat
+public class DragonLi implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Rawr&quot;;
+    }
+}
+
+public class Meower {
+    private final Cat cat;
+
+    public class Meower(Cat cat) {
+        this.cat = cat;
+    }
+
+    // We don't have to change the method, only the way of instanciating the Meower class 
+    // can we define what cat is meowing
+    public String meow() {
+        return cat.meow();
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        System.out.println(new Meower(new Ragdoll()).meow());
+        System.out.println(new Meower(new TadarSauce()).meow());
+        System.out.println(new Meower(new NyanCat()).meow());
+        System.out.println(new Meower(new DragonLi()).meow());
+    }
+}
+</code></pre>
+
+<p>As we can see, if we want to add a new type of cat, we only have to create a new class that implements the <code>Cat</code> interface. We don&rsquo;t have to change the content of the class <code>Meower</code>.</p>
+
+<h1 id="liskov-substitution-principle">Liskov substitution principle</h1>
+
+<blockquote>
+<p>Derived types must be completely substitutable for their base types.</p>
+</blockquote>
+
+<p>One of the principles that is really easy to forget, because, first of all, the name itself is not really helpful, but more importantly, it&rsquo;s quite &ldquo;hard&rdquo; (again, IMHO) to picture what the principle is all about.</p>
+
+<p>This principle is about extended classes that fit in the application without failure, i.e. you should design your classes so that client dependencies can be substituted with subclasses without the client knowing about the change.</p>
+
+<p>Often, if we have a class type detection/condition to perform some logic, we have a code smell that violates this principle.</p>
+
+<p>Violations of the LSP cause undefined behaviors, which is difficult to find during development (the project compiles and the application runs like intended) but will fail on production (unexpected behaviors).</p>
+
+<h2 id="bad-example-2">Bad example</h2>
+
+<pre><code class="language-java">public abstract class Cat {
+    private final String name;
+
+    public Cat(String name) {
+        this.name = name;
+    }
+}
+
+public Ragdoll extends Cat {
+    public Ragdoll(String name) {
+        super(name);
+    }
+}
+
+public NyanCat extends Cat {
+    public NyanCat(String name) {
+        super(name);
+    }
+}
+
+public class PetStore {
+    public void sell(Cat cat) {
+        if (NyanCat.class.equals(cat.getClass())) {
+            throw new UnsellableCatException(&quot;This cat is too rare, I can't sell it to you!&quot;);
+        }
+        System.out.println(&quot;I'm selling &quot; + cat.getName() + &quot; to you&quot;);
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        PetStore petStore = new PetStore();
+        // Printing: &quot;I'm selling Mimi to you
+        petStore.sell(new Ragdoll(&quot;Mimi&quot;));
+        // This will throw the UnsellableCatException and the program will fails if we are not careful
+        petStore.sell(new NyanCat(&quot;nyan&quot;));
+    }
+}
+</code></pre>
+
+<p>The <code>PetStore</code> is tightly coupled to <code>NyanCat</code> class. In this example, we can easily see the code smell and we will get the exception during run time, which will be easy to debug.</p>
+
+<p>However, if we have another examples, where the behavior is more complex (e.g. in accounting), debugging/fixing will be more difficult.</p>
+
+<h2 id="one-solution-2">One solution</h2>
+
+<p>In the example above, we can add an attribute <code>isSellable</code>:</p>
+
+<pre><code class="language-java">public abstract class Cat {
+    private final String name;
+    private final boolean isSellable;
+
+    public Cat(String name, boolean isSellable) {
+        this.name = name;
+        this.isSellable = isSellable;
+    }
+
+    public boolean isSellable() {
+        return isSellable;
+    }
+}
+
+public Ragdoll extends Cat {
+    public Ragdoll(String name) {
+        super(name, true);
+    }
+}
+
+public NyanCat extends Cat {
+    public NyanCat(String name) {
+        super(name, false);
+    }
+}
+
+public class PetStore {
+    public void sell(Cat cat) {
+        if (!cat.isSellable()) {
+            System.out.println(&quot;This cat is too rare, I can't sell it to you!&quot;);
+        }
+        System.out.println(&quot;I'm selling &quot; + cat.getName() + &quot; to you&quot;);
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        PetStore petStore = new PetStore();
+        // Printing: &quot;I'm selling Mimi to you
+        petStore.sell(new Ragdoll(&quot;Mimi&quot;));
+        // Printing: &quot;This cat is too rare, I can't sell it to you!&quot;
+        petStore.sell(new NyanCat(&quot;nyan&quot;));
+    }
+}
+</code></pre>
+
+<h1 id="interface-segregation-principle">Interface segregation principle</h1>
+
+<blockquote>
+<p>Clients should not be forced to implement unnecessary methods which they will not use.</p>
+</blockquote>
+
+<p>This principle favors multiple, smaller, cohesive interfaces overs larger, monolithic interfaces.</p>
+
+<p>By reducing classes dependencies, unused members, we reduce coupling accordingly.
+Moreover, smaller interfaces are easier to implement, improve flexibility and reuse.</p>
+
+<h2 id="bad-example-3">Bad example</h2>
+
+<pre><code class="language-java">public interface Animal {
+    void fly();
+    void walk();
+}
+
+public class Cat implements Animal {
+    @Override
+    public void fly() {
+        throw new UnsupportedOperationException(&quot;Cats can't fly&quot;);
+    }
+
+    @Override
+    public void walk() {
+        System.out.println(&quot;The cat is walking&quot;);
+    }
+}
+
+public class Eagle implements Animal {
+    @Override
+    public void fly() {
+        System.out.println(&quot;The eagle is flying&quot;);
+    }
+
+    @Override
+    public void walk() {
+        System.out.println(&quot;The cat is walking&quot;);
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Animal eagle = new Eagle();
+        eagle.walk();
+        eagle.fly();
+
+        Animal cat = new Cat();
+        cat.walk();
+        cat.fly(); // throws UnsupportedOperationException
+    }
+}
+</code></pre>
+
+<p>In this example, <code>Cat</code> implements the interface <code>Animal</code>, thus it must implements every methods of <code>Animal</code>, even the <code>fly</code> method which is not logical.</p>
+
+<h2 id="one-solution-3">One solution</h2>
+
+<p>Make interfaces more abstract so that the classes only implement the functionalities they need.</p>
+
+<pre><code class="language-java">public interface Animal {
+    void walk();
+}
+
+public interface Bird {
+    void fly();
+}
+
+public class Cat implements Animal {
+    @Override
+    public void walk() {
+        System.out.println(&quot;The cat is walking&quot;);
+    }
+}
+
+public class Eagle implements Animal, Bird {
+    @Override
+    public void fly() {
+        System.out.println(&quot;The eagle is flying&quot;);
+    }
+
+    @Override
+    public void walk() {
+        System.out.println(&quot;The cat is walking&quot;);
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Animal eagle = new Eagle();
+        eagle.walk();
+        eagle.fly();
+
+        Animal cat = new Cat();
+        cat.walk();
+    }
+}
+</code></pre>
+
+<h1 id="dependency-inversion-principle">Dependency inversion principle</h1>
+
+<blockquote>
+<p>Depend on abstractions, not on concretions.</p>
+</blockquote>
+
+<p>This principles encourages to write code that depends on abstractions rather than concrete details.
+Its concern is mainly re-usability. The idea is that we isolate our class behind a boundary formed by the abstractions it depends on.
+If all the details behind those abstractions change, then our class is still safe. This helps keep coupling low and makes our design easier to change.</p>
+
+<p>Moreover, this principle can help test easily in isolation, for example, the database is a concrete detail in our application (we can use to store our data in a file system, or a database, or something else).</p>
+
+<h2 id="bad-example-4">Bad example</h2>
+
+<pre><code class="language-java">public class DragonLi {
+    public String meow() {
+        return &quot;Rawr&quot;;
+    }
+}
+
+public class NyanCat {
+    public String meow() {
+        return &quot;Nyan nyan&quot;;
+    }
+}
+
+public class Meower {
+    private DragonLi dragonLi = new DragonLi();
+    private NyanCat nyanCat = new NyanCat();
+
+    public void meow(String type) {
+        if (&quot;Dragon Li&quot;.equals(type)) {
+            System.out.println(dragonLi.meow());
+        } else if (&quot;Nyan cat&quot;.equals(type)) {
+            System.out.println(nyanCat.meow());
+        }
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Meower meower = new Meower();
+        meower.meow(&quot;Dragon Li&quot;); // Prints &quot;Rawr&quot;
+        meower.meow(&quot;Nyan cat&quot;); // Prints &quot;Nyan nyan&quot;
+        meower.meow(&quot;Ragdoll&quot;); // Prints nothing
+    }
+}
+</code></pre>
+
+<p>If we want to add the ragdoll cat, we will have to create a <code>Ragdoll</code> and add to <code>Meower</code> attributes.</p>
+
+<h2 id="one-solution-4">One solution</h2>
+
+<pre><code class="language-java">public interface Cat {
+    String meow();
+}
+
+public class DragonLi implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Rawr&quot;;
+    }
+}
+
+public class NyanCat implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Nyan nyan&quot;;
+    }
+}
+
+public class Ragdoll implements Cat {
+    @Override
+    public String meow() {
+        return &quot;Miaou&quot;;
+    }
+}
+
+public class Meower {
+    private final Cat cat;
+
+    public Meower(Cat cat) {
+        this.cat = cat;
+    }
+
+    public void meow() {
+        System.out.println(cat.meow());
+    }
+}
+
+public class Sandbox {
+    public static void main(String[] args) {
+        Meower meower = new Meower(new DragonLi());
+        meower.meow(); // Prints &quot;Rawr&quot;
+        meower = new Meower(new NyanCat());
+        meower.meow(); // Prints &quot;Nyan nyan&quot;
+        meower = new Meower(new Ragdoll());
+        meower.meow(); // Prints &quot;Miaou&quot;
+    }
+}
+</code></pre>
+
+<p>If we want to add a new type of cats (e.g. tadar sauce), we just have to add a new class that implements the <code>Cat</code> interface. Thus, we don&rsquo;t have to change the <code>Meower</code> class as it uses the abstract <code>Cat</code> and not the concrete details, i.e. <code>DragonLi</code>, <code>NyanCat</code> and <code>Ragdoll</code>.</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/java/">java</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2018-10-14-java_back_to_basics/">
+            <span class="next-text nav-default">Back to basics</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+
+
+
+<script type="text/javascript">
+  function duckSearch(id) {
+      var searchField = document.getElementById(id);
+      if (searchField && searchField.value) {
+          var query = escape('site:l-lin.github.io ' + searchField.value);
+          window.location.href = 'https://duckduckgo.com/?q=' + query;
+      }
+  }
+</script>
+
+</body>
+</html>

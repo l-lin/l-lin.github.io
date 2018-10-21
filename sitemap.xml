@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2018-10-21-java_solid/</loc>
+    <lastmod>2018-10-21T14:08:39+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018-10-14-java_back_to_basics/</loc>
     <lastmod>2018-10-14T12:27:51+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -354,7 +361,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/concepts/</loc>
-    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
+    <lastmod>2018-10-21T14:08:39+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -410,7 +417,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/java/</loc>
-    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
+    <lastmod>2018-10-21T14:08:39+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -487,7 +494,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2018-10-14T12:27:51+02:00</lastmod>
+    <lastmod>2018-10-21T14:08:39+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
