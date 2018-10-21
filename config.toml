@@ -2,7 +2,7 @@
 baseURL = "https://l-lin.github.io/"
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "Louis LIN"
+title = "Louis LIN's blog"
 enableRobotsTXT = true
 enableEmoji = true
 theme = "even"
@@ -40,7 +40,7 @@ copyright = ""            # default: author.name ↓
 [params]
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
-  since = "2018"            # Site creation time
+  since = "2013"            # Site creation time
 
   # site info (optional)
   logoTitle = "l-lin"        # default: the title value
@@ -84,9 +84,9 @@ copyright = ""            # default: author.name ↓
 
   [params.busuanzi]         # count web traffic by busuanzi
     enable = false
-    siteUV = true
-    sitePV = true
-    pagePV = true
+    siteUV = false
+    sitePV = false
+    pagePV = false
 
   [params.reward]
     enable = false
