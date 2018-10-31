@@ -17,7 +17,10 @@
       <pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014-09-19-debug_maven_plugin/</guid>
-      <description></description>
+      <description>If you need to debug your Maven plugin, first, run with the command mvnDebug &amp;lt;goal&amp;gt;. You will see something like this:
+$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
+Add a new Remote seettings:
+Finally, run and the maven command will automatically proceed.</description>
     </item>
     
   </channel>
