@@ -249,6 +249,47 @@ free -h
 top
 ```
 
+## Folders definition
+
+```bash
+$ # /tmp is a temporary folder where everything is removed when the computer
+$ # /tmp can be used as a working directory for programs
+$ touch /tmp/this_file_will_be_removed_after_restart
+
+$ # /bin & /sbin contain the binaries usable (e.g. cat, ls, ...) before the /usr partition is mounted
+$ ls /bin
+chmod grep ls more pwd ....
+
+$ # /usr/bin contains the general system-wide binaries
+$ ls /usr/bin
+gcc vim vi ruby python ...
+
+$ # /usr/local/bin should be the folder that contains your script/binaries
+$ # "local" means it's not managed by the system
+$ ls /usr/local/bin
+bower node npm tmux ...
+
+$ # $HOME/bin for user-scoped scripts/binaries
+$ ls $HOME/bin
+img2xterm vault ...
+
+$ # /etc usually contains configuration files for all programs
+$ ls /etc
+bash.bashrc crontab debconf.version lsb-release os-release
+
+$ # /opt contains third party app package installations which does not complies to the standard Linux file hierarchy
+$ ls /opt
+google openoffice4
+
+$ # /var contains variable data, e.g. logs, news and so on which is constantly being modified by various programs running in the system
+$ ls /var
+apt docker log mail ...
+
+$ # /home contains the user HOME directories
+$ ls /home
+l.lin
+```
+
 ## File and folder permissions
 
 Permissions are managed in three distinct scopes or classes:
