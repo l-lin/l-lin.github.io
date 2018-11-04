@@ -383,7 +383,7 @@ public class Eagle implements Animal {
 
     @Override
     public void walk() {
-        System.out.println("The cat is walking");
+        System.out.println("The eagle is walking");
     }
 }
 
@@ -430,7 +430,7 @@ public class Eagle implements Animal, Bird {
 
     @Override
     public void walk() {
-        System.out.println("The cat is walking");
+        System.out.println("The eagle is walking");
     }
 }
 
