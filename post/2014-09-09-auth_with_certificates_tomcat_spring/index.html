@@ -32,7 +32,7 @@ This tutorial will show you:
 
 
 
-<meta name="generator" content="Hugo 0.47.1" />
+<meta name="generator" content="Hugo 0.50" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/" />
@@ -79,6 +79,7 @@ In order to fully comprehend the tutorial, I will demonstrate it with a concrete
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/" /><meta property="article:published_time" content="2014-09-09T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2014-09-09T00:00:00&#43;00:00"/>
+
 <meta itemprop="name" content="Authentication using certificates, Tomcat and Spring security">
 <meta itemprop="description" content="Instead of the classic login/password way to access to a secured application, it&rsquo;s possible to authenticate through a certificate.
 What&rsquo;s more, you can also link a ROLE to each certificate.
@@ -252,17 +253,11 @@ What&rsquo;s more, you can also link a <code>ROLE</code> to each certificate.</p
 <p>You have to build an internal application (let&rsquo;s call it <code>foobar</code>) that needs to be a bit secured.
 This application will mainly be used as a web service application where other web applications will be able to plug in <code>foobar</code>. Let&rsquo;s be crazy and say that Paypal and Amazon are the web applications that will communicate with our great app.</p>
 
-
 <figure class="center">
-    
-        <img src="/images/2014-09-09/logical_archi.png" alt="Logical architecture" />
-    
-    
-    <figcaption>
-        <h4>Logical architecture</h4>
-        
-    </figcaption>
-    
+    <img src="/images/2014-09-09/logical_archi.png"
+         alt="Logical architecture"/> <figcaption>
+            <h4>Logical architecture</h4>
+        </figcaption>
 </figure>
 
 
@@ -277,17 +272,11 @@ There are several solutions to do that (same network, OAuth, Basic Auth, and so 
 The client checks if the certificate given by the server is valid or not (through a certification authority that signs certificates).
 The server also checks the certificate given by the client.</p>
 
-
 <figure class="center">
-    
-        <img src="/images/2014-09-09/certificate_workflow.png" alt="Certificate workflow" />
-    
-    
-    <figcaption>
-        <h4>Certificate workflow - Credits to http://blog.netapsys.fr</h4>
-        
-    </figcaption>
-    
+    <img src="/images/2014-09-09/certificate_workflow.png"
+         alt="Certificate workflow"/> <figcaption>
+            <h4>Certificate workflow - Credits to http://blog.netapsys.fr</h4>
+        </figcaption>
 </figure>
 
 
@@ -711,17 +700,11 @@ keytool -importkeystore -srckeystore browser.jks -destkeystore browser.p12 -srcs
 <li>Click on <code>import</code> and select the <code>browser.p12</code> file (password is <code>browserpwd</code>)</li>
 </ul>
 
-
 <figure class="center">
-    
-        <img src="/images/2014-09-09/add_cert_to_browser.png" alt="Adding certificate to browser" />
-    
-    
-    <figcaption>
-        <h4>Adding certificate to browser</h4>
-        
-    </figcaption>
-    
+    <img src="/images/2014-09-09/add_cert_to_browser.png"
+         alt="Adding certificate to browser"/> <figcaption>
+            <h4>Adding certificate to browser</h4>
+        </figcaption>
 </figure>
 
 
