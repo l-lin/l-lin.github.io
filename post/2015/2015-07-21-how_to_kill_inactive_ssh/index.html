@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How to kill inactive ssh sessions - Louis LIN&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="Execute the following command that displays the list of processes:
+pstree -p  Look for the sshd:
+├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
+kill 3649 " />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.51" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2015/2015-07-21-how_to_kill_inactive_ssh/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+
+<meta property="og:title" content="How to kill inactive ssh sessions" />
+<meta property="og:description" content="Execute the following command that displays the list of processes:
+pstree -p  Look for the sshd:
+├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
+kill 3649 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2015/2015-07-21-how_to_kill_inactive_ssh/" /><meta property="article:published_time" content="2015-07-21T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2015-07-21T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="How to kill inactive ssh sessions">
+<meta itemprop="description" content="Execute the following command that displays the list of processes:
+pstree -p  Look for the sshd:
+├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
+kill 3649 ">
+
+
+<meta itemprop="datePublished" content="2015-07-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-07-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="24">
+
+
+
+<meta itemprop="keywords" content="ssh," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to kill inactive ssh sessions"/>
+<meta name="twitter:description" content="Execute the following command that displays the list of processes:
+pstree -p  Look for the sshd:
+├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
+kill 3649 "/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+    <li class="mobile-menu-item">
+      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
+        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
+      </form>
+    </li>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+    <li class="menu-item">
+      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
+        <input id="search-field" type="text" placeholder="Search...">
+      </form>
+    </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How to kill inactive ssh sessions</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-07-21 </span>
+        <div class="post-category">
+            
+              <a href="/tags/ssh/"> #ssh </a>
+            
+          </div>
+        
+        <span class="more-meta"> 1 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>Execute the following command that displays the list of processes:</p>
+
+<pre><code class="language-bash">pstree -p
+</code></pre>
+
+<p>Look for the <code>sshd</code>:</p>
+
+<pre><code class="language-bash">├─sshd(3102)─┬─sshd(3649)───bash(3656)
+│            └─sshd(16680)───bash(16687)───pstree(17073)
+</code></pre>
+
+<p>Kill the session:</p>
+
+<pre><code class="language-bash">kill 3649
+</code></pre>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">How to connect VisualVM to a remote Tomcat</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2015/2015-06-04-postgresql_enable_remote_connexion/">
+            <span class="next-text nav-default">Do not prompt password and enable remote access</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+
+
+
+<script type="text/javascript">
+  function duckSearch(id) {
+      var searchField = document.getElementById(id);
+      if (searchField && searchField.value) {
+          var query = escape('site:l-lin.github.io ' + searchField.value);
+          window.location.href = 'https://duckduckgo.com/?q=' + query;
+      }
+  }
+</script>
+
+</body>
+</html>

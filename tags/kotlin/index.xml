@@ -13,36 +13,34 @@
     
     <item>
       <title>Kotlin Basics - Classes </title>
-      <link>https://l-lin.github.io/post/2018-02-10-kotlin-classes_basics/</link>
+      <link>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</link>
       <pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate>
       
-      <guid>https://l-lin.github.io/post/2018-02-10-kotlin-classes_basics/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</guid>
+      <description>Methods In Java, when you declare class methods, you need to declare them inside the class:
+public class Plane { public void fly() { System.out.println(&amp;quot;I&#39;m flying&amp;quot;); } }  In Kotlin, you can declare in two different ways:
+class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // or class Plane fun Plane.fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } // or class Plane fun Plane.fly() = println(&amp;quot;I&#39;m flying&amp;quot;)  It&amp;rsquo;s interesting to note that other languages (like Golang) also uses the second form.</description>
     </item>
     
     <item>
       <title>Kotlin Basics: syntax</title>
-      <link>https://l-lin.github.io/post/2018-01-28-kotlin-basics_syntax/</link>
+      <link>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</link>
       <pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate>
       
-      <guid>https://l-lin.github.io/post/2018-01-28-kotlin-basics_syntax/</guid>
+      <guid>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</guid>
       <description>&lt;p&gt;Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p&gt;
 
-&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>My journey to learning Kotlin - The planning</title>
-      <link>https://l-lin.github.io/post/2018-01-25-journey_to_kotlin_planning/</link>
+      <link>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</link>
       <pubDate>Thu, 25 Jan 2018 22:28:05 +0100</pubDate>
       
-      <guid>https://l-lin.github.io/post/2018-01-25-journey_to_kotlin_planning/</guid>
+      <guid>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</guid>
       <description>&lt;p&gt;Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+It will be a shame to pass by without trying to use this language.&lt;/p&gt;</description>
     </item>
     
   </channel>

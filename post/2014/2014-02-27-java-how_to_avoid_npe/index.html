@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Avoiding Null Pointers - Louis LIN&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" />
+  <meta name="description" content="Exception in thread &amp;quot;main&amp;quot; java.lang.NullPointerException at ... at ... at ...  The most common exception that pulls you hair a thousands of times. I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production. There are no real cure for this curse. Every application cannot escape this issue.
+However, there are many ways to avoid and reduce such NullPointerException.
+" />
+
+  <meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.51" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+
+<meta property="og:title" content="Avoiding Null Pointers" />
+<meta property="og:description" content="Exception in thread &quot;main&quot; java.lang.NullPointerException
+    at ...
+    at ...
+    at ...
+
+
+The most common exception that pulls you hair a thousands of times.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+There are no real cure for this curse. Every application cannot escape this issue.
+
+However, there are many ways to avoid and reduce such NullPointerException." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" /><meta property="article:published_time" content="2014-02-27T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2014-02-27T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Avoiding Null Pointers">
+<meta itemprop="description" content="Exception in thread &quot;main&quot; java.lang.NullPointerException
+    at ...
+    at ...
+    at ...
+
+
+The most common exception that pulls you hair a thousands of times.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+There are no real cure for this curse. Every application cannot escape this issue.
+
+However, there are many ways to avoid and reduce such NullPointerException.">
+
+
+<meta itemprop="datePublished" content="2014-02-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2014-02-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="835">
+
+
+
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Avoiding Null Pointers"/>
+<meta name="twitter:description" content="Exception in thread &quot;main&quot; java.lang.NullPointerException
+    at ...
+    at ...
+    at ...
+
+
+The most common exception that pulls you hair a thousands of times.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+There are no real cure for this curse. Every application cannot escape this issue.
+
+However, there are many ways to avoid and reduce such NullPointerException."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+    <li class="mobile-menu-item">
+      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
+        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
+      </form>
+    </li>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+    <li class="menu-item">
+      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
+        <input id="search-field" type="text" placeholder="Search...">
+      </form>
+    </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Avoiding Null Pointers</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-02-27 </span>
+        <div class="post-category">
+            
+              <a href="/tags/java/"> #java </a>
+            
+          </div>
+        
+        <span class="more-meta"> 4 min read </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-image center">
+      <img src="http://s2.quickmeme.com/img/24/2458328a4d1e2091902d89b385cff1b54333a02f95f1cce5b1778b8d204321fe.jpg" />
+    </div>
+
+    
+    <div class="post-content">
+      <pre><code class="language-text">Exception in thread &quot;main&quot; java.lang.NullPointerException
+    at ...
+    at ...
+    at ...
+</code></pre>
+
+<p>The most common exception that pulls you hair a thousands of times.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+There are no real cure for this curse. Every application cannot escape this issue.</p>
+
+<p>However, there are many ways to avoid and reduce such <code>NullPointerException</code>.</p>
+
+<p>Let&rsquo;s say the following piece of code throws the exception:</p>
+
+<pre><code class="language-java">Foo foo = fooFactory.getFoo(fooId);
+foo.getName(); // =&gt; Throws NPE
+</code></pre>
+
+<p>The fix could be the following:</p>
+
+<pre><code class="language-java">Foo foo = fooFactory.getFoo(fooId);
+if (foo != null) {
+    foo.getName();
+}
+</code></pre>
+
+<p>This patch, although correct, is not the best fix.
+Indeed, correcting every <code>NullPointerException</code> with such fix will degrade your code, losing readibilty and such.</p>
+
+<h1 id="using-the-jsr305-jsr308">Using the JSR305/JSR308</h1>
+
+<p>Tools like <a href="http://findbugs.sourceforge.net/">Findbugs</a> are able to detect potential <code>NullPointerException</code>.
+It works well using annotation like <code>@NotNull</code> or <code>@Nullable</code>.
+Indeed, thanks to those latters, the compilator will give you a warning that a potential <code>NullPointerException</code> might occur.
+So the error is caught upstream. The client does not see the bugs, all is well.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Using Maven, you can add the dependecy:</p>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.google.code.findbugs&lt;/groupId&gt;
+    &lt;artifactId&gt;jsr305&lt;/artifactId&gt;
+    &lt;version&gt;1.3.9&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+
+<p>You can use those annotations in method parameters:</p>
+
+<pre><code class="language-java">private void foo(@NotNull String param) {
+    param.toString();
+}
+
+public static void main(String[] args) {
+    foo(null); // Findbugs will not be happy here!
+}
+</code></pre>
+
+<p>Or as a return value:</p>
+
+<pre><code class="language-java">@NotNull
+private String foo() {
+    return &quot;foo&quot;;
+}
+</code></pre>
+
+<p>I prefer the annotation <code>@Nullable</code> over <code>@NotNull</code> because in most case, parameters or return values are not <code>null</code>.
+So why bother putting <code>@NotNull</code> everywhere? With the annotation <code>@Nullable</code>, you tell findbugs that the parameters might be null and a null check is needed:</p>
+
+<pre><code class="language-java">private void foo(@Nullable String param) {
+    param.toString(); // Findbugs will not be happy here!
+}
+</code></pre>
+
+<p>However, you need to specify that every parameters and return values are not <code>null</code>.
+To do so, you need to create a <code>package-info.java</code> at the root of your package folder:</p>
+
+<pre><code>src
+|
+|--java
+|----com.lin.louis
+|------Main.java
+|------package-info.java
+</code></pre>
+
+<p>with the following content:</p>
+
+<pre><code class="language-java">@ParametersAreNonnullByDefault package com.lin.louis;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+</code></pre>
+
+<h1 id="using-the-nullpointerpattern">Using the NullPointerPattern</h1>
+
+<p>Another way to avoid <code>NullPointerException</code> is to use the <a href="http://en.wikipedia.org/wiki/Null_Object_pattern">NullPointerPatter</a>.</p>
+
+<p>For example:</p>
+
+<pre><code class="language-java">public class User {
+    private String name;
+    private List&lt;String&gt; permissions;
+    public String getName() { ... }
+    public List&lt;String&gt; getPermissions() { ... }
+}
+
+public final class UserNull {
+    @Override
+    public String getName() { return &quot;&quot;; }
+    @Override
+    public List&lt;String&gt; getPermissions() { return Collections.emptyList(); }
+}
+</code></pre>
+
+<p>So instead of returning <code>null</code>, you return the <code>null</code> value of <code>User</code> =&gt; <code>UserNull</code>.</p>
+
+<p>This pattern has a huge downside: you have to write for each POJO an empty class that represents the <code>null</code> value of your class.</p>
+
+<p>So much boilerplate for avoiding <code>NullPointerExceptions</code>.</p>
+
+<p>That is not my favorite solution.</p>
+
+<h1 id="throw-exception-as-soon-as-you-can">Throw exception as soon as you can</h1>
+
+<p>I prefer throwing an exception if the value of my parameter does not meet my expectation. You often want to have those check when you are working with external APIs:</p>
+
+<pre><code class="language-java">public void foo(String param) {
+    if (StringUtils.isBlank(param)) {
+        throw new IllegalArgumentException(&quot;Param must not be blank.&quot;);
+    }
+}
+</code></pre>
+
+<p>Or with <a href="https://code.google.com/p/guava-libraries/">Guava</a>:</p>
+
+<pre><code class="language-java">public void foo(String param) {
+    checkArgument(StringUtils.isBlank(param), &quot;Param must not be blank.&quot;);
+}
+</code></pre>
+
+<h1 id="using-optionals">Using Optionals</h1>
+
+<p>This pattern comes from functional programming background. The main goal is to use a wrapper of the object.
+This wrapper either returns the not <code>null</code> value or <code>absent</code>.</p>
+
+<p>The library <a href="https://code.google.com/p/guava-libraries/wiki/UsingAndAvoidingNullExplained#Optional">Guava</a> or <a href="https://github.com/functionaljava/functionaljava">FunctionalJava</a> has some interesting classes.</p>
+
+<p>For example:</p>
+
+<pre><code class="language-java">public void foo(String param) {
+    Optional&lt;String&gt; optionalParam = Optional.fromNullable(param);
+    if (optionalParam.isPresent()) {
+        System.out.println(optionalParam.get());
+    } else {
+        System.out.println(&quot;optionalParam is absent&quot;);
+    }
+}
+</code></pre>
+
+<p>From guava explanation:</p>
+
+<blockquote>
+<p>Many of the cases where programmers use null is to indicate some sort of absence: perhaps where there might have been a value, there is none, or one could not be found. For example, Map.get returns null when no value is found for a key.</p>
+
+<p><code>Optional&lt;T&gt;</code> is a way of replacing a nullable T reference with a non-null value. An Optional may either contain a non-null T reference (in which case we say the reference is &ldquo;present&rdquo;), or it may contain nothing (in which case we say the reference is &ldquo;absent&rdquo;). It is never said to &ldquo;contain null.&rdquo;</p>
+
+<p>What&rsquo;s the point?</p>
+
+<p>Besides the increase in readability that comes from giving null a name, the biggest advantage of Optional is its idiot-proof-ness. It forces you to actively think about the absent case if you want your program to compile at all, since you have to actively unwrap the Optional and address that case. Null makes it disturbingly easy to simply forget things, and though FindBugs helps, we don&rsquo;t think it addresses the issue nearly as well.</p>
+
+<p>This is especially relevant when you&rsquo;re returning values that may or may not be &ldquo;present.&rdquo; You (and others) are far more likely to forget that other.method(a, b) could return a null value than you&rsquo;re likely to forget that a could be null when you&rsquo;re implementing other.method. Returning Optional makes it impossible for callers to forget that case, since they have to unwrap the object themselves for their code to compile.</p>
+</blockquote>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2014/2014-05-02-meteor-another_js_framework/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MeteorJS, yet another JS framework?</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2014/2014-02-26-backbone-how_to_extend_properties/">
+            <span class="next-text nav-default">How to extend properties of parent class</span>
+            <span class="prev-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'llinfoobar';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+
+
+
+
+
+<script type="text/javascript">
+  function duckSearch(id) {
+      var searchField = document.getElementById(id);
+      if (searchField && searchField.value) {
+          var query = escape('site:l-lin.github.io ' + searchField.value);
+          window.location.href = 'https://duckduckgo.com/?q=' + query;
+      }
+  }
+</script>
+
+</body>
+</html>

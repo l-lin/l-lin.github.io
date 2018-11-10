@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.50" />
+<meta name="generator" content="Hugo 0.51" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -91,8 +91,6 @@
         <li class="mobile-menu-item">Archives</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
       </a>
@@ -117,8 +115,6 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
     <li class="menu-item">
@@ -140,15 +136,17 @@
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2018-01-25-journey_to_kotlin_planning/" style="background-image: url('https://images.pexels.com/photos/461775/pexels-photo-461775.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
+    <a class="post-image" href="/post/2018/2018-01-25-journey_to_kotlin_planning/" style="background-image: url('https://images.pexels.com/photos/461775/pexels-photo-461775.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2018-01-25-journey_to_kotlin_planning/">My journey to learning Kotlin - The planning</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/2018-01-25-journey_to_kotlin_planning/">My journey to learning Kotlin - The planning</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-01-25 </span>
       <div class="post-category">
           
-            <a href="/categories/thoughts/"> thoughts </a>
+            <a href="/tags/kotlin/"> #kotlin </a>
+          
+            <a href="/tags/learning/"> #learning </a>
           
         </div>
       
@@ -160,8 +158,6 @@
     <div class="post-summary">
       <p>Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
 It will be a shame to pass by without trying to use this language.</p>
-
-<p></p>
     </div>
   </div>
 </article>
@@ -169,15 +165,19 @@ It will be a shame to pass by without trying to use this language.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2017-05-17-java-set_locale_bean_validations/" style="background-image: url('https://images.pexels.com/photos/268438/pexels-photo-268438.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
+    <a class="post-image" href="/post/2017/2017-05-17-java-set_locale_bean_validations/" style="background-image: url('https://images.pexels.com/photos/268438/pexels-photo-268438.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2017-05-17-java-set_locale_bean_validations/">How to set locale for java bean validations</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2017/2017-05-17-java-set_locale_bean_validations/">How to set locale for java bean validations</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-05-17 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/locale/"> #locale </a>
+          
+            <a href="/tags/bean-validation/"> #bean validation </a>
+          
+            <a href="/tags/java/"> #java </a>
           
         </div>
       
@@ -190,8 +190,6 @@ It will be a shame to pass by without trying to use this language.</p>
       <p>Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like <code>@NotBlank</code>.</p>
 
 <p>However, the hibernate validation library also provides default validation messages, for several languages (which is great).</p>
-
-<p></p>
     </div>
   </div>
 </article>
@@ -200,12 +198,12 @@ It will be a shame to pass by without trying to use this language.</p>
       <article class="post">
   <header class="post-header">
     
-    <h1 class="post-title"><a class="post-link" href="/post/2016-07-03-migrate_svn_to_git/">How to migrate SVN projects to Git</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2016/2016-07-03-migrate_svn_to_git/">How to migrate SVN projects to Git</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2016-03-07 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/git/"> #git </a>
           
         </div>
       
@@ -215,7 +213,11 @@ It will be a shame to pass by without trying to use this language.</p>
   
   <div class="post-content">
     <div class="post-summary">
-      <p></p>
+      Create a users.txt file. It will be used to map the SVN users to an email.
+For example:
+l.lin = Louis LIN &lt;louis.lin@yopmail.com&gt; foo.bar = Foo BAR &lt;foo.bar@yopmail.com&gt;  Execute the following command:
+git svn clone --trunk=/trunk --branches=/branches --tags=/tags --authors-file=users.txt http://&lt;path_to_svn_project&gt; &lt;project_name&gt;  It will only create the master branch in local. So you will need to create the tags using the following command:
+git for-each-ref refs/remotes/origin/tags | cut -d / -f 5- | grep -v @ | \ while read tagname; do git tag &quot;$tagname&quot; &quot;origin/tags/$tagname&quot;; git branch -r -d &quot;origin/tags/$tagname&quot;; done  You might need to adapt the command a little bit if your branch tags are not called remotes/origin/tags/&lt;tagname&gt;.
     </div>
   </div>
 </article>
@@ -223,15 +225,15 @@ It will be a shame to pass by without trying to use this language.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2015-08-27-internet_sharing_with_bluetooth_usb_key/" style="background-image: url('https://images.pexels.com/photos/218717/pexels-photo-218717.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
+    <a class="post-image" href="/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/" style="background-image: url('https://images.pexels.com/photos/218717/pexels-photo-218717.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015-08-27-internet_sharing_with_bluetooth_usb_key/">How to share internet connexion to mobile using bluetooth USB key</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/">How to share internet connexion to mobile using bluetooth USB key</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-08-27 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/xubuntu/"> #xubuntu </a>
           
         </div>
       
@@ -243,8 +245,6 @@ It will be a shame to pass by without trying to use this language.</p>
     <div class="post-summary">
       <p>This tutorial was done using the <a href="http://www.amazon.fr/gp/product/B00CM83SC0">ASUS USB-BT400 Mini Bluetooth 4,0 Dongle USB 2,0</a>
 and Xubuntu.</p>
-
-<p></p>
     </div>
   </div>
 </article>
@@ -252,15 +252,17 @@ and Xubuntu.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2015-07-23-connecting_visualvm_to_remote_tomcat/" style="background-image: url('https://images.pexels.com/photos/241544/pexels-photo-241544.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
+    <a class="post-image" href="/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/" style="background-image: url('https://images.pexels.com/photos/241544/pexels-photo-241544.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015-07-23-connecting_visualvm_to_remote_tomcat/">How to connect VisualVM to a remote Tomcat</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/">How to connect VisualVM to a remote Tomcat</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-07-23 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/tomcat/"> #tomcat </a>
+          
+            <a href="/tags/monitoring/"> #monitoring </a>
           
         </div>
       
@@ -270,7 +272,8 @@ and Xubuntu.</p>
   
   <div class="post-content">
     <div class="post-summary">
-      <p></p>
+       Add the following to the JAVA_OPTS:  export JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&quot;  Set your server IP on the java.rmi.server.hostname.
+ On VisualVM, add a remote host Right click on the created host &gt; Add JMX connexion Set the server IP with the port (in the example, it&rsquo;s 9090) ???? PROFIT!!! 
     </div>
   </div>
 </article>
@@ -279,12 +282,12 @@ and Xubuntu.</p>
       <article class="post">
   <header class="post-header">
     
-    <h1 class="post-title"><a class="post-link" href="/post/2015-07-21-how_to_kill_inactive_ssh/">How to kill inactive ssh sessions</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-21-how_to_kill_inactive_ssh/">How to kill inactive ssh sessions</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-07-21 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/ssh/"> #ssh </a>
           
         </div>
       
@@ -294,7 +297,10 @@ and Xubuntu.</p>
   
   <div class="post-content">
     <div class="post-summary">
-      <p></p>
+      Execute the following command that displays the list of processes:
+pstree -p  Look for the sshd:
+├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
+kill 3649 
     </div>
   </div>
 </article>
@@ -302,15 +308,15 @@ and Xubuntu.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2015-06-04-postgresql_enable_remote_connexion/" style="background-image: url('https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png')">
+    <a class="post-image" href="/post/2015/2015-06-04-postgresql_enable_remote_connexion/" style="background-image: url('https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015-06-04-postgresql_enable_remote_connexion/">Do not prompt password and enable remote access</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-06-04-postgresql_enable_remote_connexion/">Do not prompt password and enable remote access</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-06-04 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/postgresql/"> #postgresql </a>
           
         </div>
       
@@ -320,7 +326,10 @@ and Xubuntu.</p>
   
   <div class="post-content">
     <div class="post-summary">
-      <p></p>
+      Do not prompt password Edit the file /etc/postgresql/9.3/main/pg_hba.conf and change the value from peer to trust:
+# &quot;local&quot; is for Unix domain socket connections only local all postgres trust # IPv4 local connections: host all all 0.0.0.0/0 trust  Restart the PostgreSQL service:
+sudo service postgresql restart  Enable remote access Edit the file /etc/postgresql/9.3/main/postgresql.confand look for the property listen_addresses and change its value to '*':
+listen_addresses = '*'  Restart the PostgreSQL service:
     </div>
   </div>
 </article>
@@ -328,15 +337,15 @@ and Xubuntu.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2015-02-28-chrome_extension_and_origin_not_allowed/" style="background-image: url('/images/chrome.png')">
+    <a class="post-image" href="/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/" style="background-image: url('/images/chrome.png')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015-02-28-chrome_extension_and_origin_not_allowed/">Chrome extension and &#39;Access-Control-Allow-Origin&#39;</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/">Chrome extension and &#39;Access-Control-Allow-Origin&#39;</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-02-28 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/chrome/"> #chrome </a>
           
         </div>
       
@@ -346,7 +355,9 @@ and Xubuntu.</p>
   
   <div class="post-content">
     <div class="post-summary">
-      <p></p>
+      When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
+var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr('GET', 'https://foobar.com', function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
+XMLHttpRequest cannot load https://foobar.
     </div>
   </div>
 </article>
@@ -354,15 +365,15 @@ and Xubuntu.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2015-01-31-golang-deploy_to_heroku/" style="background-image: url('/images/golang.png')">
+    <a class="post-image" href="/post/2015/2015-01-31-golang-deploy_to_heroku/" style="background-image: url('/images/golang.png')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015-01-31-golang-deploy_to_heroku/">Deploying a Golang web apps to Heroku</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-01-31-golang-deploy_to_heroku/">Deploying a Golang web apps to Heroku</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-01-31 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/heroku/"> #heroku </a>
           
         </div>
       
@@ -373,8 +384,6 @@ and Xubuntu.</p>
   <div class="post-content">
     <div class="post-summary">
       <p>Deploying a <a href="https://golang.org/">Golang</a> web apps to <a href="https://www.heroku.com">Heroku</a> is quite easy.</p>
-
-<p></p>
     </div>
   </div>
 </article>
@@ -382,15 +391,17 @@ and Xubuntu.</p>
     
       <article class="post">
   <header class="post-header">
-    <a class="post-image" href="/post/2015-01-25-change_capslock_to_ctrl/" style="background-image: url('https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
+    <a class="post-image" href="/post/2015/2015-01-25-change_capslock_to_ctrl/" style="background-image: url('https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
       &nbsp;
     </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015-01-25-change_capslock_to_ctrl/">Changing the Caps Lock key to Ctrl</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-01-25-change_capslock_to_ctrl/">Changing the Caps Lock key to Ctrl</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2015-01-25 </span>
       <div class="post-category">
           
-            <a href="/categories/tips-and-tricks/"> tips-and-tricks </a>
+            <a href="/tags/xubuntu/"> #xubuntu </a>
+          
+            <a href="/tags/windows/"> #windows </a>
           
         </div>
       
@@ -406,8 +417,6 @@ must enter your password, but your caps lock is on, thus you entered your passwo
 
 <p>So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
 everyday?</p>
-
-<p></p>
     </div>
   </div>
 </article>

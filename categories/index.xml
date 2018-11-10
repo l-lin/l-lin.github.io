@@ -6,53 +6,16 @@
     <description>Recent content in Categories on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Sep 2018 10:38:53 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Architecture</title>
-      <link>https://l-lin.github.io/categories/architecture/</link>
-      <pubDate>Thu, 13 Sep 2018 10:38:53 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/categories/architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Concepts</title>
-      <link>https://l-lin.github.io/categories/concepts/</link>
+      <title>Post</title>
+      <link>https://l-lin.github.io/categories/post/</link>
       <pubDate>Sun, 21 Oct 2018 14:08:39 +0200</pubDate>
       
-      <guid>https://l-lin.github.io/categories/concepts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Thoughts</title>
-      <link>https://l-lin.github.io/categories/thoughts/</link>
-      <pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/categories/thoughts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tips and Tricks</title>
-      <link>https://l-lin.github.io/categories/tips-and-tricks/</link>
-      <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/categories/tips-and-tricks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorial</title>
-      <link>https://l-lin.github.io/categories/tutorial/</link>
-      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/categories/tutorial/</guid>
+      <guid>https://l-lin.github.io/categories/post/</guid>
       <description></description>
     </item>
     

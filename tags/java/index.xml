@@ -13,10 +13,10 @@
     
     <item>
       <title>(Rock) SOLID</title>
-      <link>https://l-lin.github.io/post/2018-10-21-java_solid/</link>
+      <link>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</link>
       <pubDate>Sun, 21 Oct 2018 14:08:39 +0200</pubDate>
       
-      <guid>https://l-lin.github.io/post/2018-10-21-java_solid/</guid>
+      <guid>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</guid>
       <description>&lt;p&gt;This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.&lt;/p&gt;
 
 &lt;p&gt;This one will deal with the famous &lt;strong&gt;SOLID&lt;/strong&gt; design principles:&lt;/p&gt;
@@ -27,17 +27,15 @@
 &lt;li&gt;&lt;strong&gt;L&lt;/strong&gt;iskov substitution principle&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;I&lt;/strong&gt;nterface segregation principle&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;D&lt;/strong&gt;ependecy inversion principle&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
       <title>Back to basics</title>
-      <link>https://l-lin.github.io/post/2018-10-14-java_back_to_basics/</link>
+      <link>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</link>
       <pubDate>Sun, 14 Oct 2018 12:27:51 +0200</pubDate>
       
-      <guid>https://l-lin.github.io/post/2018-10-14-java_back_to_basics/</guid>
+      <guid>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</guid>
       <description>&lt;p&gt;I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
 coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code
 instead of explaining using common concepts to my peers.&lt;/p&gt;
@@ -46,30 +44,26 @@ instead of explaining using common concepts to my peers.&lt;/p&gt;
 trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new
 guy freshly coming out of school.&lt;/p&gt;
 
-&lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>How to set locale for java bean validations</title>
-      <link>https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/</link>
+      <link>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</link>
       <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://l-lin.github.io/post/2017-05-17-java-set_locale_bean_validations/</guid>
+      <guid>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</guid>
       <description>&lt;p&gt;Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like &lt;code&gt;@NotBlank&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Authentication using certificates, Tomcat and Spring security</title>
-      <link>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</link>
+      <link>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
+      <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
       <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
 What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
 
@@ -86,17 +80,15 @@ What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each
 &lt;li&gt;how to access with a third party application&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Avoiding Null Pointers</title>
-      <link>https://l-lin.github.io/post/2014-02-27-java-how_to_avoid_npe/</link>
+      <link>https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/</link>
       <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://l-lin.github.io/post/2014-02-27-java-how_to_avoid_npe/</guid>
+      <guid>https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;Exception in thread &amp;quot;main&amp;quot; java.lang.NullPointerException
     at ...
     at ...
@@ -107,9 +99,7 @@ What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each
 I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;
 
-&lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

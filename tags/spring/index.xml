@@ -13,10 +13,10 @@
     
     <item>
       <title>Authentication using certificates, Tomcat and Spring security</title>
-      <link>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</link>
+      <link>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</link>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://l-lin.github.io/post/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
+      <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
       <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
 What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
 
@@ -33,9 +33,7 @@ What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each
 &lt;li&gt;how to access with a third party application&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;</description>
     </item>
     
   </channel>
