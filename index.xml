@@ -23,6 +23,18 @@ My projects Front  Angular notifier Bulletular Back to top Open badge card Angul
     </item>
     
     <item>
+      <title>JPA @OneToMany and composite primary key</title>
+      <link>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</link>
+      <pubDate>Wed, 14 Nov 2018 16:40:06 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</guid>
+      <description>&lt;p&gt;To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
+is not quite straightforward.&lt;/p&gt;
+
+&lt;p&gt;We need to use a mix of JPA annotations along with creating some embeddable classes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>(Rock) SOLID</title>
       <link>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</link>
       <pubDate>Sun, 21 Oct 2018 14:08:39 +0200</pubDate>

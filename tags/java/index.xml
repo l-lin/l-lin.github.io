@@ -6,10 +6,22 @@
     <description>Recent content in Java on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Oct 2018 14:08:39 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 14 Nov 2018 16:40:06 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JPA @OneToMany and composite primary key</title>
+      <link>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</link>
+      <pubDate>Wed, 14 Nov 2018 16:40:06 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</guid>
+      <description>&lt;p&gt;To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
+is not quite straightforward.&lt;/p&gt;
+
+&lt;p&gt;We need to use a mix of JPA annotations along with creating some embeddable classes.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>(Rock) SOLID</title>
