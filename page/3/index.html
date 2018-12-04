@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.51" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -55,7 +55,7 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-<meta property="og:updated_time" content="2018-01-28T17:37:03&#43;01:00"/>
+<meta property="og:updated_time" content="2018-02-08T10:42:13&#43;01:00"/>
 
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development">
@@ -133,6 +133,38 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <a class="post-image" href="/post/2018/2018-02-08-git_extract_folders_with_history/" style="background-image: url('https://images.pexels.com/photos/51191/stack-letters-letter-handwriting-family-letters-51191.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb')">
+      &nbsp;
+    </a>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/2018-02-08-git_extract_folders_with_history/">How to extract folders with history with git</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-02-08 </span>
+      <div class="post-category">
+          
+            <a href="/tags/git/"> #git </a>
+          
+        </div>
+      
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.</p>
+
+<p>Thus, you will need to extract the folder of the sub-project.</p>
+
+<p>Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.</p>
+
+<p>Git is an awesome tool which has a &ldquo;magical&rdquo; command.</p>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -388,32 +420,6 @@ listen_addresses = '*'  Restart the PostgreSQL service:
       When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
 var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr('GET', 'https://foobar.com', function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
 XMLHttpRequest cannot load https://foobar.
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    <a class="post-image" href="/post/2015/2015-01-31-golang-deploy_to_heroku/" style="background-image: url('/images/golang.png')">
-      &nbsp;
-    </a>
-    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-01-31-golang-deploy_to_heroku/">Deploying a Golang web apps to Heroku</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-01-31 </span>
-      <div class="post-category">
-          
-            <a href="/tags/heroku/"> #heroku </a>
-          
-        </div>
-      
-      <span class="more-meta"> 3 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Deploying a <a href="https://golang.org/">Golang</a> web apps to <a href="https://www.heroku.com">Heroku</a> is quite easy.</p>
     </div>
   </div>
 </article>

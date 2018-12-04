@@ -6,10 +6,20 @@
     <description>Recent content in Java on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 Nov 2018 16:40:06 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 04 Dec 2018 09:01:20 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Custom validator for standard constraints</title>
+      <link>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</link>
+      <pubDate>Tue, 04 Dec 2018 09:01:20 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</guid>
+      <description>&lt;p&gt;Bean validation provides constraint annotations to check DTO parameters.
+However, what if we want to check a parameter type not supported by a standard constraint annotation?&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>JPA @OneToMany and composite primary key</title>

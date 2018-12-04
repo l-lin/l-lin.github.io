@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Circuit breaker - Louis LIN&#39;s blog</title>
+  <title>Custom validator for standard constraints - Louis LIN&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="Handle failures that might take a variable amount of time to recover from
+  <meta name="description" content="Bean validation provides constraint annotations to check DTO parameters. However, what if we want to check a parameter type not supported by a standard constraint annotation?
 " />
 
   <meta name="keywords" content="software development" />
@@ -30,7 +30,7 @@
 <meta name="generator" content="Hugo 0.52" />
 
 
-<link rel="canonical" href="https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/" />
+<link rel="canonical" href="https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -51,26 +51,29 @@
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
-<meta property="og:title" content="Circuit breaker" />
-<meta property="og:description" content="Handle failures that might take a variable amount of time to recover from" />
+<meta property="og:title" content="Custom validator for standard constraints" />
+<meta property="og:description" content="Bean validation provides constraint annotations to check DTO parameters.
+However, what if we want to check a parameter type not supported by a standard constraint annotation?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/" /><meta property="article:published_time" content="2018-08-19T14:52:25&#43;02:00"/>
-<meta property="article:modified_time" content="2018-08-19T14:52:25&#43;02:00"/>
+<meta property="og:url" content="https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/" /><meta property="article:published_time" content="2018-12-04T09:01:20&#43;01:00"/>
+<meta property="article:modified_time" content="2018-12-04T09:01:20&#43;01:00"/>
 
-<meta itemprop="name" content="Circuit breaker">
-<meta itemprop="description" content="Handle failures that might take a variable amount of time to recover from">
-
-
-<meta itemprop="datePublished" content="2018-08-19T14:52:25&#43;02:00" />
-<meta itemprop="dateModified" content="2018-08-19T14:52:25&#43;02:00" />
-<meta itemprop="wordCount" content="19">
+<meta itemprop="name" content="Custom validator for standard constraints">
+<meta itemprop="description" content="Bean validation provides constraint annotations to check DTO parameters.
+However, what if we want to check a parameter type not supported by a standard constraint annotation?">
 
 
+<meta itemprop="datePublished" content="2018-12-04T09:01:20&#43;01:00" />
+<meta itemprop="dateModified" content="2018-12-04T09:01:20&#43;01:00" />
+<meta itemprop="wordCount" content="174">
 
-<meta itemprop="keywords" content="architecture,patterns," />
+
+
+<meta itemprop="keywords" content="bean validation,java," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Circuit breaker"/>
-<meta name="twitter:description" content="Handle failures that might take a variable amount of time to recover from"/>
+<meta name="twitter:title" content="Custom validator for standard constraints"/>
+<meta name="twitter:description" content="Bean validation provides constraint annotations to check DTO parameters.
+However, what if we want to check a parameter type not supported by a standard constraint annotation?"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -140,15 +143,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Circuit breaker</h1>
+      <h1 class="post-title">Custom validator for standard constraints</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-08-19 </span>
+        <span class="post-time"> 2018-12-04 </span>
         <div class="post-category">
             
-              <a href="/tags/architecture/"> #architecture </a>
+              <a href="/tags/bean-validation/"> #bean validation </a>
             
-              <a href="/tags/patterns/"> #patterns </a>
+              <a href="/tags/java/"> #java </a>
             
           </div>
         
@@ -165,17 +168,67 @@
 
     
     <div class="post-content">
-      <p>Handle failures that might take a variable amount of time to recover from</p>
+      <p>Bean validation provides constraint annotations to check DTO parameters.
+However, what if we want to check a parameter type not supported by a standard constraint annotation?</p>
 
-<figure class="center">
-    <img src="https://raw.githubusercontent.com/l-lin/architecture-cheat-sheet/master/circuit-breaker/circuit-breaker.png"
-         alt="Circuit-breaker"/> <figcaption>
-            <h4>Circuit-breaker</h4>
-        </figcaption>
-</figure>
+<p>Let&rsquo;s say, we want to check a <code>LocalDateTime</code> is in the future. But, our parameter type is in <code>String</code>, a type not supported
+by the annotation <code>@Future</code>.</p>
+
+<p>Instead of creating a new annotation, we will add configure so that it will support it.</p>
+
+<p>First, let&rsquo;s create our custom validator:</p>
+
+<pre><code class="language-java">package lin.louis;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+import javax.validation.constraints.Future;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
-<p>Example in the <a href="https://github.com/l-lin/architecture-cheat-sheet/tree/master/circuit-breaker">Github repo</a></p>
+public class FutureValidatorForString implements ConstraintValidator&lt;Future, String&gt; {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FutureValidatorForString.class);
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        if (value == null || &quot;&quot;.equals(value.trim())) {
+            return true;
+        }
+        
+        try {
+            LocalDateTime localDateTime = LocalDateTime.parse(value);
+            return LocalDateTime.now().isBefore(localDateTime);
+        } catch (DateTimeParseException e) {
+            LOGGER.debug(&quot;The timestamp is not valid.&quot;, e);
+            return true;
+        }
+    }
+}
+</code></pre>
+
+<p>Then provide this implementation in <code>META-INF/services/javax.validation.ConstraintValidator</code>:</p>
+
+<pre><code class="language-txt">lin.louis.FutureValidatorForString
+</code></pre>
+
+<p>Now, you can use the annotation for <code>String</code> type:</p>
+
+<pre><code class="language-java">public class Apple {
+    @Future
+    private String expirationDate;
+}
+</code></pre>
+
+<p>Source:</p>
+
+<ul>
+<li><a href="http://in.relation.to/2017/03/02/adding-custom-constraint-definitions-via-the-java-service-loader/">in.relation.to</a></li>
+</ul>
     </div>
 
     
@@ -188,14 +241,9 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/2018/2018-08-31-postgresql_remove_idle_transactions/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Remove idle transactions</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/2018/2018-08-05-retry_pattern/">
-            <span class="next-text nav-default">Retry pattern</span>
+          <a class="next" href="/post/2018/2018-11-14_jpa_onetomany_composite_pk/">
+            <span class="next-text nav-default">JPA @OneToMany and composite primary key</span>
             <span class="prev-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

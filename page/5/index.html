@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.51" />
+<meta name="generator" content="Hugo 0.52" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -55,7 +55,7 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-<meta property="og:updated_time" content="2013-12-30T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2014-01-04T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development">
@@ -133,6 +133,33 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    
+    <h1 class="post-title"><a class="post-link" href="/post/2014/2014-01-04-git-configure_git_behind_a_proxy/">Configuring git behind a proxy</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-01-04 </span>
+      <div class="post-category">
+          
+            <a href="/tags/git/"> #git </a>
+          
+        </div>
+      
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      When using Bower, you may encounter some issues, such as for example: ECMDERR Failed to execute &quot;git ls-remote --tags --heads git://github.com/...&quot;, exit code of #128
+The issue probably come from the fact that you are behind a proxy and your proxy does not allow the git protocol (port 9418).
+So in order to solve this problem, you have to use the protocols HTTP and HTTPS instead of GIT.
+The easy way is to tell GIT to use the protocol HTTPS instead of the protocol GIT with the following commands line:
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
