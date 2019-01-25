@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.52" />
+<meta name="generator" content="Hugo 0.53" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -55,7 +55,7 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-<meta property="og:updated_time" content="2014-01-04T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2014-02-03T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development">
@@ -133,6 +133,33 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    
+    <h1 class="post-title"><a class="post-link" href="/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/">How to test asynchronous calls with AngularJS</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-02-03 </span>
+      <div class="post-category">
+          
+            <a href="/tags/angularjs/"> #angularjs </a>
+          
+        </div>
+      
+      <span class="more-meta"> 2 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Testing with callback function Given the following factory that fetches a foobar through a REST call:
+angular.module('foobarApp'). factory('foobarFactory', function($resource) { return { getFoobar: function(callback) { $resource('/rest/foobar').get(function(foobar) { callback(foobar); }); } }; });  I need to test the following controller that depends on foobarFactory:
+angular.module('foobarApp'). controller('foobarCtrl', function($scope, foobarFactory) { $scope.foobar = function() { foobarFactory.getFoobar(function(foobar) { $scope.foobarId = foobar.id; }); }; });  To do so, I need to:
+ Mock the foobarFactory and return a fake when calling the method getFoobar  spyOn(foobarFactory, 'getFoobar').
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -292,7 +319,7 @@ This is one way to test routers by using <a href="http://pivotal.github.io/jasmi
     &copy; 
     
       2013 - 
-    2018
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

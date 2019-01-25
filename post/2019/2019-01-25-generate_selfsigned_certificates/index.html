@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>How to link old and new IDs when migrating data from one table to another - Louis LIN&#39;s blog</title>
+  <title>How to generate self-signed certificates - Louis LIN&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -17,9 +17,7 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="When proceeding a database migration, I often had to create a temporary table that will contains the data from the old database.
-However, after the migration, I still need to have links between the old IDs and the new IDs for various post migration operation.
-This post is about creating the table containing the linked ids.
+  <meta name="description" content="When developing, we may need to use certificate. Instead of using Let&amp;rsquo;s Encrypt or even pay for one, we can use openssl command line to generate self-signed certificates.
 " />
 
   <meta name="keywords" content="software development" />
@@ -32,7 +30,7 @@ This post is about creating the table containing the linked ids.
 <meta name="generator" content="Hugo 0.53" />
 
 
-<link rel="canonical" href="https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/" />
+<link rel="canonical" href="https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -53,44 +51,29 @@ This post is about creating the table containing the linked ids.
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
-<meta property="og:title" content="How to link old and new IDs when migrating data from one table to another" />
-<meta property="og:description" content="When proceeding a database migration, I often had to create a temporary table that will contains
-the data from the old database.
-
-However, after the migration, I still need to have links between the old IDs and the new IDs for
-various post migration operation.
-
-This post is about creating the table containing the linked ids." />
+<meta property="og:title" content="How to generate self-signed certificates" />
+<meta property="og:description" content="When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
+we can use openssl command line to generate self-signed certificates." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/" /><meta property="article:published_time" content="2018-03-29T11:25:34&#43;02:00"/>
-<meta property="article:modified_time" content="2018-03-29T11:25:34&#43;02:00"/>
+<meta property="og:url" content="https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/" /><meta property="article:published_time" content="2019-01-25T16:03:35&#43;01:00"/>
+<meta property="article:modified_time" content="2019-01-25T16:03:35&#43;01:00"/>
 
-<meta itemprop="name" content="How to link old and new IDs when migrating data from one table to another">
-<meta itemprop="description" content="When proceeding a database migration, I often had to create a temporary table that will contains
-the data from the old database.
-
-However, after the migration, I still need to have links between the old IDs and the new IDs for
-various post migration operation.
-
-This post is about creating the table containing the linked ids.">
+<meta itemprop="name" content="How to generate self-signed certificates">
+<meta itemprop="description" content="When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
+we can use openssl command line to generate self-signed certificates.">
 
 
-<meta itemprop="datePublished" content="2018-03-29T11:25:34&#43;02:00" />
-<meta itemprop="dateModified" content="2018-03-29T11:25:34&#43;02:00" />
-<meta itemprop="wordCount" content="225">
+<meta itemprop="datePublished" content="2019-01-25T16:03:35&#43;01:00" />
+<meta itemprop="dateModified" content="2019-01-25T16:03:35&#43;01:00" />
+<meta itemprop="wordCount" content="301">
 
 
 
-<meta itemprop="keywords" content="postgresql," />
+<meta itemprop="keywords" content="ssh,certificate," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to link old and new IDs when migrating data from one table to another"/>
-<meta name="twitter:description" content="When proceeding a database migration, I often had to create a temporary table that will contains
-the data from the old database.
-
-However, after the migration, I still need to have links between the old IDs and the new IDs for
-various post migration operation.
-
-This post is about creating the table containing the linked ids."/>
+<meta name="twitter:title" content="How to generate self-signed certificates"/>
+<meta name="twitter:description" content="When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
+we can use openssl command line to generate self-signed certificates."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -160,13 +143,15 @@ This post is about creating the table containing the linked ids."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">How to link old and new IDs when migrating data from one table to another</h1>
+      <h1 class="post-title">How to generate self-signed certificates</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-03-29 </span>
+        <span class="post-time"> 2019-01-25 </span>
         <div class="post-category">
             
-              <a href="/tags/postgresql/"> #postgresql </a>
+              <a href="/tags/ssh/"> #ssh </a>
+            
+              <a href="/tags/certificate/"> #certificate </a>
             
           </div>
         
@@ -179,64 +164,111 @@ This post is about creating the table containing the linked ids."/>
     
 
     
-    <div class="post-image center">
-      <img src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" />
-    </div>
+    
 
     
     <div class="post-content">
-      <p>When proceeding a database migration, I often had to create a temporary table that will contains
-the data from the old database.</p>
+      <p>When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
+we can use <code>openssl</code> command line to generate self-signed certificates.</p>
 
-<p>However, after the migration, I still need to have links between the old IDs and the new IDs for
-various post migration operation.</p>
+<pre><code class="language-bash">#######################################################
+# This scripts is used to generate the rootCA and the #
+# user bi-keys                                        #
+#                                                     #
+# Usage:                                              #
+#           ./generate_certificate.sh                 #
+#######################################################
+#!/bin/bash
 
-<p>This post is about creating the table containing the linked ids.</p>
+rootca_home=&quot;./rootCA&quot;
+rootca_validity=3650
+cert_validity=500
+subject=&quot;/C=FR/ST=IDF/L=Paris/O=Foobar/OU=R&amp;D/CN=&quot;
 
-<p>Imagine we have the following:</p>
+info () {
+    echo &quot;[INFO] $1&quot;
+}
 
-<pre><code class="language-sql">CREATE TABLE old_table (
-  id int4,
-  name VARCHAR
-);
-INSERT INTO old_table (id, name) VALUES (3, 'foo');
-INSERT INTO old_table (id, name) VALUES (4, 'bar');
-INSERT INTO old_table (id, name) VALUES (6, 'foobar');
-INSERT INTO old_table (id, name) VALUES (10, 'foo bar');
+generateRootCA() {
+    info &quot;Generating the Certification authority&quot;
+    rm -rf  ${rootca_home}/*
+    mkdir -p ${rootca_home}
+
+    # Since we do not have any certification authority, we will generate our own.
+    openssl genrsa -out ${rootca_home}/rootCA.key 2048
+    openssl req -new -nodes -x509 \
+            -days ${rootca_validity} \
+            -key ${rootca_home}/rootCA.key \
+            -out ${rootca_home}/rootCA.pem \
+            -subj &quot;${subject}rootca&quot;
+}
+
+generateRSA() {
+    local keystoreName=$1
+
+    info &quot;${keystoreName} - Generate RSA private key&quot;
+    openssl genrsa -out ${keystoreName}/${keystoreName}.rsa.key 2048
+
+    info &quot;${keystoreName} - Generate certificate signing request for our RSA certificate&quot;
+    openssl req -new \
+            -key ${keystoreName}/${keystoreName}.rsa.key \
+            -out ${keystoreName}/${keystoreName}.rsa.csr \
+            -subj &quot;${subject}${keystoreName}&quot;
+
+    info &quot;${keystoreName} - Sign the RSA CSR using CA root key&quot;
+    openssl x509 -req \
+            -in ${keystoreName}/${keystoreName}.rsa.csr \
+            -CA ${rootca_home}/rootCA.pem \
+            -CAkey ${rootca_home}/rootCA.key \
+            -CAcreateserial \
+            -out ${keystoreName}/${keystoreName}.rsa.crt \
+            -days ${cert_validity} \
+            -sha256
+}
+
+generateECDSA() {
+    local keystoreName=$1
+
+    info &quot;${keystoreName} - Generate ECDSA private key&quot;
+    openssl ecparam -name prime256v1 -genkey -out ${keystoreName}/${keystoreName}.ecdsa.key
+
+    info &quot;${keystoreName} - Generate certificate signing request for our ECDSA certificate&quot;
+    openssl req -new -nodes \
+            -key ${keystoreName}/${keystoreName}.ecdsa.key \
+            -out ${keystoreName}/${keystoreName}.ecdsa.csr \
+            -subj &quot;${subject}${keystoreName}&quot;
+
+    info &quot;${keystoreName} - Sign the RSA CSR using CA root key&quot;
+    openssl x509 -req \
+            -in ${keystoreName}/${keystoreName}.ecdsa.csr \
+            -CA ${rootca_home}/rootCA.pem \
+            -CAkey ${rootca_home}/rootCA.key \
+            -CAcreateserial \
+            -out ${keystoreName}/${keystoreName}.ecdsa.crt \
+            -days ${cert_validity} \
+            -sha256
+}
+
+generateUserCertificate () {
+    local keystoreName=$1
+
+    info &quot;${keystoreName} - Delete existing files&quot;
+    rm -rf ${keystoreName}
+    mkdir -p ${keystoreName}
+
+    generateRSA ${keystoreName}
+    generateECDSA ${keystoreName}
+}
+
+generateRootCA
+
+generateUserCertificate &quot;l.lin&quot;
+generateUserCertificate &quot;localhost&quot;
+
+info &quot;Generating CA and user certificates FINISHED!!!&quot;
+
+exit 0
 </code></pre>
-
-<p>I want to migrate to this new table:</p>
-
-<pre><code class="language-sql">CREATE TABLE new_table (
-  id serial PRIMARY KEY,
-  new_name VARCHAR
-);
-</code></pre>
-
-<p>With some CTE magic, I should be able to get my temp table that contains the links:</p>
-
-<pre><code class="language-sql">WITH sel AS (
-  SELECT *, row_number() OVER (ORDER BY id) AS rn
-  FROM old_table
-  ORDER BY id
-),
-ins AS (
-  INSERT INTO new_table (new_name)
-  SELECT name
-  FROM old_table
-  ORDER BY id -- Optional, just to be sure
-  RETURNING id
-)
-SELECT i.id AS new_id, sel.id AS old_id
-FROM (SELECT id, row_number() OVER (ORDER BY id) AS rn FROM ins) i
-JOIN sel USING (rn);
-</code></pre>
-
-<p>And VOILA, this SQL query will return the link between the old and new IDs.</p>
-
-<p>Check this <a href="http://sqlfiddle.com/#!17/2b8d8/1">sqlfiddle</a>.</p>
-
-<p>Source: <a href="https://stackoverflow.com/questions/29256888/insert-into-from-select-returning-id-mappings">Stackoverflow</a></p>
     </div>
 
     
@@ -249,14 +281,9 @@ JOIN sel USING (rn);
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/2018/2018-04-04-sidecar/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Sidecar</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/post/2018/2018-03-11-gateway_routing/">
-            <span class="next-text nav-default">Gateway routing</span>
+          <a class="next" href="/post/2018/2018-12-04-custom_validator_for_standard_constraints/">
+            <span class="next-text nav-default">Custom validator for standard constraints</span>
             <span class="prev-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

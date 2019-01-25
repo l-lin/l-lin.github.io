@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.52" />
+<meta name="generator" content="Hugo 0.53" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -55,7 +55,7 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-<meta property="og:updated_time" content="2015-01-31T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2015-02-28T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development">
@@ -133,6 +133,34 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <a class="post-image" href="/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/" style="background-image: url('/images/chrome.png')">
+      &nbsp;
+    </a>
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/">Chrome extension and &#39;Access-Control-Allow-Origin&#39;</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-02-28 </span>
+      <div class="post-category">
+          
+            <a href="/tags/chrome/"> #chrome </a>
+          
+        </div>
+      
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
+var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr('GET', 'https://foobar.com', function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
+XMLHttpRequest cannot load https://foobar.
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -422,33 +450,6 @@ var Tab = Backbone.Model.extend({ defaults: { i18nName: '', isCloseable: true, i
 </article>
 
     
-      <article class="post">
-  <header class="post-header">
-    
-    <h1 class="post-title"><a class="post-link" href="/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/">How to test asynchronous calls with AngularJS</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-02-03 </span>
-      <div class="post-category">
-          
-            <a href="/tags/angularjs/"> #angularjs </a>
-          
-        </div>
-      
-      <span class="more-meta"> 2 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Testing with callback function Given the following factory that fetches a foobar through a REST call:
-angular.module('foobarApp'). factory('foobarFactory', function($resource) { return { getFoobar: function(callback) { $resource('/rest/foobar').get(function(foobar) { callback(foobar); }); } }; });  I need to test the following controller that depends on foobarFactory:
-angular.module('foobarApp'). controller('foobarCtrl', function($scope, foobarFactory) { $scope.foobar = function() { foobarFactory.getFoobar(function(foobar) { $scope.foobarId = foobar.id; }); }; });  To do so, I need to:
- Mock the foobarFactory and return a fake when calling the method getFoobar  spyOn(foobarFactory, 'getFoobar').
-    </div>
-  </div>
-</article>
-
-    
   </section>
   
   <nav class="pagination">
@@ -492,7 +493,7 @@ angular.module('foobarApp'). controller('foobarCtrl', function($scope, foobarFac
     &copy; 
     
       2013 - 
-    2018
+    2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
