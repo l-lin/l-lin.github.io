@@ -49,60 +49,76 @@ generateRootCA() {
 }
 
 generateRSA() {
-    local keystoreName=$1
+    local certificate_name=$1
 
-    info "${keystoreName} - Generate RSA private key"
-    openssl genrsa -out ${keystoreName}/${keystoreName}.rsa.key 2048
+    info "${certificate_name} - Generate RSA private key"
+    openssl genrsa -out ${certificate_name}/${certificate_name}.rsa.key 2048
 
-    info "${keystoreName} - Generate certificate signing request for our RSA certificate"
+    generateSelfSignedCertificate ${certificate_name} rsa
+
+    info "${certificate_name} - Generate certificate signing request for our RSA certificate"
     openssl req -new \
-            -key ${keystoreName}/${keystoreName}.rsa.key \
-            -out ${keystoreName}/${keystoreName}.rsa.csr \
-            -subj "${subject}${keystoreName}"
+            -key ${certificate_name}/${certificate_name}.rsa.key \
+            -out ${certificate_name}/${certificate_name}.rsa.csr \
+            -subj "${subject}${certificate_name}"
 
-    info "${keystoreName} - Sign the RSA CSR using CA root key"
+    info "${certificate_name} - Sign the RSA CSR using CA root key"
     openssl x509 -req \
-            -in ${keystoreName}/${keystoreName}.rsa.csr \
+            -in ${certificate_name}/${certificate_name}.rsa.csr \
             -CA ${rootca_home}/rootCA.pem \
             -CAkey ${rootca_home}/rootCA.key \
             -CAcreateserial \
-            -out ${keystoreName}/${keystoreName}.rsa.crt \
+            -out ${certificate_name}/${certificate_name}.rsa.crt \
             -days ${cert_validity} \
             -sha256
 }
 
 generateECDSA() {
-    local keystoreName=$1
+    local certificate_name=$1
 
-    info "${keystoreName} - Generate ECDSA private key"
-    openssl ecparam -name prime256v1 -genkey -out ${keystoreName}/${keystoreName}.ecdsa.key
+    info "${certificate_name} - Generate ECDSA private key"
+    openssl ecparam -name prime256v1 -genkey -out ${certificate_name}/${certificate_name}.ecdsa.key
 
-    info "${keystoreName} - Generate certificate signing request for our ECDSA certificate"
+    generateSelfSignedCertificate ${certificate_name} ecdsa
+
+    info "${certificate_name} - Generate certificate signing request for our ECDSA certificate"
     openssl req -new -nodes \
-            -key ${keystoreName}/${keystoreName}.ecdsa.key \
-            -out ${keystoreName}/${keystoreName}.ecdsa.csr \
-            -subj "${subject}${keystoreName}"
+            -key ${certificate_name}/${certificate_name}.ecdsa.key \
+            -out ${certificate_name}/${certificate_name}.ecdsa.csr \
+            -subj "${subject}${certificate_name}"
 
-    info "${keystoreName} - Sign the RSA CSR using CA root key"
+    info "${certificate_name} - Sign the RSA CSR using CA root key"
     openssl x509 -req \
-            -in ${keystoreName}/${keystoreName}.ecdsa.csr \
+            -in ${certificate_name}/${certificate_name}.ecdsa.csr \
             -CA ${rootca_home}/rootCA.pem \
             -CAkey ${rootca_home}/rootCA.key \
             -CAcreateserial \
-            -out ${keystoreName}/${keystoreName}.ecdsa.crt \
+            -out ${certificate_name}/${certificate_name}.ecdsa.crt \
             -days ${cert_validity} \
             -sha256
 }
 
+generateSelfSignedCertificate() {
+    local certificate_name=$1
+    local certificate_type=$2
+
+    info "${certificate_name}.${certificate_type} - Generate self-signed certificate"
+    openssl req -new -x509 \
+            -days ${cert_validity} \
+            -key ${certificate_name}/${certificate_name}.${certificate_type}.key \
+            -out ${certificate_name}/${certificate_name}.self-signed.${certificate_type}.crt \
+            -subj "${subject}${certificate_name}"
+}
+
 generateUserCertificate () {
-    local keystoreName=$1
+    local certificate_name=$1
 
-    info "${keystoreName} - Delete existing files"
-    rm -rf ${keystoreName}
-    mkdir -p ${keystoreName}
+    info "${certificate_name} - Delete existing files"
+    rm -rf ${certificate_name}
+    mkdir -p ${certificate_name}
 
-    generateRSA ${keystoreName}
-    generateECDSA ${keystoreName}
+    generateRSA ${certificate_name}
+    generateECDSA ${certificate_name}
 }
 
 generateRootCA
