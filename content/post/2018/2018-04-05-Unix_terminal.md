@@ -285,6 +285,11 @@ $ # /var contains variable data, e.g. logs, news and so on which is constantly b
 $ ls /var
 apt docker log mail ...
 
+$ # /srv contains site-specific data which is served by this system.
+$ # This main purpose of specifying this is so that users may find the location of the data files for particular service, and so that 
+$ # services which require a single tree for readonly data, writable data and scripts (such as cgi scripts) can be reasonably placed.
+$ ls /srv
+
 $ # /home contains the user HOME directories
 $ ls /home
 l.lin
