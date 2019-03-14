@@ -27,7 +27,7 @@ var Tab = Backbone.Model.extend({ defaults: { i18nName: &#39;&#39;, isCloseable:
 
 
 
-<meta name="generator" content="Hugo 0.53" />
+<meta name="generator" content="Hugo 0.54.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/" />
@@ -55,7 +55,8 @@ var Tab = Backbone.Model.extend({ defaults: { i18nName: &#39;&#39;, isCloseable:
 <meta property="og:description" content="A simple example is better than a long speech:
 var Tab = Backbone.Model.extend({ defaults: { i18nName: &#39;&#39;, isCloseable: true, isActive: false, isNeverActive: false, buttonGlyphicon: &#39;&#39;, hasGlyphicon: false, className: &#39;&#39; } }); var PlusTab = Tab.extend({ defaults: function() { var tmp = _.clone(this.constructor.__super__.defaults); return _.extend(tmp, { i18nName: &#39;plus&#39;, buttonGlyphicon: &#39;glyphicon glyphicon-plus&#39;, isCloseable: false, isNeverActive: true, hasGlyphicon: true, className: &#39;plus-tab&#39; }); } }); " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/" /><meta property="article:published_time" content="2014-02-26T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/" />
+<meta property="article:published_time" content="2014-02-26T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2014-02-26T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="How to extend properties of parent class">
