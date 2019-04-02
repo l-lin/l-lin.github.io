@@ -56,7 +56,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
 
-<meta property="og:updated_time" content="2014-02-03T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2014-02-26T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development">
@@ -134,6 +134,31 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    
+    <h1 class="post-title"><a class="post-link" href="/post/2014/2014-02-26-backbone-how_to_extend_properties/">How to extend properties of parent class</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-02-26 </span>
+      <div class="post-category">
+          
+            <a href="/tags/backbonejs/"> #backbonejs </a>
+          
+        </div>
+      
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      A simple example is better than a long speech:
+var Tab = Backbone.Model.extend({ defaults: { i18nName: '', isCloseable: true, isActive: false, isNeverActive: false, buttonGlyphicon: '', hasGlyphicon: false, className: '' } }); var PlusTab = Tab.extend({ defaults: function() { var tmp = _.clone(this.constructor.__super__.defaults); return _.extend(tmp, { i18nName: 'plus', buttonGlyphicon: 'glyphicon glyphicon-plus', isCloseable: false, isNeverActive: true, hasGlyphicon: true, className: 'plus-tab' }); } }); 
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
