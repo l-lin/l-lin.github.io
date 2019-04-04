@@ -1,7 +1,7 @@
 ---
 title: "Avoiding Null Pointers"
 date: 2014-02-27
-imageUrl: "http://s2.quickmeme.com/img/24/2458328a4d1e2091902d89b385cff1b54333a02f95f1cce5b1778b8d204321fe.jpg"
+imageUrl: "https://cdn-images-1.medium.com/max/1600/1*qorTawWQJkDWUHRtzJJqKQ.jpeg"
 tags: ["java"]
 categories: ["post"]
 comment: true
