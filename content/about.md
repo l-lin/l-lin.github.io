@@ -13,7 +13,7 @@ My name is Louis Lin: I'm a senior software engineer, I love reading light and w
 
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 
-# My projects
+# My projects in my free time
 
 ## Front
 
@@ -33,6 +33,7 @@ This site is dedicated to storing some tips and tricks, some thoughts and especi
 - ![golang][] [Manga reader tracker API](https://github.com/l-lin/mr-tracker-api)
 - ![golang][] [Gotodo](https://github.com/l-lin/gotodo)
 - ![kotlin][] [Kotodo](https://github.com/l-lin/kotodo)
+- ![golang][] [OWAS risk rating Asciidoctor table generator](https://github.com/l-lin/risk-rating)
 
 [angularjs]: /images/angularjs_icon.png
 [chrome]: /images/chrome_icon.png
