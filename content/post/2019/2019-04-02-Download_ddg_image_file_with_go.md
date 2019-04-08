@@ -10,7 +10,7 @@ autoCollapseToc: false
 contentCopyright: false
 ---
 
-While DuckDuckGo offers [Instant Answer APIs](https://duckduckgo.com/api), it does provide URLs to download images,
+While DuckDuckGo offers [Instant Answer APIs](https://duckduckgo.com/api), it does not provide URLs to download images,
 certainly because of copyright isusses.
 
 One way is to fetch a `vqd` token from an initial basic request, then use it to find the image URLs, and finally download
@@ -22,15 +22,15 @@ the image.
 package main
 
 import (
-	"bytes"
-	"encoding/json"
+    "bytes"
+    "encoding/json"
     "fmt"
     "io"
-	"io/ioutil"
+    "io/ioutil"
     "log"
     "os"
-	"net/http"
-	"regexp"
+    "net/http"
+    "regexp"
     "strings"
 )
 
