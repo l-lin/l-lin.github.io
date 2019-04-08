@@ -56,7 +56,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
 
-<meta property="og:updated_time" content="2018-02-10T12:05:16&#43;01:00"/>
+<meta property="og:updated_time" content="2018-02-23T13:19:45&#43;01:00"/>
 
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development">
@@ -134,6 +134,33 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post">
+  <header class="post-header">
+    <a class="post-image" href="/post/2018/2018-02-23-centos7_add_new_tomcat_service/" style="background-image: url('https://i2.wp.com/www.mes-vms.fr/wp-content/uploads/2015/06/centos.jpg?resize=648%2C330&amp;ssl=1')">
+      &nbsp;
+    </a>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/2018-02-23-centos7_add_new_tomcat_service/">How to add a new Tomcat service on CentOS7</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-02-23 </span>
+      <div class="post-category">
+          
+            <a href="/tags/centos/"> #centos </a>
+          
+        </div>
+      
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>Starting with version 7, CentOS is now using <a href="https://freedesktop.org/wiki/Software/systemd/">systemd</a> as a service manager.
+Adding a new service is no longer done by creating a SH script in the <code>/etc/init.d</code> folder.</p>
+    </div>
+  </div>
+</article>
+
     
       <article class="post">
   <header class="post-header">
@@ -394,33 +421,6 @@ and Xubuntu.</p>
     <div class="post-summary">
        Add the following to the JAVA_OPTS:  export JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&quot;  Set your server IP on the java.rmi.server.hostname.
  On VisualVM, add a remote host Right click on the created host &gt; Add JMX connexion Set the server IP with the port (in the example, it&rsquo;s 9090) ???? PROFIT!!! 
-    </div>
-  </div>
-</article>
-
-    
-      <article class="post">
-  <header class="post-header">
-    
-    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-21-how_to_kill_inactive_ssh/">How to kill inactive ssh sessions</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2015-07-21 </span>
-      <div class="post-category">
-          
-            <a href="/tags/ssh/"> #ssh </a>
-          
-        </div>
-      
-      <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Execute the following command that displays the list of processes:
-pstree -p  Look for the sshd:
-├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
-kill 3649 
     </div>
   </div>
 </article>

@@ -17,7 +17,7 @@
       <pubDate>Tue, 02 Apr 2019 09:18:10 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</guid>
-      <description>&lt;p&gt;While DuckDuckGo offers &lt;a href=&#34;https://duckduckgo.com/api&#34;&gt;Instant Answer APIs&lt;/a&gt;, it does provide URLs to download images,
+      <description>&lt;p&gt;While DuckDuckGo offers &lt;a href=&#34;https://duckduckgo.com/api&#34;&gt;Instant Answer APIs&lt;/a&gt;, it does not provide URLs to download images,
 certainly because of copyright isusses.&lt;/p&gt;
 
 &lt;p&gt;One way is to fetch a &lt;code&gt;vqd&lt;/code&gt; token from an initial basic request, then use it to find the image URLs, and finally download

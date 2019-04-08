@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="While DuckDuckGo offers Instant Answer APIs, it does provide URLs to download images, certainly because of copyright isusses.
+  <meta name="description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images, certainly because of copyright isusses.
 One way is to fetch a vqd token from an initial basic request, then use it to find the image URLs, and finally download the image.
 " />
 
@@ -53,7 +53,7 @@ One way is to fetch a vqd token from an initial basic request, then use it to fi
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Download DDG image file with go" />
-<meta property="og:description" content="While DuckDuckGo offers Instant Answer APIs, it does provide URLs to download images,
+<meta property="og:description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images,
 certainly because of copyright isusses.
 
 One way is to fetch a vqd token from an initial basic request, then use it to find the image URLs, and finally download
@@ -64,7 +64,7 @@ the image." />
 <meta property="article:modified_time" content="2019-04-02T09:18:10&#43;02:00"/>
 
 <meta itemprop="name" content="Download DDG image file with go">
-<meta itemprop="description" content="While DuckDuckGo offers Instant Answer APIs, it does provide URLs to download images,
+<meta itemprop="description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images,
 certainly because of copyright isusses.
 
 One way is to fetch a vqd token from an initial basic request, then use it to find the image URLs, and finally download
@@ -73,14 +73,14 @@ the image.">
 
 <meta itemprop="datePublished" content="2019-04-02T09:18:10&#43;02:00" />
 <meta itemprop="dateModified" content="2019-04-02T09:18:10&#43;02:00" />
-<meta itemprop="wordCount" content="636">
+<meta itemprop="wordCount" content="637">
 
 
 
 <meta itemprop="keywords" content="golang,duckduckgo," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Download DDG image file with go"/>
-<meta name="twitter:description" content="While DuckDuckGo offers Instant Answer APIs, it does provide URLs to download images,
+<meta name="twitter:description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images,
 certainly because of copyright isusses.
 
 One way is to fetch a vqd token from an initial basic request, then use it to find the image URLs, and finally download
@@ -181,7 +181,7 @@ the image."/>
 
     
     <div class="post-content">
-      <p>While DuckDuckGo offers <a href="https://duckduckgo.com/api">Instant Answer APIs</a>, it does provide URLs to download images,
+      <p>While DuckDuckGo offers <a href="https://duckduckgo.com/api">Instant Answer APIs</a>, it does not provide URLs to download images,
 certainly because of copyright isusses.</p>
 
 <p>One way is to fetch a <code>vqd</code> token from an initial basic request, then use it to find the image URLs, and finally download
@@ -190,15 +190,15 @@ the image.</p>
 <pre><code class="language-golang">package main
 
 import (
-	&quot;bytes&quot;
-	&quot;encoding/json&quot;
+    &quot;bytes&quot;
+    &quot;encoding/json&quot;
     &quot;fmt&quot;
     &quot;io&quot;
-	&quot;io/ioutil&quot;
+    &quot;io/ioutil&quot;
     &quot;log&quot;
     &quot;os&quot;
-	&quot;net/http&quot;
-	&quot;regexp&quot;
+    &quot;net/http&quot;
+    &quot;regexp&quot;
     &quot;strings&quot;
 )
 
@@ -372,6 +372,11 @@ go run main.go
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/2019/2019-04-08-git-url-shortcuts/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Git URL Shortcuts</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
           <a class="next" href="/post/2019/2019-01-25-generate_selfsigned_certificates/">
             <span class="next-text nav-default">How to generate self-signed certificates</span>

@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/post/2019/2019-04-08-git-url-shortcuts/</loc>
+    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</loc>
     <lastmod>2019-04-02T09:18:10+02:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -430,7 +437,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/git/</loc>
-    <lastmod>2018-02-08T10:42:13+01:00</lastmod>
+    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -542,7 +549,7 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2019-04-02T09:18:10+02:00</lastmod>
+    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -556,7 +563,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2019-04-02T09:18:10+02:00</lastmod>
+    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
