@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>Download DDG image file with go</title>
+      <title>Download DDG image file with Go</title>
       <link>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</link>
       <pubDate>Tue, 02 Apr 2019 09:18:10 +0200</pubDate>
       
@@ -251,9 +251,7 @@ Adding a new service is no longer done by creating a SH script in the &lt;code&g
       <pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</guid>
-      <description>Methods In Java, when you declare class methods, you need to declare them inside the class:
-public class Plane { public void fly() { System.out.println(&amp;quot;I&#39;m flying&amp;quot;); } }  In Kotlin, you can declare in two different ways:
-class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // or class Plane fun Plane.fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } // or class Plane fun Plane.fly() = println(&amp;quot;I&#39;m flying&amp;quot;)  It&amp;rsquo;s interesting to note that other languages (like Golang) also uses the second form.</description>
+      <description></description>
     </item>
     
     <item>
@@ -262,8 +260,7 @@ class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // o
       <pubDate>Fri, 09 Feb 2018 16:56:55 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-02-09-centos7_open_port/</guid>
-      <description>CentOS 7 is now using Firewalld instead of iptables, so the commands are different if you want to open a port:
-# Open port firewall-cmd --zone=public --add-port=8080/tcp --permanent # Reload firewall firewall-cmd --reload # Use this command to check the active zones firewall-cmd --get-active-zones </description>
+      <description></description>
     </item>
     
     <item>
@@ -319,11 +316,7 @@ It will be a shame to pass by without trying to use this language.&lt;/p&gt;</de
       <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/</guid>
-      <description>Create a users.txt file. It will be used to map the SVN users to an email.
-For example:
-l.lin = Louis LIN &amp;lt;louis.lin@yopmail.com&amp;gt; foo.bar = Foo BAR &amp;lt;foo.bar@yopmail.com&amp;gt;  Execute the following command:
-git svn clone --trunk=/trunk --branches=/branches --tags=/tags --authors-file=users.txt http://&amp;lt;path_to_svn_project&amp;gt; &amp;lt;project_name&amp;gt;  It will only create the master branch in local. So you will need to create the tags using the following command:
-git for-each-ref refs/remotes/origin/tags | cut -d / -f 5- | grep -v @ | \ while read tagname; do git tag &amp;quot;$tagname&amp;quot; &amp;quot;origin/tags/$tagname&amp;quot;; git branch -r -d &amp;quot;origin/tags/$tagname&amp;quot;; done  You might need to adapt the command a little bit if your branch tags are not called remotes/origin/tags/&amp;lt;tagname&amp;gt;.</description>
+      <description></description>
     </item>
     
     <item>
@@ -342,8 +335,7 @@ and Xubuntu.&lt;/p&gt;</description>
       <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/</guid>
-      <description> Add the following to the JAVA_OPTS:  export JAVA_OPTS=&amp;quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&amp;quot;  Set your server IP on the java.rmi.server.hostname.
- On VisualVM, add a remote host Right click on the created host &amp;gt; Add JMX connexion Set the server IP with the port (in the example, it&amp;rsquo;s 9090) ???? PROFIT!!! </description>
+      <description></description>
     </item>
     
     <item>
@@ -352,10 +344,7 @@ and Xubuntu.&lt;/p&gt;</description>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2015/2015-07-21-how_to_kill_inactive_ssh/</guid>
-      <description>Execute the following command that displays the list of processes:
-pstree -p  Look for the sshd:
-├─sshd(3102)─┬─sshd(3649)───bash(3656) │ └─sshd(16680)───bash(16687)───pstree(17073)  Kill the session:
-kill 3649 </description>
+      <description></description>
     </item>
     
     <item>
@@ -364,10 +353,7 @@ kill 3649 </description>
       <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</guid>
-      <description>Do not prompt password Edit the file /etc/postgresql/9.3/main/pg_hba.conf and change the value from peer to trust:
-# &amp;quot;local&amp;quot; is for Unix domain socket connections only local all postgres trust # IPv4 local connections: host all all 0.0.0.0/0 trust  Restart the PostgreSQL service:
-sudo service postgresql restart  Enable remote access Edit the file /etc/postgresql/9.3/main/postgresql.confand look for the property listen_addresses and change its value to &#39;*&#39;:
-listen_addresses = &#39;*&#39;  Restart the PostgreSQL service:</description>
+      <description></description>
     </item>
     
     <item>
@@ -376,9 +362,7 @@ listen_addresses = &#39;*&#39;  Restart the PostgreSQL service:</description>
       <pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/</guid>
-      <description>When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
-var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr(&#39;GET&#39;, &#39;https://foobar.com&#39;, function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
-XMLHttpRequest cannot load https://foobar.</description>
+      <description></description>
     </item>
     
     <item>
@@ -410,10 +394,7 @@ everyday?&lt;/p&gt;</description>
       <pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</guid>
-      <description>If you need to debug your Maven plugin, first, run with the command mvnDebug &amp;lt;goal&amp;gt;. You will see something like this:
-$ mvnDebug test Preparing to Execute Maven in Debug Mode Listening for transport dt_socket at address: 8000  Now add a breakpoint with your IntelliJ to your desired line code.
-Add a new Remote seettings:
-Finally, run and the maven command will automatically proceed.</description>
+      <description></description>
     </item>
     
     <item>
@@ -447,8 +428,7 @@ What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</guid>
-      <description>I thought deploying a MeteorJS to Heroku would be a difficult task, but it turns out to be quite easy after all. You just need to execute those commands:
-cd /path/to/meteor/app heroku config:add BUILDPACK_URL=https://github.com/oortcloud/heroku-buildpack-meteorite.git git push heroku master </description>
+      <description></description>
     </item>
     
     <item>
@@ -500,8 +480,7 @@ There are no real cure for this curse. Every application cannot escape this issu
       <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/</guid>
-      <description>A simple example is better than a long speech:
-var Tab = Backbone.Model.extend({ defaults: { i18nName: &#39;&#39;, isCloseable: true, isActive: false, isNeverActive: false, buttonGlyphicon: &#39;&#39;, hasGlyphicon: false, className: &#39;&#39; } }); var PlusTab = Tab.extend({ defaults: function() { var tmp = _.clone(this.constructor.__super__.defaults); return _.extend(tmp, { i18nName: &#39;plus&#39;, buttonGlyphicon: &#39;glyphicon glyphicon-plus&#39;, isCloseable: false, isNeverActive: true, hasGlyphicon: true, className: &#39;plus-tab&#39; }); } }); </description>
+      <description></description>
     </item>
     
     <item>
@@ -510,10 +489,7 @@ var Tab = Backbone.Model.extend({ defaults: { i18nName: &#39;&#39;, isCloseable:
       <pubDate>Mon, 03 Feb 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/</guid>
-      <description>Testing with callback function Given the following factory that fetches a foobar through a REST call:
-angular.module(&#39;foobarApp&#39;). factory(&#39;foobarFactory&#39;, function($resource) { return { getFoobar: function(callback) { $resource(&#39;/rest/foobar&#39;).get(function(foobar) { callback(foobar); }); } }; });  I need to test the following controller that depends on foobarFactory:
-angular.module(&#39;foobarApp&#39;). controller(&#39;foobarCtrl&#39;, function($scope, foobarFactory) { $scope.foobar = function() { foobarFactory.getFoobar(function(foobar) { $scope.foobarId = foobar.id; }); }; });  To do so, I need to:
- Mock the foobarFactory and return a fake when calling the method getFoobar  spyOn(foobarFactory, &#39;getFoobar&#39;).</description>
+      <description></description>
     </item>
     
     <item>
@@ -522,10 +498,7 @@ angular.module(&#39;foobarApp&#39;). controller(&#39;foobarCtrl&#39;, function($
       <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-01-04-git-configure_git_behind_a_proxy/</guid>
-      <description>When using Bower, you may encounter some issues, such as for example: ECMDERR Failed to execute &amp;quot;git ls-remote --tags --heads git://github.com/...&amp;quot;, exit code of #128
-The issue probably come from the fact that you are behind a proxy and your proxy does not allow the git protocol (port 9418).
-So in order to solve this problem, you have to use the protocols HTTP and HTTPS instead of GIT.
-The easy way is to tell GIT to use the protocol HTTPS instead of the protocol GIT with the following commands line:</description>
+      <description></description>
     </item>
     
     <item>

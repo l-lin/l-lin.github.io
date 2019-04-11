@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Heroku on Louis LIN&#39;s blog</title>
+    <title>heroku on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/heroku/</link>
-    <description>Recent content in Heroku on Louis LIN&#39;s blog</description>
+    <description>Recent content in heroku on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 31 Jan 2015 00:00:00 +0000</lastBuildDate>
@@ -26,8 +26,7 @@
       <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</guid>
-      <description>I thought deploying a MeteorJS to Heroku would be a difficult task, but it turns out to be quite easy after all. You just need to execute those commands:
-cd /path/to/meteor/app heroku config:add BUILDPACK_URL=https://github.com/oortcloud/heroku-buildpack-meteorite.git git push heroku master </description>
+      <description></description>
     </item>
     
   </channel>

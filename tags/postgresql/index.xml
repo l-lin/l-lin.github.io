@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Postgresql on Louis LIN&#39;s blog</title>
+    <title>postgresql on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/postgresql/</link>
-    <description>Recent content in Postgresql on Louis LIN&#39;s blog</description>
+    <description>Recent content in postgresql on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 Aug 2018 16:10:12 +0200</lastBuildDate>
@@ -45,10 +45,7 @@ various post migration operation.&lt;/p&gt;
       <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</guid>
-      <description>Do not prompt password Edit the file /etc/postgresql/9.3/main/pg_hba.conf and change the value from peer to trust:
-# &amp;quot;local&amp;quot; is for Unix domain socket connections only local all postgres trust # IPv4 local connections: host all all 0.0.0.0/0 trust  Restart the PostgreSQL service:
-sudo service postgresql restart  Enable remote access Edit the file /etc/postgresql/9.3/main/postgresql.confand look for the property listen_addresses and change its value to &#39;*&#39;:
-listen_addresses = &#39;*&#39;  Restart the PostgreSQL service:</description>
+      <description></description>
     </item>
     
   </channel>

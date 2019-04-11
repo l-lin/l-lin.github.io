@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kotlin on Louis LIN&#39;s blog</title>
+    <title>kotlin on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/kotlin/</link>
-    <description>Recent content in Kotlin on Louis LIN&#39;s blog</description>
+    <description>Recent content in kotlin on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Feb 2018 12:05:16 +0100</lastBuildDate>
@@ -17,9 +17,7 @@
       <pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</guid>
-      <description>Methods In Java, when you declare class methods, you need to declare them inside the class:
-public class Plane { public void fly() { System.out.println(&amp;quot;I&#39;m flying&amp;quot;); } }  In Kotlin, you can declare in two different ways:
-class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // or class Plane fun Plane.fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } // or class Plane fun Plane.fly() = println(&amp;quot;I&#39;m flying&amp;quot;)  It&amp;rsquo;s interesting to note that other languages (like Golang) also uses the second form.</description>
+      <description></description>
     </item>
     
     <item>

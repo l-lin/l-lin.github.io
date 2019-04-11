@@ -17,8 +17,7 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content=" Add the following to the JAVA_OPTS:  export JAVA_OPTS=&amp;quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&amp;quot;  Set your server IP on the java.rmi.server.hostname.
- On VisualVM, add a remote host Right click on the created host &amp;gt; Add JMX connexion Set the server IP with the port (in the example, it&amp;rsquo;s 9090) ???? PROFIT!!! " />
+  <meta name="description" content="" />
 
   <meta name="keywords" content="software development" />
 
@@ -27,14 +26,11 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
@@ -52,16 +48,14 @@
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="How to connect VisualVM to a remote Tomcat" />
-<meta property="og:description" content=" Add the following to the JAVA_OPTS:  export JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&quot;  Set your server IP on the java.rmi.server.hostname.
- On VisualVM, add a remote host Right click on the created host &gt; Add JMX connexion Set the server IP with the port (in the example, it&rsquo;s 9090) ???? PROFIT!!! " />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/" />
 <meta property="article:published_time" content="2015-07-23T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2015-07-23T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="How to connect VisualVM to a remote Tomcat">
-<meta itemprop="description" content=" Add the following to the JAVA_OPTS:  export JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&quot;  Set your server IP on the java.rmi.server.hostname.
- On VisualVM, add a remote host Right click on the created host &gt; Add JMX connexion Set the server IP with the port (in the example, it&rsquo;s 9090) ???? PROFIT!!! ">
+<meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2015-07-23T00:00:00&#43;00:00" />
@@ -73,8 +67,7 @@
 <meta itemprop="keywords" content="tomcat,monitoring," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to connect VisualVM to a remote Tomcat"/>
-<meta name="twitter:description" content=" Add the following to the JAVA_OPTS:  export JAVA_OPTS=&quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&quot;  Set your server IP on the java.rmi.server.hostname.
- On VisualVM, add a remote host Right click on the created host &gt; Add JMX connexion Set the server IP with the port (in the example, it&rsquo;s 9090) ???? PROFIT!!! "/>
+<meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -103,8 +96,6 @@
         <li class="mobile-menu-item">Archives</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -126,8 +117,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li>
     <li class="menu-item">
       <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
@@ -242,7 +231,7 @@
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:lin.louis@pm.me" class="iconfont icon-email" title="email"></a>
       <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
       <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
   <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>

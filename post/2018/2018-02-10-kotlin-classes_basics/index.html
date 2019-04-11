@@ -17,9 +17,7 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="Methods In Java, when you declare class methods, you need to declare them inside the class:
-public class Plane { public void fly() { System.out.println(&amp;quot;I&#39;m flying&amp;quot;); } }  In Kotlin, you can declare in two different ways:
-class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // or class Plane fun Plane.fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } // or class Plane fun Plane.fly() = println(&amp;quot;I&#39;m flying&amp;quot;)  It&amp;rsquo;s interesting to note that other languages (like Golang) also uses the second form." />
+  <meta name="description" content="" />
 
   <meta name="keywords" content="software development" />
 
@@ -28,14 +26,11 @@ class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // o
 
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
@@ -53,18 +48,14 @@ class Plane() { fun fly() { println(&amp;quot;I&#39;m flying&amp;quot;) } } // o
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Kotlin Basics - Classes " />
-<meta property="og:description" content="Methods In Java, when you declare class methods, you need to declare them inside the class:
-public class Plane { public void fly() { System.out.println(&quot;I&#39;m flying&quot;); } }  In Kotlin, you can declare in two different ways:
-class Plane() { fun fly() { println(&quot;I&#39;m flying&quot;) } } // or class Plane fun Plane.fly() { println(&quot;I&#39;m flying&quot;) } // or class Plane fun Plane.fly() = println(&quot;I&#39;m flying&quot;)  It&rsquo;s interesting to note that other languages (like Golang) also uses the second form." />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/" />
 <meta property="article:published_time" content="2018-02-10T12:05:16&#43;01:00"/>
 <meta property="article:modified_time" content="2018-02-10T12:05:16&#43;01:00"/>
 
 <meta itemprop="name" content="Kotlin Basics - Classes ">
-<meta itemprop="description" content="Methods In Java, when you declare class methods, you need to declare them inside the class:
-public class Plane { public void fly() { System.out.println(&quot;I&#39;m flying&quot;); } }  In Kotlin, you can declare in two different ways:
-class Plane() { fun fly() { println(&quot;I&#39;m flying&quot;) } } // or class Plane fun Plane.fly() { println(&quot;I&#39;m flying&quot;) } // or class Plane fun Plane.fly() = println(&quot;I&#39;m flying&quot;)  It&rsquo;s interesting to note that other languages (like Golang) also uses the second form.">
+<meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2018-02-10T12:05:16&#43;01:00" />
@@ -76,9 +67,7 @@ class Plane() { fun fly() { println(&quot;I&#39;m flying&quot;) } } // or class 
 <meta itemprop="keywords" content="kotlin,learning," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kotlin Basics - Classes "/>
-<meta name="twitter:description" content="Methods In Java, when you declare class methods, you need to declare them inside the class:
-public class Plane { public void fly() { System.out.println(&quot;I&#39;m flying&quot;); } }  In Kotlin, you can declare in two different ways:
-class Plane() { fun fly() { println(&quot;I&#39;m flying&quot;) } } // or class Plane fun Plane.fly() { println(&quot;I&#39;m flying&quot;) } // or class Plane fun Plane.fly() = println(&quot;I&#39;m flying&quot;)  It&rsquo;s interesting to note that other languages (like Golang) also uses the second form."/>
+<meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -107,8 +96,6 @@ class Plane() { fun fly() { println(&quot;I&#39;m flying&quot;) } } // or class 
         <li class="mobile-menu-item">Archives</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -130,8 +117,6 @@ class Plane() { fun fly() { println(&quot;I&#39;m flying&quot;) } } // or class 
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li>
     <li class="menu-item">
       <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
@@ -367,7 +352,7 @@ class HelpCmd: AbstractCmd() {
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:lin.louis@pm.me" class="iconfont icon-email" title="email"></a>
       <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
       <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
   <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>

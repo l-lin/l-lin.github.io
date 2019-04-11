@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Centos on Louis LIN&#39;s blog</title>
+    <title>centos on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/centos/</link>
-    <description>Recent content in Centos on Louis LIN&#39;s blog</description>
+    <description>Recent content in centos on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 23 Feb 2018 13:19:45 +0100</lastBuildDate>
@@ -27,8 +27,7 @@ Adding a new service is no longer done by creating a SH script in the &lt;code&g
       <pubDate>Fri, 09 Feb 2018 16:56:55 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-02-09-centos7_open_port/</guid>
-      <description>CentOS 7 is now using Firewalld instead of iptables, so the commands are different if you want to open a port:
-# Open port firewall-cmd --zone=public --add-port=8080/tcp --permanent # Reload firewall firewall-cmd --reload # Use this command to check the active zones firewall-cmd --get-active-zones </description>
+      <description></description>
     </item>
     
   </channel>

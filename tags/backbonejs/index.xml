@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Backbonejs on Louis LIN&#39;s blog</title>
+    <title>backbonejs on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/backbonejs/</link>
-    <description>Recent content in Backbonejs on Louis LIN&#39;s blog</description>
+    <description>Recent content in backbonejs on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 26 Feb 2014 00:00:00 +0000</lastBuildDate>
@@ -17,8 +17,7 @@
       <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/</guid>
-      <description>A simple example is better than a long speech:
-var Tab = Backbone.Model.extend({ defaults: { i18nName: &#39;&#39;, isCloseable: true, isActive: false, isNeverActive: false, buttonGlyphicon: &#39;&#39;, hasGlyphicon: false, className: &#39;&#39; } }); var PlusTab = Tab.extend({ defaults: function() { var tmp = _.clone(this.constructor.__super__.defaults); return _.extend(tmp, { i18nName: &#39;plus&#39;, buttonGlyphicon: &#39;glyphicon glyphicon-plus&#39;, isCloseable: false, isNeverActive: true, hasGlyphicon: true, className: &#39;plus-tab&#39; }); } }); </description>
+      <description></description>
     </item>
     
   </channel>

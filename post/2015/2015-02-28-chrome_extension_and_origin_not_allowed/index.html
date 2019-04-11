@@ -17,9 +17,7 @@
 
 
 <meta name="author" content="Louis LIN" />
-  <meta name="description" content="When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
-var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr(&#39;GET&#39;, &#39;https://foobar.com&#39;, function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
-XMLHttpRequest cannot load https://foobar." />
+  <meta name="description" content="" />
 
   <meta name="keywords" content="software development" />
 
@@ -28,14 +26,11 @@ XMLHttpRequest cannot load https://foobar." />
 
 
 
-<meta name="generator" content="Hugo 0.54.0" />
+<meta name="generator" content="Hugo 0.55.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
@@ -53,18 +48,14 @@ XMLHttpRequest cannot load https://foobar." />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Chrome extension and &#39;Access-Control-Allow-Origin&#39;" />
-<meta property="og:description" content="When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
-var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr(&#39;GET&#39;, &#39;https://foobar.com&#39;, function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
-XMLHttpRequest cannot load https://foobar." />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/" />
 <meta property="article:published_time" content="2015-02-28T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2015-02-28T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Chrome extension and &#39;Access-Control-Allow-Origin&#39;">
-<meta itemprop="description" content="When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
-var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr(&#39;GET&#39;, &#39;https://foobar.com&#39;, function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
-XMLHttpRequest cannot load https://foobar.">
+<meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2015-02-28T00:00:00&#43;00:00" />
@@ -76,9 +67,7 @@ XMLHttpRequest cannot load https://foobar.">
 <meta itemprop="keywords" content="chrome," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chrome extension and &#39;Access-Control-Allow-Origin&#39;"/>
-<meta name="twitter:description" content="When developing chrome extensions, I wanted to use the XMLHttpRequest like this:
-var xhr = (function() { var xhr = new XMLHttpRequest(); return function(method, url, callback) { xhr.onreadystatechange = function() { if (xhr.readyState === 4) { callback(xhr.responseText, xhr.status); } }; xhr.open(method, url); xhr.send(); }; })(); xhr(&#39;GET&#39;, &#39;https://foobar.com&#39;, function(data, status) { // Some stuff });  However, just doing that does not work. You will receive the following error:
-XMLHttpRequest cannot load https://foobar."/>
+<meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -107,8 +96,6 @@ XMLHttpRequest cannot load https://foobar."/>
         <li class="mobile-menu-item">Archives</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -130,8 +117,6 @@ XMLHttpRequest cannot load https://foobar."/>
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li>
     <li class="menu-item">
       <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
@@ -257,7 +242,7 @@ xhr('GET', 'https://foobar.com', function(data, status) {
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:lin.louis@protonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="mailto:lin.louis@pm.me" class="iconfont icon-email" title="email"></a>
       <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
       <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
   <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>

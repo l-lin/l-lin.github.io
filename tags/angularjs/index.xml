@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Angularjs on Louis LIN&#39;s blog</title>
+    <title>angularjs on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/angularjs/</link>
-    <description>Recent content in Angularjs on Louis LIN&#39;s blog</description>
+    <description>Recent content in angularjs on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 03 Feb 2014 00:00:00 +0000</lastBuildDate>
@@ -17,10 +17,7 @@
       <pubDate>Mon, 03 Feb 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/</guid>
-      <description>Testing with callback function Given the following factory that fetches a foobar through a REST call:
-angular.module(&#39;foobarApp&#39;). factory(&#39;foobarFactory&#39;, function($resource) { return { getFoobar: function(callback) { $resource(&#39;/rest/foobar&#39;).get(function(foobar) { callback(foobar); }); } }; });  I need to test the following controller that depends on foobarFactory:
-angular.module(&#39;foobarApp&#39;). controller(&#39;foobarCtrl&#39;, function($scope, foobarFactory) { $scope.foobar = function() { foobarFactory.getFoobar(function(foobar) { $scope.foobarId = foobar.id; }); }; });  To do so, I need to:
- Mock the foobarFactory and return a fake when calling the method getFoobar  spyOn(foobarFactory, &#39;getFoobar&#39;).</description>
+      <description></description>
     </item>
     
     <item>

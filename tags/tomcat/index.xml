@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tomcat on Louis LIN&#39;s blog</title>
+    <title>tomcat on Louis LIN&#39;s blog</title>
     <link>https://l-lin.github.io/tags/tomcat/</link>
-    <description>Recent content in Tomcat on Louis LIN&#39;s blog</description>
+    <description>Recent content in tomcat on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 23 Jul 2015 00:00:00 +0000</lastBuildDate>
@@ -17,8 +17,7 @@
       <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/</guid>
-      <description> Add the following to the JAVA_OPTS:  export JAVA_OPTS=&amp;quot;-Dcom.sun.management.jmxremote=true \ -Dcom.sun.management.jmxremote.port=9090 \ -Dcom.sun.management.jmxremote.ssl=false \ -Dcom.sun.management.jmxremote.authenticate=false \ -Djava.rmi.server.hostname=123.456.789.123&amp;quot;  Set your server IP on the java.rmi.server.hostname.
- On VisualVM, add a remote host Right click on the created host &amp;gt; Add JMX connexion Set the server IP with the port (in the example, it&amp;rsquo;s 9090) ???? PROFIT!!! </description>
+      <description></description>
     </item>
     
     <item>
