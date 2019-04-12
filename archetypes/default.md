@@ -3,7 +3,7 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 imageUrl: ""
 tags: []
-categories: []
+categories: ["post"]
 comment: true
 toc: false
 autoCollapseToc: false
