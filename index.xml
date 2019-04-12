@@ -6,7 +6,7 @@
     <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 08 Apr 2019 16:02:14 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 12 Apr 2019 09:27:54 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,17 @@
       <description>My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects in my free time Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today?</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu custom desktop shortcuts</title>
+      <link>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</link>
+      <pubDate>Fri, 12 Apr 2019 09:27:54 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</guid>
+      <description>&lt;p&gt;With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.&lt;/p&gt;
+
+&lt;p&gt;You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.&lt;/p&gt;</description>
     </item>
     
     <item>

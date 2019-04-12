@@ -10,7 +10,44 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/</loc>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/</loc>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</loc>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/ubuntu/</loc>
+    <lastmod>2019-04-12T09:27:54+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -22,31 +59,7 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/</loc>
-    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/</loc>
-    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://l-lin.github.io/tags/git/</loc>
-    <lastmod>2019-04-08T16:02:14+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
     <lastmod>2019-04-08T16:02:14+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -169,12 +182,6 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/docker/</loc>
-    <lastmod>2018-09-03T11:22:04+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/ubuntu/</loc>
     <lastmod>2018-09-03T11:22:04+02:00</lastmod>
     <priority>0</priority>
   </url>
