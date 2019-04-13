@@ -16,35 +16,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key) is not quite straightforward.
+<meta name="author" content="Louis LIN" /><meta name="description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key) is not quite straightforward.
 We need to use a mix of JPA annotations along with creating some embeddable classes.
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -57,7 +49,7 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/" />
 <meta property="article:published_time" content="2018-11-14T16:40:06&#43;01:00"/>
-<meta property="article:modified_time" content="2018-11-14T16:40:06&#43;01:00"/>
+<meta property="article:modified_time" content="2019-04-04T14:10:17&#43;02:00"/>
 
 <meta itemprop="name" content="JPA @OneToMany and composite primary key">
 <meta itemprop="description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
@@ -67,8 +59,8 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 
 
 <meta itemprop="datePublished" content="2018-11-14T16:40:06&#43;01:00" />
-<meta itemprop="dateModified" content="2018-11-14T16:40:06&#43;01:00" />
-<meta itemprop="wordCount" content="188">
+<meta itemprop="dateModified" content="2019-04-04T14:10:17&#43;02:00" />
+<meta itemprop="wordCount" content="0">
 
 
 
@@ -159,14 +151,11 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
               <a href="/tags/java/"> #java </a>
             
           </div>
-        
-        <span class="more-meta"> 1 min read </span>
+          
+          <span class="more-meta"> 0 mins read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -181,16 +170,26 @@ is not quite straightforward.</p>
 <p>We need to use a mix of JPA annotations along with creating some embeddable classes.</p>
 
 <p>Suppose we have the following representation in our database:</p>
-
-<pre><code class="language-txt">+=======+          +=============+          +=======+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">+=======+          +=============+          +=======+
 |cat    |          |cat_toy_usage|          |toy    |
 |-------|1        N|-------------|N        1|-------|
 |cat_id*|----------|cat_id*      |----------|toy_id*|
 |name   |          |toy_id*      |          |name   |
 +=======+          |usage_status |          +=======+
-                   +=============+
-</code></pre>
-
+                   +=============+</code></pre></td></tr></table>
+</div>
+</div>
 <p>We have:</p>
 
 <ul>
@@ -204,45 +203,84 @@ is not quite straightforward.</p>
 </ul>
 
 <p>Using JPA, we will have the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">catId</span><span class="o">;</span>
 
-<pre><code class="language-java">@Entity
-public class Cat implements Serializable {
-    @Id
-    @GeneratedValue
-    private Long catId;
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 
-    private String name;
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;id.cat&#34;</span><span class="o">,</span> <span class="n">fetched</span> <span class="o">=</span> <span class="n">FechType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">CatToyUsage</span><span class="o">&gt;</span> <span class="n">toyUsages</span><span class="o">;</span>
 
-    @OneToMany(mappedBy=&quot;id.cat&quot;, fetched = FechType.LAZY, cascade = CascadeType.ALL)
-    private Set&lt;CatToyUsage&gt; toyUsages;
+    <span class="c1">// Getters + setters
+</span><span class="c1"></span><span class="o">}</span>
 
-    // Getters + setters
-}
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatToyUsage</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="nd">@Embeddable</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Pk</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+        <span class="nd">@ManyToOne</span>
+        <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;cat_id&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Cat</span> <span class="n">cat</span><span class="o">;</span>
 
-@Entity
-public class CatToyUsage implements Serializable {
-    @Embeddable
-    static class Pk implements Serializable {
-        @ManyToOne
-        @JoinColumn(name = &quot;cat_id&quot;)
-        private Cat cat;
+        <span class="nd">@Column</span><span class="o">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Long</span> <span class="n">toyId</span><span class="o">;</span>
 
-        @Column(nullable = false, updatable = false)
-        private Long toyId;
+        <span class="c1">// Getters + setters + equals + hashCode
+</span><span class="c1"></span>    <span class="o">}</span>
 
-        // Getters + setters + equals + hashCode
-    }
+    <span class="nd">@EmbeddedId</span>
+    <span class="kd">private</span> <span class="n">Pk</span> <span class="n">id</span><span class="o">;</span>
 
-    @EmbeddedId
-    private Pk id;
+    <span class="nd">@Enumerated</span><span class="o">(</span><span class="n">EnumType</span><span class="o">.</span><span class="na">STRING</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">UsageStatus</span> <span class="n">usageStatus</span><span class="o">;</span>
 
-    @Enumerated(EnumType.STRING)
-    private UsageStatus usageStatus;
-
-    // Getters + setters
-}
-</code></pre>
-
+    <span class="c1">// Getters + setters
+</span><span class="c1"></span><span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Sources:</p>
 
 <ul>
@@ -251,33 +289,36 @@ public class CatToyUsage implements Serializable {
 </ul>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2019-04-04
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/0d4779cd9ad44fb5270e7127295efcaa574ad24c" title="post: use images with HTTPS">(0d4779c)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2018/2018-12-04-custom_validator_for_standard_constraints/">
+        <a class="prev" href="/post/2018/2018-12-04-custom_validator_for_standard_constraints/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Custom validator for standard constraints</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2018/2018-10-21-java_solid/">
+        <a class="next" href="/post/2018/2018-10-21-java_solid/">
             <span class="next-text nav-default">(Rock) SOLID</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -292,9 +333,6 @@ public class CatToyUsage implements Serializable {
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -320,8 +358,7 @@ public class CatToyUsage implements Serializable {
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -336,11 +373,13 @@ public class CatToyUsage implements Serializable {
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

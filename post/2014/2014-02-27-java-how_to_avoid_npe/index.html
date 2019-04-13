@@ -16,41 +16,41 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="Exception in thread &amp;quot;main&amp;quot; java.lang.NullPointerException at ... at ... at ...  The most common exception that pulls you hair a thousands of times. I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production. There are no real cure for this curse. Every application cannot escape this issue.
+<meta name="author" content="Louis LIN" /><meta name="description" content="1 2 3 4  Exception in thread &amp;#34;main&amp;#34; java.lang.NullPointerException at ... at ... at ...   The most common exception that pulls you hair a thousands of times. I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production. There are no real cure for this curse. Every application cannot escape this issue.
 However, there are many ways to avoid and reduce such NullPointerException.
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Avoiding Null Pointers" />
-<meta property="og:description" content="Exception in thread &quot;main&quot; java.lang.NullPointerException
+<meta property="og:description" content="
+
+1
+2
+3
+4
+
+
+Exception in thread &#34;main&#34; java.lang.NullPointerException
     at ...
     at ...
     at ...
@@ -64,10 +64,18 @@ However, there are many ways to avoid and reduce such NullPointerException." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" />
 <meta property="article:published_time" content="2014-02-27T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2014-02-27T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-04T14:10:17&#43;02:00"/>
 
 <meta itemprop="name" content="Avoiding Null Pointers">
-<meta itemprop="description" content="Exception in thread &quot;main&quot; java.lang.NullPointerException
+<meta itemprop="description" content="
+
+1
+2
+3
+4
+
+
+Exception in thread &#34;main&#34; java.lang.NullPointerException
     at ...
     at ...
     at ...
@@ -81,15 +89,23 @@ However, there are many ways to avoid and reduce such NullPointerException.">
 
 
 <meta itemprop="datePublished" content="2014-02-27T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-02-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="835">
+<meta itemprop="dateModified" content="2019-04-04T14:10:17&#43;02:00" />
+<meta itemprop="wordCount" content="902">
 
 
 
 <meta itemprop="keywords" content="java," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Avoiding Null Pointers"/>
-<meta name="twitter:description" content="Exception in thread &quot;main&quot; java.lang.NullPointerException
+<meta name="twitter:description" content="
+
+1
+2
+3
+4
+
+
+Exception in thread &#34;main&#34; java.lang.NullPointerException
     at ...
     at ...
     at ...
@@ -178,14 +194,11 @@ However, there are many ways to avoid and reduce such NullPointerException."/>
               <a href="/tags/java/"> #java </a>
             
           </div>
-        
-        <span class="more-meta"> 4 min read </span>
+          
+          <span class="more-meta"> 5 mins read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -194,12 +207,20 @@ However, there are many ways to avoid and reduce such NullPointerException."/>
 
     
     <div class="post-content">
-      <pre><code class="language-text">Exception in thread &quot;main&quot; java.lang.NullPointerException
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">Exception in thread &#34;main&#34; java.lang.NullPointerException
     at ...
     at ...
-    at ...
-</code></pre>
-
+    at ...</code></pre></td></tr></table>
+</div>
+</div>
 <p>The most common exception that pulls you hair a thousands of times.
 I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.</p>
@@ -207,19 +228,31 @@ There are no real cure for this curse. Every application cannot escape this issu
 <p>However, there are many ways to avoid and reduce such <code>NullPointerException</code>.</p>
 
 <p>Let&rsquo;s say the following piece of code throws the exception:</p>
-
-<pre><code class="language-java">Foo foo = fooFactory.getFoo(fooId);
-foo.getName(); // =&gt; Throws NPE
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">fooFactory</span><span class="o">.</span><span class="na">getFoo</span><span class="o">(</span><span class="n">fooId</span><span class="o">);</span>
+<span class="n">foo</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span> <span class="o">//</span> <span class="o">=&gt;</span> <span class="n">Throws</span> <span class="n">NPE</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>The fix could be the following:</p>
-
-<pre><code class="language-java">Foo foo = fooFactory.getFoo(fooId);
-if (foo != null) {
-    foo.getName();
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">fooFactory</span><span class="o">.</span><span class="na">getFoo</span><span class="o">(</span><span class="n">fooId</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">foo</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">foo</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>This patch, although correct, is not the best fix.
 Indeed, correcting every <code>NullPointerException</code> with such fix will degrade your code, losing readibilty and such.</p>
 
@@ -233,82 +266,144 @@ So the error is caught upstream. The client does not see the bugs, all is well.<
 <h2 id="installation">Installation</h2>
 
 <p>Using Maven, you can add the dependecy:</p>
-
-<pre><code class="language-xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.google.code.findbugs&lt;/groupId&gt;
-    &lt;artifactId&gt;jsr305&lt;/artifactId&gt;
-    &lt;version&gt;1.3.9&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.google.code.findbugs<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jsr305<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.3.9<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="usage">Usage</h2>
 
 <p>You can use those annotations in method parameters:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">param</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="o">}</span>
 
-<pre><code class="language-java">private void foo(@NotNull String param) {
-    param.toString();
-}
-
-public static void main(String[] args) {
-    foo(null); // Findbugs will not be happy here!
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">foo</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// Findbugs will not be happy here!
+</span><span class="c1"></span><span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Or as a return value:</p>
-
-<pre><code class="language-java">@NotNull
-private String foo() {
-    return &quot;foo&quot;;
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@NotNull</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="s">&#34;foo&#34;</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>I prefer the annotation <code>@Nullable</code> over <code>@NotNull</code> because in most case, parameters or return values are not <code>null</code>.
 So why bother putting <code>@NotNull</code> everywhere? With the annotation <code>@Nullable</code>, you tell findbugs that the parameters might be null and a null check is needed:</p>
-
-<pre><code class="language-java">private void foo(@Nullable String param) {
-    param.toString(); // Findbugs will not be happy here!
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">param</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span> <span class="c1">// Findbugs will not be happy here!
+</span><span class="c1"></span><span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>However, you need to specify that every parameters and return values are not <code>null</code>.
 To do so, you need to create a <code>package-info.java</code> at the root of your package folder:</p>
-
-<pre><code>src
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">src
 |
 |--java
 |----com.lin.louis
 |------Main.java
-|------package-info.java
-</code></pre>
-
+|------package-info.java</pre></td></tr></table>
+</div>
+</div>
 <p>with the following content:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@ParametersAreNonnullByDefault</span> <span class="kn">package</span> <span class="nn">com.lin.louis</span><span class="o">;</span>
 
-<pre><code class="language-java">@ParametersAreNonnullByDefault package com.lin.louis;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-</code></pre>
-
+<span class="kn">import</span> <span class="nn">javax.annotation.ParametersAreNonnullByDefault</span><span class="o">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="using-the-nullpointerpattern">Using the NullPointerPattern</h1>
 
 <p>Another way to avoid <code>NullPointerException</code> is to use the <a href="http://en.wikipedia.org/wiki/Null_Object_pattern">NullPointerPatter</a>.</p>
 
 <p>For example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">permissions</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getPermissions</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+<span class="o">}</span>
 
-<pre><code class="language-java">public class User {
-    private String name;
-    private List&lt;String&gt; permissions;
-    public String getName() { ... }
-    public List&lt;String&gt; getPermissions() { ... }
-}
-
-public final class UserNull {
-    @Override
-    public String getName() { return &quot;&quot;; }
-    @Override
-    public List&lt;String&gt; getPermissions() { return Collections.emptyList(); }
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">UserNull</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;&#34;</span><span class="o">;</span> <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getPermissions</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span> <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>So instead of returning <code>null</code>, you return the <code>null</code> value of <code>User</code> =&gt; <code>UserNull</code>.</p>
 
 <p>This pattern has a huge downside: you have to write for each POJO an empty class that represents the <code>null</code> value of your class.</p>
@@ -320,21 +415,35 @@ public final class UserNull {
 <h1 id="throw-exception-as-soon-as-you-can">Throw exception as soon as you can</h1>
 
 <p>I prefer throwing an exception if the value of my parameter does not meet my expectation. You often want to have those check when you are working with external APIs:</p>
-
-<pre><code class="language-java">public void foo(String param) {
-    if (StringUtils.isBlank(param)) {
-        throw new IllegalArgumentException(&quot;Param must not be blank.&quot;);
-    }
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">param</span><span class="o">))</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;Param must not be blank.&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Or with <a href="https://code.google.com/p/guava-libraries/">Guava</a>:</p>
-
-<pre><code class="language-java">public void foo(String param) {
-    checkArgument(StringUtils.isBlank(param), &quot;Param must not be blank.&quot;);
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">checkArgument</span><span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">param</span><span class="o">),</span> <span class="s">&#34;Param must not be blank.&#34;</span><span class="o">);</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="using-optionals">Using Optionals</h1>
 
 <p>This pattern comes from functional programming background. The main goal is to use a wrapper of the object.
@@ -343,17 +452,28 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
 <p>The library <a href="https://code.google.com/p/guava-libraries/wiki/UsingAndAvoidingNullExplained#Optional">Guava</a> or <a href="https://github.com/functionaljava/functionaljava">FunctionalJava</a> has some interesting classes.</p>
 
 <p>For example:</p>
-
-<pre><code class="language-java">public void foo(String param) {
-    Optional&lt;String&gt; optionalParam = Optional.fromNullable(param);
-    if (optionalParam.isPresent()) {
-        System.out.println(optionalParam.get());
-    } else {
-        System.out.println(&quot;optionalParam is absent&quot;);
-    }
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalParam</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">fromNullable</span><span class="o">(</span><span class="n">param</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">optionalParam</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">optionalParam</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;optionalParam is absent&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>From guava explanation:</p>
 
 <blockquote>
@@ -369,33 +489,36 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
 </blockquote>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2019-04-04
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/0d4779cd9ad44fb5270e7127295efcaa574ad24c" title="post: use images with HTTPS">(0d4779c)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2014/2014-05-02-meteor-another_js_framework/">
+        <a class="prev" href="/post/2014/2014-05-02-meteor-another_js_framework/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">MeteorJS, yet another JS framework?</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2014/2014-02-26-backbone-how_to_extend_properties/">
+        <a class="next" href="/post/2014/2014-02-26-backbone-how_to_extend_properties/">
             <span class="next-text nav-default">How to extend properties of parent class</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -410,9 +533,6 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -438,8 +558,7 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -454,11 +573,13 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

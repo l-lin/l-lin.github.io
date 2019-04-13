@@ -16,33 +16,25 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="" />
-
-  <meta name="keywords" content="software development" />
+<meta name="author" content="Louis LIN" /><meta name="description" content="" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -52,15 +44,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/" />
 <meta property="article:published_time" content="2018-02-10T12:05:16&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-10T12:05:16&#43;01:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="Kotlin Basics - Classes ">
 <meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2018-02-10T12:05:16&#43;01:00" />
-<meta itemprop="dateModified" content="2018-02-10T12:05:16&#43;01:00" />
-<meta itemprop="wordCount" content="347">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="0">
 
 
 
@@ -148,17 +140,14 @@
               <a href="/tags/learning/"> #learning </a>
             
           </div>
-        
-        <span class="more-meta"> 2 min read </span>
+          
+          <span class="more-meta"> 0 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
@@ -169,8 +158,6 @@
 </nav>
   </div>
 </div>
-
-    
     <div class="post-image center">
       <img src="https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png" />
     </div>
@@ -180,160 +167,279 @@
       <h1 id="methods">Methods</h1>
 
 <p>In Java, when you declare class methods, you need to declare them inside the class:</p>
-
-<pre><code class="language-java">public class Plane {
-    public void fly() {
-        System.out.println(&quot;I'm flying&quot;);
-    }
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Plane</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>In Kotlin, you can declare in two different ways:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">Plane</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">fly</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<pre><code class="language-kotlin">class Plane() {
-    fun fly() {
-        println(&quot;I'm flying&quot;)
-    }
-}
+<span class="c1">// or
+</span><span class="c1"></span>
+<span class="k">class</span> <span class="nc">Plane</span>
 
-// or
+<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
+<span class="p">}</span>
 
-class Plane
+<span class="c1">// or
+</span><span class="c1"></span>
+<span class="k">class</span> <span class="nc">Plane</span>
 
-fun Plane.fly() {
-    println(&quot;I'm flying&quot;)
-}
-
-// or
-
-class Plane
-
-fun Plane.fly() = println(&quot;I'm flying&quot;)
-</code></pre>
-
+<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span> <span class="p">=</span> <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>It&rsquo;s interesting to note that other languages (like Golang) also uses the second form.</p>
 
 <h1 id="data-classes">Data classes</h1>
 
 <p>In Java, you will need to declare your DTO like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Person {
-    private String firstName;
-    private String lastName;
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getFirstName() {
-        return firstName;
-    }
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFirstName</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName() {
-        this.lastName = lastName;
-    }
-}
-</code></pre>
-
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLastName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>It&rsquo;s really verbose, and there is lot of code lines (~19 lines).</p>
 
 <p>In Kotlin, you can define the above class in one line:</p>
-
-<pre><code class="language-kotlin">data class Person(val firstName: String, val lastName: String)
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">data</span> <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="k">val</span> <span class="py">firstName</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="k">val</span> <span class="py">lastName</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="inheritance">Inheritance</h1>
 
 <p>Using the <a href="http://commons.apache.org/proper/commons-cli/">apache common-cli</a> library:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cmd</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">execute</span><span class="o">();</span>
+    <span class="n">Option</span> <span class="nf">getOption</span><span class="o">();</span>
+    <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">);</span>
+<span class="o">}</span>
 
-<pre><code class="language-java">public interface Cmd {
-    void execute();
-    Option getOption();
-    boolean isEnabled(CommandLine line);
-}
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="n">AbstractCmd</span> <span class="kd">implements</span> <span class="n">Cmd</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="n">getOption</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">longOpt</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="na">getLongOpt</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="na">hasOption</span><span class="o">(</span><span class="n">longOpt</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public abstract AbstractCmd implements Cmd {
-    @Override
-    public boolean isEnabled(CommandLine line) {
-        Option option = getOption();
-        String longOpt = option.getLongOpt();
-        return line.hasOption(longOpt);
-    }
-}
+<span class="kd">public</span> <span class="n">HelpCmd</span> <span class="kd">extends</span> <span class="n">AbstractCmd</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Option</span><span class="o">(</span><span class="s">&#34;h&#34;</span><span class="o">,</span> <span class="s">&#34;help&#34;</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="o">);</span>
 
-public HelpCmd extends AbstractCmd {
-    private Option option = new Option(&quot;h&quot;, &quot;help&quot;, false, &quot;display the help and exit&quot;);
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Display help here&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    @Override
-    public void execute() {
-        System.out.println(&quot;Display help here&quot;);
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Option</span> <span class="nf">getOption</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">option</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">interface</span> <span class="nc">Cmd</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="k">fun</span> <span class="nf">getOption</span><span class="p">():</span> <span class="n">Option</span>
+    <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">):</span> <span class="n">Boolean</span>
+<span class="p">}</span>
 
-    @Override
-    public Option getOption() {
-        return option;
-    }
-}
-</code></pre>
+<span class="c1">// Keyword &#34;implements&#34; not needed
+</span><span class="c1"></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbstractCmd</span><span class="p">:</span> <span class="n">Cmd</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">):</span> <span class="n">Boolean</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="n">hasOption</span><span class="p">(</span><span class="n">getOption</span><span class="p">().</span><span class="n">longOpt</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<pre><code class="language-kotlin">interface Cmd {
-    fun execute()
-    fun getOption(): Option
-    fun isEnabled(line: CommandLine): Boolean
-}
+<span class="c1">// Keyword &#34;extends&#34; not needed
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">HelpCmd</span><span class="p">:</span> <span class="n">AbstractCmd</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// We need to declare as &#34;private&#34; and override the `getOption` method otherwise we have an &#34;accidental override&#34; error
+</span><span class="c1"></span>    <span class="k">private</span> <span class="k">val</span> <span class="py">option</span> <span class="p">=</span> <span class="n">Option</span><span class="p">(</span><span class="s">&#34;h&#34;</span><span class="p">,</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="p">)</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getOption</span><span class="p">():</span> <span class="n">Option</span> <span class="p">=</span> <span class="n">option</span>
 
-// Keyword &quot;implements&quot; not needed
-abstract class AbstractCmd: Cmd {
-    override fun isEnabled(line: CommandLine): Boolean {
-        return line.hasOption(getOption().longOpt)
-    }
-}
-
-// Keyword &quot;extends&quot; not needed
-class HelpCmd: AbstractCmd() {
-	// We need to declare as &quot;private&quot; and override the `getOption` method otherwise we have an &quot;accidental override&quot; error
-    private val option = Option(&quot;h&quot;, &quot;help&quot;, false, &quot;display the help and exit&quot;)
-    override fun getOption(): Option = option
-
-    // No need to add the character '@' and by default, the methods are public
-    override fun execute() {
-        println(&quot;Display help here&quot;)
-    }
-}
-</code></pre>
+    <span class="c1">// No need to add the character &#39;@&#39; and by default, the methods are public
+</span><span class="c1"></span>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&#34;Display help here&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2018/2018-02-23-centos7_add_new_tomcat_service/">
+        <a class="prev" href="/post/2018/2018-02-23-centos7_add_new_tomcat_service/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">How to add a new Tomcat service on CentOS7</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2018/2018-02-09-centos7_open_port/">
+        <a class="next" href="/post/2018/2018-02-09-centos7_open_port/">
             <span class="next-text nav-default">How to open firewall port on CentOS7</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -348,9 +454,6 @@ class HelpCmd: AbstractCmd() {
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -376,8 +479,7 @@ class HelpCmd: AbstractCmd() {
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -392,11 +494,13 @@ class HelpCmd: AbstractCmd() {
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

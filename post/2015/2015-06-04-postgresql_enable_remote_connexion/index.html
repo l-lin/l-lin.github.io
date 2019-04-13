@@ -16,33 +16,25 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="" />
-
-  <meta name="keywords" content="software development" />
+<meta name="author" content="Louis LIN" /><meta name="description" content="" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -52,15 +44,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/" />
 <meta property="article:published_time" content="2015-06-04T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2015-06-04T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="Do not prompt password and enable remote access">
 <meta itemprop="description" content="">
 
 
 <meta itemprop="datePublished" content="2015-06-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-06-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="75">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="83">
 
 
 
@@ -146,14 +138,11 @@
               <a href="/tags/postgresql/"> #postgresql </a>
             
           </div>
-        
-        <span class="more-meta"> 1 min read </span>
+          
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -165,59 +154,83 @@
       <h1 id="do-not-prompt-password">Do not prompt password</h1>
 
 <p>Edit the file <code>/etc/postgresql/9.3/main/pg_hba.conf</code> and change the value from <code>peer</code> to <code>trust</code>:</p>
-
-<pre><code class="language-txt"># &quot;local&quot; is for Unix domain socket connections only
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt"># &#34;local&#34; is for Unix domain socket connections only
 local   all             postgres                                trust
 
 # IPv4 local connections:
-host    all             all             0.0.0.0/0            trust
-</code></pre>
-
+host    all             all             0.0.0.0/0            trust</code></pre></td></tr></table>
+</div>
+</div>
 <p>Restart the PostgreSQL service:</p>
-
-<pre><code class="language-bash">sudo service postgresql restart
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo service postgresql restart</code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="enable-remote-access">Enable remote access</h1>
 
 <p>Edit the file <code>/etc/postgresql/9.3/main/postgresql.conf</code>and look for the property <code>listen_addresses</code> and change its value to <code>'*'</code>:</p>
-
-<pre><code class="language-txt">listen_addresses = '*'
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">listen_addresses = &#39;*&#39;</code></pre></td></tr></table>
+</div>
+</div>
 <p>Restart the PostgreSQL service:</p>
-
-<pre><code class="language-bash">sudo service postgresql restart
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo service postgresql restart</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2015/2015-07-21-how_to_kill_inactive_ssh/">
+        <a class="prev" href="/post/2015/2015-07-21-how_to_kill_inactive_ssh/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">How to kill inactive ssh sessions</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/">
+        <a class="next" href="/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/">
             <span class="next-text nav-default">Chrome extension and &#39;Access-Control-Allow-Origin&#39;</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -232,9 +245,6 @@ host    all             all             0.0.0.0/0            trust
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -260,8 +270,7 @@ host    all             all             0.0.0.0/0            trust
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -276,11 +285,13 @@ host    all             all             0.0.0.0/0            trust
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

@@ -111,12 +111,20 @@ What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each
       <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;Exception in thread &amp;quot;main&amp;quot; java.lang.NullPointerException
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Exception in thread &amp;#34;main&amp;#34; java.lang.NullPointerException
     at ...
     at ...
-    at ...
-&lt;/code&gt;&lt;/pre&gt;
-
+    at ...&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;The most common exception that pulls you hair a thousands of times.
 I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;

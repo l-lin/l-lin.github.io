@@ -16,35 +16,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.
+<meta name="author" content="Louis LIN" /><meta name="description" content="Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.
 In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -56,7 +48,7 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/" />
 <meta property="article:published_time" content="2018-01-28T17:37:03&#43;01:00"/>
-<meta property="article:modified_time" content="2018-01-28T17:37:03&#43;01:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="Kotlin Basics: syntax">
 <meta itemprop="description" content="Kotlin is a great language but it&rsquo;s more like a subset of Java.
@@ -65,8 +57,8 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
 
 
 <meta itemprop="datePublished" content="2018-01-28T17:37:03&#43;01:00" />
-<meta itemprop="dateModified" content="2018-01-28T17:37:03&#43;01:00" />
-<meta itemprop="wordCount" content="697">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="0">
 
 
 
@@ -156,17 +148,14 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
               <a href="/tags/learning/"> #learning </a>
             
           </div>
-        
-        <span class="more-meta"> 4 min read </span>
+          
+          <span class="more-meta"> 0 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
 <ul>
@@ -182,8 +171,6 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
 </nav>
   </div>
 </div>
-
-    
     <div class="post-image center">
       <img src="https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png" />
     </div>
@@ -203,36 +190,62 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
 <h1 id="functions">Functions</h1>
 
 <p>In Java, declaring a function must follow some directives:</p>
-
-<pre><code class="language-text">&lt;visibility&gt; &lt;static&gt; &lt;returnType&gt; &lt;functionName&gt;(&lt;argumentType&gt; &lt;argumentName&gt;) {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">&lt;visibility&gt; &lt;static&gt; &lt;returnType&gt; &lt;functionName&gt;(&lt;argumentType&gt; &lt;argumentName&gt;) {
     // Content of the function
-}
-</code></pre>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <p>Moreover, you need to create a class in order to create a function. So it&rsquo;s something like this:</p>
-
-<pre><code class="language-java">public class Foobar {
-    public static void main(String[] args) {
-        System.out.println(&quot;Hello world&quot;);
-    }
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foobar</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello world&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Whereas in Kotlin, you do not need to create a class as it&rsquo;s not relevant to any class which is more logical.
 When declaring a function, it must follow the following:</p>
-
-<pre><code class="language-text">fun &lt;functionName&gt;(&lt;argumentName&gt;: &lt;argumentType&gt;): &lt;returnType&gt; {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">fun &lt;functionName&gt;(&lt;argumentName&gt;: &lt;argumentType&gt;): &lt;returnType&gt; {
     // Content of the function
-}
-</code></pre>
-
+}</code></pre></td></tr></table>
+</div>
+</div>
 <p>So for the same example as Java, it will be something like this in Kotlin:</p>
-
-<pre><code class="language-kotlin">fun main(args: Arrays&lt;String&gt;) {
-    println(&quot;Hello world&quot;)
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Arrays</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello world&#34;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>You might notice several aspects that differ from Java:</p>
 
 <ul>
@@ -244,41 +257,68 @@ When declaring a function, it must follow the following:</p>
 </ul>
 
 <p>However, it&rsquo;s not the only way to declare a function in Kotlin:</p>
-
-<pre><code class="language-kotlin">fun sum(a: Int, b: Int) = a + b
-// is equivalent to
-fun sum(a: Int, b: Int): Int {
-    return a + b
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span>
+<span class="c1">// is equivalent to
+</span><span class="c1"></span><span class="k">fun</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>The return type is not defined, it&rsquo;s also implicit and it will automatically detect the type from the return type (ie: type inference)</li>
 <li>It&rsquo;s declared like assigning a variable, but it&rsquo;s used like a real function:</li>
 </ul>
-
-<pre><code class="language-kotlin">fun main(args: Array&lt;String&gt; {
-    val result = sum(88, 12)
-    println(&quot;Sum of 88 and 12 is ${result}&quot;)
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="m">88</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&#34;Sum of 88 and 12 is ${result}&#34;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="variables">Variables</h1>
 
 <p>In Java, when you are declaring a variable, you MUST declare its type:</p>
-
-<pre><code class="language-java">String message = &quot;Hello world!&quot;;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&#34;Hello world!&#34;</span><span class="o">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Whereas in Kotlin, the type inference is really strong:</p>
-
-<pre><code class="language-kotlin">// Read-only variable declaration
-val message = &quot;Hello world&quot; // Kotlin &quot;knows&quot; it's a String
-// Mutable variable
-var a = 1
-a += 2
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="c1">// Read-only variable declaration
+</span><span class="c1"></span><span class="k">val</span> <span class="py">message</span> <span class="p">=</span> <span class="s">&#34;Hello world&#34;</span> <span class="c1">// Kotlin &#34;knows&#34; it&#39;s a String
+</span><span class="c1">// Mutable variable
+</span><span class="c1"></span><span class="k">var</span> <span class="py">a</span> <span class="p">=</span> <span class="m">1</span>
+<span class="n">a</span> <span class="p">+=</span> <span class="m">2</span></code></pre></td></tr></table>
+</div>
+</div>
 <figure class="center">
     <img src="https://memegenerator.net/img/instances/500x/67676028/by-reading-between-the-lines-an-inference-you-will-make.jpg"
          alt="Type inference"/> 
@@ -287,72 +327,128 @@ a += 2
 <h1 id="comments">Comments</h1>
 
 <p>Comments are about the same in Java and Kotlin.</p>
-
-<pre><code class="language-kotlin">// This is an end-of-line comment
-
-/* This is a block comment
-   on multiple lines. */
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="c1">// This is an end-of-line comment
+</span><span class="c1"></span>
+<span class="cm">/* This is a block comment
+</span><span class="cm">   on multiple lines. */</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="string-interpolation">String interpolation</h1>
 
 <p>In Java, when building a String, it&rsquo;s a bit messy:</p>
-
-<pre><code class="language-java">int a = 1;
-int b = 2;
-int result = a + b;
-String message = &quot;Hello world, this is the result of the computation of &quot; + a + &quot; and &quot; + b + &quot; which gives &quot; + result;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&#34;Hello world, this is the result of the computation of &#34;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">&#34; and &#34;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s">&#34; which gives &#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>In kotlin, you can use the <code>$</code> along with <code>{</code> <code>}</code> to fetch its data:</p>
-
-<pre><code class="language-kotlin">val a = 1
-val b = 2
-val message = &quot;Hello world, this is the result of the computation of $a and $b which gives ${a + b}&quot;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">val</span> <span class="py">a</span> <span class="p">=</span> <span class="m">1</span>
+<span class="k">val</span> <span class="py">b</span> <span class="p">=</span> <span class="m">2</span>
+<span class="k">val</span> <span class="py">message</span> <span class="p">=</span> <span class="s">&#34;Hello world, this is the result of the computation of $a and $b which gives ${a + b}&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="classes">Classes</h1>
 
 <p>Declaring a class in Java is done like this:</p>
-
-<pre><code class="language-java">public class Foobar {
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foobar</span> <span class="o">{</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>In Kotlin, it&rsquo;s about the same:</p>
-
-<pre><code class="language-kotlin">class Foobar {
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">Foobar</span> <span class="p">{</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>However, when declaring a new instance of the class:</p>
-
-<pre><code class="language-java">Foobar foobar = new Foobar();
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foobar</span> <span class="n">foobar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foobar</span><span class="o">();</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Whereas in Kotlin, you don&rsquo;t need the <code>new</code> keyword:</p>
-
-<pre><code class="language-kotlin">var foobar = Foobar()
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">var</span> <span class="py">foobar</span> <span class="p">=</span> <span class="n">Foobar</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
 <h1 id="for-loop">For loop</h1>
-
-<pre><code class="language-java">for (int i = 0; i &lt; 10; i++) {
-    System.out.println(i);
-}
-for (int j = 0; j &lt; 10; j++) {
-    System.out.println(j);
-}
-</code></pre>
-
-<pre><code class="language-kotlin">for (i in 0..9) {
-    println(i)
-}
-for (j in 0..9 step 2) {
-    println(j)
-}
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">0.</span><span class="p">.</span><span class="m">9</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="k">in</span> <span class="m">0.</span><span class="p">.</span><span class="m">9</span> <span class="n">step</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>It&rsquo;s more readable in Kotlin than in Java</li>
 <li>We do not need to specify the <code>var</code> or <code>val</code> keywords, again, it&rsquo;s implicit</li>
@@ -375,33 +471,36 @@ for (j in 0..9 step 2) {
 </blockquote>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2018/2018-02-08-git_extract_folders_with_history/">
+        <a class="prev" href="/post/2018/2018-02-08-git_extract_folders_with_history/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">How to extract folders with history with git</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2018/2018-01-25-journey_to_kotlin_planning/">
+        <a class="next" href="/post/2018/2018-01-25-journey_to_kotlin_planning/">
             <span class="next-text nav-default">My journey to learning Kotlin - The planning</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -416,9 +515,6 @@ for (j in 0..9 step 2) {
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -444,8 +540,7 @@ for (j in 0..9 step 2) {
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -460,11 +555,13 @@ for (j in 0..9 step 2) {
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

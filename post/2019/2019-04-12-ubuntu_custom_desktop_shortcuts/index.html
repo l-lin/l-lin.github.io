@@ -16,35 +16,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
+<meta name="author" content="Louis LIN" /><meta name="description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
 You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -56,7 +48,7 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/" />
 <meta property="article:published_time" content="2019-04-12T09:27:54&#43;02:00"/>
-<meta property="article:modified_time" content="2019-04-12T09:27:54&#43;02:00"/>
+<meta property="article:modified_time" content="2019-04-12T09:39:21&#43;02:00"/>
 
 <meta itemprop="name" content="Ubuntu custom desktop shortcuts">
 <meta itemprop="description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
@@ -65,8 +57,8 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 
 
 <meta itemprop="datePublished" content="2019-04-12T09:27:54&#43;02:00" />
-<meta itemprop="dateModified" content="2019-04-12T09:27:54&#43;02:00" />
-<meta itemprop="wordCount" content="111">
+<meta itemprop="dateModified" content="2019-04-12T09:39:21&#43;02:00" />
+<meta itemprop="wordCount" content="119">
 
 
 
@@ -154,14 +146,11 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
               <a href="/tags/ubuntu/"> #ubuntu </a>
             
           </div>
-        
-        <span class="more-meta"> 1 min read </span>
+          
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -190,17 +179,28 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 </ul>
 
 <p>If you want to create a custom one, create a <code>&lt;name&gt;.desktop</code> file into one of those two folders with the following content:</p>
-
-<pre><code>[Desktop Entry]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[Desktop Entry]
 Type=Application
 Name=Name of the app
 Icon=/path/to/your/icon.png
-Exec=&quot;/path/to/your/exec&quot; %f
+Exec=&#34;/path/to/your/exec&#34; %f
 Comment=Some comment
 Categories=Categories;separated;by;semi-commas;
-Terminal=false
-</code></pre>
-
+Terminal=false</pre></td></tr></table>
+</div>
+</div>
 <p>Sources:</p>
 
 <ul>
@@ -209,28 +209,32 @@ Terminal=false
 </ul>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2019-04-12
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/a5cbbc658a7c04ad3074092464ce675c3c818b83" title="post(ubuntu): on custom desktop shortcuts">(a5cbbc6)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
         
-        
-          <a class="next" href="/post/2019/2019-04-08-git-url-shortcuts/">
+        <a class="next" href="/post/2019/2019-04-08-git-url-shortcuts/">
             <span class="next-text nav-default">Git URL Shortcuts</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -245,9 +249,6 @@ Terminal=false
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -273,8 +274,7 @@ Terminal=false
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -289,11 +289,13 @@ Terminal=false
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

@@ -16,35 +16,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images, certainly because of copyright isusses.
+<meta name="author" content="Louis LIN" /><meta name="description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images, certainly because of copyright isusses.
 One way is to fetch a vqd token from an initial basic request, then use it to find the image URLs, and finally download the image.
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -58,7 +50,7 @@ the image." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/" />
 <meta property="article:published_time" content="2019-04-02T09:18:10&#43;02:00"/>
-<meta property="article:modified_time" content="2019-04-02T09:18:10&#43;02:00"/>
+<meta property="article:modified_time" content="2019-04-11T16:03:55&#43;02:00"/>
 
 <meta itemprop="name" content="Download DDG image file with Go">
 <meta itemprop="description" content="While DuckDuckGo offers Instant Answer APIs, it does not provide URLs to download images,
@@ -69,8 +61,8 @@ the image.">
 
 
 <meta itemprop="datePublished" content="2019-04-02T09:18:10&#43;02:00" />
-<meta itemprop="dateModified" content="2019-04-02T09:18:10&#43;02:00" />
-<meta itemprop="wordCount" content="637">
+<meta itemprop="dateModified" content="2019-04-11T16:03:55&#43;02:00" />
+<meta itemprop="wordCount" content="801">
 
 
 
@@ -162,14 +154,11 @@ the image."/>
               <a href="/tags/duckduckgo/"> #duckduckgo </a>
             
           </div>
-        
-        <span class="more-meta"> 3 min read </span>
+          
+          <span class="more-meta"> 4 mins read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -184,174 +173,345 @@ certainly because of copyright isusses.</p>
 <p>One way is to fetch a <code>vqd</code> token from an initial basic request, then use it to find the image URLs, and finally download
 the image.</p>
 
-<pre><code class="language-golang">package main
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="kn">package</span> <span class="nx">main</span>
 
-import (
-    &quot;bytes&quot;
-    &quot;encoding/json&quot;
-    &quot;fmt&quot;
-    &quot;io&quot;
-    &quot;io/ioutil&quot;
-    &quot;log&quot;
-    &quot;os&quot;
-    &quot;net/http&quot;
-    &quot;regexp&quot;
-    &quot;strings&quot;
-)
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&#34;bytes&#34;</span>
+    <span class="s">&#34;encoding/json&#34;</span>
+    <span class="s">&#34;fmt&#34;</span>
+    <span class="s">&#34;io&#34;</span>
+    <span class="s">&#34;io/ioutil&#34;</span>
+    <span class="s">&#34;log&#34;</span>
+    <span class="s">&#34;os&#34;</span>
+    <span class="s">&#34;net/http&#34;</span>
+    <span class="s">&#34;regexp&#34;</span>
+    <span class="s">&#34;strings&#34;</span>
+<span class="p">)</span>
 
-func main() {
-    arg := os.Args[1]
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">arg</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    img := make(chan *ImgFetchResult)
-	f := &amp;DDGImgFetcher{}
-	go f.Fetch(img, arg)
-	result := &lt;-img
-	if result.Error != nil {
-		log.Fatalln(result.Error)
-	}
-	createFile(result.Img, &quot;/tmp/&quot;+arg+&quot;.&quot;+result.ContentType)
-}
+    <span class="nx">img</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">ImgFetchResult</span><span class="p">)</span>
+	<span class="nx">f</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">DDGImgFetcher</span><span class="p">{}</span>
+	<span class="k">go</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Fetch</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span>
+	<span class="nx">result</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">img</span>
+	<span class="k">if</span> <span class="nx">result</span><span class="p">.</span><span class="nx">Error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalln</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Error</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nf">createFile</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Img</span><span class="p">,</span> <span class="s">&#34;/tmp/&#34;</span><span class="o">+</span><span class="nx">arg</span><span class="o">+</span><span class="s">&#34;.&#34;</span><span class="o">+</span><span class="nx">result</span><span class="p">.</span><span class="nx">ContentType</span><span class="p">)</span>
+<span class="p">}</span>
 
-func createFile(content []byte, filePath string) {
-	file, err := os.Create(filePath)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer file.Close()
+<span class="kd">func</span> <span class="nf">createFile</span><span class="p">(</span><span class="nx">content</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">filePath</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalln</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 
-	_, err = io.Copy(file, bytes.NewReader(content))
-	if err != nil {
-		log.Fatalln(err)
-	}
-}
+	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">content</span><span class="p">))</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalln</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-// DDGImgFetcher fetches the image from duckduckgo
-type DDGImgFetcher struct {
-}
+<span class="c1">// DDGImgFetcher fetches the image from duckduckgo
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">DDGImgFetcher</span> <span class="kd">struct</span> <span class="p">{</span>
+<span class="p">}</span>
 
-// ImgFetchResult is the representation of the result to fetch the image
-// It wraps an error in case something went wrong
-type ImgFetchResult struct {
-	Img         []byte
-	ContentType string
-	Error       error
-}
+<span class="c1">// ImgFetchResult is the representation of the result to fetch the image
+</span><span class="c1">// It wraps an error in case something went wrong
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ImgFetchResult</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Img</span>         <span class="p">[]</span><span class="kt">byte</span>
+	<span class="nx">ContentType</span> <span class="kt">string</span>
+	<span class="nx">Error</span>       <span class="kt">error</span>
+<span class="p">}</span>
 
-const ddgURL = &quot;https://duckduckgo.com&quot;
+<span class="kd">const</span> <span class="nx">ddgURL</span> <span class="p">=</span> <span class="s">&#34;https://duckduckgo.com&#34;</span>
 
-// Fetch the image from duckduckgo
-// Code inspired from https://github.com/deepanprabhu/duckduckgo-images-api/blob/master/duckduckgo_images_api/api.py
-func (f *DDGImgFetcher) Fetch(result chan *ImgFetchResult, title string) {
-	token, err := fetchToken(title)
-	if err != nil {
-		result &lt;- &amp;ImgFetchResult{nil, &quot;&quot;, err}
-		return
-	}
-	imgURL, err := fetchImgURL(title, token)
-	if err != nil {
-		result &lt;- &amp;ImgFetchResult{nil, &quot;&quot;, err}
-		return
-	}
-	img, contentType, err := downloadImg(imgURL)
-	if err != nil {
-		result &lt;- &amp;ImgFetchResult{nil, &quot;&quot;, err}
-		return
-	}
-	result &lt;- &amp;ImgFetchResult{img, contentType, nil}
-}
+<span class="c1">// Fetch the image from duckduckgo
+</span><span class="c1">// Code inspired from https://github.com/deepanprabhu/duckduckgo-images-api/blob/master/duckduckgo_images_api/api.py
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="o">*</span><span class="nx">DDGImgFetcher</span><span class="p">)</span> <span class="nf">Fetch</span><span class="p">(</span><span class="nx">result</span> <span class="kd">chan</span> <span class="o">*</span><span class="nx">ImgFetchResult</span><span class="p">,</span> <span class="nx">title</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">token</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">fetchToken</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">result</span> <span class="o">&lt;-</span> <span class="o">&amp;</span><span class="nx">ImgFetchResult</span><span class="p">{</span><span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">}</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="nx">imgURL</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">fetchImgURL</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">result</span> <span class="o">&lt;-</span> <span class="o">&amp;</span><span class="nx">ImgFetchResult</span><span class="p">{</span><span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">}</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="nx">img</span><span class="p">,</span> <span class="nx">contentType</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">downloadImg</span><span class="p">(</span><span class="nx">imgURL</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">result</span> <span class="o">&lt;-</span> <span class="o">&amp;</span><span class="nx">ImgFetchResult</span><span class="p">{</span><span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">}</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="nx">result</span> <span class="o">&lt;-</span> <span class="o">&amp;</span><span class="nx">ImgFetchResult</span><span class="p">{</span><span class="nx">img</span><span class="p">,</span> <span class="nx">contentType</span><span class="p">,</span> <span class="kc">nil</span><span class="p">}</span>
+<span class="p">}</span>
 
-// fetchToken needed to perform the image search
-func fetchToken(title string) (string, error) {
-	req, err := http.NewRequest(&quot;GET&quot;, ddgURL, nil)
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not build the request for URL %s. Error was %s&quot;, ddgURL, err)
-	}
-	q := req.URL.Query()
-	q.Add(&quot;q&quot;, title)
-	req.URL.RawQuery = q.Encode()
-	resp, err := http.Get(req.URL.String())
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not fetch the result of %s&quot;, req.URL.String())
-	}
-	if resp.StatusCode != 200 {
-		return &quot;&quot;, fmt.Errorf(&quot;Duckduckgo returns %v status code&quot;, resp.StatusCode)
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not read the response body from duckduckgo. Error was %s&quot;, err)
-	}
+<span class="c1">// fetchToken needed to perform the image search
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">fetchToken</span><span class="p">(</span><span class="nx">title</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">req</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="s">&#34;GET&#34;</span><span class="p">,</span> <span class="nx">ddgURL</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not build the request for URL %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">ddgURL</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">q</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">Query</span><span class="p">()</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()</span>
+	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not fetch the result of %s&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Duckduckgo returns %v status code&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from duckduckgo. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
 
-	content := string(body)
+	<span class="nx">content</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
 
-	r := regexp.MustCompile(&quot;vqd=([\\d-]+)&quot;)
-	token := strings.ReplaceAll(r.FindString(content), &quot;vqd=&quot;, &quot;&quot;)
+	<span class="nx">r</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="s">&#34;vqd=([\\d-]+)&#34;</span><span class="p">)</span>
+	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nf">FindString</span><span class="p">(</span><span class="nx">content</span><span class="p">),</span> <span class="s">&#34;vqd=&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
 
-	return token, nil
-}
+	<span class="k">return</span> <span class="nx">token</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-func fetchImgURL(title, token string) (string, error) {
-	url := ddgURL + &quot;/i.js&quot;
-	req, err := http.NewRequest(&quot;GET&quot;, url, nil)
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not build the request for URL %s. Error was %s&quot;, url, err)
-	}
-	q := req.URL.Query()
-	q.Add(&quot;l&quot;, &quot;wt-wt&quot;)
-	q.Add(&quot;o&quot;, &quot;json&quot;)
-	q.Add(&quot;q&quot;, title)
-	q.Add(&quot;vqd&quot;, token)
-	q.Add(&quot;f&quot;, &quot;,,,&quot;)
-	q.Add(&quot;p&quot;, &quot;2&quot;)
-	req.URL.RawQuery = q.Encode()
-	resp, err := http.Get(req.URL.String())
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not fetch the result of %s&quot;, req.URL.String())
-	}
-	if resp.StatusCode != 200 {
-		return &quot;&quot;, fmt.Errorf(&quot;Duckduckgo returns %v status code&quot;, resp.StatusCode)
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not read the response body from duckduckgo. Error was %s&quot;, err)
-	}
-	var data map[string]interface{}
-	err = json.Unmarshal(body, &amp;data)
-	if err != nil {
-		return &quot;&quot;, fmt.Errorf(&quot;Could not parse the response body from wikipedia. Error was %s&quot;, err.Error())
-	}
+<span class="kd">func</span> <span class="nf">fetchImgURL</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">token</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">url</span> <span class="o">:=</span> <span class="nx">ddgURL</span> <span class="o">+</span> <span class="s">&#34;/i.js&#34;</span>
+	<span class="nx">req</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="s">&#34;GET&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not build the request for URL %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">q</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">Query</span><span class="p">()</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;l&#34;</span><span class="p">,</span> <span class="s">&#34;wt-wt&#34;</span><span class="p">)</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;o&#34;</span><span class="p">,</span> <span class="s">&#34;json&#34;</span><span class="p">)</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;vqd&#34;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;f&#34;</span><span class="p">,</span> <span class="s">&#34;,,,&#34;</span><span class="p">)</span>
+	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;p&#34;</span><span class="p">,</span> <span class="s">&#34;2&#34;</span><span class="p">)</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()</span>
+	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not fetch the result of %s&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Duckduckgo returns %v status code&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from duckduckgo. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">data</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+	<span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">data</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not parse the response body from wikipedia. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+	<span class="p">}</span>
 
-	results := data[&quot;results&quot;].([]interface{})
-	firstResult := results[0].(map[string]interface{})
-	imgURL := firstResult[&quot;image&quot;].(string)
-	return imgURL, nil
-}
+	<span class="nx">results</span> <span class="o">:=</span> <span class="nx">data</span><span class="p">[</span><span class="s">&#34;results&#34;</span><span class="p">].([]</span><span class="kd">interface</span><span class="p">{})</span>
+	<span class="nx">firstResult</span> <span class="o">:=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span>
+	<span class="nx">imgURL</span> <span class="o">:=</span> <span class="nx">firstResult</span><span class="p">[</span><span class="s">&#34;image&#34;</span><span class="p">].(</span><span class="kt">string</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-func downloadImg(imgURL string) ([]byte, string, error) {
-	resp, err := http.Get(imgURL)
-	if err != nil {
-		return nil, &quot;&quot;, fmt.Errorf(&quot;Could not download the image from %s&quot;, imgURL)
-	}
-	if resp.StatusCode != 200 {
-		return nil, &quot;&quot;, fmt.Errorf(&quot;Could not download the image from %s. Status comde was %v&quot;, imgURL, resp.StatusCode)
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, &quot;&quot;, fmt.Errorf(&quot;Could not read the response body from %s. Error was %s&quot;, imgURL, err.Error())
-	}
-	contentType := strings.ToLower(strings.ReplaceAll(resp.Header.Get(&quot;Content-Type&quot;), &quot;image/&quot;, &quot;&quot;))
-	return body, contentType, nil
-}
-</code></pre>
-
-<pre><code class="language-bash"># Copy above content to main.go file
+<span class="kd">func</span> <span class="nf">downloadImg</span><span class="p">(</span><span class="nx">imgURL</span> <span class="kt">string</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">imgURL</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not download the image from %s&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not download the image from %s. Status comde was %v&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+	<span class="p">}</span>
+	<span class="nx">contentType</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">),</span> <span class="s">&#34;image/&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
+	<span class="k">return</span> <span class="nx">body</span><span class="p">,</span> <span class="nx">contentType</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Copy above content to main.go file</span>
 vim main.go
-# Run with the following
-go run main.go
-</code></pre>
-
+<span class="c1"># Run with the following</span>
+go run main.go</code></pre></td></tr></table>
+</div>
+</div>
 <p>Sources:</p>
 
 <ul>
@@ -359,33 +519,36 @@ go run main.go
 </ul>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2019-04-11
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/131dabad824ea8256c9ada17627b908260fce7a3" title="site: remove non existant favicon &#43; apple-touch-icon &#43; update email">(131daba)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2019/2019-04-08-git-url-shortcuts/">
+        <a class="prev" href="/post/2019/2019-04-08-git-url-shortcuts/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Git URL Shortcuts</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2019/2019-01-25-generate_selfsigned_certificates/">
+        <a class="next" href="/post/2019/2019-01-25-generate_selfsigned_certificates/">
             <span class="next-text nav-default">How to generate self-signed certificates</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -400,9 +563,6 @@ go run main.go
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -428,8 +588,7 @@ go run main.go
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -444,11 +603,13 @@ go run main.go
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

@@ -16,36 +16,28 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code instead of explaining using common concepts to my peers.
+<meta name="author" content="Louis LIN" /><meta name="description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code instead of explaining using common concepts to my peers.
 For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new guy freshly coming out of school.
 The purpose of this article is to remind myself the fundamental concepts and patterns.
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -63,7 +55,7 @@ The purpose of this article is to remind myself the fundamental concepts and pat
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/" />
 <meta property="article:published_time" content="2018-10-14T12:27:51&#43;02:00"/>
-<meta property="article:modified_time" content="2018-10-14T12:27:51&#43;02:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="Back to basics">
 <meta itemprop="description" content="I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
@@ -78,8 +70,8 @@ The purpose of this article is to remind myself the fundamental concepts and pat
 
 
 <meta itemprop="datePublished" content="2018-10-14T12:27:51&#43;02:00" />
-<meta itemprop="dateModified" content="2018-10-14T12:27:51&#43;02:00" />
-<meta itemprop="wordCount" content="1358">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="1589">
 
 
 
@@ -175,17 +167,14 @@ The purpose of this article is to remind myself the fundamental concepts and pat
               <a href="/tags/concept/"> #concept </a>
             
           </div>
-        
-        <span class="more-meta"> 7 min read </span>
+          
+          <span class="more-meta"> 8 mins read </span>
         
       </div>
     </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
+    <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
-  
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
@@ -213,8 +202,6 @@ The purpose of this article is to remind myself the fundamental concepts and pat
 </nav>
   </div>
 </div>
-
-    
     <div class="post-image center">
       <img src="https://dorothydalton.files.wordpress.com/2013/05/back-to-basics.jpg" />
     </div>
@@ -246,48 +233,89 @@ the code grows as the project size increases.</p>
 <p>We can considerate that the object <code>IS A</code> when talking about inheritance.</p>
 
 <p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">furColor</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Cat {
-    private final String furColor;
+    <span class="kd">public</span> <span class="nf">Cat</span><span class="o">(</span><span class="n">String</span> <span class="n">furColor</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">furColor</span> <span class="o">=</span> <span class="n">furColor</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public Cat(String furColor) {
-        this.furColor = furColor;
-    }
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shout</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Meow&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    public void shout() {
-        System.out.println(&quot;Meow&quot;);
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFurColor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">furColor</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-    public String getFurColor() {
-        return furColor;
-    }
-}
+<span class="c1">// Ragdoll possesses the methods and fields from its parent class &#34;Cat&#34;
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ragdoll</span> <span class="kd">extends</span> <span class="n">Cat</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">Ragdoll</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="s">&#34;Blue&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-// Ragdoll possesses the methods and fields from its parent class &quot;Cat&quot;
-public class Ragdoll extends Cat {
-    public Ragdoll() {
-        super(&quot;Blue&quot;);
-    }
-}
-
-public class Sandbox {
-    public static void main(String[] args) {
-        Cat cat = new Ragdoll();
-        System.out.println(cat.shout());
-        System.out.println(&quot;The fur color of the cat is: &quot; + cat.getFurColor());
-    }
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Cat</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Ragdoll</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">shout</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The fur color of the cat is: &#34;</span> <span class="o">+</span> <span class="n">cat</span><span class="o">.</span><span class="na">getFurColor</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>⚠️ Multiple inheritances is dangerous if not implemented carefully, as it can lead to the diamond issue:</p>
-
-<pre><code class="language-txt">   A
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">   A
   / \
  B   C
   \ /
-   D
-</code></pre>
-
+   D</code></pre></td></tr></table>
+</div>
+</div>
 <p><code>B</code> and <code>C</code> inherit <code>A</code>. <code>D</code> inherit both <code>B</code> and <code>C</code>.</p>
 
 <p>Thus, if there is a method that <code>A</code> that <code>B</code> and <code>C</code> have overridden and <code>D</code> have not, then we have an ambiguity
@@ -298,56 +326,103 @@ on which method <code>D</code> will use: <code>B</code>&rsquo;s or <code>C</code
 <p>Polymorphism is the ability for an object to have multiple forms.</p>
 
 <p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">shout</span><span class="o">();</span>
+<span class="o">}</span>
 
-<pre><code class="language-java">public interface Animal {
-    void shout();
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">implements</span> <span class="n">Animal</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shout</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Woof&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class Dog implements Animal {
-    @Override
-    public void shout() {
-        System.out.println(&quot;Woof&quot;);
-    }
-}
-
-public class Cat implements Animal {
-    @Override
-    public void shout() {
-        System.out.println(&quot;Meow&quot;);
-    }
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Animal</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shout</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Meow&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="abstraction">Abstraction</h2>
 
 <p>Abstraction is the process of hiding the internal details and only showing the behaviors. It is mainly aimed to specify what an object can do and let you focus on what the object does instead of how it does it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="o">{</span>
+    <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">();</span>
+<span class="o">}</span>
 
-<pre><code class="language-java">public abstract class Shape {
-    abstract void draw();
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Square</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Drawing a square&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class Square extends Shape {
-    @Override
-    public void draw() {
-        System.out.println(&quot;Drawing a square&quot;);
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Drawing a circle&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class Circle extends Shape {
-    @Override
-    public void draw() {
-        System.out.println(&quot;Drawing a circle&quot;);
-    }
-}
-
-public class Sandbox {
-    public static void main(String[] args) {
-        Shape shape = new Circle();
-        s.draw();
-    }
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Shape</span> <span class="n">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">draw</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="encapsulation">Encapsulation</h2>
 
 <p>Encapsulation is the way of binding data and code into a single unit. Hence, the attributes of the class
@@ -356,29 +431,52 @@ are hidden from other classes and can only be accessed through the methods provi
 <p>The methods are often the getters and setters of the class.</p>
 
 <p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">furColor</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Cat {
-    private String name;
-    private String furColor;
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getName() {
-        return name;
-    }
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFurColor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">furColor</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getFurColor() {
-        return furColor;
-    }
-
-    public void setFurColor(String furColor) {
-        this.furColor = furColor;
-    }
-}
-</code></pre>
-
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFurColor</span><span class="o">(</span><span class="n">String</span> <span class="n">furColor</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">furColor</span> <span class="o">=</span> <span class="n">furColor</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="advantages-of-using-encapsulation">Advantages of using encapsulation</h3>
 
 <p>The encapsulation mechanism prevents the code and the data to be randomly accessed by external codes.</p>
@@ -410,149 +508,276 @@ be defined as &ldquo;Association&rdquo;.</p>
 of the parent object.</p>
 
 <p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Table</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">color</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Table {
-    private final String color;
-
-    public Table(String color) {
-        this.color = color;
-    }
+    <span class="kd">public</span> <span class="nf">Table</span><span class="o">(</span><span class="n">String</span> <span class="n">color</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">;</span>
+    <span class="o">}</span>
     
-    public String getColor() {
-        return color;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getColor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">color</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    @Override
-    public String toString() {
-        return &quot;Table with color &quot; + color;
-    }
-}
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&#34;Table with color &#34;</span> <span class="o">+</span> <span class="n">color</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class Room {
-    private Table table;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Room</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Table</span> <span class="n">table</span><span class="o">;</span>
 
-    public Room(Table table) {
-        this.table = table;
-    }
+    <span class="kd">public</span> <span class="nf">Room</span><span class="o">(</span><span class="n">Table</span> <span class="n">table</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">table</span> <span class="o">=</span> <span class="n">table</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public Table getTable() {
-        return table;
-    }
-}
+    <span class="kd">public</span> <span class="n">Table</span> <span class="nf">getTable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">table</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class Sandbox {
-    public static void main(String[] args) {
-        Table table = new Table(&quot;black&quot;);
-        describeRoom(table);
-        // Here &quot;room&quot; no longer exists, but &quot;table&quot; still exists
-        System.out.println(table);
-    }
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Table</span> <span class="n">table</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Table</span><span class="o">(</span><span class="s">&#34;black&#34;</span><span class="o">);</span>
+        <span class="n">describeRoom</span><span class="o">(</span><span class="n">table</span><span class="o">);</span>
+        <span class="c1">// Here &#34;room&#34; no longer exists, but &#34;table&#34; still exists
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">table</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    private static void describeRoom(Table table) {
-        Room room = new Room(table);
-        System.out.println(room.getTable());
-    }
-}
-</code></pre>
-
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">describeRoom</span><span class="o">(</span><span class="n">Table</span> <span class="n">table</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Room</span> <span class="n">room</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Room</span><span class="o">(</span><span class="n">table</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">room</span><span class="o">.</span><span class="na">getTable</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h2 id="composition">Composition</h2>
 
 <p>Composition is about the same as Aggregation, except that the relationship of the two objects is
 intrinsically linked to the parent object, i.e. the child cannot exist without its parent.</p>
 
 <p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Identity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Identity {
-    private final String firstName;
-    private final String lastName;
+    <span class="kd">public</span> <span class="nf">Identity</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public Identity(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getFirstName() {
-        return firstName;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getLastName() {
-        return lastName;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFullName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">firstName</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-    public String getFullName() {
-        return firstName + &quot; &quot; + lastName;
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="c1">// The &#34;final&#34; keyword will make sure the &#34;leg&#34; property is initialized
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Identity</span> <span class="n">identity</span><span class="o">;</span>
 
-public class Person {
-    // The &quot;final&quot; keyword will make sure the &quot;leg&quot; property is initialized
-    private final Identity identity;
+    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// When &#34;person&#34; is destroyed, so is its property &#34;identity&#34;
+</span><span class="c1"></span>        <span class="n">identity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Identity</span><span class="o">(</span><span class="n">firstName</span><span class="o">,</span> <span class="n">lastName</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    public Person(String firstName, String lastName) {
-        // When &quot;person&quot; is destroyed, so is its property &quot;identity&quot;
-        identity = new Identity(firstName, lastName);
-    }
+    <span class="kd">public</span> <span class="n">Identity</span> <span class="nf">getIdentity</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">identity</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-    public Identity getIdentity() {
-        return identity;
-    }
-}
-
-public class Sandbox {
-    public static void main(String[] args) {
-        Person person = new Person(&quot;Louis&quot;, &quot;Lin&quot;);
-        Identity identity = person.getIdentity();
-        System.out.println(&quot;My name is &quot; + identity.getFullName());
-    }
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">&#34;Louis&#34;</span><span class="o">,</span> <span class="s">&#34;Lin&#34;</span><span class="o">);</span>
+        <span class="n">Identity</span> <span class="n">identity</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getIdentity</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;My name is &#34;</span> <span class="o">+</span> <span class="n">identity</span><span class="o">.</span><span class="na">getFullName</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <h3 id="composition-over-inheritance">Composition over inheritance</h3>
 
 <p>Composition offers higher flexibility then inheritance. It is better and easier to conceptualize what an object
 can do (<code>HAS A</code>) than extend what it is (<code>IS A</code>).</p>
 
 <p>Moreover, it is easier to change/add the behavior on one class than on all implementations that inherit the interface.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">abstract</span> <span class="n">String</span> <span class="nf">getRole</span><span class="o">();</span>
+<span class="o">}</span>
 
-<pre><code class="language-java">public abstract class Person {
-    abstract String getRole();
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Developer</span> <span class="kd">extends</span> <span class="n">Person</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getRole</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&#34;developer&#34;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-public class Developer extends Person {
-    public String getRole() {
-        return &quot;developer&quot;;
-    }
-}
-
-public class Manager extends Person {
-    public String getRole() {
-        return &quot;manager&quot;;
-    }
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Manager</span> <span class="kd">extends</span> <span class="n">Person</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getRole</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&#34;manager&#34;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>In this example, if we add a new method on the <code>Person</code> class, we will have to change all its implementations, i.e.
 <code>Developer</code> and <code>Manager</code>.</p>
 
 <p>Using composition:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Role</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Role {
-    private final String name;
+    <span class="kd">public</span> <span class="nf">Role</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-    public Role(String name) {
-        this.name = name;
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Developer</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Role</span> <span class="n">role</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Role</span><span class="o">(</span><span class="s">&#34;developer&#34;</span><span class="o">);</span>
+<span class="o">}</span>
 
-public class Developer {
-    private final Role role = new Role(&quot;developer&quot;);
-}
-
-public class Manager() {
-    private final Role role = new Role(&quot;manager&quot;);
-}
-</code></pre>
-
+<span class="kd">public</span> <span class="kd">class</span> <span class="nf">Manager</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Role</span> <span class="n">role</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Role</span><span class="o">(</span><span class="s">&#34;manager&#34;</span><span class="o">);</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>If we want to add new methods on <code>Role</code>, we don&rsquo;t have to change the classes that have a relationship with <code>Role</code>,
 thus only changing one class. In other words, inheritance brings tight coupling between the sub class and its
 super class: any change on the super class will force the sub class to change.</p>
@@ -578,57 +803,84 @@ to re-use methods on each implementation.</p>
 <p>We talk about dependency when changing one object may affect another.</p>
 
 <p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">status</span> <span class="o">=</span> <span class="s">&#34;bored&#34;</span><span class="o">;</span>
 
-<pre><code class="language-java">public class Cat {
-    private String status = &quot;bored&quot;;
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">play</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The cat is playing&#34;</span><span class="o">);</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s">&#34;happy&#34;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-    public void play() {
-        System.out.println(&quot;The cat is playing&quot;);
-        status = &quot;happy&quot;;
-    }
-}
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatCoffee</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span> <span class="n">cats</span><span class="o">;</span>
 
-public class CatCoffee {
-    private List&lt;Cat&gt; cats;
+    <span class="kd">public</span> <span class="nf">CatCoffee</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span> <span class="n">cats</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">cats</span> <span class="o">=</span> <span class="n">cats</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public CatCoffee(List&lt;Cat&gt; cats) {
-        this.cats = cats;
-    }
-
-    public void play() {
-        cats.forEach(cat -&gt; cat.play);
-    }
-}
-</code></pre>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">play</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">cats</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">cat</span> <span class="o">-&gt;</span> <span class="n">cat</span><span class="o">.</span><span class="na">play</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2018/2018-10-21-java_solid/">
+        <a class="prev" href="/post/2018/2018-10-21-java_solid/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">(Rock) SOLID</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2018/2018-09-13-throttling_pattern/">
+        <a class="next" href="/post/2018/2018-09-13-throttling_pattern/">
             <span class="next-text nav-default">Throttling pattern</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -643,9 +895,6 @@ public class CatCoffee {
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -671,8 +920,7 @@ public class CatCoffee {
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -687,11 +935,13 @@ public class CatCoffee {
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

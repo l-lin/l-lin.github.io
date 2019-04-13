@@ -16,35 +16,27 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items. With two levels of nested arrays, it is easy to implement such thing. However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.
+<meta name="author" content="Louis LIN" /><meta name="description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items. With two levels of nested arrays, it is easy to implement such thing. However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.
 There are two ways (in my knowledge) to build nested directives.
- Using the directive ng-include and one custom directive Using two custom directives " />
-
-  <meta name="keywords" content="software development" />
+ Using the directive ng-include and one custom directive Using two custom directives " /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2013/2013-12-30-angularjs-nested_directives/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -63,7 +55,7 @@ Using two custom directives
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2013/2013-12-30-angularjs-nested_directives/" />
 <meta property="article:published_time" content="2013-12-30T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2013-12-30T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="Nested directives">
 <meta itemprop="description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
@@ -79,8 +71,8 @@ Using two custom directives
 
 
 <meta itemprop="datePublished" content="2013-12-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2013-12-30T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="336">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="382">
 
 
 
@@ -175,14 +167,11 @@ Using two custom directives
               <a href="/tags/angularjs/"> #angularjs </a>
             
           </div>
-        
-        <span class="more-meta"> 2 min read </span>
+          
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     
@@ -203,56 +192,105 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 <h1 id="1-using-the-directive-ng-include-and-one-custom-directive">1 - Using the directive <code>ng-include</code> and one custom directive</h1>
 
 <p>Let&rsquo;s say, we want to display the given data in nested bullets list:</p>
-
-<pre><code class="language-json">[{
-  name: 'Hello',
-  items: [{
-    name: 'World',
-    items: []
-  }, {
-    name: 'I am a sub item',
-    items: [{
-      name: 'I am a sub sub item',
-      items: []
-    }]
-  }]
-}, {
-  name: 'Foo',
-  items: []
-}, {
-  name: 'Bar',
-  items: []
-}];
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span>
+  <span class="err">name:</span> <span class="err">&#39;Hello&#39;,</span>
+  <span class="err">items:</span> <span class="err">[{</span>
+    <span class="err">name:</span> <span class="err">&#39;World&#39;,</span>
+    <span class="err">items:</span> <span class="err">[]</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="err">name:</span> <span class="err">&#39;I</span> <span class="err">am</span> <span class="err">a</span> <span class="err">sub</span> <span class="err">item&#39;,</span>
+    <span class="err">items:</span> <span class="err">[{</span>
+      <span class="err">name:</span> <span class="err">&#39;I</span> <span class="err">am</span> <span class="err">a</span> <span class="err">sub</span> <span class="err">sub</span> <span class="err">item&#39;,</span>
+      <span class="err">items:</span> <span class="err">[]</span>
+    <span class="p">}]</span>
+  <span class="err">}]</span>
+<span class="err">},</span> <span class="p">{</span>
+  <span class="err">name:</span> <span class="err">&#39;Foo&#39;,</span>
+  <span class="err">items:</span> <span class="err">[]</span>
+<span class="p">}</span><span class="err">,</span> <span class="p">{</span>
+  <span class="err">name:</span> <span class="err">&#39;Bar&#39;,</span>
+  <span class="err">items:</span> <span class="err">[]</span>
+<span class="p">}</span><span class="err">];</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>First, let&rsquo;s create our <code>index.html</code> with a our custom directive. We will name it <code>items</code>:</p>
-
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html ng-app=&quot;nestedDirApp&quot;&gt;
-&lt;head&gt;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&#34;nestedDirApp&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
   ...
-&lt;/head&gt;
-&lt;body ng-controller=&quot;MainCtrl&quot;&gt;
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&#34;MainCtrl&#34;</span><span class="p">&gt;</span>
   ...
-  &lt;items items=&quot;items&quot;&gt;&lt;/items&gt;
+  <span class="p">&lt;</span><span class="nt">items</span> <span class="na">items</span><span class="o">=</span><span class="s">&#34;items&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">items</span><span class="p">&gt;</span>
   ...
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Then let&rsquo;s create a <code>directive.js</code> that contains the code for the custom directive:</p>
-
-<pre><code class="language-js">angular.module('nestedDirApp').directive('items', function() {
-  return {
-    restrict: 'E',
-    templateUrl: 'items.html',
-    scope: {
-      items: '='
-    }
-  };
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;nestedDirApp&#39;</span><span class="p">).</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span>
+    <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;items.html&#39;</span><span class="p">,</span>
+    <span class="nx">scope</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li><strong>restrict</strong>: <code>'E'</code> to tell angular to match this directive to any HTML tag matching <code>items</code></li>
 <li><strong>templateUrl</strong>: the template URL of the directive</li>
@@ -260,23 +298,36 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 </ul>
 
 <p>Our template <code>items.html</code> looks like this:</p>
-
-<pre><code class="language-html">&lt;ul&gt;
-  &lt;li ng-repeat=&quot;item in items&quot; ng-include=&quot;'item.html'&quot;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&#34;item in items&#34;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&#34;&#39;item.html&#39;&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>We use the <code>ng-include</code> to include the other template <code>item.html</code>.
 Moreover, we use <code>ng-repeat</code> on the array of items in order to display the bullets list of the items.</p>
 
 <p>Our template <code>item.html</code> looks like this:</p>
-
-<pre><code class="language-html">{{item.name}}
-&lt;ul&gt;
-  &lt;li ng-repeat=&quot;item in item.items&quot; ng-include=&quot;'item.html'&quot;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{{item.name}}
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&#34;item in item.items&#34;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&#34;&#39;item.html&#39;&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
 <p>Again, in this template, we use the directive <code>ng-include</code> that points on the same template.</p>
 
 <p><code>ng-include</code> recursively FTW!</p>
@@ -290,33 +341,36 @@ Moreover, we use <code>ng-repeat</code> on the array of items in order to displa
 <p>No need to reinvent the wheel, <a href="http://sporto.github.io/blog/2013/06/24/nested-recursive-directives-in-angular/">someone already has found this solution</a>.</p>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2014/2014-01-04-git-configure_git_behind_a_proxy/">
+        <a class="prev" href="/post/2014/2014-01-04-git-configure_git_behind_a_proxy/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Configuring git behind a proxy</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2013/2013-11-27-brackets-exclude_folders/">
+        <a class="next" href="/post/2013/2013-11-27-brackets-exclude_folders/">
             <span class="next-text nav-default">How to exclude folders in Brackets</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -331,9 +385,6 @@ Moreover, we use <code>ng-repeat</code> on the array of items in order to displa
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -359,8 +410,7 @@ Moreover, we use <code>ng-repeat</code> on the array of items in order to displa
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -375,11 +425,13 @@ Moreover, we use <code>ng-repeat</code> on the array of items in order to displa
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

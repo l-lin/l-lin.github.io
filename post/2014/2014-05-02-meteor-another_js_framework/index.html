@@ -16,36 +16,28 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?
+<meta name="author" content="Louis LIN" /><meta name="description" content="There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?
 Well I think the strength of MeteorJS come from its powerful real time data synchronization for all connected users.
 In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!
-" />
-
-  <meta name="keywords" content="software development" />
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -59,7 +51,7 @@ In other words, any change from one device/user will affect the other devices/us
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/" />
 <meta property="article:published_time" content="2014-05-02T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2014-05-02T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="MeteorJS, yet another JS framework?">
 <meta itemprop="description" content="There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?
@@ -70,8 +62,8 @@ In other words, any change from one device/user will affect the other devices/us
 
 
 <meta itemprop="datePublished" content="2014-05-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-05-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="689">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="697">
 
 
 
@@ -163,14 +155,11 @@ In other words, any change from one device/user will affect the other devices/us
               <a href="/tags/experimenting/"> #experimenting </a>
             
           </div>
-        
-        <span class="more-meta"> 4 min read </span>
+          
+          <span class="more-meta"> 4 mins read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -212,29 +201,44 @@ I was literally like this after the demo and the live coding:</p>
 <ul>
 <li>Really easy to install new meteor apps: One command line and you are ready to go:</li>
 </ul>
-
-<pre><code class="language-bash">meteor create your_awesome_project
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">meteor create your_awesome_project</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>One command to launch your webapp:</li>
 </ul>
-
-<pre><code class="language-bash"># Runs on http://localhost:3000 by default
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Runs on http://localhost:3000 by default</span>
 meteor
-# Or
-meteor run
-</code></pre>
-
+<span class="c1"># Or</span>
+meteor run</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>Live reload: any change on your code will refresh your browser automatically</li>
 <li>No need to include JS, HTML or CSS files, Meteor is smart to include them itself (it&rsquo;s double edge because you might feel like you lost some control over the files&hellip;)</li>
 <li>Easy to deploy for demo</li>
 </ul>
-
-<pre><code class="language-bash">meteor deploy yourawesomeproject.meteor.com
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">meteor deploy yourawesomeproject.meteor.com</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>Easy to add new modules with the package manager <a href="https://github.com/oortcloud/meteorite/">Meteorite</a>
 
@@ -242,11 +246,16 @@ meteor run
 <li>On a side note, when including module with meteorite, it does not include the module directly on your project. So when commiting your project, you will not commit the &ldquo;whole world&rdquo;, which is nice.</li>
 </ul></li>
 </ul>
-
-<pre><code class="language-bash"># Example of adding foundation
-mrt add foundation
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Example of adding foundation</span>
+mrt add foundation</code></pre></td></tr></table>
+</div>
+</div>
 <p>To sum up, nothing to configure, everything is ready for you to develop quickly your meteor app.</p>
 
 <p>To compare with developing with other JS framework, you will have to configure your webapp with <a href="http://gruntjs.com/">GruntJS</a>
@@ -286,33 +295,36 @@ I should have done from the beginning&hellip;</p>
 Otherwise, I would stick with AngularJS.</p>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2014/2014-05-03-meteor-subscribe_and_publish/">
+        <a class="prev" href="/post/2014/2014-05-03-meteor-subscribe_and_publish/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Publishing, subscribing... The magic and the mystery</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2014/2014-02-27-java-how_to_avoid_npe/">
+        <a class="next" href="/post/2014/2014-02-27-java-how_to_avoid_npe/">
             <span class="next-text nav-default">Avoiding Null Pointers</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -327,9 +339,6 @@ Otherwise, I would stick with AngularJS.</p>
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -355,8 +364,7 @@ Otherwise, I would stick with AngularJS.</p>
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -371,11 +379,13 @@ Otherwise, I would stick with AngularJS.</p>
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

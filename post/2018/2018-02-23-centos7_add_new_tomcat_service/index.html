@@ -16,34 +16,26 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="Starting with version 7, CentOS is now using systemd as a service manager. Adding a new service is no longer done by creating a SH script in the /etc/init.d folder.
-" />
-
-  <meta name="keywords" content="software development" />
+<meta name="author" content="Louis LIN" /><meta name="description" content="Starting with version 7, CentOS is now using systemd as a service manager. Adding a new service is no longer done by creating a SH script in the /etc/init.d folder.
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-23-centos7_add_new_tomcat_service/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -54,7 +46,7 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-02-23-centos7_add_new_tomcat_service/" />
 <meta property="article:published_time" content="2018-02-23T13:19:45&#43;01:00"/>
-<meta property="article:modified_time" content="2018-02-23T13:19:45&#43;01:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="How to add a new Tomcat service on CentOS7">
 <meta itemprop="description" content="Starting with version 7, CentOS is now using systemd as a service manager.
@@ -62,8 +54,8 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
 
 
 <meta itemprop="datePublished" content="2018-02-23T13:19:45&#43;01:00" />
-<meta itemprop="dateModified" content="2018-02-23T13:19:45&#43;01:00" />
-<meta itemprop="wordCount" content="148">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="171">
 
 
 
@@ -150,14 +142,11 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
               <a href="/tags/centos/"> #centos </a>
             
           </div>
-        
-        <span class="more-meta"> 1 min read </span>
+          
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -172,8 +161,30 @@ Adding a new service is no longer done by creating a SH script in the <code>/etc
 <ul>
 <li>First, create a new file <code>/etc/systemd/system/tomcat.service</code> with the following content:</li>
 </ul>
-
-<pre><code class="language-text">[Unit]
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">[Unit]
 Description=Tomcat
 After=syslog.target network.target
 
@@ -183,7 +194,7 @@ Environment=CATALINA_BASE=/usr/local/tomcat
 Environment=CATALINA_PID=/var/run/tomcat/tomcat.pid
 Environment=TOMCAT_HOME=/usr/local/apache-tomcat-8.0.45
 ExecStart=/usr/local/apache-tomcat-8.0.45/bin/startup.sh
-ExecStop='/usr/local/apache-tomcat-8.0.45/bin/shutdown.sh -force'
+ExecStop=&#39;/usr/local/apache-tomcat-8.0.45/bin/shutdown.sh -force&#39;
 User=nobody
 Group=nobody
 UMask=0007
@@ -191,68 +202,88 @@ RestartSec=10
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
-</code></pre>
-
+WantedBy=multi-user.target</code></pre></td></tr></table>
+</div>
+</div>
 <blockquote>
 <p>We are using the <code>nobody</code> user to execute Tomcat.
 If there is the error ̀&rdquo;This account is currently not available&rdquo;, that means the <code>nobody</code> user does not have a tty (/sbin/nologin).</p>
 
 <p>You will need to change the file <code>/etc/passwd</code> and put <code>/bin/bash</code> as the default tty for the <code>nobody</code> user:</p>
 </blockquote>
-
-<pre><code class="language-text">nobody❌99:99:Nobody:/:/bin/bash
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">nobody❌99:99:Nobody:/:/bin/bash</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>Reload systemd:</li>
 </ul>
-
-<pre><code class="language-bash">sudo systemctl daemon-reload
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>You can start the service with the following command:</li>
 </ul>
-
-<pre><code class="language-bash">sudo systemctl start tomcat
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start tomcat</code></pre></td></tr></table>
+</div>
+</div>
 <ul>
 <li>You can enable the service so that the service will start up automatically on each reboot:</li>
 </ul>
-
-<pre><code class="language-bash">sudo systemctl enable tomcat
-</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl <span class="nb">enable</span> tomcat</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2018/2018-03-08-strangler_pattern/">
+        <a class="prev" href="/post/2018/2018-03-08-strangler_pattern/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Strangler pattern</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2018/2018-02-10-kotlin-classes_basics/">
+        <a class="next" href="/post/2018/2018-02-10-kotlin-classes_basics/">
             <span class="next-text nav-default">Kotlin Basics - Classes </span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -267,9 +298,6 @@ If there is the error ̀&rdquo;This account is currently not available&rdquo;, t
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -295,8 +323,7 @@ If there is the error ̀&rdquo;This account is currently not available&rdquo;, t
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -311,11 +338,13 @@ If there is the error ̀&rdquo;This account is currently not available&rdquo;, t
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 

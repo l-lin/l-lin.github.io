@@ -16,34 +16,26 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" />
-  <meta name="description" content="MeteorJS comes with an interesting concept: Publishing and subscribing record sets. But what the **** are those? My thought exactly! It&amp;rsquo;s a new way of fetching data from the server.
-" />
-
-  <meta name="keywords" content="software development" />
+<meta name="author" content="Louis LIN" /><meta name="description" content="MeteorJS comes with an interesting concept: Publishing and subscribing record sets. But what the **** are those? My thought exactly! It&amp;rsquo;s a new way of fetching data from the server.
+" /><meta name="keywords" content="software development" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.0" />
+<meta name="generator" content="Hugo 0.55.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/" />
-
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
+<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
-
-
-
-
-<link href="/dist/even.min.css?v=2.7.2" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
@@ -55,7 +47,7 @@ It&rsquo;s a new way of fetching data from the server." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/" />
 <meta property="article:published_time" content="2014-05-03T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2014-05-03T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
 
 <meta itemprop="name" content="Publishing, subscribing... The magic and the mystery">
 <meta itemprop="description" content="MeteorJS comes with an interesting concept: Publishing and subscribing record sets.
@@ -64,8 +56,8 @@ It&rsquo;s a new way of fetching data from the server.">
 
 
 <meta itemprop="datePublished" content="2014-05-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-05-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="593">
+<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
+<meta itemprop="wordCount" content="638">
 
 
 
@@ -155,14 +147,11 @@ It&rsquo;s a new way of fetching data from the server."/>
               <a href="/tags/experimenting/"> #experimenting </a>
             
           </div>
-        
-        <span class="more-meta"> 3 min read </span>
+          
+          <span class="more-meta"> 3 mins read </span>
         
       </div>
     </header>
-
-    
-    
 
     
     <div class="post-image center">
@@ -176,26 +165,47 @@ But what the **** are those? My thought exactly!
 It&rsquo;s a new way of fetching data from the server.</p>
 
 <p>With classic asynchronous callbacks, you may write something like this:</p>
-
-<pre><code class="language-js">var dataFromServer;
-fetchDataFromServer(id, function(result) {
-    dataFromServer = result;
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">dataFromServer</span><span class="p">;</span>
+<span class="nx">fetchDataFromServer</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dataFromServer</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>With promises:</p>
-
-<pre><code class="language-js">var dataFromServer;
-fetchDataFromServer(id).then(function(result) {
-    dataFromServer = result;
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">dataFromServer</span><span class="p">;</span>
+<span class="nx">fetchDataFromServer</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dataFromServer</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>With Meteor:</p>
-
-<pre><code class="language-js">var result = fetchDataFromServer(id);
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">fetchDataFromServer</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <figure class="center">
     <img src="http://i0.kym-cdn.com/photos/images/facebook/000/112/480/OpoQQ.jpg"
          alt="Are you serious?"/> <figcaption>
@@ -226,59 +236,107 @@ If so please just tell me I&rsquo;m wrong so I can go hang myself).</p>
 <p>So looking at the examples provided by the official site <a href="http://www.meteor.com">MeteorJS</a>, I write this:</p>
 
 <p><code>Shared code</code> (maybe in lib folder or another place I don&rsquo;t even know because the documentation does not mention it):</p>
-
-<pre><code class="language-js">Groups = new Meteor.Collection('groups');
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Groups</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meteor</span><span class="p">.</span><span class="nx">Collection</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p><code>Server code</code>:</p>
-
-<pre><code class="language-js">Meteor.publish('groups', function() {
-    return Groups.find();
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Groups</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p><code>Client code</code>:</p>
-
-<pre><code class="language-js">Meteor.subscribe('groups');
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>Ok&hellip; so now what? How do I fetch those groups? Still looking in the examples&hellip; They are fetching in the helpers:</p>
-
-<pre><code class="language-js">Template.groups.helpers({
-    groups: function() {
-        return Groups.find();
-    }
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Template</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">helpers</span><span class="p">({</span>
+    <span class="nx">groups</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">Groups</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>Annnddd it perfectly retrieves the list of groups and perfectly displays the list in the template.
 Mmmhh&hellip;Ok&hellip; I don&rsquo;t quite understand what&rsquo;s the connection between publishing/subscribing and calling directly <code>Groups.find()</code> in the helper.
 Maybe some magic?</p>
 
 <p>Ok, so let me try to fetch a filtered list of groups that contains &ldquo;foo&rdquo;:</p>
-
-<pre><code class="language-js">Template.groups.helpers({
-    ... // other helpers
-    filteredGroups: function() {
-        return Groups.find({name: /foo/});
-    }
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Template</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">helpers</span><span class="p">({</span>
+    <span class="p">...</span> <span class="c1">// other helpers
+</span><span class="c1"></span>    <span class="nx">filteredGroups</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">Groups</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="sr">/foo/</span><span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>Still works! Oh great! I still don&rsquo;t understand, but who cares! It works!</p>
 
 <p>Ok, so now I want to manipulate the filtered list client side:</p>
-
-<pre><code class="language-js">Template.groups.helpers({
-    ... // other helpers
-    doingSomethingNastyToDatGroups: function() {
-        var filteredGroups = Groups.find({name: /foo/}).fetch();
-        // fitleredGroups = [] !!!
-        ...
-    }
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Template</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">helpers</span><span class="p">({</span>
+    <span class="p">...</span> <span class="c1">// other helpers
+</span><span class="c1"></span>    <span class="nx">doingSomethingNastyToDatGroups</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">filteredGroups</span> <span class="o">=</span> <span class="nx">Groups</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="sr">/foo/</span><span class="p">}).</span><span class="nx">fetch</span><span class="p">();</span>
+        <span class="c1">// fitleredGroups = [] !!!
+</span><span class="c1"></span>        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>Now, I am lost&hellip; <code>filteredGroups</code> is just an empty array&hellip;whereas previously it perfectly displays the list of filtered groups&hellip; Why?</p>
 
 <p>So after countless hours of trying to understand the concept (<a href="http://docs.meteor.com/#publishandsubscribe">in the official documentation</a>,
@@ -286,31 +344,55 @@ Maybe some magic?</p>
 is the fact that the server has not returned the data yet.</p>
 
 <p>However, if I try to manipulate the whole list of groups, the list is not empty:</p>
-
-<pre><code class="language-js">Template.groups.helpers({
-    ... // other helpers
-    doingSomethingNastyToDatGroups: function() {
-        var groups = Groups.find().fetch();
-        // groups = [{Object: Object}, {Object: Object]
-        ...
-    }
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Template</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">helpers</span><span class="p">({</span>
+    <span class="p">...</span> <span class="c1">// other helpers
+</span><span class="c1"></span>    <span class="nx">doingSomethingNastyToDatGroups</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">groups</span> <span class="o">=</span> <span class="nx">Groups</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">fetch</span><span class="p">();</span>
+        <span class="c1">// groups = [{Object: Object}, {Object: Object]
+</span><span class="c1"></span>        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>And that strikes me (well&hellip; in fact, searching around gave me some clues, but whatever), I need to subscribe with specific parameters:</p>
 
 <p><code>Server code</code>:</p>
-
-<pre><code class="language-js">Meteor.publish('filteredGroups', function(filter) {
-    return Groups.find({name: filter});
-});
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;filteredGroups&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">filter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Groups</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="nx">filter</span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p><code>Client code</code>:</p>
-
-<pre><code class="language-js">Meteor.subscribe('filteredGroups');
-</code></pre>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;filteredGroups&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 <p>Now my <code>var filteredGroups = Groups.find({name: /foo/}).fetch();</code> will not return an empty array, but an array of filtered groups.</p>
 
 <p>Why is that? By subscribing, the client possess some sort of cursor or whatever they call. See the
@@ -321,33 +403,36 @@ hating developing with <a href="http://www.meteor.com">Meteorjs</a>. Sadly, I pr
 reading countless lines of documentation. I am more comfortable with a framework that is easy to code with (and developer friendly).</p>
     </div>
 
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2018-11-10
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
       
       <nav class="post-nav">
-        
-          <a class="prev" href="/post/2014/2014-05-03-meteor-deploy_to_heroku/">
+        <a class="prev" href="/post/2014/2014-05-03-meteor-deploy_to_heroku/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Deploying a MeteorJS apps to Heroku</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        
-          <a class="next" href="/post/2014/2014-05-02-meteor-another_js_framework/">
+        <a class="next" href="/post/2014/2014-05-02-meteor-another_js_framework/">
             <span class="next-text nav-default">MeteorJS, yet another JS framework?</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
     </footer>
   </article>
         </div>
-        
-  <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
     <script type="text/javascript">
     (function() {
       
@@ -362,9 +447,6 @@ reading countless lines of documentation. I am more comfortable with a framework
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-  
-
-  
       </div>
     </main>
 
@@ -390,8 +472,7 @@ reading countless lines of documentation. I am more comfortable with a framework
 
   <span class="copyright-year">
     &copy; 
-    
-      2013 - 
+    2013 - 
     2019
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -406,11 +487,13 @@ reading countless lines of documentation. I am more comfortable with a framework
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.min.js?v=2.7.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
 
 
 
