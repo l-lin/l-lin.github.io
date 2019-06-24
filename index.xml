@@ -6,7 +6,7 @@
     <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 12 Apr 2019 09:27:54 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 09:28:18 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,24 @@
       <description>My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects in my free time Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today?</description>
+    </item>
+    
+    <item>
+      <title>Mind map - API management</title>
+      <link>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</link>
+      <pubDate>Mon, 24 Jun 2019 09:28:18 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mind map - Software documentation</title>
+      <link>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</link>
+      <pubDate>Mon, 24 Jun 2019 09:01:16 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</guid>
+      <description></description>
     </item>
     
     <item>

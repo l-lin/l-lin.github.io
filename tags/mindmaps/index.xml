@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mindmaps on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/mindmaps/</link>
+    <description>Recent content in mindmaps on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Jun 2019 09:28:18 +0200</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/mindmaps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mind map - API management</title>
+      <link>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</link>
+      <pubDate>Mon, 24 Jun 2019 09:28:18 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mind map - Software documentation</title>
+      <link>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</link>
+      <pubDate>Mon, 24 Jun 2019 09:01:16 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
