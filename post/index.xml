@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Jun 2019 09:28:18 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2019 16:44:41 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nginx fallback</title>
+      <link>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</link>
+      <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
+      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
+environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
+not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
+
+&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Mind map - API management</title>

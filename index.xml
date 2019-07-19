@@ -6,7 +6,7 @@
     <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Jun 2019 09:28:18 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2019 16:44:41 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,19 @@
       <description>My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects in my free time Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today?</description>
+    </item>
+    
+    <item>
+      <title>Nginx fallback</title>
+      <link>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</link>
+      <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
+      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
+environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
+not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
+
+&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
     </item>
     
     <item>
