@@ -98,8 +98,8 @@ st=>start: Start
 e=>end: End
 curl=>operation: curl -L https://localhost/foobar
 cond=>condition: Local service up?
-local=>operation: redirect to http://localhost:8080:foobar
-dev=>operation: redirect to https://fallback.dev/foobar
+local=>operation: proxy to http://localhost:8080:foobar
+dev=>operation: proxy to https://fallback.dev/foobar
 
 st->curl(right)->cond
 cond(yes, right)->local
