@@ -11,12 +11,6 @@ contentCopyright: false
 
 flowchartDiagrams:
   enable: true
-  options: "{
-              'font-color': 'white',
-              'line-color': 'white',
-              'element-color': 'white',
-              'fill': 'black'
-            }"
 ---
 
 When developing multiple services that depends on other service, it's comfortable to have a dev
