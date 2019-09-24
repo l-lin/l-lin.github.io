@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/" />
@@ -33,7 +33,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,9 +45,8 @@
 However, what if we want to check a parameter type not supported by a standard constraint annotation?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/" />
-<meta property="article:published_time" content="2018-12-04T09:01:20&#43;01:00"/>
-<meta property="article:modified_time" content="2018-12-04T09:21:21&#43;01:00"/>
-
+<meta property="article:published_time" content="2018-12-04T09:01:20+01:00" />
+<meta property="article:modified_time" content="2018-12-04T09:21:21+01:00" />
 <meta itemprop="name" content="Custom validator for standard constraints">
 <meta itemprop="description" content="Bean validation provides constraint annotations to check DTO parameters.
 However, what if we want to check a parameter type not supported by a standard constraint annotation?">
@@ -203,37 +202,37 @@ by the annotation <code>@Future</code>.</p>
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">lin.louis</span><span class="o">;</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nf">lin</span><span class="p">.</span><span class="na">louis</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">java.time.LocalDateTime</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.time.format.DateTimeParseException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">LocalDateTime</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">format</span><span class="p">.</span><span class="na">DateTimeParseException</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">javax.validation.ConstraintValidator</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.validation.ConstraintValidatorContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.validation.constraints.Future</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nf">javax</span><span class="p">.</span><span class="na">validation</span><span class="p">.</span><span class="na">ConstraintValidator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">javax</span><span class="p">.</span><span class="na">validation</span><span class="p">.</span><span class="na">ConstraintValidatorContext</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">javax</span><span class="p">.</span><span class="na">validation</span><span class="p">.</span><span class="na">constraints</span><span class="p">.</span><span class="na">Future</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nf">org</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">Logger</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nf">org</span><span class="p">.</span><span class="na">slf4j</span><span class="p">.</span><span class="na">LoggerFactory</span><span class="p">;</span>
 
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FutureValidatorForString</span> <span class="kd">implements</span> <span class="n">ConstraintValidator</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">FutureValidatorForString</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">FutureValidatorForString</span> <span class="nf">implements</span> <span class="n">ConstraintValidator</span><span class="o">&lt;</span><span class="n">Future</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="nf">static</span> <span class="kd">final</span> <span class="nf">Logger</span> <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">FutureValidatorForString</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">,</span> <span class="n">ConstraintValidatorContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="s">&#34;&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">trim</span><span class="o">()))</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">boolean</span> <span class="n">isValid</span><span class="p">(</span><span class="n">String</span> <span class="nf">value</span><span class="p">,</span> <span class="n">ConstraintValidatorContext</span> <span class="nf">context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="s">&#34;&#34;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">trim</span><span class="p">()))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
         
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">LocalDateTime</span> <span class="n">localDateTime</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
-            <span class="k">return</span> <span class="n">LocalDateTime</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">isBefore</span><span class="o">(</span><span class="n">localDateTime</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">DateTimeParseException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;The timestamp is not valid.&#34;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
-            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">LocalDateTime</span> <span class="nf">localDateTime</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">LocalDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">().</span><span class="na">isBefore</span><span class="p">(</span><span class="n">localDateTime</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">DateTimeParseException</span> <span class="nf">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">LOGGER</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&#34;The timestamp is not valid.&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Then provide this implementation in <code>META-INF/services/javax.validation.ConstraintValidator</code>:</p>
@@ -254,10 +253,10 @@ by the annotation <code>@Future</code>.</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Apple</span> <span class="o">{</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">Apple</span> <span class="p">{</span>
     <span class="nd">@Future</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">expirationDate</span><span class="o">;</span>
-<span class="o">}</span></code></pre></td></tr></table>
+    <span class="kd">private</span> <span class="nf">String</span> <span class="n">expirationDate</span><span class="p">;</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Source:</p>
@@ -297,6 +296,10 @@ by the annotation <code>@Future</code>.</p>
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

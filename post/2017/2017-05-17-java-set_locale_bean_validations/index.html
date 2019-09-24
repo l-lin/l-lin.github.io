@@ -25,7 +25,7 @@ However, the hibernate validation library also provides default validation messa
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/" />
@@ -34,7 +34,7 @@ However, the hibernate validation library also provides default validation messa
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,9 +47,8 @@ However, the hibernate validation library also provides default validation messa
 However, the hibernate validation library also provides default validation messages, for several languages (which is great)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/" />
-<meta property="article:published_time" content="2017-05-17T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
-
+<meta property="article:published_time" content="2017-05-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to set locale for java bean validations">
 <meta itemprop="description" content="Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like @NotBlank.
 
@@ -185,13 +184,13 @@ However, the hibernate validation library also provides default validation messa
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneLocaleValidatorConfig</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">OneLocaleValidatorConfig</span> <span class="p">{</span>
     <span class="nd">@Bean</span>
-    <span class="n">LocaleResolver</span> <span class="nf">localeResolver</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">LocaleResolver</span> <span class="nf">localeResolver</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// Force english for Spring Security error messages
-</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">FixedLocaleResolver</span><span class="o">(</span><span class="n">Locale</span><span class="o">.</span><span class="na">ENGLISH</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">FixedLocaleResolver</span><span class="p">(</span><span class="n">Locale</span><span class="p">.</span><span class="na">ENGLISH</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p><strong>Update</strong>: The following solution works but it&rsquo;s not the ideal way to force the locale.</p>
@@ -199,8 +198,7 @@ However, the hibernate validation library also provides default validation messa
 <p>One way is to provide our own <code>MessageSource</code> and define our own properties files, thus having only one message properties file for only one locale.</p>
 
 <ul>
-<li>Create a configuration file:</li>
-</ul>
+<li><p>Create a configuration file:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
@@ -223,27 +221,26 @@ However, the hibernate validation library also provides default validation messa
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneLocaleValidatorConfig</span> <span class="kd">extends</span> <span class="n">WebMvcConfigurerAdapter</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">Validator</span> <span class="nf">getValidator</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">LocalValidatorFactoryBean</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalValidatorFactoryBean</span><span class="o">();</span>
-        <span class="n">factory</span><span class="o">.</span><span class="na">setValidationMessageSource</span><span class="o">(</span><span class="n">messageSource</span><span class="o">());</span>
-        <span class="k">return</span> <span class="n">factory</span><span class="o">;</span>
-    <span class="o">}</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">OneLocaleValidatorConfig</span> <span class="nf">extends</span> <span class="n">WebMvcConfigurerAdapter</span> <span class="p">{</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nf">Validator</span> <span class="n">getValidator</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">LocalValidatorFactoryBean</span> <span class="nf">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalValidatorFactoryBean</span><span class="p">();</span>
+    <span class="n">factory</span><span class="p">.</span><span class="na">setValidationMessageSource</span><span class="p">(</span><span class="n">messageSource</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">factory</span><span class="p">;</span>
+<span class="p">}</span>
 
-    <span class="kd">private</span> <span class="n">MessageSource</span> <span class="nf">messageSource</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">ReloadableResourceBundleMessageSource</span> <span class="n">messageSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReloadableResourceBundleMessageSource</span><span class="o">();</span>
-        <span class="c1">// Set our own validation message property so we only have english version
-</span><span class="c1"></span>        <span class="n">messageSource</span><span class="o">.</span><span class="na">setBasename</span><span class="o">(</span><span class="s">&#34;classpath:validation/OneLocaleValidationMessages&#34;</span><span class="o">);</span>
-        <span class="n">messageSource</span><span class="o">.</span><span class="na">setDefaultEncoding</span><span class="o">(</span><span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">.</span><span class="na">displayName</span><span class="o">());</span>
-        <span class="k">return</span> <span class="n">messageSource</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<span class="kd">private</span> <span class="nf">MessageSource</span> <span class="n">messageSource</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ReloadableResourceBundleMessageSource</span> <span class="nf">messageSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReloadableResourceBundleMessageSource</span><span class="p">();</span>
+    <span class="c1">// Set our own validation message property so we only have english version
+</span><span class="c1"></span>    <span class="n">messageSource</span><span class="p">.</span><span class="na">setBasename</span><span class="p">(</span><span class="s">&#34;classpath:validation/OneLocaleValidationMessages&#34;</span><span class="p">);</span>
+    <span class="n">messageSource</span><span class="p">.</span><span class="na">setDefaultEncoding</span><span class="p">(</span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">.</span><span class="na">displayName</span><span class="p">());</span>
+    <span class="k">return</span> <span class="n">messageSource</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Add only one validation messages in the <code>/path/to/project/src/main/resources/validation/OneLocaleValidationMessages.properties</code> with the content provided by the hibernate validation library:</li>
-</ul>
+</div></li>
+
+<li><p>Add only one validation messages in the <code>/path/to/project/src/main/resources/validation/OneLocaleValidationMessages.properties</code> with the content provided by the hibernate validation library:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-properties" data-lang="properties"><span class="lnt"> 1
@@ -315,7 +312,8 @@ org.hibernate.validator.constraints.br.CNPJ.message                 = invalid Br
 org.hibernate.validator.constraints.br.CPF.message                  = invalid Brazilian individual taxpayer registry number (CPF)
 org.hibernate.validator.constraints.br.TituloEleitoral.message      = invalid Brazilian Voter ID card number</code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
     </div>
 
     <div class="post-copyright">
@@ -348,6 +346,10 @@ org.hibernate.validator.constraints.br.TituloEleitoral.message      = invalid Br
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

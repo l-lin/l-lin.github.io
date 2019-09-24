@@ -10,45 +10,58 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/nginx/</loc>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-24T11:50:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/nginx/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2019-07-19T17:12:52+02:00</lastmod>
-    <priority>0</priority>
+    <loc>https://l-lin.github.io/tags/api/</loc>
+    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -59,15 +72,17 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/api/</loc>
+    <loc>https://l-lin.github.io/tags/mindmaps/</loc>
     <lastmod>2019-06-24T09:33:59+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/mindmaps/</loc>
+    <loc>https://l-lin.github.io/tags/documentation/</loc>
     <lastmod>2019-06-24T09:33:59+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -78,9 +93,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/documentation/</loc>
-    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
-    <priority>0</priority>
+    <loc>https://l-lin.github.io/tags/ubuntu/</loc>
+    <lastmod>2019-04-12T09:39:21+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -91,9 +107,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/ubuntu/</loc>
-    <lastmod>2019-04-12T09:39:21+02:00</lastmod>
-    <priority>0</priority>
+    <loc>https://l-lin.github.io/tags/git/</loc>
+    <lastmod>2019-04-08T16:10:19+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -101,12 +118,6 @@
     <lastmod>2019-04-08T16:10:19+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/git/</loc>
-    <lastmod>2019-04-08T16:10:19+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -119,13 +130,22 @@
   <url>
     <loc>https://l-lin.github.io/tags/duckduckgo/</loc>
     <lastmod>2019-04-11T16:03:55+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/golang/</loc>
     <lastmod>2019-04-11T16:03:55+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/certificate/</loc>
+    <lastmod>2019-01-28T09:17:07+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -136,15 +156,17 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/certificate/</loc>
+    <loc>https://l-lin.github.io/tags/ssh/</loc>
     <lastmod>2019-01-28T09:17:07+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/ssh/</loc>
-    <lastmod>2019-01-28T09:17:07+01:00</lastmod>
-    <priority>0</priority>
+    <loc>https://l-lin.github.io/tags/bean-validation/</loc>
+    <lastmod>2018-12-04T09:21:21+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -155,19 +177,7 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/bean-validation/</loc>
-    <lastmod>2018-12-04T09:21:21+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://l-lin.github.io/tags/java/</loc>
-    <lastmod>2019-04-04T14:10:17+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</loc>
     <lastmod>2019-04-04T14:10:17+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -176,7 +186,15 @@
   <url>
     <loc>https://l-lin.github.io/tags/jpa/</loc>
     <lastmod>2019-04-04T14:10:17+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</loc>
+    <lastmod>2019-04-04T14:10:17+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -189,11 +207,26 @@
   <url>
     <loc>https://l-lin.github.io/tags/concept/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/architecture/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/patterns/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -207,15 +240,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/architecture/</loc>
+    <loc>https://l-lin.github.io/tags/docker/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/patterns/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -226,9 +254,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/docker/</loc>
+    <loc>https://l-lin.github.io/tags/postgresql/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -236,12 +265,6 @@
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/postgresql/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -273,16 +296,17 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</loc>
+    <loc>https://l-lin.github.io/tags/terminal/</loc>
     <lastmod>2019-03-14T15:45:07+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/terminal/</loc>
+    <loc>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</loc>
     <lastmod>2019-03-14T15:45:07+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -321,6 +345,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/tags/centos/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2018/2018-02-23-centos7_add_new_tomcat_service/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -328,9 +359,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/centos/</loc>
+    <loc>https://l-lin.github.io/tags/kotlin/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -341,15 +373,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/kotlin/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://l-lin.github.io/tags/learning/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -390,7 +417,8 @@
   <url>
     <loc>https://l-lin.github.io/tags/locale/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -410,7 +438,8 @@
   <url>
     <loc>https://l-lin.github.io/tags/xubuntu/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -423,13 +452,15 @@
   <url>
     <loc>https://l-lin.github.io/tags/monitoring/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/tomcat/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -447,16 +478,17 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/</loc>
+    <loc>https://l-lin.github.io/tags/chrome/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/chrome/</loc>
+    <loc>https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -469,7 +501,8 @@
   <url>
     <loc>https://l-lin.github.io/tags/heroku/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -482,7 +515,15 @@
   <url>
     <loc>https://l-lin.github.io/tags/windows/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/debug/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -493,21 +534,17 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/debug/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://l-lin.github.io/tags/intellij/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/maven/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -520,7 +557,8 @@
   <url>
     <loc>https://l-lin.github.io/tags/spring/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -531,22 +569,24 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</loc>
+    <loc>https://l-lin.github.io/tags/experimenting/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/experimenting/</loc>
+    <loc>https://l-lin.github.io/tags/meteorjs/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/meteorjs/</loc>
+    <loc>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -564,20 +604,14 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/</loc>
+    <loc>https://l-lin.github.io/tags/backbonejs/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/backbonejs/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/</loc>
+    <loc>https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -586,7 +620,15 @@
   <url>
     <loc>https://l-lin.github.io/tags/angularjs/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -604,6 +646,13 @@
   </url>
   
   <url>
+    <loc>https://l-lin.github.io/tags/brackets/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -611,9 +660,17 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/brackets/</loc>
+    <loc>https://l-lin.github.io/tags/jasminejs/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/marionettejs/</loc>
+    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -624,21 +681,10 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/tags/jasminejs/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/marionettejs/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://l-lin.github.io/tags/sinonjs/</loc>
     <lastmod>2018-11-10T11:31:30+01:00</lastmod>
-    <priority>0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>

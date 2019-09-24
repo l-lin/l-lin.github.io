@@ -25,7 +25,7 @@ By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the loca
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/" />
@@ -34,7 +34,7 @@ By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the loca
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,9 +49,8 @@ not want to mount the whole ecosystem locally, just the services I&rsquo;m curre
 By using Nginx, it&rsquo;s possible to configure a fallback in case the local service is not up." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/" />
-<meta property="article:published_time" content="2019-07-19T16:44:41&#43;02:00"/>
-<meta property="article:modified_time" content="2019-07-19T17:12:52&#43;02:00"/>
-
+<meta property="article:published_time" content="2019-07-19T16:44:41+02:00" />
+<meta property="article:modified_time" content="2019-09-24T11:50:50+02:00" />
 <meta itemprop="name" content="Nginx fallback">
 <meta itemprop="description" content="When developing multiple services that depends on other service, it&rsquo;s comfortable to have a dev
 environment. I usually have a docker-compose file that mount a local environment. However, I do
@@ -61,7 +60,7 @@ By using Nginx, it&rsquo;s possible to configure a fallback in case the local se
 
 
 <meta itemprop="datePublished" content="2019-07-19T16:44:41&#43;02:00" />
-<meta itemprop="dateModified" content="2019-07-19T17:12:52&#43;02:00" />
+<meta itemprop="dateModified" content="2019-09-24T11:50:50&#43;02:00" />
 <meta itemprop="wordCount" content="330">
 
 
@@ -322,8 +321,8 @@ http {
 e=&gt;end: End
 curl=&gt;operation: curl -L https://localhost/foobar
 cond=&gt;condition: Local service up?
-local=&gt;operation: redirect to http://localhost:8080:foobar
-dev=&gt;operation: redirect to https://fallback.dev/foobar
+local=&gt;operation: proxy to http://localhost:8080:foobar
+dev=&gt;operation: proxy to https://fallback.dev/foobar
 
 st-&gt;curl(right)-&gt;cond
 cond(yes, right)-&gt;local
@@ -344,8 +343,8 @@ dev-&gt;e</code></pre></td></tr></table>
   <p class="copyright-item">
     <span class="item-title">Last modification</span>
     <span class="item-content">
-        2019-07-19
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/ad0609e92b1b645b7095a177d53df525efd13ed6" title="post(nginx): add post on fallback">(ad0609e)</a>
+        2019-09-24
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/89ebbdb6a65cc741c9a91c3004fffd44bb9be701" title="site: revert dark mode">(89ebbdb)</a>
     </span>
   </p>
   
@@ -365,6 +364,10 @@ dev-&gt;e</code></pre></td></tr></table>
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>
@@ -408,7 +411,7 @@ dev-&gt;e</code></pre></td></tr></table>
   
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script>window.flowchartDiagramsOptions = { 'font-color': 'white', 'line-color': 'white', 'element-color': 'white', 'fill': 'black' };</script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 

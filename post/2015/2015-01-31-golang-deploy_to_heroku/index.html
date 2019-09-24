@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/" />
@@ -33,7 +33,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -44,9 +44,8 @@
 <meta property="og:description" content="Deploying a Golang web apps to Heroku is quite easy." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/" />
-<meta property="article:published_time" content="2015-01-31T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
-
+<meta property="article:published_time" content="2015-01-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Deploying a Golang web apps to Heroku">
 <meta itemprop="description" content="Deploying a Golang web apps to Heroku is quite easy.">
 
@@ -293,8 +292,8 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 
 <ul>
 <li>to get the <a href="github.com/lib/pq">Postgresql driver</a></li>
-<li>fetch Heroku&rsquo;s DB configuration from the <strong>DATABASE_URL</strong> environment variable</li>
-</ul>
+
+<li><p>fetch Heroku&rsquo;s DB configuration from the <strong>DATABASE_URL</strong> environment variable</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
@@ -365,7 +364,7 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="nx">_</span> <span class="s">&#34;github.com/lib/pq&#34;</span>
 	<span class="s">&#34;log&#34;</span>
-    <span class="s">&#34;database/sql&#34;</span>
+<span class="s">&#34;database/sql&#34;</span>
 	<span class="s">&#34;os&#34;</span>
 <span class="p">)</span>
 
@@ -422,7 +421,8 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
     </div>
 
     <div class="post-copyright">
@@ -455,6 +455,10 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/" />
@@ -32,7 +32,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,9 +43,8 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/" />
-<meta property="article:published_time" content="2014-02-03T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
-
+<meta property="article:published_time" content="2014-02-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to test asynchronous calls with AngularJS">
 <meta itemprop="description" content="">
 
@@ -210,8 +209,7 @@
 <p>To do so, I need to:</p>
 
 <ul>
-<li>Mock the <code>foobarFactory</code> and return a fake when calling the method <code>getFoobar</code></li>
-</ul>
+<li><p>Mock the <code>foobarFactory</code> and return a fake when calling the method <code>getFoobar</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -220,14 +218,13 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">).</span><span class="nx">andCallFake</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">fn</span><span class="p">(</span><span class="nx">foobar</span><span class="p">);</span>
+<span class="nx">fn</span><span class="p">(</span><span class="nx">foobar</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Wait for <code>foobar</code> returned by the fake <code>foobarFactory</code></li>
-</ul>
+</div></li>
+
+<li><p>Wait for <code>foobar</code> returned by the fake <code>foobarFactory</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -236,14 +233,13 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">.</span><span class="nx">callCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">.</span><span class="nx">callCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">},</span> <span class="s1">&#39;Getting foobar timed out&#39;</span><span class="p">,</span> <span class="mi">650</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Test</li>
-</ul>
+</div></li>
+
+<li><p>Test</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -253,12 +249,14 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">runs</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
-  <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p>In the end, this is the final spec:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -390,8 +388,7 @@
 <p>To do so, I need to:</p>
 
 <ul>
-<li>Create a <code>foobar</code> mock</li>
-</ul>
+<li><p>Create a <code>foobar</code> mock</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -400,14 +397,13 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">foobarMock</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">id</span><span class="o">:</span> <span class="mi">123</span>
+<span class="nx">id</span><span class="o">:</span> <span class="mi">123</span>
 <span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Create a promise that return the previous <code>foobar</code> mock</li>
-</ul>
+</div></li>
+
+<li><p>Create a promise that return the previous <code>foobar</code> mock</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -418,10 +414,9 @@
 <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Mock the <code>foobarFactory</code> and return the previous promise</li>
-</ul>
+</div></li>
+
+<li><p>Mock the <code>foobarFactory</code> and return the previous promise</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -430,10 +425,9 @@
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">).</span><span class="nx">andReturn</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li>Test</li>
-</ul>
+</div></li>
+
+<li><p>Test</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
@@ -449,7 +443,7 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span><span class="p">;</span>
 <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">result</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">;</span>
+<span class="nx">result</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">;</span>
 <span class="p">});</span>
 <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeUndefined</span><span class="p">();</span>
 <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$apply</span><span class="p">();</span>
@@ -458,7 +452,9 @@
 <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p>In the end, this is the final spec:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -567,6 +563,10 @@
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

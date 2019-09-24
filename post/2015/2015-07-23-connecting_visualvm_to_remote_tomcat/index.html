@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/" />
@@ -32,7 +32,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,9 +43,8 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/" />
-<meta property="article:published_time" content="2015-07-23T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
-
+<meta property="article:published_time" content="2015-07-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to connect VisualVM to a remote Tomcat">
 <meta itemprop="description" content="">
 
@@ -158,8 +157,7 @@
     
     <div class="post-content">
       <ul>
-<li>Add the following to the <code>JAVA_OPTS</code>:</li>
-</ul>
+<li><p>Add the following to the <code>JAVA_OPTS</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
@@ -170,12 +168,14 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&#34;-Dcom.sun.management.jmxremote=true \
-</span><span class="s2">                  -Dcom.sun.management.jmxremote.port=9090 \
-</span><span class="s2">                  -Dcom.sun.management.jmxremote.ssl=false \
-</span><span class="s2">                  -Dcom.sun.management.jmxremote.authenticate=false \
-</span><span class="s2">                  -Djava.rmi.server.hostname=123.456.789.123&#34;</span></code></pre></td></tr></table>
+</span><span class="s2">              -Dcom.sun.management.jmxremote.port=9090 \
+</span><span class="s2">              -Dcom.sun.management.jmxremote.ssl=false \
+</span><span class="s2">              -Dcom.sun.management.jmxremote.authenticate=false \
+</span><span class="s2">              -Djava.rmi.server.hostname=123.456.789.123&#34;</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <p>Set your server IP on the <code>java.rmi.server.hostname</code>.</p>
 
 <ul>
@@ -217,6 +217,10 @@
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

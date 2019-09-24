@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/" />
@@ -33,7 +33,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,9 +45,8 @@
 we can use openssl command line to generate self-signed certificates." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/" />
-<meta property="article:published_time" content="2019-01-25T16:03:35&#43;01:00"/>
-<meta property="article:modified_time" content="2019-01-28T09:17:07&#43;01:00"/>
-
+<meta property="article:published_time" content="2019-01-25T16:03:35+01:00" />
+<meta property="article:modified_time" content="2019-01-28T09:17:07+01:00" />
 <meta itemprop="name" content="How to generate self-signed certificates">
 <meta itemprop="description" content="When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
 we can use openssl command line to generate self-signed certificates.">
@@ -286,8 +285,8 @@ we can use <code>openssl</code> command line to generate self-signed certificate
 <span class="c1"># Usage:                                              #</span>
 <span class="c1">#           ./generate_certificate.sh                 #</span>
 <span class="c1">#######################################################</span>
-<span class="cp">#!/bin/bash
-</span><span class="cp"></span>
+<span class="c1">#!/bin/bash</span>
+
 <span class="nv">rootca_home</span><span class="o">=</span><span class="s2">&#34;./rootCA&#34;</span>
 <span class="nv">rootca_validity</span><span class="o">=</span><span class="m">3650</span>
 <span class="nv">cert_validity</span><span class="o">=</span><span class="m">500</span>
@@ -426,6 +425,10 @@ info <span class="s2">&#34;Generating CA and user certificates FINISHED!!!&#34;<
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

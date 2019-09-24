@@ -25,7 +25,7 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/" />
@@ -34,7 +34,7 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -48,9 +48,8 @@ is not quite straightforward.
 We need to use a mix of JPA annotations along with creating some embeddable classes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/" />
-<meta property="article:published_time" content="2018-11-14T16:40:06&#43;01:00"/>
-<meta property="article:modified_time" content="2019-04-04T14:10:17&#43;02:00"/>
-
+<meta property="article:published_time" content="2018-11-14T16:40:06+01:00" />
+<meta property="article:modified_time" content="2019-04-04T14:10:17+02:00" />
 <meta itemprop="name" content="JPA @OneToMany and composite primary key">
 <meta itemprop="description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
 is not quite straightforward.
@@ -248,41 +247,41 @@ is not quite straightforward.</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">Cat</span> <span class="nf">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
     <span class="nd">@Id</span>
     <span class="nd">@GeneratedValue</span>
-    <span class="kd">private</span> <span class="n">Long</span> <span class="n">catId</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nf">Long</span> <span class="n">catId</span><span class="p">;</span>
 
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
 
-    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;id.cat&#34;</span><span class="o">,</span> <span class="n">fetched</span> <span class="o">=</span> <span class="n">FechType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
-    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">CatToyUsage</span><span class="o">&gt;</span> <span class="n">toyUsages</span><span class="o">;</span>
+    <span class="nd">@OneToMany</span><span class="p">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;id.cat&#34;</span><span class="p">,</span> <span class="n">fetched</span> <span class="o">=</span> <span class="n">FechType</span><span class="p">.</span><span class="na">LAZY</span><span class="p">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="p">.</span><span class="na">ALL</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="nf">Set</span><span class="o">&lt;</span><span class="n">CatToyUsage</span><span class="o">&gt;</span> <span class="nf">toyUsages</span><span class="p">;</span>
 
     <span class="c1">// Getters + setters
-</span><span class="c1"></span><span class="o">}</span>
+</span><span class="c1"></span><span class="p">}</span>
 
 <span class="nd">@Entity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatToyUsage</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="nf">class</span> <span class="n">CatToyUsage</span> <span class="nf">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
     <span class="nd">@Embeddable</span>
-    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Pk</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="nf">class</span> <span class="n">Pk</span> <span class="nf">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
         <span class="nd">@ManyToOne</span>
-        <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;cat_id&#34;</span><span class="o">)</span>
-        <span class="kd">private</span> <span class="n">Cat</span> <span class="n">cat</span><span class="o">;</span>
+        <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;cat_id&#34;</span><span class="p">)</span>
+        <span class="kd">private</span> <span class="nf">Cat</span> <span class="n">cat</span><span class="p">;</span>
 
-        <span class="nd">@Column</span><span class="o">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
-        <span class="kd">private</span> <span class="n">Long</span> <span class="n">toyId</span><span class="o">;</span>
+        <span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+        <span class="kd">private</span> <span class="nf">Long</span> <span class="n">toyId</span><span class="p">;</span>
 
         <span class="c1">// Getters + setters + equals + hashCode
-</span><span class="c1"></span>    <span class="o">}</span>
+</span><span class="c1"></span>    <span class="p">}</span>
 
     <span class="nd">@EmbeddedId</span>
-    <span class="kd">private</span> <span class="n">Pk</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nf">Pk</span> <span class="n">id</span><span class="p">;</span>
 
-    <span class="nd">@Enumerated</span><span class="o">(</span><span class="n">EnumType</span><span class="o">.</span><span class="na">STRING</span><span class="o">)</span>
-    <span class="kd">private</span> <span class="n">UsageStatus</span> <span class="n">usageStatus</span><span class="o">;</span>
+    <span class="nd">@Enumerated</span><span class="p">(</span><span class="n">EnumType</span><span class="p">.</span><span class="na">STRING</span><span class="p">)</span>
+    <span class="kd">private</span> <span class="nf">UsageStatus</span> <span class="n">usageStatus</span><span class="p">;</span>
 
     <span class="c1">// Getters + setters
-</span><span class="c1"></span><span class="o">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Sources:</p>
@@ -323,6 +322,10 @@ is not quite straightforward.</p>
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

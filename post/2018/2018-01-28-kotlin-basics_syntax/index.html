@@ -25,7 +25,7 @@ In this article, I will deal with Kotlin basics and see what&amp;rsquo;s differe
 
 
 
-<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/" />
@@ -34,7 +34,7 @@ In this article, I will deal with Kotlin basics and see what&amp;rsquo;s differe
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.f63961a1.min.css" rel="stylesheet">
+<link href="/dist/even.0b9bd48a.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,9 +47,8 @@ In this article, I will deal with Kotlin basics and see what&amp;rsquo;s differe
 In this article, I will deal with Kotlin basics and see what&rsquo;s different with Java in terms of syntax, form and types." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/" />
-<meta property="article:published_time" content="2018-01-28T17:37:03&#43;01:00"/>
-<meta property="article:modified_time" content="2018-11-10T11:31:30&#43;01:00"/>
-
+<meta property="article:published_time" content="2018-01-28T17:37:03+01:00" />
+<meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Kotlin Basics: syntax">
 <meta itemprop="description" content="Kotlin is a great language but it&rsquo;s more like a subset of Java.
 
@@ -216,11 +215,11 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foobar</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello world&#34;</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">Foobar</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="nf">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Hello world&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Whereas in Kotlin, you do not need to create a class as it&rsquo;s not relevant to any class which is more logical.
@@ -279,8 +278,8 @@ When declaring a function, it must follow the following:</p>
 </div>
 <ul>
 <li>The return type is not defined, it&rsquo;s also implicit and it will automatically detect the type from the return type (ie: type inference)</li>
-<li>It&rsquo;s declared like assigning a variable, but it&rsquo;s used like a real function:</li>
-</ul>
+
+<li><p>It&rsquo;s declared like assigning a variable, but it&rsquo;s used like a real function:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
@@ -290,11 +289,13 @@ When declaring a function, it must follow the following:</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="m">88</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&#34;Sum of 88 and 12 is ${result}&#34;</span><span class="p">)</span>
+<span class="k">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="m">88</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&#34;Sum of 88 and 12 is ${result}&#34;</span><span class="p">)</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h1 id="variables">Variables</h1>
 
 <p>In Java, when you are declaring a variable, you MUST declare its type:</p>
@@ -303,7 +304,7 @@ When declaring a function, it must follow the following:</p>
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&#34;Hello world!&#34;</span><span class="o">;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="nf">message</span> <span class="o">=</span> <span class="s">&#34;Hello world!&#34;</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Whereas in Kotlin, the type inference is really strong:</p>
@@ -356,10 +357,10 @@ When declaring a function, it must follow the following:</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&#34;Hello world, this is the result of the computation of &#34;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">&#34; and &#34;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s">&#34; which gives &#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="nf">a</span> <span class="o">=</span> <span class="n">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">b</span> <span class="o">=</span> <span class="n">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">String</span> <span class="nf">message</span> <span class="o">=</span> <span class="s">&#34;Hello world, this is the result of the computation of &#34;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">&#34; and &#34;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s">&#34; which gives &#34;</span> <span class="o">+</span> <span class="n">result</span><span class="p">;</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>In kotlin, you can use the <code>$</code> along with <code>{</code> <code>}</code> to fetch its data:</p>
@@ -384,8 +385,8 @@ When declaring a function, it must follow the following:</p>
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foobar</span> <span class="o">{</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">Foobar</span> <span class="p">{</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>In Kotlin, it&rsquo;s about the same:</p>
@@ -405,7 +406,7 @@ When declaring a function, it must follow the following:</p>
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foobar</span> <span class="n">foobar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foobar</span><span class="o">();</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foobar</span> <span class="nf">foobar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foobar</span><span class="p">();</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Whereas in Kotlin, you don&rsquo;t need the <code>new</code> keyword:</p>
@@ -428,12 +429,12 @@ When declaring a function, it must follow the following:</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nf">i</span> <span class="o">=</span> <span class="n">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nf">j</span> <span class="o">=</span> <span class="n">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -505,6 +506,10 @@ When declaring a function, it must follow the following:</p>
   </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>
