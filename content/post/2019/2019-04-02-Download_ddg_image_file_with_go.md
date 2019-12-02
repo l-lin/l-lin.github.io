@@ -1,7 +1,7 @@
 ---
 title: "Download DDG image file with Go"
 date: 2019-04-02T09:18:10+02:00
-imageUrl: "https://pctechmag.com/wp-content/uploads/2014/09/DuckDuckGo_Logo_mid_2014.svg_.png"
+imageUrl: "https://searchengineland.com/figz/wp-content/seloads/2015/12/duckduckgo-logo-wordmark4-1920.png"
 tags: ["golang", "duckduckgo"]
 categories: ["post"]
 comment: true
