@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Kotlin Basics - Classes ">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2018-02-10T12:05:16&#43;01:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="444">
 
 
 
-<meta itemprop="keywords" content="kotlin,learning," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="kotlin,learning," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kotlin Basics - Classes "/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -152,13 +145,7 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#methods">Methods</a></li>
-<li><a href="#data-classes">Data classes</a></li>
-<li><a href="#inheritance">Inheritance</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-image center">
@@ -168,28 +155,27 @@
     
     <div class="post-content">
       <h1 id="methods">Methods</h1>
-
 <p>In Java, when you declare class methods, you need to declare them inside the class:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">Plane</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="nf">void</span> <span class="n">fly</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Plane</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>In Kotlin, you can declare in two different ways:</p>
+</div><p>In Kotlin, you can declare in two different ways:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -210,8 +196,8 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">Plane</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">fun</span> <span class="nf">fly</span><span class="p">()</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">Plane</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">fly</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -220,7 +206,7 @@
 </span><span class="c1"></span>
 <span class="k">class</span> <span class="nc">Plane</span>
 
-<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -228,17 +214,15 @@
 </span><span class="c1"></span>
 <span class="k">class</span> <span class="nc">Plane</span>
 
-<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span> <span class="p">=</span> <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">(</span><span class="p">)</span> <span class="p">=</span> <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>It&rsquo;s interesting to note that other languages (like Golang) also uses the second form.</p>
-
+</div><p>It's interesting to note that other languages (like Golang) also uses the second form.</p>
 <h1 id="data-classes">Data classes</h1>
-
 <p>In Java, you will need to declare your DTO like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -260,45 +244,43 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">Person</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="nf">String</span> <span class="n">firstName</span><span class="p">;</span>
-    <span class="kd">private</span> <span class="nf">String</span> <span class="n">lastName</span><span class="p">;</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">String</span> <span class="n">getFirstName</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">firstName</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="nf">void</span> <span class="n">setFirstName</span><span class="p">(</span><span class="n">String</span> <span class="nf">firstName</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFirstName</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="nf">String</span> <span class="n">getLastName</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">lastName</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="nf">void</span> <span class="n">setLastName</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLastName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>It&rsquo;s really verbose, and there is lot of code lines (~19 lines).</p>
-
+</div><p>It's really verbose, and there is lot of code lines (~19 lines).</p>
 <p>In Kotlin, you can define the above class in one line:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">data</span> <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="k">val</span> <span class="py">firstName</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="k">val</span> <span class="py">lastName</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">data</span> <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="k">val</span> <span class="py">firstName</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="k">val</span> <span class="py">lastName</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="inheritance">Inheritance</h1>
-
+</div><h1 id="inheritance">Inheritance</h1>
 <p>Using the <a href="http://commons.apache.org/proper/commons-cli/">apache common-cli</a> library:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -328,38 +310,39 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">interface</span> <span class="n">Cmd</span> <span class="p">{</span>
-    <span class="kt">void</span> <span class="nf">execute</span><span class="p">();</span>
-    <span class="n">Option</span> <span class="nf">getOption</span><span class="p">();</span>
-    <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">CommandLine</span> <span class="nf">line</span><span class="p">);</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cmd</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="n">Option</span> <span class="nf">getOption</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">)</span><span class="o">;</span>
+<span class="o">}</span>
 
-<span class="kd">public</span> <span class="nf">abstract</span> <span class="n">AbstractCmd</span> <span class="nf">implements</span> <span class="n">Cmd</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="n">AbstractCmd</span> <span class="kd">implements</span> <span class="n">Cmd</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nf">boolean</span> <span class="n">isEnabled</span><span class="p">(</span><span class="n">CommandLine</span> <span class="nf">line</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Option</span> <span class="nf">option</span> <span class="o">=</span> <span class="n">getOption</span><span class="p">();</span>
-        <span class="n">String</span> <span class="nf">longOpt</span> <span class="o">=</span> <span class="n">option</span><span class="p">.</span><span class="na">getLongOpt</span><span class="p">();</span>
-        <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="na">hasOption</span><span class="p">(</span><span class="n">longOpt</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="n">getOption</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">longOpt</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="na">getLongOpt</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="na">hasOption</span><span class="o">(</span><span class="n">longOpt</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="kd">public</span> <span class="nf">HelpCmd</span> <span class="kd">extends</span> <span class="nf">AbstractCmd</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="nf">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Option</span><span class="p">(</span><span class="s">&#34;h&#34;</span><span class="p">,</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="p">);</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nf">void</span> <span class="n">execute</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Display help here&#34;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="kd">public</span> <span class="n">HelpCmd</span> <span class="kd">extends</span> <span class="n">AbstractCmd</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Option</span><span class="o">(</span><span class="s">&#34;h&#34;</span><span class="o">,</span> <span class="s">&#34;help&#34;</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="o">)</span><span class="o">;</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="nf">Option</span> <span class="n">getOption</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">option</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Display help here&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Option</span> <span class="nf">getOption</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">option</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,29 +369,30 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">interface</span> <span class="nc">Cmd</span> <span class="p">{</span>
-    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
-    <span class="k">fun</span> <span class="nf">getOption</span><span class="p">():</span> <span class="n">Option</span>
-    <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">):</span> <span class="n">Boolean</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">(</span><span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">getOption</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Option</span>
+    <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">)</span><span class="p">:</span> <span class="n">Boolean</span>
 <span class="p">}</span>
 
 <span class="c1">// Keyword &#34;implements&#34; not needed
 </span><span class="c1"></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbstractCmd</span><span class="p">:</span> <span class="n">Cmd</span> <span class="p">{</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">):</span> <span class="n">Boolean</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="n">hasOption</span><span class="p">(</span><span class="n">getOption</span><span class="p">().</span><span class="n">longOpt</span><span class="p">)</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">)</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="n">hasOption</span><span class="p">(</span><span class="n">getOption</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">longOpt</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Keyword &#34;extends&#34; not needed
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">HelpCmd</span><span class="p">:</span> <span class="n">AbstractCmd</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">HelpCmd</span><span class="p">:</span> <span class="n">AbstractCmd</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// We need to declare as &#34;private&#34; and override the `getOption` method otherwise we have an &#34;accidental override&#34; error
 </span><span class="c1"></span>    <span class="k">private</span> <span class="k">val</span> <span class="py">option</span> <span class="p">=</span> <span class="n">Option</span><span class="p">(</span><span class="s">&#34;h&#34;</span><span class="p">,</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="p">)</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getOption</span><span class="p">():</span> <span class="n">Option</span> <span class="p">=</span> <span class="n">option</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getOption</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Option</span> <span class="p">=</span> <span class="n">option</span>
 
     <span class="c1">// No need to add the character &#39;@&#39; and by default, the methods are public
-</span><span class="c1"></span>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">println</span><span class="p">(</span><span class="s">&#34;Display help here&#34;</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

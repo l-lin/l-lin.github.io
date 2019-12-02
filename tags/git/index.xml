@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on Louis LIN&#39;s blog</title>
@@ -27,11 +27,8 @@
       
       <guid>https://l-lin.github.io/post/2018/2018-02-08-git_extract_folders_with_history/</guid>
       <description>&lt;p&gt;Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.&lt;/p&gt;
-
 &lt;p&gt;Thus, you will need to extract the folder of the sub-project.&lt;/p&gt;
-
 &lt;p&gt;Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.&lt;/p&gt;
-
 &lt;p&gt;Git is an awesome tool which has a &amp;ldquo;magical&amp;rdquo; command.&lt;/p&gt;</description>
     </item>
     

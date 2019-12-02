@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>terminal on Louis LIN&#39;s blog</title>
@@ -18,11 +18,8 @@
       
       <guid>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</guid>
       <description>&lt;p&gt;Do you have to manage a server?&lt;/p&gt;
-
 &lt;p&gt;Do you need to perform some actions in bulk?&lt;/p&gt;
-
 &lt;p&gt;Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?&lt;/p&gt;
-
 &lt;p&gt;Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
 and menus. Another benefit is allowing access to many more commands and scripts.&lt;/p&gt;</description>
     </item>

@@ -25,7 +25,7 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/" />
@@ -44,7 +44,6 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 <meta property="og:title" content="JPA @OneToMany and composite primary key" />
 <meta property="og:description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
 is not quite straightforward.
-
 We need to use a mix of JPA annotations along with creating some embeddable classes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/" />
@@ -53,22 +52,17 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
 <meta itemprop="name" content="JPA @OneToMany and composite primary key">
 <meta itemprop="description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
 is not quite straightforward.
-
 We need to use a mix of JPA annotations along with creating some embeddable classes.">
-
-
 <meta itemprop="datePublished" content="2018-11-14T16:40:06&#43;01:00" />
 <meta itemprop="dateModified" content="2019-04-04T14:10:17&#43;02:00" />
 <meta itemprop="wordCount" content="231">
 
 
 
-<meta itemprop="keywords" content="jpa,java," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="jpa,java," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JPA @OneToMany and composite primary key"/>
 <meta name="twitter:description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
 is not quite straightforward.
-
 We need to use a mix of JPA annotations along with creating some embeddable classes."/>
 
 <!--[if lte IE 9]>
@@ -100,8 +94,6 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -123,8 +115,6 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -169,13 +159,11 @@ We need to use a mix of JPA annotations along with creating some embeddable clas
     <div class="post-content">
       <p>To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
 is not quite straightforward.</p>
-
 <p>We need to use a mix of JPA annotations along with creating some embeddable classes.</p>
-
 <p>Suppose we have the following representation in our database:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -190,25 +178,23 @@ is not quite straightforward.</p>
 |cat_id*|----------|cat_id*      |----------|toy_id*|
 |name   |          |toy_id*      |          |name   |
 +=======+          |usage_status |          +=======+
-                   +=============+</code></pre></td></tr></table>
+                   +=============+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>We have:</p>
-
+</div><p>We have:</p>
 <ul>
 <li>cats</li>
 <li>toys for cats
-
 <ul>
 <li>a toy can be shared between cats</li>
-</ul></li>
+</ul>
+</li>
 <li>an usage status (either <code>USED</code> or <code>UNUSED</code>)</li>
 </ul>
-
 <p>Using JPA, we will have the following:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -247,45 +233,44 @@ is not quite straightforward.</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span>
-<span class="kd">public</span> <span class="nf">class</span> <span class="n">Cat</span> <span class="nf">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
     <span class="nd">@Id</span>
     <span class="nd">@GeneratedValue</span>
-    <span class="kd">private</span> <span class="nf">Long</span> <span class="n">catId</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">catId</span><span class="o">;</span>
 
-    <span class="kd">private</span> <span class="nf">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 
-    <span class="nd">@OneToMany</span><span class="p">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;id.cat&#34;</span><span class="p">,</span> <span class="n">fetched</span> <span class="o">=</span> <span class="n">FechType</span><span class="p">.</span><span class="na">LAZY</span><span class="p">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="p">.</span><span class="na">ALL</span><span class="p">)</span>
-    <span class="kd">private</span> <span class="nf">Set</span><span class="o">&lt;</span><span class="n">CatToyUsage</span><span class="o">&gt;</span> <span class="nf">toyUsages</span><span class="p">;</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;id.cat&#34;</span><span class="o">,</span> <span class="n">fetched</span> <span class="o">=</span> <span class="n">FechType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">CatToyUsage</span><span class="o">&gt;</span> <span class="n">toyUsages</span><span class="o">;</span>
 
     <span class="c1">// Getters + setters
-</span><span class="c1"></span><span class="p">}</span>
+</span><span class="c1"></span><span class="o">}</span>
 
 <span class="nd">@Entity</span>
-<span class="kd">public</span> <span class="nf">class</span> <span class="n">CatToyUsage</span> <span class="nf">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatToyUsage</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
     <span class="nd">@Embeddable</span>
-    <span class="kd">static</span> <span class="nf">class</span> <span class="n">Pk</span> <span class="nf">implements</span> <span class="n">Serializable</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Pk</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
         <span class="nd">@ManyToOne</span>
-        <span class="nd">@JoinColumn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;cat_id&#34;</span><span class="p">)</span>
-        <span class="kd">private</span> <span class="nf">Cat</span> <span class="n">cat</span><span class="p">;</span>
+        <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;cat_id&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Cat</span> <span class="n">cat</span><span class="o">;</span>
 
-        <span class="nd">@Column</span><span class="p">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
-        <span class="kd">private</span> <span class="nf">Long</span> <span class="n">toyId</span><span class="p">;</span>
+        <span class="nd">@Column</span><span class="o">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Long</span> <span class="n">toyId</span><span class="o">;</span>
 
         <span class="c1">// Getters + setters + equals + hashCode
-</span><span class="c1"></span>    <span class="p">}</span>
+</span><span class="c1"></span>    <span class="o">}</span>
 
     <span class="nd">@EmbeddedId</span>
-    <span class="kd">private</span> <span class="nf">Pk</span> <span class="n">id</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Pk</span> <span class="n">id</span><span class="o">;</span>
 
-    <span class="nd">@Enumerated</span><span class="p">(</span><span class="n">EnumType</span><span class="p">.</span><span class="na">STRING</span><span class="p">)</span>
-    <span class="kd">private</span> <span class="nf">UsageStatus</span> <span class="n">usageStatus</span><span class="p">;</span>
+    <span class="nd">@Enumerated</span><span class="o">(</span><span class="n">EnumType</span><span class="o">.</span><span class="na">STRING</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">UsageStatus</span> <span class="n">usageStatus</span><span class="o">;</span>
 
     <span class="c1">// Getters + setters
-</span><span class="c1"></span><span class="p">}</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Sources:</p>
-
+</div><p>Sources:</p>
 <ul>
 <li><a href="https://stackoverflow.com/questions/2611619/onetomany-and-composite-primary-keys/20002180#20002180">Stackoverflow</a></li>
 <li><a href="https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/embedded-element-collection.html">LogicBig</a></li>

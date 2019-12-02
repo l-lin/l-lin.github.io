@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>angularjs on Louis LIN&#39;s blog</title>
@@ -29,9 +29,7 @@
       <description>&lt;p&gt;Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.&lt;/p&gt;
-
 &lt;p&gt;There are two ways (in my knowledge) to build nested directives.&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Using the directive &lt;code&gt;ng-include&lt;/code&gt; and one custom directive&lt;/li&gt;
 &lt;li&gt;Using two custom directives&lt;/li&gt;

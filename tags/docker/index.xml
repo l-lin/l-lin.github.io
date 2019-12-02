@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on Louis LIN&#39;s blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</guid>
-      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
     </item>
     
   </channel>

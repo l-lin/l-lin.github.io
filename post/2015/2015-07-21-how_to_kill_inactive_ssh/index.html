@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-07-21-how_to_kill_inactive_ssh/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to kill inactive ssh sessions">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2015-07-21T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="28">
 
 
 
-<meta itemprop="keywords" content="ssh," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ssh," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to kill inactive ssh sessions"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -155,30 +148,31 @@
       <p>Execute the following command that displays the list of processes:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pstree -p</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">pstree -p
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Look for the <code>sshd</code>:</p>
+</div><p>Look for the <code>sshd</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">├─sshd<span class="o">(</span><span class="m">3102</span><span class="o">)</span>─┬─sshd<span class="o">(</span><span class="m">3649</span><span class="o">)</span>───bash<span class="o">(</span><span class="m">3656</span><span class="o">)</span>
-│            └─sshd<span class="o">(</span><span class="m">16680</span><span class="o">)</span>───bash<span class="o">(</span><span class="m">16687</span><span class="o">)</span>───pstree<span class="o">(</span><span class="m">17073</span><span class="o">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">├─sshd<span class="o">(</span>3102<span class="o">)</span>─┬─sshd<span class="o">(</span>3649<span class="o">)</span>───bash<span class="o">(</span>3656<span class="o">)</span>
+│            └─sshd<span class="o">(</span>16680<span class="o">)</span>───bash<span class="o">(</span>16687<span class="o">)</span>───pstree<span class="o">(</span>17073<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Kill the session:</p>
+</div><p>Kill the session:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">kill</span> <span class="m">3649</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">kill</span> <span class="m">3649</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

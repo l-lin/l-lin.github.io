@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-23-centos7_add_new_tomcat_service/" />
@@ -50,16 +50,13 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
 <meta itemprop="name" content="How to add a new Tomcat service on CentOS7">
 <meta itemprop="description" content="Starting with version 7, CentOS is now using systemd as a service manager.
 Adding a new service is no longer done by creating a SH script in the /etc/init.d folder.">
-
-
 <meta itemprop="datePublished" content="2018-02-23T13:19:45&#43;01:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="171">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to add a new Tomcat service on CentOS7"/>
 <meta name="twitter:description" content="Starting with version 7, CentOS is now using systemd as a service manager.
 Adding a new service is no longer done by creating a SH script in the /etc/init.d folder."/>
@@ -93,8 +90,6 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -116,8 +111,6 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -160,12 +153,12 @@ Adding a new service is no longer done by creating a SH script in the /etc/init.
     <div class="post-content">
       <p>Starting with version 7, CentOS is now using <a href="https://freedesktop.org/wiki/Software/systemd/">systemd</a> as a service manager.
 Adding a new service is no longer done by creating a SH script in the <code>/etc/init.d</code> folder.</p>
-
 <ul>
-<li><p>First, create a new file <code>/etc/systemd/system/tomcat.service</code> with the following content:</p>
+<li>First, create a new file <code>/etc/systemd/system/tomcat.service</code> with the following content:</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -204,56 +197,56 @@ RestartSec=10
 Restart=always
 
 [Install]
-WantedBy=multi-user.target</code></pre></td></tr></table>
+WantedBy=multi-user.target
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<blockquote>
+</div><blockquote>
 <p>We are using the <code>nobody</code> user to execute Tomcat.
-If there is the error ̀&rdquo;This account is currently not available&rdquo;, that means the <code>nobody</code> user does not have a tty (/sbin/nologin).</p>
-
+If there is the error ̀&quot;This account is currently not available&rdquo;, that means the <code>nobody</code> user does not have a tty (/sbin/nologin).</p>
 <p>You will need to change the file <code>/etc/passwd</code> and put <code>/bin/bash</code> as the default tty for the <code>nobody</code> user:</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">nobody❌99:99:Nobody:/:/bin/bash</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">nobody❌99:99:Nobody:/:/bin/bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li><p>Reload systemd:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>You can start the service with the following command:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start tomcat</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>You can enable the service so that the service will start up automatically on each reboot:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl <span class="nb">enable</span> tomcat</code></pre></td></tr></table>
-</div>
-</div></li>
+</div><ul>
+<li>Reload systemd:</li>
 </ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>You can start the service with the following command:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start tomcat
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>You can enable the service so that the service will start up automatically on each reboot:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl <span class="nb">enable</span> tomcat
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">

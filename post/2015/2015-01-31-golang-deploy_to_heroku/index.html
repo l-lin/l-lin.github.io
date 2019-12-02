@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/" />
@@ -48,16 +48,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Deploying a Golang web apps to Heroku">
 <meta itemprop="description" content="Deploying a Golang web apps to Heroku is quite easy.">
-
-
 <meta itemprop="datePublished" content="2015-01-31T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="563">
 
 
 
-<meta itemprop="keywords" content="heroku," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="heroku," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deploying a Golang web apps to Heroku"/>
 <meta name="twitter:description" content="Deploying a Golang web apps to Heroku is quite easy."/>
 
@@ -90,8 +87,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -113,8 +108,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -156,15 +149,12 @@
     
     <div class="post-content">
       <p>Deploying a <a href="https://golang.org/">Golang</a> web apps to <a href="https://www.heroku.com">Heroku</a> is quite easy.</p>
-
 <h1 id="heroku-configuration">Heroku configuration</h1>
-
 <p>Heroku configurations are fetched from the OS environment variables.</p>
-
 <p>So to fetch the webapp port, you will need to call <code>os.Getenv(&quot;PORT&quot;)</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -205,98 +195,94 @@
 	<span class="s">&#34;fmt&#34;</span>
 <span class="p">)</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">port</span> <span class="o">:=</span> <span class="nf">GetPort</span><span class="p">()</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">port</span> <span class="o">:=</span> <span class="nf">GetPort</span><span class="p">(</span><span class="p">)</span>
 	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[-] Listening on...&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
     <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">(</span><span class="nx">res</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="s">&#34;hello, world&#34;</span><span class="p">)</span>
-    <span class="p">})</span>
+    <span class="p">}</span><span class="p">)</span>
 
-    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:&#34;</span><span class="o">+</span><span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PORT&#34;</span><span class="p">),</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:&#34;</span><span class="o">+</span><span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PORT&#34;</span><span class="p">)</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
       <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">GetPort</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">GetPort</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
 	<span class="nx">port</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PORT&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">port</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
 		<span class="nx">port</span> <span class="p">=</span> <span class="s">&#34;4747&#34;</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[-] No PORT environment variable detected. Setting to &#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="s">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">port</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>That&rsquo;s everything you need to do in your Golang webapp.</p>
-
+</div><p>That's everything you need to do in your Golang webapp.</p>
 <p>Now, you will need to tell Heroku to add the following buildpack to your webapps:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /path/to/golang/app
-heroku create example -b https://github.com/kr/heroku-buildpack-go.git</code></pre></td></tr></table>
+heroku create example -b https://github.com/kr/heroku-buildpack-go.git
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Before pushing to Heroku, you will need to save your app dependencies.
+</div><p>Before pushing to Heroku, you will need to save your app dependencies.
 Heroku support <a href="https://github.com/tools/godep">Godep</a> for dependency management.
 First install Godep:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go get -u github.com/tools/godep</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">go get -u github.com/tools/godep
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Save your dependencies:</p>
+</div><p>Save your dependencies:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">godep save
 git add -A
-git commit -m <span class="s2">&#34;Add Godep&#34;</span></code></pre></td></tr></table>
+git commit -m <span class="s2">&#34;Add Godep&#34;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Now, you are good to go!</p>
+</div><p>Now, you are good to go!</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git push heroku master</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push heroku master
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="adding-a-database-to-your-web-app">Adding a Database to your Web app</h1>
-
-<p>Heroku has made the life of developper easier. To add a new database to your webapp, it&rsquo;s really easy.
+</div><h1 id="adding-a-database-to-your-web-app">Adding a Database to your Web app</h1>
+<p>Heroku has made the life of developper easier. To add a new database to your webapp, it's really easy.
 For example, I needed to add a Postgresql. I just needed to execute one command line and the configuration is fetched from the environment variables:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">heroku addons:add heroku-postgresql:dev</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">heroku addons:add heroku-postgresql:dev
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>More information on <a href="https://www.heroku.com/postgres">Heroku&rsquo;s documentation</a>.</p>
-
+</div><p>More information on <a href="https://www.heroku.com/postgres">Heroku's documentation</a>.</p>
 <p>Now to connect to the database, you will need:</p>
-
 <ul>
 <li>to get the <a href="github.com/lib/pq">Postgresql driver</a></li>
-
-<li><p>fetch Heroku&rsquo;s DB configuration from the <strong>DATABASE_URL</strong> environment variable</p>
+<li>fetch Heroku's DB configuration from the <strong>DATABASE_URL</strong> environment variable</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -364,38 +350,38 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="nx">_</span> <span class="s">&#34;github.com/lib/pq&#34;</span>
 	<span class="s">&#34;log&#34;</span>
-<span class="s">&#34;database/sql&#34;</span>
+    <span class="s">&#34;database/sql&#34;</span>
 	<span class="s">&#34;os&#34;</span>
 <span class="p">)</span>
 
 <span class="c1">// Fetch the list of novels
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetList</span><span class="p">()</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Novel</span> <span class="p">{</span>
-	<span class="nx">novels</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="nx">Novel</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-	<span class="nx">database</span> <span class="o">:=</span> <span class="nf">connect</span><span class="p">()</span>
-	<span class="k">defer</span> <span class="nx">database</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetList</span><span class="p">(</span><span class="p">)</span> <span class="p">[</span><span class="p">]</span><span class="o">*</span><span class="nx">Novel</span> <span class="p">{</span>
+	<span class="nx">novels</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="p">[</span><span class="p">]</span><span class="o">*</span><span class="nx">Novel</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="nx">database</span> <span class="o">:=</span> <span class="nf">connect</span><span class="p">(</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="nx">database</span><span class="p">.</span><span class="nf">Close</span><span class="p">(</span><span class="p">)</span>
 
 	<span class="nx">rows</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">database</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;SELECT id, title, url, image_url, summary, favorite FROM novels&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 		<span class="nx">n</span> <span class="o">:=</span> <span class="nf">toNovel</span><span class="p">(</span><span class="nx">rows</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 			<span class="nx">novels</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">novels</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Err</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Err</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">novels</span>
 <span class="p">}</span>
 
 <span class="c1">// Connect to Heroku database using the OS env DATABASE_URL
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">connect</span><span class="p">()</span> <span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">connect</span><span class="p">(</span><span class="p">)</span> <span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span> <span class="p">{</span>
 	<span class="nx">dbUrl</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;DATABASE_URL&#34;</span><span class="p">)</span>
 	<span class="nx">database</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">sql</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;postgres&#34;</span><span class="p">,</span> <span class="nx">dbUrl</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Could not open the connection to the database. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Could not open the connection to the database. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">database</span>
 <span class="p">}</span>
@@ -419,10 +405,10 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 		<span class="nx">Summary</span><span class="p">:</span> <span class="nx">summary</span><span class="p">,</span>
 		<span class="nx">Favorite</span><span class="p">:</span> <span class="nx">favorite</span><span class="p">,</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
+</div>
     </div>
 
     <div class="post-copyright">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-01-04-git-configure_git_behind_a_proxy/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Configuring git behind a proxy">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2014-01-04T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="104">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuring git behind a proxy"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -154,21 +147,18 @@
     <div class="post-content">
       <p>When using <a href="http://bower.io/">Bower</a>, you may encounter some issues, such as for example:
 <code>ECMDERR Failed to execute &quot;git ls-remote --tags --heads git://github.com/...&quot;, exit code of #128</code></p>
-
 <p>The issue probably come from the fact that you are behind a proxy and your proxy does not allow the <strong>git protocol</strong> (port 9418).</p>
-
 <p>So in order to solve this problem, you have to use the protocols <code>HTTP</code> and <code>HTTPS</code> instead of <code>GIT</code>.</p>
-
 <p>The easy way is to tell GIT to use the protocol <code>HTTPS</code> instead of the protocol <code>GIT</code> with the following commands line:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git config --global url.<span class="s2">&#34;https://&#34;</span>.insteadOf git://</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git config --global url.<span class="s2">&#34;https://&#34;</span>.insteadOf git://
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Now you can install bower components without problems.</p>
+</div><p>Now you can install bower components without problems.</p>
     </div>
 
     <div class="post-copyright">

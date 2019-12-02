@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Louis LIN&#39;s blog</title>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>https://l-lin.github.io/about/</guid>
-      <description>My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
+      <description>My name is Louis Lin: I&#39;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects in my free time Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today?</description>
     </item>
@@ -28,11 +28,10 @@ My projects in my free time Front  Angular notifier Bulletular Back to top Open 
       <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
-      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
+      <description>&lt;p&gt;When developing multiple services that depends on other service, it&#39;s comfortable to have a dev
 environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
-
-&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
+not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.&lt;/p&gt;
+&lt;p&gt;By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -60,7 +59,6 @@ not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m c
       
       <guid>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</guid>
       <description>&lt;p&gt;With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.&lt;/p&gt;
-
 &lt;p&gt;You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.&lt;/p&gt;</description>
     </item>
     
@@ -81,7 +79,6 @@ not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m c
       <guid>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</guid>
       <description>&lt;p&gt;While DuckDuckGo offers &lt;a href=&#34;https://duckduckgo.com/api&#34;&gt;Instant Answer APIs&lt;/a&gt;, it does not provide URLs to download images,
 certainly because of copyright isusses.&lt;/p&gt;
-
 &lt;p&gt;One way is to fetch a &lt;code&gt;vqd&lt;/code&gt; token from an initial basic request, then use it to find the image URLs, and finally download
 the image.&lt;/p&gt;</description>
     </item>
@@ -92,7 +89,7 @@ the image.&lt;/p&gt;</description>
       <pubDate>Fri, 25 Jan 2019 16:03:35 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</guid>
-      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&amp;rsquo;s Encrypt or even pay for one,
+      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&#39;s Encrypt or even pay for one,
 we can use &lt;code&gt;openssl&lt;/code&gt; command line to generate self-signed certificates.&lt;/p&gt;</description>
     </item>
     
@@ -114,7 +111,6 @@ However, what if we want to check a parameter type not supported by a standard c
       <guid>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</guid>
       <description>&lt;p&gt;To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
 is not quite straightforward.&lt;/p&gt;
-
 &lt;p&gt;We need to use a mix of JPA annotations along with creating some embeddable classes.&lt;/p&gt;</description>
     </item>
     
@@ -125,9 +121,7 @@ is not quite straightforward.&lt;/p&gt;
       
       <guid>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</guid>
       <description>&lt;p&gt;This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.&lt;/p&gt;
-
 &lt;p&gt;This one will deal with the famous &lt;strong&gt;SOLID&lt;/strong&gt; design principles:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;ingle responsibility principle&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;O&lt;/strong&gt;pen/closed principle&lt;/li&gt;
@@ -144,13 +138,11 @@ is not quite straightforward.&lt;/p&gt;
       
       <guid>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</guid>
       <description>&lt;p&gt;I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
-coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&#39;s the &amp;ldquo;way&amp;rdquo; to code
 instead of explaining using common concepts to my peers.&lt;/p&gt;
-
 &lt;p&gt;For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less
-trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new
+trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&#39;s kinda sad as I&#39;m no longer some new
 guy freshly coming out of school.&lt;/p&gt;
-
 &lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;</description>
     </item>
     
@@ -169,7 +161,7 @@ guy freshly coming out of school.&lt;/p&gt;
       <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</guid>
-      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -180,7 +172,7 @@ guy freshly coming out of school.&lt;/p&gt;
       <guid>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -188,8 +180,9 @@ guy freshly coming out of school.&lt;/p&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_terminate_backend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
 &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_stat_activity&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;LIKE&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;idle %&amp;#39;&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state_change&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;interval&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;1 hour&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;LIKE&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;idle %&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; 
+&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state_change&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;interval&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;1 hour&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
@@ -237,11 +230,8 @@ guy freshly coming out of school.&lt;/p&gt;
       
       <guid>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</guid>
       <description>&lt;p&gt;Do you have to manage a server?&lt;/p&gt;
-
 &lt;p&gt;Do you need to perform some actions in bulk?&lt;/p&gt;
-
 &lt;p&gt;Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?&lt;/p&gt;
-
 &lt;p&gt;Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
 and menus. Another benefit is allowing access to many more commands and scripts.&lt;/p&gt;</description>
     </item>
@@ -263,10 +253,8 @@ and menus. Another benefit is allowing access to many more commands and scripts.
       <guid>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</guid>
       <description>&lt;p&gt;When proceeding a database migration, I often had to create a temporary table that will contains
 the data from the old database.&lt;/p&gt;
-
 &lt;p&gt;However, after the migration, I still need to have links between the old IDs and the new IDs for
 various post migration operation.&lt;/p&gt;
-
 &lt;p&gt;This post is about creating the table containing the linked ids.&lt;/p&gt;</description>
     </item>
     
@@ -332,11 +320,8 @@ Adding a new service is no longer done by creating a SH script in the &lt;code&g
       
       <guid>https://l-lin.github.io/post/2018/2018-02-08-git_extract_folders_with_history/</guid>
       <description>&lt;p&gt;Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.&lt;/p&gt;
-
 &lt;p&gt;Thus, you will need to extract the folder of the sub-project.&lt;/p&gt;
-
 &lt;p&gt;Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.&lt;/p&gt;
-
 &lt;p&gt;Git is an awesome tool which has a &amp;ldquo;magical&amp;rdquo; command.&lt;/p&gt;</description>
     </item>
     
@@ -346,9 +331,8 @@ Adding a new service is no longer done by creating a SH script in the &lt;code&g
       <pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</guid>
-      <description>&lt;p&gt;Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p&gt;
-
-&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kotlin is a great language but it&#39;s more like a subset of Java.&lt;/p&gt;
+&lt;p&gt;In this article, I will deal with Kotlin basics and see what&#39;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -368,7 +352,6 @@ It will be a shame to pass by without trying to use this language.&lt;/p&gt;</de
       
       <guid>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</guid>
       <description>&lt;p&gt;Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like &lt;code&gt;@NotBlank&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;</description>
     </item>
     
@@ -445,7 +428,6 @@ and Xubuntu.&lt;/p&gt;</description>
       <description>&lt;p&gt;How many times have you used the &lt;code&gt;caps lock&lt;/code&gt; key compare to the &lt;code&gt;ctrl&lt;/code&gt; button?
 Once a year maybe? You must have experienced at least once a situation where you
 must enter your password, but your caps lock is on, thus you entered your password wrong.&lt;/p&gt;
-
 &lt;p&gt;So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, how about changing to a button that you use
 everyday?&lt;/p&gt;</description>
     </item>
@@ -465,22 +447,17 @@ everyday?&lt;/p&gt;</description>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
-      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
-What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
-
-&lt;p&gt;⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
-
+      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&#39;s possible to authenticate through a certificate.
+What&#39;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
+&lt;p&gt;⚠ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-
 &lt;p&gt;This tutorial will show you:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;how to activate the SSL secured by a certificate for our Tomcat&lt;/li&gt;
 &lt;li&gt;how to secure the URL pattern with Spring Security&lt;/li&gt;
 &lt;li&gt;how to access with a browser&lt;/li&gt;
 &lt;li&gt;how to access with a third party application&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;</description>
     </item>
     
@@ -501,7 +478,7 @@ What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each
       <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; comes with an interesting concept: Publishing and subscribing record sets.
 But what the **** are those? My thought exactly!
-It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</description>
+It&#39;s a new way of fetching data from the server.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -511,10 +488,8 @@ It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</descriptio
       
       <guid>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</guid>
       <description>&lt;p&gt;There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?&lt;/p&gt;
-
 &lt;p&gt;Well I think the strength of &lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; come from its powerful real time data synchronization for all connected users.&lt;/p&gt;
-
-&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
+&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&#39;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -525,7 +500,7 @@ It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</descriptio
       <guid>https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -534,13 +509,12 @@ It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</descriptio
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Exception in thread &amp;#34;main&amp;#34; java.lang.NullPointerException
     at ...
     at ...
-    at ...&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+    at ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;The most common exception that pulls you hair a thousands of times.
-I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+&lt;/div&gt;&lt;p&gt;The most common exception that pulls you hair a thousands of times.
+I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;
-
 &lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
@@ -580,9 +554,7 @@ There are no real cure for this curse. Every application cannot escape this issu
       <description>&lt;p&gt;Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.&lt;/p&gt;
-
 &lt;p&gt;There are two ways (in my knowledge) to build nested directives.&lt;/p&gt;
-
 &lt;ol&gt;
 &lt;li&gt;Using the directive &lt;code&gt;ng-include&lt;/code&gt; and one custom directive&lt;/li&gt;
 &lt;li&gt;Using two custom directives&lt;/li&gt;
@@ -597,7 +569,6 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
       <guid>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://brackets.io&#34;&gt;Brackets&lt;/a&gt; (Sprint &lt;strong&gt;34&lt;/strong&gt;) has a static list of excluded files and folders. The default ignored files and folders are files like &lt;code&gt;.gitignore&lt;/code&gt;, &lt;code&gt;DS_Store&lt;/code&gt;, and so on&amp;hellip;
 Sadly, this list is hard coded in the source&amp;hellip;&lt;/p&gt;
-
 &lt;p&gt;If you are like me, i.e. you use &lt;a href=&#34;http://yeoman.io&#34;&gt;Yeoman&lt;/a&gt; when creating new web projects, you will be left with two huge folders (&lt;code&gt;node_modules&lt;/code&gt; and &lt;code&gt;bower_components&lt;/code&gt; generated respectively by &lt;code&gt;NPM&lt;/code&gt; and &lt;code&gt;bower&lt;/code&gt;).
 Those folders contains a lot of files (JS, CSS,&amp;hellip;) and most of them are not useful for our project.&lt;/p&gt;</description>
     </item>

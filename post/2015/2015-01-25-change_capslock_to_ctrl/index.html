@@ -25,7 +25,7 @@ So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, ho
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-01-25-change_capslock_to_ctrl/" />
@@ -45,7 +45,6 @@ So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, ho
 <meta property="og:description" content="How many times have you used the caps lock key compare to the ctrl button?
 Once a year maybe? You must have experienced at least once a situation where you
 must enter your password, but your caps lock is on, thus you entered your password wrong.
-
 So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
 everyday?" />
 <meta property="og:type" content="article" />
@@ -56,24 +55,19 @@ everyday?" />
 <meta itemprop="description" content="How many times have you used the caps lock key compare to the ctrl button?
 Once a year maybe? You must have experienced at least once a situation where you
 must enter your password, but your caps lock is on, thus you entered your password wrong.
-
 So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
 everyday?">
-
-
 <meta itemprop="datePublished" content="2015-01-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="234">
 
 
 
-<meta itemprop="keywords" content="xubuntu,windows," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="xubuntu,windows," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Changing the Caps Lock key to Ctrl"/>
 <meta name="twitter:description" content="How many times have you used the caps lock key compare to the ctrl button?
 Once a year maybe? You must have experienced at least once a situation where you
 must enter your password, but your caps lock is on, thus you entered your password wrong.
-
 So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
 everyday?"/>
 
@@ -106,8 +100,6 @@ everyday?"/>
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -129,8 +121,6 @@ everyday?"/>
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -176,49 +166,40 @@ everyday?"/>
       <p>How many times have you used the <code>caps lock</code> key compare to the <code>ctrl</code> button?
 Once a year maybe? You must have experienced at least once a situation where you
 must enter your password, but your caps lock is on, thus you entered your password wrong.</p>
-
 <p>So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
 everyday?</p>
-
 <p>In my opinion, I feel that the <code>left ctrl</code> key is way too low on the keyboard.
 My pinky finger has to make one heck of an effort to press that key! So at the end of the day,
-after hundred of &ldquo;copy/paste&rdquo;, this little finger has hurt his back and won&rsquo;t work anymore&hellip;
+after hundred of &ldquo;copy/paste&rdquo;, this little finger has hurt his back and won't work anymore&hellip;
 Jokes aside, it has been like a year I change it to <code>left ctrl</code>, and I feel that typing has been
 smoother now.</p>
-
 <p>Anyway, here are the steps to change on XUbuntu (best OS I found so far) and Windows:</p>
-
 <h1 id="on-xubuntu">On Xubuntu</h1>
-
 <ul>
 <li>Xubuntu → Settings Manager → Session and Startup</li>
 <li>Then in the Sessions and Startup configurator go</li>
 <li>Application Autostart (tab at the top) → Add (bottom button)</li>
 </ul>
-
 <p>Now on the Add Application screen</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-text" data-lang="text">Name: Remap CapsLk to Ctrl
 Description: Remaps the CapsLk key to Control
-Command: /usr/bin/setxkbmap -option &#34;ctrl:nocaps&#34;</code></pre></td></tr></table>
+Command: /usr/bin/setxkbmap -option &#34;ctrl:nocaps&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="on-windows">On Windows</h1>
-
+</div><h1 id="on-windows">On Windows</h1>
 <ul>
 <li>Open <code>regedit.exe</code></li>
 <li>Look for <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout</code></li>
 <li>Now change the binary values to look like this:</li>
 </ul>
-
-<p><img src="/images/2015-01-25/windows_capslock_to_ctrl.png" alt="Windows Caps lock to Ctrl" /></p>
-
+<p><img src="/images/2015-01-25/windows_capslock_to_ctrl.png" alt="Windows Caps lock to Ctrl"></p>
 <p>More information on <a href="http://www.howtogeek.com/howto/windows-vista/disable-caps-lock-key-in-windows-vista/">howtogeek</a>.</p>
     </div>
 

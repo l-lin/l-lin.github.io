@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-04-08-git-url-shortcuts/" />
@@ -48,16 +48,13 @@
 <meta property="article:modified_time" content="2019-04-08T16:10:19+02:00" />
 <meta itemprop="name" content="Git URL Shortcuts">
 <meta itemprop="description" content="You can create shortcuts for git URL paths to clone without typing full URL.">
-
-
 <meta itemprop="datePublished" content="2019-04-08T16:02:14&#43;02:00" />
 <meta itemprop="dateModified" content="2019-04-08T16:10:19&#43;02:00" />
-<meta itemprop="wordCount" content="93">
+<meta itemprop="wordCount" content="78">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git URL Shortcuts"/>
 <meta name="twitter:description" content="You can create shortcuts for git URL paths to clone without typing full URL."/>
 
@@ -90,8 +87,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -113,8 +108,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -156,46 +149,25 @@
     
     <div class="post-content">
       <p>You can create shortcuts for git URL paths to clone without typing full URL.</p>
-
 <p>Add the following to your <code>.gitconfig</code> file:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[url &#34;https://github.com/&#34;]
+<pre><code>[url &quot;https://github.com/&quot;]
     insteadOf = github:
     insteadOf = gh:
 
-[url &#34;git@github.com:&#34;]
+[url &quot;git@github.com:&quot;]
     pushInsteadOf = github:
     pushInsteadOf = gh:
 
-[url &#34;https://gitlab.com/&#34;]
+[url &quot;https://gitlab.com/&quot;]
     insteadOf = gitlab:
     insteadOf = gb:
 
-[url &#34;git@gitlab.com:&#34;]
+[url &quot;git@gitlab.com:&quot;]
     pushInsteadOf = gitlab:
-    pushInsteadOf = gb:</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
+    pushInsteadOf = gb:
+</code></pre><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -204,7 +176,8 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># With this configuration, you can clone your repositories using url shortcuts</span>
 git clone gh:l-lin/dotfiles
 <span class="c1"># instead of</span>
-git clone git@github.com:l-lin/dotfiles</code></pre></td></tr></table>
+git clone git@github.com:l-lin/dotfiles
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

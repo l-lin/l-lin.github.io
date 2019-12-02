@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nginx on Louis LIN&#39;s blog</title>
@@ -17,11 +17,10 @@
       <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
-      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
+      <description>&lt;p&gt;When developing multiple services that depends on other service, it&#39;s comfortable to have a dev
 environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
-
-&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
+not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.&lt;/p&gt;
+&lt;p&gt;By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
     </item>
     
   </channel>

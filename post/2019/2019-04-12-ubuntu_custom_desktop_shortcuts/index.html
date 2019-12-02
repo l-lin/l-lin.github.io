@@ -25,7 +25,7 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/" />
@@ -43,7 +43,6 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 
 <meta property="og:title" content="Ubuntu custom desktop shortcuts" />
 <meta property="og:description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-
 You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/" />
@@ -51,21 +50,16 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 <meta property="article:modified_time" content="2019-04-12T09:39:21+02:00" />
 <meta itemprop="name" content="Ubuntu custom desktop shortcuts">
 <meta itemprop="description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-
 You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.">
-
-
 <meta itemprop="datePublished" content="2019-04-12T09:27:54&#43;02:00" />
 <meta itemprop="dateModified" content="2019-04-12T09:39:21&#43;02:00" />
-<meta itemprop="wordCount" content="119">
+<meta itemprop="wordCount" content="111">
 
 
 
-<meta itemprop="keywords" content="ubuntu," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="ubuntu," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu custom desktop shortcuts"/>
 <meta name="twitter:description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-
 You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here."/>
 
 <!--[if lte IE 9]>
@@ -97,8 +91,6 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -120,8 +112,6 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -163,49 +153,30 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
     
     <div class="post-content">
       <p>With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.</p>
-
 <p>You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.</p>
-
 <p>There are two applications folders that Ubuntu is looking:</p>
-
 <ul>
 <li><code>/usr/share/applications/</code>
-
 <ul>
-<li>Shared folder to every computer&rsquo;s users</li>
-</ul></li>
+<li>Shared folder to every computer's users</li>
+</ul>
+</li>
 <li><code>~/.local/share/applications/</code>
-
 <ul>
 <li>Folder specific to the users, thus shortcuts only available for current user</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>If you want to create a custom one, create a <code>&lt;name&gt;.desktop</code> file into one of those two folders with the following content:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[Desktop Entry]
+<pre><code>[Desktop Entry]
 Type=Application
 Name=Name of the app
 Icon=/path/to/your/icon.png
-Exec=&#34;/path/to/your/exec&#34; %f
+Exec=&quot;/path/to/your/exec&quot; %f
 Comment=Some comment
 Categories=Categories;separated;by;semi-commas;
-Terminal=false</pre></td></tr></table>
-</div>
-</div>
-<p>Sources:</p>
-
+Terminal=false
+</code></pre><p>Sources:</p>
 <ul>
 <li><a href="https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop">https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop</a></li>
 <li><a href="https://askubuntu.com/questions/1006882/intellij-shortcut-location">https://askubuntu.com/questions/1006882/intellij-shortcut-location</a></li>

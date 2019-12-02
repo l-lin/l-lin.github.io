@@ -16,8 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" /><meta name="description" content="When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev environment. I usually have a docker-compose file that mount a local environment. However, I do not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.
-By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.
+<meta name="author" content="Louis LIN" /><meta name="description" content="When developing multiple services that depends on other service, it&#39;s comfortable to have a dev environment. I usually have a docker-compose file that mount a local environment. However, I do not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.
+By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up.
 " /><meta name="keywords" content="software development" />
 
 
@@ -25,7 +25,7 @@ By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the loca
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/" />
@@ -42,37 +42,31 @@ By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the loca
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Nginx fallback" />
-<meta property="og:description" content="When developing multiple services that depends on other service, it&rsquo;s comfortable to have a dev
+<meta property="og:description" content="When developing multiple services that depends on other service, it&#39;s comfortable to have a dev
 environment. I usually have a docker-compose file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&rsquo;m currently developing.
-
-By using Nginx, it&rsquo;s possible to configure a fallback in case the local service is not up." />
+not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.
+By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/" />
 <meta property="article:published_time" content="2019-07-19T16:44:41+02:00" />
 <meta property="article:modified_time" content="2019-09-24T11:50:50+02:00" />
 <meta itemprop="name" content="Nginx fallback">
-<meta itemprop="description" content="When developing multiple services that depends on other service, it&rsquo;s comfortable to have a dev
+<meta itemprop="description" content="When developing multiple services that depends on other service, it&#39;s comfortable to have a dev
 environment. I usually have a docker-compose file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&rsquo;m currently developing.
-
-By using Nginx, it&rsquo;s possible to configure a fallback in case the local service is not up.">
-
-
+not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.
+By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up.">
 <meta itemprop="datePublished" content="2019-07-19T16:44:41&#43;02:00" />
 <meta itemprop="dateModified" content="2019-09-24T11:50:50&#43;02:00" />
-<meta itemprop="wordCount" content="330">
+<meta itemprop="wordCount" content="258">
 
 
 
-<meta itemprop="keywords" content="nginx," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="nginx," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nginx fallback"/>
-<meta name="twitter:description" content="When developing multiple services that depends on other service, it&rsquo;s comfortable to have a dev
+<meta name="twitter:description" content="When developing multiple services that depends on other service, it&#39;s comfortable to have a dev
 environment. I usually have a docker-compose file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&rsquo;m currently developing.
-
-By using Nginx, it&rsquo;s possible to configure a fallback in case the local service is not up."/>
+not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.
+By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -103,8 +97,6 @@ By using Nginx, it&rsquo;s possible to configure a fallback in case the local se
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -126,8 +118,6 @@ By using Nginx, it&rsquo;s possible to configure a fallback in case the local se
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -168,79 +158,13 @@ By using Nginx, it&rsquo;s possible to configure a fallback in case the local se
 
     
     <div class="post-content">
-      <p>When developing multiple services that depends on other service, it&rsquo;s comfortable to have a dev
+      <p>When developing multiple services that depends on other service, it's comfortable to have a dev
 environment. I usually have a <code>docker-compose</code> file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&rsquo;m currently developing.</p>
-
-<p>By using Nginx, it&rsquo;s possible to configure a fallback in case the local service is not up.</p>
-
+not want to mount the whole ecosystem locally, just the services I'm currently developing.</p>
+<p>By using Nginx, it's possible to configure a fallback in case the local service is not up.</p>
 <p>Here an example of the <code>nginx.conf</code> file that redirect HTTP to HTTPS and fallback to a dev
 environment service if my local service is not up:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">user  nginx;
+<pre><code>user  nginx;
 worker_processes  1;
 
 error_log  /var/log/nginx/error.log warn;
@@ -251,9 +175,9 @@ events {
 }
 
 http {
-  log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
-  &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
-  &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+  log_format  main  '$remote_addr - $remote_user [$time_local] &quot;$request&quot; '
+  '$status $body_bytes_sent &quot;$http_referer&quot; '
+  '&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;';
 
   access_log  /var/log/nginx/access.log  main;
 
@@ -299,25 +223,8 @@ http {
       proxy_pass https://fallback.dev;
     }
   }
-}</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-flowchart" data-lang="flowchart"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-flowchart" data-lang="flowchart">st=&gt;start: Start
+}
+</code></pre><pre><code class="language-flowchart" data-lang="flowchart">st=&gt;start: Start
 e=&gt;end: End
 curl=&gt;operation: curl -L https://localhost/foobar
 cond=&gt;condition: Local service up?
@@ -328,11 +235,8 @@ st-&gt;curl(right)-&gt;cond
 cond(yes, right)-&gt;local
 cond(no)-&gt;dev
 local-&gt;e
-dev-&gt;e</code></pre></td></tr></table>
-</div>
-</div>
-<p>Sources:</p>
-
+dev-&gt;e
+</code></pre><p>Sources:</p>
 <ul>
 <li><a href="https://stackoverflow.com/questions/55764444/nginx-fallback-to-try-files-when-proxy-pass-fails-requires-unusual-config">https://stackoverflow.com/questions/55764444/nginx-fallback-to-try-files-when-proxy-pass-fails-requires-unusual-config</a></li>
 </ul>

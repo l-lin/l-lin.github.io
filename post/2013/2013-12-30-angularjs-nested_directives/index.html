@@ -25,7 +25,7 @@ There are two ways (in my knowledge) to build nested directives.
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2013/2013-12-30-angularjs-nested_directives/" />
@@ -45,9 +45,7 @@ There are two ways (in my knowledge) to build nested directives.
 <meta property="og:description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.
-
 There are two ways (in my knowledge) to build nested directives.
-
 
 Using the directive ng-include and one custom directive
 Using two custom directives
@@ -60,30 +58,23 @@ Using two custom directives
 <meta itemprop="description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.
-
 There are two ways (in my knowledge) to build nested directives.
-
 
 Using the directive ng-include and one custom directive
 Using two custom directives
 ">
-
-
 <meta itemprop="datePublished" content="2013-12-30T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="382">
 
 
 
-<meta itemprop="keywords" content="angularjs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="angularjs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nested directives"/>
 <meta name="twitter:description" content="Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.
-
 There are two ways (in my knowledge) to build nested directives.
-
 
 Using the directive ng-include and one custom directive
 Using two custom directives
@@ -118,8 +109,6 @@ Using two custom directives
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -141,8 +130,6 @@ Using two custom directives
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -184,20 +171,16 @@ Using two custom directives
       <p>Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.</p>
-
 <p>There are two ways (in my knowledge) to build nested directives.</p>
-
 <ol>
 <li>Using the directive <code>ng-include</code> and one custom directive</li>
 <li>Using two custom directives</li>
 </ol>
-
-<h1 id="1-using-the-directive-ng-include-and-one-custom-directive">1 - Using the directive <code>ng-include</code> and one custom directive</h1>
-
-<p>Let&rsquo;s say, we want to display the given data in nested bullets list:</p>
+<h1 id="1--using-the-directive-nginclude-and-one-custom-directive">1 - Using the directive <code>ng-include</code> and one custom directive</h1>
+<p>Let's say, we want to display the given data in nested bullets list:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -218,31 +201,31 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[{</span>
-  <span class="err">name:</span> <span class="err">&#39;Hello&#39;,</span>
-  <span class="err">items:</span> <span class="err">[{</span>
-    <span class="err">name:</span> <span class="err">&#39;World&#39;,</span>
-    <span class="err">items:</span> <span class="err">[]</span>
-  <span class="p">},</span> <span class="p">{</span>
-    <span class="err">name:</span> <span class="err">&#39;I</span> <span class="err">am</span> <span class="err">a</span> <span class="err">sub</span> <span class="err">item&#39;,</span>
-    <span class="err">items:</span> <span class="err">[{</span>
-      <span class="err">name:</span> <span class="err">&#39;I</span> <span class="err">am</span> <span class="err">a</span> <span class="err">sub</span> <span class="err">sub</span> <span class="err">item&#39;,</span>
-      <span class="err">items:</span> <span class="err">[]</span>
-    <span class="p">}]</span>
-  <span class="err">}]</span>
-<span class="err">},</span> <span class="p">{</span>
-  <span class="err">name:</span> <span class="err">&#39;Foo&#39;,</span>
-  <span class="err">items:</span> <span class="err">[]</span>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span><span class="p">{</span>
+  <span class="err">n</span><span class="err">a</span><span class="err">m</span><span class="err">e</span><span class="err">:</span> <span class="err">&#39;</span><span class="err">H</span><span class="err">e</span><span class="err">l</span><span class="err">l</span><span class="err">o</span><span class="err">&#39;</span><span class="err">,</span>
+  <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">s</span><span class="err">:</span> <span class="err">[</span><span class="err">{</span>
+    <span class="err">n</span><span class="err">a</span><span class="err">m</span><span class="err">e</span><span class="err">:</span> <span class="err">&#39;</span><span class="err">W</span><span class="err">o</span><span class="err">r</span><span class="err">l</span><span class="err">d</span><span class="err">&#39;</span><span class="err">,</span>
+    <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">s</span><span class="err">:</span> <span class="err">[</span><span class="err">]</span>
+  <span class="p">}</span><span class="p">,</span> <span class="p">{</span>
+    <span class="err">n</span><span class="err">a</span><span class="err">m</span><span class="err">e</span><span class="err">:</span> <span class="err">&#39;</span><span class="err">I</span> <span class="err">a</span><span class="err">m</span> <span class="err">a</span> <span class="err">s</span><span class="err">u</span><span class="err">b</span> <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">&#39;</span><span class="err">,</span>
+    <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">s</span><span class="err">:</span> <span class="err">[</span><span class="err">{</span>
+      <span class="err">n</span><span class="err">a</span><span class="err">m</span><span class="err">e</span><span class="err">:</span> <span class="err">&#39;</span><span class="err">I</span> <span class="err">a</span><span class="err">m</span> <span class="err">a</span> <span class="err">s</span><span class="err">u</span><span class="err">b</span> <span class="err">s</span><span class="err">u</span><span class="err">b</span> <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">&#39;</span><span class="err">,</span>
+      <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">s</span><span class="err">:</span> <span class="err">[</span><span class="err">]</span>
+    <span class="p">}</span><span class="p">]</span>
+  <span class="err">}</span><span class="err">]</span>
+<span class="err">}</span><span class="err">,</span> <span class="p">{</span>
+  <span class="err">n</span><span class="err">a</span><span class="err">m</span><span class="err">e</span><span class="err">:</span> <span class="err">&#39;</span><span class="err">F</span><span class="err">o</span><span class="err">o</span><span class="err">&#39;</span><span class="err">,</span>
+  <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">s</span><span class="err">:</span> <span class="err">[</span><span class="err">]</span>
 <span class="p">}</span><span class="err">,</span> <span class="p">{</span>
-  <span class="err">name:</span> <span class="err">&#39;Bar&#39;,</span>
-  <span class="err">items:</span> <span class="err">[]</span>
-<span class="p">}</span><span class="err">];</span></code></pre></td></tr></table>
+  <span class="err">n</span><span class="err">a</span><span class="err">m</span><span class="err">e</span><span class="err">:</span> <span class="err">&#39;</span><span class="err">B</span><span class="err">a</span><span class="err">r</span><span class="err">&#39;</span><span class="err">,</span>
+  <span class="err">i</span><span class="err">t</span><span class="err">e</span><span class="err">m</span><span class="err">s</span><span class="err">:</span> <span class="err">[</span><span class="err">]</span>
+<span class="p">}</span><span class="err">]</span><span class="err">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>First, let&rsquo;s create our <code>index.html</code> with a our custom directive. We will name it <code>items</code>:</p>
+</div><p>First, let's create our <code>index.html</code> with a our custom directive. We will name it <code>items</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -256,22 +239,22 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&#34;nestedDirApp&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&#34;nestedDirApp&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p"></span><span class="p">&gt;</span>
   ...
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&#34;MainCtrl&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&#34;MainCtrl&#34;</span><span class="p"></span><span class="p">&gt;</span>
   ...
-  <span class="p">&lt;</span><span class="nt">items</span> <span class="na">items</span><span class="o">=</span><span class="s">&#34;items&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">items</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">items</span> <span class="na">items</span><span class="o">=</span><span class="s">&#34;items&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">items</span><span class="p">&gt;</span>
   ...
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Then let&rsquo;s create a <code>directive.js</code> that contains the code for the custom directive:</p>
+</div><p>Then let's create a <code>directive.js</code> that contains the code for the custom directive:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -282,65 +265,57 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;nestedDirApp&#39;</span><span class="p">).</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;nestedDirApp&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span>
     <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;items.html&#39;</span><span class="p">,</span>
     <span class="nx">scope</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">items</span><span class="o">:</span> <span class="s1">&#39;=&#39;</span>
     <span class="p">}</span>
-  <span class="p">};</span>
-<span class="p">});</span>
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li><strong>restrict</strong>: <code>'E'</code> to tell angular to match this directive to any HTML tag matching <code>items</code></li>
 <li><strong>templateUrl</strong>: the template URL of the directive</li>
 <li><strong>scope</strong>: the scope of the directive</li>
 </ul>
-
 <p>Our template <code>items.html</code> looks like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&#34;item in items&#34;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&#34;&#39;item.html&#39;&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">ul</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&#34;item in items&#34;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&#34;&#39;item.html&#39;&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>We use the <code>ng-include</code> to include the other template <code>item.html</code>.
+</div><p>We use the <code>ng-include</code> to include the other template <code>item.html</code>.
 Moreover, we use <code>ng-repeat</code> on the array of items in order to display the bullets list of the items.</p>
-
 <p>Our template <code>item.html</code> looks like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html">{{item.name}}
-<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&#34;item in item.items&#34;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&#34;&#39;item.html&#39;&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&#34;item in item.items&#34;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&#34;&#39;item.html&#39;&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Again, in this template, we use the directive <code>ng-include</code> that points on the same template.</p>
-
+</div><p>Again, in this template, we use the directive <code>ng-include</code> that points on the same template.</p>
 <p><code>ng-include</code> recursively FTW!</p>
-
-<p>That&rsquo;s it! You have your nested directive.</p>
-
+<p>That's it! You have your nested directive.</p>
 <p>Complete code on <a href="http://plnkr.co/edit/ekbbtmaCe03rKjbQmwGP?p=info">Plnkr</a>.</p>
-
-<h1 id="2-using-two-custom-directives">2 - Using two custom directives</h1>
-
+<h1 id="2--using-two-custom-directives">2 - Using two custom directives</h1>
 <p>No need to reinvent the wheel, <a href="http://sporto.github.io/blog/2013/06/24/nested-recursive-directives-in-angular/">someone already has found this solution</a>.</p>
     </div>
 

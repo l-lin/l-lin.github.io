@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-09-centos7_open_port/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to open firewall port on CentOS7">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2018-02-09T16:56:55&#43;01:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="50">
 
 
 
-<meta itemprop="keywords" content="centos," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="centos," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to open firewall port on CentOS7"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -157,7 +150,7 @@
       <p>CentOS 7 is now using <a href="https://fedoraproject.org/wiki/Firewalld">Firewalld</a> instead of iptables, so the commands are different if you want to open a port:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -166,11 +159,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Open port</span>
-firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span><span class="m">8080</span>/tcp --permanent
+firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>8080/tcp --permanent
 <span class="c1"># Reload firewall</span>
 firewall-cmd --reload
 <span class="c1"># Use this command to check the active zones</span>
-firewall-cmd --get-active-zones</code></pre></td></tr></table>
+firewall-cmd --get-active-zones
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

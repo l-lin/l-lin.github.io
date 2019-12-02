@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Chrome extension and &#39;Access-Control-Allow-Origin&#39;">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2015-02-28T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="138">
 
 
 
-<meta itemprop="keywords" content="chrome," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="chrome," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chrome extension and &#39;Access-Control-Allow-Origin&#39;"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -157,7 +150,7 @@
       <p>When developing chrome extensions, I wanted to use the <code>XMLHttpRequest</code> like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -175,38 +168,37 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
     <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">callback</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+                <span class="nx">callback</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span><span class="p">;</span>
             <span class="p">}</span>
-        <span class="p">};</span>
-        <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
-        <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
-    <span class="p">};</span>
-<span class="p">})();</span>
+        <span class="p">}</span><span class="p">;</span>
+        <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="nx">xhr</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://foobar.com&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Some stuff
-</span><span class="c1"></span><span class="p">});</span>
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>However, just doing that does not work. You will receive the following error:</p>
+</div><p>However, just doing that does not work. You will receive the following error:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">XMLHttpRequest cannot load https://foobar.com. The &#39;Access-Control-Allow-Origin&#39; header has a value &#39;https://foobar.com&#39; that is not equal to the supplied origin. Origin &#39;chrome-extension://azertyuiopqsdfghjklm&#39; is therefore not allowed access.</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">XMLHttpRequest cannot load https://foobar.com. The &#39;Access-Control-Allow-Origin&#39; header has a value &#39;https://foobar.com&#39; that is not equal to the supplied origin. Origin &#39;chrome-extension://azertyuiopqsdfghjklm&#39; is therefore not allowed access.
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>The only thing you need to do is to modify your <code>manifest.json</code> and add the correct permissions:</p>
+</div><p>The only thing you need to do is to modify your <code>manifest.json</code> and add the correct permissions:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -217,7 +209,8 @@
     <span class="nt">&#34;permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&#34;https://foobar.com/**/*&#34;</span><span class="p">,</span>
     <span class="p">]</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

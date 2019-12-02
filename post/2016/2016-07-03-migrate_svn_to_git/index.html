@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to migrate SVN projects to Git">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2016-03-07T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="174">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to migrate SVN projects to Git"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -153,63 +146,62 @@
     
     <div class="post-content">
       <p>Create a <code>users.txt</code> file. It will be used to map the SVN users to an email.</p>
-
 <p>For example:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-txt" data-lang="txt">l.lin = Louis LIN &lt;louis.lin@yopmail.com&gt;
-foo.bar = Foo BAR &lt;foo.bar@yopmail.com&gt;</code></pre></td></tr></table>
+foo.bar = Foo BAR &lt;foo.bar@yopmail.com&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Execute the following command:</p>
+</div><p>Execute the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git svn clone --trunk<span class="o">=</span>/trunk --branches<span class="o">=</span>/branches --tags<span class="o">=</span>/tags --authors-file<span class="o">=</span>users.txt http://&lt;path_to_svn_project&gt; &lt;project_name&gt;</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git svn clone --trunk<span class="o">=</span>/trunk --branches<span class="o">=</span>/branches --tags<span class="o">=</span>/tags --authors-file<span class="o">=</span>users.txt http://&lt;path_to_svn_project&gt; &lt;project_name&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>It will only create the <code>master</code> branch in local.
+</div><p>It will only create the <code>master</code> branch in local.
 So you will need to create the tags using the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git <span class="k">for</span>-each-ref refs/remotes/origin/tags <span class="p">|</span> cut -d / -f <span class="m">5</span>- <span class="p">|</span> grep -v @ <span class="p">|</span> <span class="se">\
-</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> tagname<span class="p">;</span> <span class="k">do</span> git tag <span class="s2">&#34;</span><span class="nv">$tagname</span><span class="s2">&#34;</span> <span class="s2">&#34;origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> git branch -r -d <span class="s2">&#34;origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git <span class="k">for</span>-each-ref refs/remotes/origin/tags <span class="p">|</span> cut -d / -f 5- <span class="p">|</span> grep -v @ <span class="p">|</span> <span class="se">\
+</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> tagname<span class="p">;</span> <span class="k">do</span> git tag <span class="s2">&#34;</span><span class="nv">$tagname</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="s2">origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> git branch -r -d <span class="s2">&#34;</span><span class="s2">origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>You might need to adapt the command a little bit if your branch tags are not called <code>remotes/origin/tags/&lt;tagname&gt;</code>.</p>
-
+</div><p>You might need to adapt the command a little bit if your branch tags are not called <code>remotes/origin/tags/&lt;tagname&gt;</code>.</p>
 <p>Then you will need to create the branches using the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git <span class="k">for</span>-each-ref refs/remotes/origin <span class="p">|</span> cut -d / -f <span class="m">4</span>- <span class="p">|</span> grep -v @ <span class="p">|</span> <span class="se">\
-</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> branchname<span class="p">;</span> <span class="k">do</span> git checkout -b <span class="s2">&#34;</span><span class="nv">$branchname</span><span class="s2">&#34;</span> <span class="s2">&#34;origin/</span><span class="nv">$branchname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git <span class="k">for</span>-each-ref refs/remotes/origin <span class="p">|</span> cut -d / -f 4- <span class="p">|</span> grep -v @ <span class="p">|</span> <span class="se">\
+</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> branchname<span class="p">;</span> <span class="k">do</span> git checkout -b <span class="s2">&#34;</span><span class="nv">$branchname</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="s2">origin/</span><span class="nv">$branchname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Finally, add your remote and push all:</p>
+</div><p>Finally, add your remote and push all:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">git remote add origin https://&lt;path_to_git_project&gt;
 git push --all
-git push --tags</code></pre></td></tr></table>
+git push --tags
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Debugging Maven plugin with IntelliJ">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2014-09-19T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="67">
 
 
 
-<meta itemprop="keywords" content="intellij,maven,debug," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="intellij,maven,debug," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Debugging Maven plugin with IntelliJ"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -161,22 +154,19 @@
       <p>If you need to debug your Maven plugin, first, run with the command <code>mvnDebug &lt;goal&gt;</code>. You will see something like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ mvnDebug <span class="nb">test</span>
 Preparing to Execute Maven in Debug Mode
-Listening <span class="k">for</span> transport dt_socket at address: <span class="m">8000</span></code></pre></td></tr></table>
+Listening <span class="k">for</span> transport dt_socket at address: <span class="m">8000</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Now add a breakpoint with your IntelliJ to your desired line code.</p>
-
+</div><p>Now add a breakpoint with your IntelliJ to your desired line code.</p>
 <p>Add a new Remote seettings:</p>
-
-<p><img src="/images/2014-09-19/mvn_debug_intellij.png" alt="Add remote settings" /></p>
-
+<p><img src="/images/2014-09-19/mvn_debug_intellij.png" alt="Add remote settings"></p>
 <p>Finally, run and the maven command will automatically proceed.</p>
     </div>
 

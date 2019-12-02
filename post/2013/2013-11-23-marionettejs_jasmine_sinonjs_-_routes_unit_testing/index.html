@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2013/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/" />
@@ -50,16 +50,13 @@ This is one way to test routers by using JasmineJS and SinonJS for mocking purpo
 <meta itemprop="name" content="Routes unit testing">
 <meta itemprop="description" content="To test MarionetteJS routes, it is not as obvious as testing Backbone Models.
 This is one way to test routers by using JasmineJS and SinonJS for mocking purpose.">
-
-
 <meta itemprop="datePublished" content="2013-11-23T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="631">
 
 
 
-<meta itemprop="keywords" content="marionettejs,jasminejs,sinonjs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="marionettejs,jasminejs,sinonjs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Routes unit testing"/>
 <meta name="twitter:description" content="To test MarionetteJS routes, it is not as obvious as testing Backbone Models.
 This is one way to test routers by using JasmineJS and SinonJS for mocking purpose."/>
@@ -93,8 +90,6 @@ This is one way to test routers by using JasmineJS and SinonJS for mocking purpo
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -116,8 +111,6 @@ This is one way to test routers by using JasmineJS and SinonJS for mocking purpo
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -164,14 +157,12 @@ This is one way to test routers by using JasmineJS and SinonJS for mocking purpo
     <div class="post-content">
       <p>To test <a href="http://marionettejs.com/">MarionetteJS</a> routes, it is not as obvious as testing Backbone Models.
 This is one way to test routers by using <a href="http://pivotal.github.io/jasmine/">JasmineJS</a> and <a href="http://sinonjs.org">SinonJS</a> for mocking purpose.</p>
-
 <h1 id="defining-the-routes">Defining the routes</h1>
-
 <p>We are going to test a simple <code>Marionette.AppRouter</code>.
 We will name it <code>FooRouter</code> :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -187,42 +178,38 @@ We will name it <code>FooRouter</code> :</p>
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">define</span><span class="p">([</span><span class="s1">&#39;backbone&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Backbone</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">define</span><span class="p">(</span><span class="p">[</span><span class="s1">&#39;backbone&#39;</span><span class="p">]</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Backbone</span><span class="p">)</span> <span class="p">{</span>
   <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
-  <span class="kd">var</span> <span class="nx">FooRouter</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Marionette</span><span class="p">.</span><span class="nx">AppRouter</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+  <span class="kd">var</span> <span class="nx">FooRouter</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Marionette</span><span class="p">.</span><span class="nx">AppRouter</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="p">{</span>
     <span class="nx">appRoutes</span><span class="o">:</span> <span class="p">{</span>
       <span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;showFooList&#39;</span><span class="p">,</span>
       <span class="s1">&#39;foo/:id&#39;</span><span class="o">:</span> <span class="s1">&#39;viewFoo&#39;</span><span class="p">,</span>
       <span class="s1">&#39;foo/create&#39;</span><span class="o">:</span> <span class="s1">&#39;createFoo&#39;</span><span class="p">,</span>
       <span class="s1">&#39;foo/:id/modify&#39;</span><span class="o">:</span> <span class="s1">&#39;modifyFoo&#39;</span>
     <span class="p">}</span>
-  <span class="p">});</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
   <span class="k">return</span> <span class="nx">FooRouter</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="p">}</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>I use <a href="http://requirejs.org/">RequireJS</a> to load modules, but you can also use another loader.
+</div><p>I use <a href="http://requirejs.org/">RequireJS</a> to load modules, but you can also use another loader.
 The controller structure is really simple. When the user is browsing to :</p>
-
 <ul>
 <li><code>/#foo</code>: he will execute the function <code>showFooList</code> of the controller</li>
 <li><code>/#foo/:id</code>: he will execute the function <code>showFoo</code></li>
 <li><code>/#foo/create</code>: he will execute the function <code>createFoo</code></li>
 <li><code>/#foo/:id/modify</code>: he will execute the function <code>modifyFoo</code></li>
 </ul>
-
 <h1 id="testing">Testing</h1>
-
 <p>Before rushing to test the router, we must first prepare ourselves.
 First and foremost, we need a <code>Backbone.history</code> before each test in order to simulate the access to the hash routes.
 However, we need to launch it with the option <code>{silent:true}</code>. Indeed, since we are doing tests, <code>Backbone.history</code> is bound to generate some errors and it will fail our tests.
 Of course, we also have to stop <code>Backbone.history</code> after each test so that the next test will not have any issue with <code>Backbone.history</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -243,52 +230,49 @@ Of course, we also have to stop <code>Backbone.history</code> after each test so
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;FooRouter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;FooRouter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// SET UP TEST --------------------------------------------------------
-</span><span class="c1"></span>  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span>  <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// ...
 </span><span class="c1"></span>    <span class="c1">// Create a mock version of our controller
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">FooControllerMock</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-      <span class="nx">showFooList</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
-      <span class="nx">createFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
-      <span class="nx">displayFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
-      <span class="nx">modifyFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-    <span class="p">});</span>
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">FooControllerMock</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="p">{</span>
+      <span class="nx">showFooList</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+      <span class="nx">createFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+      <span class="nx">displayFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+      <span class="nx">modifyFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
     <span class="c1">// Set up a spy and invoke the router
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="nx">spy</span><span class="p">();</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooRouter</span><span class="p">({</span>
-      <span class="nx">controller</span><span class="o">:</span> <span class="k">new</span> <span class="nx">FooControllerMock</span><span class="p">()</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="nx">spy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FooRouter</span><span class="p">(</span><span class="p">{</span>
+      <span class="nx">controller</span><span class="o">:</span> <span class="k">new</span> <span class="nx">FooControllerMock</span><span class="p">(</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
   <span class="c1">// ...
-</span><span class="c1"></span><span class="p">});</span>
+</span><span class="c1"></span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>Note:</strong> We could have used <a href="http://sinonjs.org">SinonJS</a> to mock the controller.</p>
-
+</div><p><strong>Note:</strong> We could have used <a href="http://sinonjs.org">SinonJS</a> to mock the controller.</p>
 <p>To simulate the navigation, we just have to call the function <code>navigate()</code> from our router and bind a spy on it:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:showFooList&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">);</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-  <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-<span class="p">});</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:showFooList&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>We can now do some more complex tests. This is what I have done:</p>
+</div><p>We can now do some more complex tests. This is what I have done:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -363,83 +347,82 @@ Of course, we also have to stop <code>Backbone.history</code> after each test so
 </span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">define</span><span class="p">([</span><span class="s1">&#39;sinon&#39;</span><span class="p">,</span> <span class="s1">&#39;underscore&#39;</span><span class="p">,</span> <span class="s1">&#39;backbone&#39;</span><span class="p">,</span> <span class="s1">&#39;marionette&#39;</span><span class="p">,</span> <span class="s1">&#39;router/FooRouter&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sinon</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">Backbone</span><span class="p">,</span> <span class="nx">Marionette</span><span class="p">,</span> <span class="nx">FooRouter</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">define</span><span class="p">(</span><span class="p">[</span><span class="s1">&#39;sinon&#39;</span><span class="p">,</span> <span class="s1">&#39;underscore&#39;</span><span class="p">,</span> <span class="s1">&#39;backbone&#39;</span><span class="p">,</span> <span class="s1">&#39;marionette&#39;</span><span class="p">,</span> <span class="s1">&#39;router/FooRouter&#39;</span><span class="p">]</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sinon</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">Backbone</span><span class="p">,</span> <span class="nx">Marionette</span><span class="p">,</span> <span class="nx">FooRouter</span><span class="p">)</span> <span class="p">{</span>
   <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
-  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;FooRouter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;FooRouter&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// SET UP TEST --------------------------------------------------------
-</span><span class="c1"></span>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="nx">beforeEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">// Prevent history.start from throwing error
 </span><span class="c1"></span>      <span class="k">try</span> <span class="p">{</span>
-        <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">start</span><span class="p">({</span>
+        <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="p">{</span>
           <span class="nx">silent</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
           <span class="nx">pushState</span><span class="o">:</span> <span class="kc">true</span>
-        <span class="p">});</span>
-      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
       <span class="c1">// Create a mock version of our controller
-</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">FooControllerMock</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-        <span class="nx">showFooList</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
-        <span class="nx">createFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
-        <span class="nx">viewFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
-        <span class="nx">modifyFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-      <span class="p">});</span>
+</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">FooControllerMock</span> <span class="o">=</span> <span class="nx">Marionette</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="p">{</span>
+        <span class="nx">showFooList</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">createFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">viewFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">modifyFoo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
       <span class="c1">// Set up a spy and invoke the router
-</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="nx">spy</span><span class="p">();</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserRouter</span><span class="p">({</span>
-        <span class="nx">controller</span><span class="o">:</span> <span class="k">new</span> <span class="nx">UserControllerMock</span><span class="p">()</span>
-      <span class="p">});</span>
-    <span class="p">});</span>
-    <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="nx">spy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserRouter</span><span class="p">(</span><span class="p">{</span>
+        <span class="nx">controller</span><span class="o">:</span> <span class="k">new</span> <span class="nx">UserControllerMock</span><span class="p">(</span><span class="p">)</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">afterEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
       <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-      <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
-    <span class="p">});</span>
+      <span class="nx">Backbone</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">stop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
     <span class="c1">// TESTS --------------------------------------------------------
-</span><span class="c1"></span>    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should be able to create test objects&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
-    <span class="p">});</span>
+</span><span class="c1"></span>    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should be able to create test objects&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeDefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
-    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;has appRoutes that&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has the right amount of routes&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">appRoutes</span><span class="p">)).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-      <span class="p">});</span>
+    <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;has appRoutes that&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has the right amount of routes&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">appRoutes</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has existing routes and that points to the right method&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">appRoutes</span><span class="p">.</span><span class="nx">foo</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">&#39;showFooList&#39;</span><span class="p">);</span>
-      <span class="p">});</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;has existing routes and that points to the right method&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">appRoutes</span><span class="p">.</span><span class="nx">foo</span><span class="p">)</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">&#39;showFooList&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:showFooList&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-      <span class="p">});</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:showFooList&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo/create&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:createFoo&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo/create&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-      <span class="p">});</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo/create&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:createFoo&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo/create&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo/:id&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:viewFoo&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo/123&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledWith</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-      <span class="p">});</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo/:id&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:viewFoo&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo/123&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledWith</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
 
-      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo/:id/modify&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:modifyFoo&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo/123/modify&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledWith</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
-      <span class="p">});</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">});</span>
+      <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;can navigate to #foo/:id/modify&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;route:modifyFoo&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">(</span><span class="s1">&#39;foo/123/modify&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledOnce</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">routeSpy</span><span class="p">.</span><span class="nx">calledWith</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeTruthy</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>Happy testing! ;)</p>
+</div><p>Happy testing! ;)</p>
     </div>
 
     <div class="post-copyright">

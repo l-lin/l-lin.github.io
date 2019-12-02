@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -45,12 +45,9 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-
 <meta property="og:updated_time" content="2019-07-19T16:44:41+02:00" />
 <meta itemprop="name" content="Louis LIN&#39;s blog">
-<meta itemprop="description" content="A website on software development">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="A website on software development"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Louis LIN&#39;s blog"/>
 <meta name="twitter:description" content="A website on software development"/>
 
@@ -83,8 +80,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -106,8 +101,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -148,22 +141,17 @@
   
   <div class="post-content">
     <div class="post-summary">
-      <p>Instead of the classic <code>login/password</code> way to access to a secured application, it&rsquo;s possible to authenticate through a certificate.
-What&rsquo;s more, you can also link a <code>ROLE</code> to each certificate.</p>
-
-<p>⚠️ This tutorial is now obsolete and better solution can be used.</p>
-
+      <p>Instead of the classic <code>login/password</code> way to access to a secured application, it's possible to authenticate through a certificate.
+What's more, you can also link a <code>ROLE</code> to each certificate.</p>
+<p>⚠ This tutorial is now obsolete and better solution can be used.</p>
 <p><strong>TLDR</strong>: Check the sample project on my <a href="https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth">Github</a>.</p>
-
 <p>This tutorial will show you:</p>
-
 <ul>
 <li>how to activate the SSL secured by a certificate for our Tomcat</li>
 <li>how to secure the URL pattern with Spring Security</li>
 <li>how to access with a browser</li>
 <li>how to access with a third party application</li>
 </ul>
-
 <p>In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.</p>
     </div>
     <div class="read-more">
@@ -224,7 +212,7 @@ What&rsquo;s more, you can also link a <code>ROLE</code> to each certificate.</p
     <div class="post-summary">
       <p><a href="http://www.meteor.com">MeteorJS</a> comes with an interesting concept: Publishing and subscribing record sets.
 But what the **** are those? My thought exactly!
-It&rsquo;s a new way of fetching data from the server.</p>
+It's a new way of fetching data from the server.</p>
     </div>
     <div class="read-more">
       <a href="/post/2014/2014-05-03-meteor-subscribe_and_publish/" class="read-more-link">Read more...</a>
@@ -255,10 +243,8 @@ It&rsquo;s a new way of fetching data from the server.</p>
   <div class="post-content">
     <div class="post-summary">
       <p>There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?</p>
-
 <p>Well I think the strength of <a href="http://www.meteor.com">MeteorJS</a> come from its powerful real time data synchronization for all connected users.</p>
-
-<p>In other words, any change from one device/user will affect the other devices/users in real time. So they won&rsquo;t need to refresh their page, the data is already fresh!</p>
+<p>In other words, any change from one device/user will affect the other devices/users in real time. So they won't need to refresh their page, the data is already fresh!</p>
     </div>
     <div class="read-more">
       <a href="/post/2014/2014-05-02-meteor-another_js_framework/" class="read-more-link">Read more...</a>
@@ -288,7 +274,7 @@ It&rsquo;s a new way of fetching data from the server.</p>
     <div class="post-summary">
       <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -297,13 +283,12 @@ It&rsquo;s a new way of fetching data from the server.</p>
 <pre class="chroma"><code class="language-text" data-lang="text">Exception in thread &#34;main&#34; java.lang.NullPointerException
     at ...
     at ...
-    at ...</code></pre></td></tr></table>
+    at ...
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>The most common exception that pulls you hair a thousands of times.
-I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
+</div><p>The most common exception that pulls you hair a thousands of times.
+I don't know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.</p>
-
 <p>However, there are many ways to avoid and reduce such <code>NullPointerException</code>.</p>
     </div>
     <div class="read-more">
@@ -411,9 +396,7 @@ There are no real cure for this curse. Every application cannot escape this issu
       <p>Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
 With two levels of nested arrays, it is easy to implement such thing.
 However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.</p>
-
 <p>There are two ways (in my knowledge) to build nested directives.</p>
-
 <ol>
 <li>Using the directive <code>ng-include</code> and one custom directive</li>
 <li>Using two custom directives</li>
@@ -445,7 +428,6 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
     <div class="post-summary">
       <p><a href="http://brackets.io">Brackets</a> (Sprint <strong>34</strong>) has a static list of excluded files and folders. The default ignored files and folders are files like <code>.gitignore</code>, <code>DS_Store</code>, and so on&hellip;
 Sadly, this list is hard coded in the source&hellip;</p>
-
 <p>If you are like me, i.e. you use <a href="http://yeoman.io">Yeoman</a> when creating new web projects, you will be left with two huge folders (<code>node_modules</code> and <code>bower_components</code> generated respectively by <code>NPM</code> and <code>bower</code>).
 Those folders contains a lot of files (JS, CSS,&hellip;) and most of them are not useful for our project.</p>
     </div>

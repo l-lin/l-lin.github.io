@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/" />
@@ -47,16 +47,13 @@
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="How to test asynchronous calls with AngularJS">
 <meta itemprop="description" content="">
-
-
 <meta itemprop="datePublished" content="2014-02-03T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="513">
 
 
 
-<meta itemprop="keywords" content="angularjs," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="angularjs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to test asynchronous calls with AngularJS"/>
 <meta name="twitter:description" content=""/>
 
@@ -89,8 +86,6 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About me</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
       </a>
     <li class="mobile-menu-item">
       <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
@@ -112,8 +107,6 @@
         <a class="menu-item-link" href="/post/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About me</a>
       </li>
@@ -153,11 +146,10 @@
     
     <div class="post-content">
       <h1 id="testing-with-callback-function">Testing with callback function</h1>
-
 <p>Given the following factory that fetches a <code>foobar</code> through a REST call:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -169,23 +161,22 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">).</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">)</span><span class="p">.</span>
 <span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;foobarFactory&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$resource</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">getFoobar</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">$resource</span><span class="p">(</span><span class="s1">&#39;/rest/foobar&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">callback</span><span class="p">(</span><span class="nx">foobar</span><span class="p">);</span>
-      <span class="p">});</span>
+      <span class="nx">$resource</span><span class="p">(</span><span class="s1">&#39;/rest/foobar&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="p">};</span>
-<span class="p">});</span>
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>I need to test the following controller that depends on <code>foobarFactory</code>:</p>
+</div><p>I need to test the following controller that depends on <code>foobarFactory</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -195,72 +186,68 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">).</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">)</span><span class="p">.</span>
 <span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">foobarFactory</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">foobar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">foobar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">foobarId</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-    <span class="p">});</span>
-  <span class="p">};</span>
-<span class="p">});</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>To do so, I need to:</p>
-
+</div><p>To do so, I need to:</p>
 <ul>
-<li><p>Mock the <code>foobarFactory</code> and return a fake when calling the method <code>getFoobar</code></p>
+<li>Mock the <code>foobarFactory</code> and return a fake when calling the method <code>getFoobar</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">).</span><span class="nx">andCallFake</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-<span class="nx">fn</span><span class="p">(</span><span class="nx">foobar</span><span class="p">);</span>
-<span class="p">});</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">andCallFake</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fn</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>Wait for <code>foobar</code> returned by the fake <code>foobarFactory</code></p>
+</div><ul>
+<li>Wait for <code>foobar</code> returned by the fake <code>foobarFactory</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">return</span> <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">.</span><span class="nx">callCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">},</span> <span class="s1">&#39;Getting foobar timed out&#39;</span><span class="p">,</span> <span class="mi">650</span><span class="p">);</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">.</span><span class="nx">callCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span><span class="p">,</span> <span class="s1">&#39;Getting foobar timed out&#39;</span><span class="p">,</span> <span class="mi">650</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>Test</p>
+</div><ul>
+<li>Test</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">runs</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
-<span class="p">});</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">runs</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeDefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>In the end, this is the final spec:</p>
+</div><p>In the end, this is the final spec:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,46 +280,44 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobarApp</span><span class="p">)));</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobarApp</span><span class="p">)</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 
   <span class="c1">// Mock
 </span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">foobarMock</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">id</span><span class="o">:</span> <span class="mi">123</span>
-    <span class="p">},</span>
+    <span class="p">}</span><span class="p">,</span>
     <span class="nx">scope</span><span class="p">,</span> <span class="nx">foobarFactory</span><span class="p">,</span> <span class="nx">foobarCtrl</span><span class="p">;</span>
 
   <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$injector</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">foobarFactory</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;foobarFactory&#39;</span><span class="p">);</span>
-    <span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">).</span><span class="nx">andCallFake</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">fn</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
-    <span class="p">});</span>
-    <span class="nx">scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
+    <span class="nx">foobarFactory</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;foobarFactory&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">andCallFake</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">fn</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
     <span class="nx">foobarCtrl</span> <span class="o">=</span> <span class="nx">$controller</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">$scope</span><span class="o">:</span> <span class="nx">scope</span><span class="p">,</span>
       <span class="nx">foobarFactory</span><span class="o">:</span> <span class="nx">foobarFactory</span>
-    <span class="p">});</span>
-  <span class="p">}));</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should fetch the foobarId&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should fetch the foobarId&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">waitsFor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">.</span><span class="nx">callCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">},</span> <span class="s1">&#39;Getting foobar timed out&#39;</span><span class="p">,</span> <span class="mi">650</span><span class="p">);</span>
-    <span class="nx">runs</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobarId</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
-      <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobarId</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">});</span>
+    <span class="p">}</span><span class="p">,</span> <span class="s1">&#39;Getting foobar timed out&#39;</span><span class="p">,</span> <span class="mi">650</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">runs</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobarId</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeDefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">foobarId</span><span class="p">)</span><span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="testing-promises">Testing promises</h1>
-
+</div><h1 id="testing-promises">Testing promises</h1>
 <p>Given the following factory that also fetches a <code>foobar</code> through a REST call, but returns a promise:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -346,25 +331,24 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">).</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">)</span><span class="p">.</span>
 <span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;foobarFactory&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$q</span><span class="p">,</span> <span class="nx">$resource</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
-    <span class="nx">getFoobar</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
-      <span class="nx">$resource</span><span class="p">(</span><span class="s1">&#39;/rest/foobar&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobar</span><span class="p">);</span>
-      <span class="p">});</span>
+    <span class="nx">getFoobar</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">$resource</span><span class="p">(</span><span class="s1">&#39;/rest/foobar&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span><span class="p">;</span>
+      <span class="p">}</span><span class="p">)</span><span class="p">;</span>
       <span class="k">return</span> <span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="p">};</span>
-<span class="p">});</span>
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>I need to test the following controller that depends on <code>foobarFactory</code>:</p>
+</div><p>I need to test the following controller that depends on <code>foobarFactory</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -374,63 +358,62 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">).</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;foobarApp&#39;</span><span class="p">)</span><span class="p">.</span>
 <span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">foobarFactory</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$scope</span><span class="p">.</span><span class="nx">foobar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">foobar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">foobarId</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-    <span class="p">});</span>
-  <span class="p">};</span>
-<span class="p">});</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>To do so, I need to:</p>
-
+</div><p>To do so, I need to:</p>
 <ul>
-<li><p>Create a <code>foobar</code> mock</p>
+<li>Create a <code>foobar</code> mock</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">foobarMock</span> <span class="o">=</span> <span class="p">{</span>
-<span class="nx">id</span><span class="o">:</span> <span class="mi">123</span>
-<span class="p">};</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="mi">123</span>
+<span class="p">}</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>Create a promise that return the previous <code>foobar</code> mock</p>
+</div><ul>
+<li>Create a promise that return the previous <code>foobar</code> mock</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
-<span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>Mock the <code>foobarFactory</code> and return the previous promise</p>
+</div><ul>
+<li>Mock the <code>foobarFactory</code> and return the previous promise</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">).</span><span class="nx">andReturn</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">);</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">andReturn</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>Test</p>
+</div><ul>
+<li>Test</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -442,23 +425,20 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span><span class="p">;</span>
-<span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
-<span class="nx">result</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">;</span>
-<span class="p">});</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeUndefined</span><span class="p">();</span>
-<span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$apply</span><span class="p">();</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">).</span><span class="nx">toHaveBeenCalled</span><span class="p">();</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
+<span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">result</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeUndefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$apply</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">)</span><span class="p">.</span><span class="nx">toHaveBeenCalled</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeDefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>In the end, this is the final spec:</p>
+</div><p>In the end, this is the final spec:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -494,40 +474,40 @@
 </span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobarApp</span><span class="p">)));</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobarApp</span><span class="p">)</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 
   <span class="c1">// Mock
 </span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">foobarMock</span> <span class="o">=</span> <span class="p">{</span>
       <span class="nx">id</span><span class="o">:</span> <span class="mi">123</span>
-    <span class="p">},</span>
+    <span class="p">}</span><span class="p">,</span>
     <span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">scope</span><span class="p">,</span> <span class="nx">foobarFactory</span><span class="p">,</span> <span class="nx">foobarCtrl</span><span class="p">;</span>
 
   <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">inject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">_$rootScope_</span><span class="p">,</span> <span class="nx">$injector</span><span class="p">,</span> <span class="nx">$controller</span><span class="p">,</span> <span class="nx">$q</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$rootScope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">;</span>
-    <span class="nx">scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">();</span>
-    <span class="nx">foobarFactory</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;foobarFactory&#39;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">();</span>
-    <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
-    <span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">).</span><span class="nx">andReturn</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">);</span>
+    <span class="nx">scope</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$new</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">foobarFactory</span> <span class="o">=</span> <span class="nx">$injector</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;foobarFactory&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">deferred</span> <span class="o">=</span> <span class="nx">$q</span><span class="p">.</span><span class="nx">defer</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">deferred</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">spyOn</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">,</span> <span class="s1">&#39;getFoobar&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">andReturn</span><span class="p">(</span><span class="nx">deferred</span><span class="p">.</span><span class="nx">promise</span><span class="p">)</span><span class="p">;</span>
     <span class="nx">foobarCtrl</span> <span class="o">=</span> <span class="nx">$controller</span><span class="p">(</span><span class="s1">&#39;foobarCtrl&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">$scope</span><span class="o">:</span> <span class="nx">scope</span><span class="p">,</span>
       <span class="nx">foobarFactory</span><span class="o">:</span> <span class="nx">foobarFactory</span>
-    <span class="p">});</span>
-  <span class="p">}));</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should fetch the foobarId&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should fetch the foobarId&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">result</span><span class="p">;</span>
-    <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">foobar</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">result</span> <span class="o">=</span> <span class="nx">foobar</span><span class="p">;</span>
-    <span class="p">});</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeUndefined</span><span class="p">();</span>
-    <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$apply</span><span class="p">();</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">).</span><span class="nx">toHaveBeenCalled</span><span class="p">();</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
-    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">);</span>
-  <span class="p">});</span>
-<span class="p">});</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeUndefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$apply</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">foobarFactory</span><span class="p">.</span><span class="nx">getFoobar</span><span class="p">)</span><span class="p">.</span><span class="nx">toHaveBeenCalled</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">.</span><span class="nx">toBeDefined</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">foobarMock</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div>

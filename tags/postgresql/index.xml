@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>postgresql on Louis LIN&#39;s blog</title>
@@ -19,7 +19,7 @@
       <guid>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -27,8 +27,9 @@
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_terminate_backend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
 &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_stat_activity&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;LIKE&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;idle %&amp;#39;&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state_change&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;interval&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;1 hour&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;LIKE&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;idle %&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt; 
+&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state_change&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;interval&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;1 hour&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
@@ -41,10 +42,8 @@
       <guid>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</guid>
       <description>&lt;p&gt;When proceeding a database migration, I often had to create a temporary table that will contains
 the data from the old database.&lt;/p&gt;
-
 &lt;p&gt;However, after the migration, I still need to have links between the old IDs and the new IDs for
 various post migration operation.&lt;/p&gt;
-
 &lt;p&gt;This post is about creating the table containing the linked ids.&lt;/p&gt;</description>
     </item>
     
