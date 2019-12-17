@@ -25,7 +25,7 @@ However, there are many ways to avoid and reduce such NullPointerException.
 
 
 
-<meta name="generator" content="Hugo 0.60.0 with theme even" />
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" />
@@ -85,7 +85,7 @@ There are no real cure for this curse. Every application cannot escape this issu
 However, there are many ways to avoid and reduce such NullPointerException.">
 <meta itemprop="datePublished" content="2014-02-27T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-04-04T14:10:17&#43;02:00" />
-<meta itemprop="wordCount" content="896">
+<meta itemprop="wordCount" content="902">
 
 
 
@@ -322,13 +322,25 @@ So why bother putting <code>@NotNull</code> everywhere? With the annotation <cod
 </div>
 </div><p>However, you need to specify that every parameters and return values are not <code>null</code>.
 To do so, you need to create a <code>package-info.java</code> at the root of your package folder:</p>
-<pre><code>src
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">src
 |
 |--java
 |----com.lin.louis
 |------Main.java
 |------package-info.java
-</code></pre><p>with the following content:</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>with the following content:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

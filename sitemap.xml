@@ -3,21 +3,21 @@
   
   <url>
     <loc>https://l-lin.github.io/about/</loc>
-    <lastmod>2019-04-05T15:54:08+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2019-12-02T10:49:18+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/</loc>
-    <lastmod>2019-12-02T10:49:18+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,56 +38,56 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2019-12-02T10:49:18+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2019-12-02T10:49:18+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/</loc>
-    <lastmod>2019-12-02T10:49:18+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/api/</loc>
-    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</loc>
-    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/mindmaps/</loc>
-    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/documentation/</loc>
-    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</loc>
-    <lastmod>2019-06-24T09:33:59+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -178,7 +178,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/java/</loc>
-    <lastmod>2019-04-04T14:10:17+02:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -220,21 +220,21 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/architecture/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/patterns/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-09-13-throttling_pattern/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -269,49 +269,49 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-08-05-retry_pattern/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-05-19-cqrs/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-05-13-event_sourcing/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/terminal/</loc>
-    <lastmod>2019-03-14T15:45:07+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</loc>
-    <lastmod>2019-03-14T15:45:07+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-04-04-sidecar/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -325,21 +325,21 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-03-11-gateway_routing/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-03-08-acl/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-03-08-strangler_pattern/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -360,7 +360,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/kotlin/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -374,7 +374,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/learning/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -395,7 +395,7 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -430,14 +430,14 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/xubuntu/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -458,7 +458,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/tomcat/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -549,14 +549,14 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/spring/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -570,28 +570,28 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/experimenting/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/meteorjs/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -647,14 +647,14 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/brackets/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</loc>
-    <lastmod>2018-11-10T11:31:30+01:00</lastmod>
+    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

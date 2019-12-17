@@ -28,7 +28,7 @@ This tutorial will show you:
 
 
 
-<meta name="generator" content="Hugo 0.60.0 with theme even" />
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/" />
@@ -60,7 +60,7 @@ In order to fully comprehend the tutorial, I will demonstrate it with a concrete
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/" />
 <meta property="article:published_time" content="2014-09-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
+<meta property="article:modified_time" content="2019-12-17T15:27:40+01:00" />
 <meta itemprop="name" content="Authentication using certificates, Tomcat and Spring security">
 <meta itemprop="description" content="Instead of the classic login/password way to access to a secured application, it&#39;s possible to authenticate through a certificate.
 What&#39;s more, you can also link a ROLE to each certificate.
@@ -75,8 +75,8 @@ how to access with a third party application
 
 In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.">
 <meta itemprop="datePublished" content="2014-09-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
-<meta itemprop="wordCount" content="1814">
+<meta itemprop="dateModified" content="2019-12-17T15:27:40&#43;01:00" />
+<meta itemprop="wordCount" content="1826">
 
 
 
@@ -204,7 +204,13 @@ What's more, you can also link a <code>ROLE</code> to each certificate.</p>
 <h1 id="the-specifications-of-the-application">The specifications of the application</h1>
 <p>You have to build an internal application (let's call it <code>foobar</code>) that needs to be a bit secured.
 This application will mainly be used as a web service application where other web applications will be able to plug in <code>foobar</code>. Let's be crazy and say that Paypal and Amazon are the web applications that will communicate with our great app.</p>
-<!-- raw HTML omitted -->
+<figure class="center">
+    <img src="/images/2014-09-09/logical_archi.png"
+         alt="Logical architecture"/> <figcaption>
+            <h4>Logical architecture</h4>
+        </figcaption>
+</figure>
+
 <p>Simple right?</p>
 <p>Now, you want to enable access to <code>foobar</code> only to Paypal and Amazon.
 There are several solutions to do that (same network, OAuth, Basic Auth, and so on&hellip;), but you came for certificate authenticate, arent't you?</p>
@@ -212,7 +218,13 @@ There are several solutions to do that (same network, OAuth, Basic Auth, and so 
 <p>The principle is quite simple. It's a mutual verification:
 The client checks if the certificate given by the server is valid or not (through a certification authority that signs certificates).
 The server also checks the certificate given by the client.</p>
-<!-- raw HTML omitted -->
+<figure class="center">
+    <img src="/images/2014-09-09/certificate_workflow.png"
+         alt="Certificate workflow"/> <figcaption>
+            <h4>Certificate workflow - Credits to http://blog.netapsys.fr</h4>
+        </figcaption>
+</figure>
+
 <ul>
 <li>The <code>keystores</code> stores the private keys aimed to encrypt the data before emitting</li>
 <li>The <code>trustores</code> stores the public keys aimed to identify the transmitter and then to decrypt their message</li>
@@ -974,7 +986,13 @@ keytool -importkeystore -srckeystore browser.jks -destkeystore browser.p12 -srcs
 <li>Go to <code>Settings &gt; HTTPS/SSL &gt; Manage certificates</code></li>
 <li>Click on <code>import</code> and select the <code>browser.p12</code> file (password is <code>browserpwd</code>)</li>
 </ul>
-<!-- raw HTML omitted -->
+<figure class="center">
+    <img src="/images/2014-09-09/add_cert_to_browser.png"
+         alt="Adding certificate to browser"/> <figcaption>
+            <h4>Adding certificate to browser</h4>
+        </figcaption>
+</figure>
+
 <ul>
 <li>You are now granted to use your app with your browser.</li>
 </ul>
@@ -998,8 +1016,8 @@ keytool -importkeystore -srckeystore browser.jks -destkeystore browser.p12 -srcs
   <p class="copyright-item">
     <span class="item-title">Last modification</span>
     <span class="item-content">
-        2018-11-10
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/860b68ac368469ea0dfb1577ac2d24a3cec31d1c" title="site: reorganize posts &#43; change categories">(860b68a)</a>
+        2019-12-17
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/446565ed627d3d6b122adab8f5ad3490ace098bf" title="site: fix figure tag">(446565e)</a>
     </span>
   </p>
   

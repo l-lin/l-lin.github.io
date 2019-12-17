@@ -25,7 +25,7 @@ However, the hibernate validation library also provides default validation messa
 
 
 
-<meta name="generator" content="Hugo 0.60.0 with theme even" />
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/" />
@@ -53,7 +53,7 @@ However, the hibernate validation library also provides default validation messa
 However, the hibernate validation library also provides default validation messages, for several languages (which is great).">
 <meta itemprop="datePublished" content="2017-05-17T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
-<meta itemprop="wordCount" content="477">
+<meta itemprop="wordCount" content="510">
 
 
 
@@ -229,10 +229,47 @@ However, the hibernate validation library also provides default validation messa
 </div><ul>
 <li>Add only one validation messages in the <code>/path/to/project/src/main/resources/validation/OneLocaleValidationMessages.properties</code> with the content provided by the hibernate validation library:</li>
 </ul>
-<pre><code class="language-properties" data-lang="properties">javax.validation.constraints.AssertFalse.message = must be false
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">javax.validation.constraints.AssertFalse.message = must be false
 javax.validation.constraints.AssertTrue.message  = must be true
-javax.validation.constraints.DecimalMax.message  = must be less than ${inclusive == true ? 'or equal to ' : ''}{value}
-javax.validation.constraints.DecimalMin.message  = must be greater than ${inclusive == true ? 'or equal to ' : ''}{value}
+javax.validation.constraints.DecimalMax.message  = must be less than ${inclusive == true ? &#39;or equal to &#39; : &#39;&#39;}{value}
+javax.validation.constraints.DecimalMin.message  = must be greater than ${inclusive == true ? &#39;or equal to &#39; : &#39;&#39;}{value}
 javax.validation.constraints.Digits.message      = numeric value out of bounds (&lt;{integer} digits&gt;.&lt;{fraction} digits&gt; expected)
 javax.validation.constraints.Future.message      = must be in the future
 javax.validation.constraints.Max.message         = must be less than or equal to {value}
@@ -240,7 +277,7 @@ javax.validation.constraints.Min.message         = must be greater than or equal
 javax.validation.constraints.NotNull.message     = may not be null
 javax.validation.constraints.Null.message        = must be null
 javax.validation.constraints.Past.message        = must be in the past
-javax.validation.constraints.Pattern.message     = must match &quot;{regexp}&quot;
+javax.validation.constraints.Pattern.message     = must match &#34;{regexp}&#34;
 javax.validation.constraints.Size.message        = size must be between {min} and {max}
 
 org.hibernate.validator.constraints.CreditCardNumber.message        = invalid credit card number
@@ -253,16 +290,18 @@ org.hibernate.validator.constraints.Mod11Check.message              = The check 
 org.hibernate.validator.constraints.ModCheck.message                = The check digit for ${validatedValue} is invalid, ${modType} checksum failed
 org.hibernate.validator.constraints.NotBlank.message                = may not be empty
 org.hibernate.validator.constraints.NotEmpty.message                = may not be empty
-org.hibernate.validator.constraints.ParametersScriptAssert.message  = script expression &quot;{script}&quot; didn't evaluate to true
+org.hibernate.validator.constraints.ParametersScriptAssert.message  = script expression &#34;{script}&#34; didn&#39;t evaluate to true
 org.hibernate.validator.constraints.Range.message                   = must be between {min} and {max}
 org.hibernate.validator.constraints.SafeHtml.message                = may have unsafe html content
-org.hibernate.validator.constraints.ScriptAssert.message            = script expression &quot;{script}&quot; didn't evaluate to true
+org.hibernate.validator.constraints.ScriptAssert.message            = script expression &#34;{script}&#34; didn&#39;t evaluate to true
 org.hibernate.validator.constraints.URL.message                     = must be a valid URL
 
 org.hibernate.validator.constraints.br.CNPJ.message                 = invalid Brazilian corporate taxpayer registry number (CNPJ)
 org.hibernate.validator.constraints.br.CPF.message                  = invalid Brazilian individual taxpayer registry number (CPF)
 org.hibernate.validator.constraints.br.TituloEleitoral.message      = invalid Brazilian Voter ID card number
-</code></pre>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
