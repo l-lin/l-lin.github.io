@@ -40,7 +40,7 @@ With Meteor:
 var result = fetchDataFromServer(id);
 ```
 
-{{% figure class="center" src="http://i0.kym-cdn.com/photos/images/facebook/000/112/480/OpoQQ.jpg" alt="Are you serious?" title="Are you serious?" %}}
+{{< figure class="center" src="http://i0.kym-cdn.com/photos/images/facebook/000/112/480/OpoQQ.jpg" alt="Are you serious?" title="Are you serious?" >}}
 
 HUH? No callbacks, no promises, like it's synchronous call!
 

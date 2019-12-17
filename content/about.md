@@ -7,7 +7,7 @@ comment: false
 mathjax: false
 ---
 
-{{% figure class="center" src="/images/hi.png" alt="Hello" %}}
+{{< figure class="center" src="/images/hi.png" alt="Hello" >}}
 
 My name is Louis Lin: I'm a senior software engineer, I love reading light and web novels and watching the famous Korean variety show "Running man".
 

@@ -117,9 +117,9 @@ pwd
 
 ## Navigation
 
-{{% figure class="center" src="https://memegenerator.net/img/instances/81614805/you-know-what-really-grinds-my-gears-when-people-keep-pressing-left-arrow-to-move-the-cursor-back-to.jpg" alt="Please, use keyboard shortcuts" title="Please, use keyboard shortcuts" %}}
+{{< figure class="center" src="https://memegenerator.net/img/instances/81614805/you-know-what-really-grinds-my-gears-when-people-keep-pressing-left-arrow-to-move-the-cursor-back-to.jpg" alt="Please, use keyboard shortcuts" title="Please, use keyboard shortcuts" >}}
 
-{{% figure class="center" src="/images/2018-04-05/keyboard_shortcuts.jpg" alt="Moving efficiently in the CLI" title="Moving efficiently in the CLI" %}}
+{{< figure class="center" src="/images/2018-04-05/keyboard_shortcuts.jpg" alt="Moving efficiently in the CLI" title="Moving efficiently in the CLI" >}}
 
 Credit to [Clément Chastagnol](https://clementc.github.io/blog/2018/01/25/moving_cli/).
 
@@ -134,7 +134,7 @@ There are two ways to run administrative applications:
 
 `sudo` allows an user to run a program as another user (most often as the root user).
 
-{{% figure class="center" src="https://imgs.xkcd.com/comics/sandwich.png" alt="Credit to xkcd" title="Credit to xkcd" %}}
+{{< figure class="center" src="https://imgs.xkcd.com/comics/sandwich.png" alt="Credit to xkcd" title="Credit to xkcd" >}}
 
 ```bash
 # running apt-get install as root user

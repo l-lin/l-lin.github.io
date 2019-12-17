@@ -33,7 +33,7 @@ In order to fully comprehend the tutorial, I will demonstrate it with a concrete
 You have to build an internal application (let's call it `foobar`) that needs to be a bit secured.
 This application will mainly be used as a web service application where other web applications will be able to plug in `foobar`. Let's be crazy and say that Paypal and Amazon are the web applications that will communicate with our great app.
 
-{{% figure class="center" src="/images/2014-09-09/logical_archi.png" alt="Logical architecture" title="Logical architecture" %}}
+{{< figure class="center" src="/images/2014-09-09/logical_archi.png" alt="Logical architecture" title="Logical architecture" >}}
 
 Simple right?
 
@@ -46,7 +46,7 @@ The principle is quite simple. It's a mutual verification:
 The client checks if the certificate given by the server is valid or not (through a certification authority that signs certificates).
 The server also checks the certificate given by the client.
 
-{{% figure class="center" src="/images/2014-09-09/certificate_workflow.png" alt="Certificate workflow" title="Certificate workflow - Credits to http://blog.netapsys.fr" %}}
+{{< figure class="center" src="/images/2014-09-09/certificate_workflow.png" alt="Certificate workflow" title="Certificate workflow - Credits to http://blog.netapsys.fr" >}}
 
 * The `keystores` stores the private keys aimed to encrypt the data before emitting
 * The `trustores` stores the public keys aimed to identify the transmitter and then to decrypt their message
@@ -453,7 +453,7 @@ With Chrome:
 * Go to `Settings > HTTPS/SSL > Manage certificates`
 * Click on `import` and select the `browser.p12` file (password is `browserpwd`)
 
-{{% figure class="center" src="/images/2014-09-09/add_cert_to_browser.png" alt="Adding certificate to browser" title="Adding certificate to browser" %}}
+{{< figure class="center" src="/images/2014-09-09/add_cert_to_browser.png" alt="Adding certificate to browser" title="Adding certificate to browser" >}}
 
 * You are now granted to use your app with your browser.
 

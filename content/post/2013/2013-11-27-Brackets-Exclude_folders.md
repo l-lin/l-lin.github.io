@@ -41,7 +41,7 @@ var _exclusionListRegEx = /\.pyc$|^\.git$|^\.gitignore$|^\.gitmodules$|^\.svn$|^
 
 Save the file and restart your Brackets and *Voila*:
 
-{{% figure class="center" src="/images/2013-11-27/brackets_folders.png" alt="Brackets folders" title="Brackets folders" %}}
+{{< figure class="center" src="/images/2013-11-27/brackets_folders.png" alt="Brackets folders" title="Brackets folders" >}}
 
 **Note**: By doing this *little hack*, my brackets editor performance is boosting! Moreover, [Brackets][] is a great tool for TDD development!
 

@@ -105,7 +105,7 @@ var a = 1
 a += 2
 ```
 
-{{% figure class="center" src="https://memegenerator.net/img/instances/500x/67676028/by-reading-between-the-lines-an-inference-you-will-make.jpg" alt="Type inference" %}}
+{{< figure class="center" src="https://memegenerator.net/img/instances/500x/67676028/by-reading-between-the-lines-an-inference-you-will-make.jpg" alt="Type inference" >}}
 
 # Comments
 

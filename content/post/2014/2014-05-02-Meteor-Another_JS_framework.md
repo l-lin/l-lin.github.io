@@ -21,7 +21,7 @@ In other words, any change from one device/user will affect the other devices/us
 So, I went to a Meteor meetup to check out what's inside this baby, and I can say that was bluffing.
 I was literally like this after the demo and the live coding:
 
-{{% figure class="center" src="https://media.giphy.com/media/5VKbvrjxpVJCM/giphy.gif" alt="Wow" title="Wow" %}}
+{{< figure class="center" src="https://media.giphy.com/media/5VKbvrjxpVJCM/giphy.gif" alt="Wow" title="Wow" >}}
 
 No shit, I was really exited to develop with this stack.
 
