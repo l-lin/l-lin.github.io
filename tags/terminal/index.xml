@@ -6,10 +6,24 @@
     <description>Recent content in terminal on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2020 09:33:51 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Change in bulk using sed</title>
+      <link>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</link>
+      <pubDate>Tue, 07 Jan 2020 09:33:51 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ss64.com/bash/sed.html&#34;&gt;&lt;code&gt;sed&lt;/code&gt;&lt;/a&gt; is a powerful terminal tool to perform basic text
+transformations on an input stream (file or input from a pipeline).&lt;/p&gt;
+&lt;p&gt;You run the command in &amp;ldquo;dry-run&amp;rdquo; to preview the changes the command will perform. But it&#39;s quite
+difficult to follow the changes if you are running the command recursively in a folder.&lt;/p&gt;
+&lt;p&gt;In this post, we will what we can use to run &lt;code&gt;sed&lt;/code&gt; without worrying and with the ability to rollback
+in case something went wrong.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Unix terminal survival kit</title>

@@ -10,14 +10,49 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</loc>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/</loc>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/terminal/</loc>
+    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,27 +67,6 @@
   <url>
     <loc>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</loc>
     <lastmod>2019-09-24T11:50:50+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -290,13 +304,6 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-05-13-event_sourcing/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/terminal/</loc>
     <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
