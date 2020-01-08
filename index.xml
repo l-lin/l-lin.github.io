@@ -6,7 +6,7 @@
     <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jan 2020 09:33:51 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2020 09:27:56 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,15 @@
       <description>My name is Louis Lin: I&#39;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects in my free time Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today?</description>
+    </item>
+    
+    <item>
+      <title>Soft skills</title>
+      <link>https://l-lin.github.io/post/2020/2020-01-08-soft_skills/</link>
+      <pubDate>Wed, 08 Jan 2020 09:27:56 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-01-08-soft_skills/</guid>
+      <description></description>
     </item>
     
     <item>

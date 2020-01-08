@@ -10,41 +10,62 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</loc>
-    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <loc>https://l-lin.github.io/tags/documentation/</loc>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/</loc>
-    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/mindmaps/</loc>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-01-08-soft_skills/</loc>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2020-01-08T09:32:02+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</loc>
     <lastmod>2020-01-07T15:49:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -80,20 +101,6 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/mindmaps/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/documentation/</loc>
     <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
