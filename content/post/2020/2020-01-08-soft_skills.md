@@ -1,5 +1,5 @@
 ---
-title: "Soft skills"
+title: "Mind map - Soft skills"
 date: 2020-01-08T09:27:56+01:00
 imageUrl: ""
 tags: ["mindmaps", "documentation"]
