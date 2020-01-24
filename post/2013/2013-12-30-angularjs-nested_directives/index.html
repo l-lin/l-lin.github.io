@@ -25,7 +25,7 @@ There are two ways (in my knowledge) to build nested directives.
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2013/2013-12-30-angularjs-nested_directives/" />
@@ -177,7 +177,7 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 <li>Using two custom directives</li>
 </ol>
 <h1 id="1---using-the-directive-ng-include-and-one-custom-directive">1 - Using the directive <code>ng-include</code> and one custom directive</h1>
-<p>Let's say, we want to display the given data in nested bullets list:</p>
+<p>Let&rsquo;s say, we want to display the given data in nested bullets list:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -222,7 +222,7 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 <span class="p">}</span><span class="err">]</span><span class="err">;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>First, let's create our <code>index.html</code> with a our custom directive. We will name it <code>items</code>:</p>
+</div><p>First, let&rsquo;s create our <code>index.html</code> with a our custom directive. We will name it <code>items</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -251,7 +251,7 @@ However, if you need to have a dynamical level of nested arrays, it is not as ob
 <span class="p">&lt;</span><span class="p">/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Then let's create a <code>directive.js</code> that contains the code for the custom directive:</p>
+</div><p>Then let&rsquo;s create a <code>directive.js</code> that contains the code for the custom directive:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -313,7 +313,7 @@ Moreover, we use <code>ng-repeat</code> on the array of items in order to displa
 </div>
 </div><p>Again, in this template, we use the directive <code>ng-include</code> that points on the same template.</p>
 <p><code>ng-include</code> recursively FTW!</p>
-<p>That's it! You have your nested directive.</p>
+<p>That&rsquo;s it! You have your nested directive.</p>
 <p>Complete code on <a href="http://plnkr.co/edit/ekbbtmaCe03rKjbQmwGP?p=info">Plnkr</a>.</p>
 <h1 id="2---using-two-custom-directives">2 - Using two custom directives</h1>
 <p>No need to reinvent the wheel, <a href="http://sporto.github.io/blog/2013/06/24/nested-recursive-directives-in-angular/">someone already has found this solution</a>.</p>

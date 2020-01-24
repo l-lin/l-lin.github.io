@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" /><meta name="description" content="1 2 3 4  Exception in thread &amp;#34;main&amp;#34; java.lang.NullPointerException at ... at ... at ...   The most common exception that pulls you hair a thousands of times. I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production. There are no real cure for this curse. Every application cannot escape this issue.
+<meta name="author" content="Louis LIN" /><meta name="description" content="1 2 3 4  Exception in thread &amp;#34;main&amp;#34; java.lang.NullPointerException at ... at ... at ...   The most common exception that pulls you hair a thousands of times. I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production. There are no real cure for this curse. Every application cannot escape this issue.
 However, there are many ways to avoid and reduce such NullPointerException.
 " /><meta name="keywords" content="software development" />
 
@@ -25,7 +25,7 @@ However, there are many ways to avoid and reduce such NullPointerException.
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" />
@@ -57,7 +57,7 @@ Exception in thread &#34;main&#34; java.lang.NullPointerException
 
 
 The most common exception that pulls you hair a thousands of times.
-I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.
 However, there are many ways to avoid and reduce such NullPointerException." />
 <meta property="og:type" content="article" />
@@ -80,7 +80,7 @@ Exception in thread &#34;main&#34; java.lang.NullPointerException
 
 
 The most common exception that pulls you hair a thousands of times.
-I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.
 However, there are many ways to avoid and reduce such NullPointerException.">
 <meta itemprop="datePublished" content="2014-02-27T00:00:00&#43;00:00" />
@@ -106,7 +106,7 @@ Exception in thread &#34;main&#34; java.lang.NullPointerException
 
 
 The most common exception that pulls you hair a thousands of times.
-I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.
 However, there are many ways to avoid and reduce such NullPointerException."/>
 
@@ -215,10 +215,10 @@ However, there are many ways to avoid and reduce such NullPointerException."/>
 </code></pre></td></tr></table>
 </div>
 </div><p>The most common exception that pulls you hair a thousands of times.
-I don't know how many time I see this exception every day. The worst of it is when it happens in production.
+I don&rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.</p>
 <p>However, there are many ways to avoid and reduce such <code>NullPointerException</code>.</p>
-<p>Let's say the following piece of code throws the exception:</p>
+<p>Let&rsquo;s say the following piece of code throws the exception:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -454,9 +454,9 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
 <blockquote>
 <p>Many of the cases where programmers use null is to indicate some sort of absence: perhaps where there might have been a value, there is none, or one could not be found. For example, Map.get returns null when no value is found for a key.</p>
 <p><code>Optional&lt;T&gt;</code> is a way of replacing a nullable T reference with a non-null value. An Optional may either contain a non-null T reference (in which case we say the reference is &ldquo;present&rdquo;), or it may contain nothing (in which case we say the reference is &ldquo;absent&rdquo;). It is never said to &ldquo;contain null.&rdquo;</p>
-<p>What's the point?</p>
-<p>Besides the increase in readability that comes from giving null a name, the biggest advantage of Optional is its idiot-proof-ness. It forces you to actively think about the absent case if you want your program to compile at all, since you have to actively unwrap the Optional and address that case. Null makes it disturbingly easy to simply forget things, and though FindBugs helps, we don't think it addresses the issue nearly as well.</p>
-<p>This is especially relevant when you're returning values that may or may not be &ldquo;present.&rdquo; You (and others) are far more likely to forget that other.method(a, b) could return a null value than you're likely to forget that a could be null when you're implementing other.method. Returning Optional makes it impossible for callers to forget that case, since they have to unwrap the object themselves for their code to compile.</p>
+<p>What&rsquo;s the point?</p>
+<p>Besides the increase in readability that comes from giving null a name, the biggest advantage of Optional is its idiot-proof-ness. It forces you to actively think about the absent case if you want your program to compile at all, since you have to actively unwrap the Optional and address that case. Null makes it disturbingly easy to simply forget things, and though FindBugs helps, we don&rsquo;t think it addresses the issue nearly as well.</p>
+<p>This is especially relevant when you&rsquo;re returning values that may or may not be &ldquo;present.&rdquo; You (and others) are far more likely to forget that other.method(a, b) could return a null value than you&rsquo;re likely to forget that a could be null when you&rsquo;re implementing other.method. Returning Optional makes it impossible for callers to forget that case, since they have to unwrap the object themselves for their code to compile.</p>
 </blockquote>
     </div>
 

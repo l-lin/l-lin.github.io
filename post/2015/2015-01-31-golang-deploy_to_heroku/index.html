@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/" />
@@ -218,7 +218,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>That's everything you need to do in your Golang webapp.</p>
+</div><p>That&rsquo;s everything you need to do in your Golang webapp.</p>
 <p>Now, you will need to tell Heroku to add the following buildpack to your webapps:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -264,7 +264,7 @@ git commit -m <span class="s2">&#34;Add Godep&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="adding-a-database-to-your-web-app">Adding a Database to your Web app</h1>
-<p>Heroku has made the life of developper easier. To add a new database to your webapp, it's really easy.
+<p>Heroku has made the life of developper easier. To add a new database to your webapp, it&rsquo;s really easy.
 For example, I needed to add a Postgresql. I just needed to execute one command line and the configuration is fetched from the environment variables:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -274,11 +274,11 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 <pre class="chroma"><code class="language-bash" data-lang="bash">heroku addons:add heroku-postgresql:dev
 </code></pre></td></tr></table>
 </div>
-</div><p>More information on <a href="https://www.heroku.com/postgres">Heroku's documentation</a>.</p>
+</div><p>More information on <a href="https://www.heroku.com/postgres">Heroku&rsquo;s documentation</a>.</p>
 <p>Now to connect to the database, you will need:</p>
 <ul>
 <li>to get the <a href="github.com/lib/pq">Postgresql driver</a></li>
-<li>fetch Heroku's DB configuration from the <strong>DATABASE_URL</strong> environment variable</li>
+<li>fetch Heroku&rsquo;s DB configuration from the <strong>DATABASE_URL</strong> environment variable</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

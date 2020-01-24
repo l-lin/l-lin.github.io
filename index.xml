@@ -17,13 +17,13 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>https://l-lin.github.io/about/</guid>
-      <description>My name is Louis Lin: I&#39;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
+      <description>My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 My projects in my free time Front  Angular notifier Bulletular Back to top Open badge card Angular DataTables What lunch today?</description>
     </item>
     
     <item>
-      <title>Soft skills</title>
+      <title>Mind map - Soft skills</title>
       <link>https://l-lin.github.io/post/2020/2020-01-08-soft_skills/</link>
       <pubDate>Wed, 08 Jan 2020 09:27:56 +0100</pubDate>
       
@@ -39,7 +39,7 @@ My projects in my free time Front  Angular notifier Bulletular Back to top Open 
       <guid>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ss64.com/bash/sed.html&#34;&gt;&lt;code&gt;sed&lt;/code&gt;&lt;/a&gt; is a powerful terminal tool to perform basic text
 transformations on an input stream (file or input from a pipeline).&lt;/p&gt;
-&lt;p&gt;You run the command in &amp;ldquo;dry-run&amp;rdquo; to preview the changes the command will perform. But it&#39;s quite
+&lt;p&gt;You run the command in &amp;ldquo;dry-run&amp;rdquo; to preview the changes the command will perform. But it&amp;rsquo;s quite
 difficult to follow the changes if you are running the command recursively in a folder.&lt;/p&gt;
 &lt;p&gt;In this post, we will what we can use to run &lt;code&gt;sed&lt;/code&gt; without worrying and with the ability to rollback
 in case something went wrong.&lt;/p&gt;</description>
@@ -51,10 +51,10 @@ in case something went wrong.&lt;/p&gt;</description>
       <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
-      <description>&lt;p&gt;When developing multiple services that depends on other service, it&#39;s comfortable to have a dev
+      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
 environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&#39;m currently developing.&lt;/p&gt;
-&lt;p&gt;By using Nginx, it&#39;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
+not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
+&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -112,7 +112,7 @@ the image.&lt;/p&gt;</description>
       <pubDate>Fri, 25 Jan 2019 16:03:35 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</guid>
-      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&#39;s Encrypt or even pay for one,
+      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&amp;rsquo;s Encrypt or even pay for one,
 we can use &lt;code&gt;openssl&lt;/code&gt; command line to generate self-signed certificates.&lt;/p&gt;</description>
     </item>
     
@@ -161,10 +161,10 @@ is not quite straightforward.&lt;/p&gt;
       
       <guid>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</guid>
       <description>&lt;p&gt;I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
-coding, I no longer used those words and I feel like I sportsman that demonstrates what&#39;s the &amp;ldquo;way&amp;rdquo; to code
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code
 instead of explaining using common concepts to my peers.&lt;/p&gt;
 &lt;p&gt;For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less
-trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&#39;s kinda sad as I&#39;m no longer some new
+trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new
 guy freshly coming out of school.&lt;/p&gt;
 &lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;</description>
     </item>
@@ -184,7 +184,7 @@ guy freshly coming out of school.&lt;/p&gt;
       <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</guid>
-      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -354,8 +354,8 @@ Adding a new service is no longer done by creating a SH script in the &lt;code&g
       <pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</guid>
-      <description>&lt;p&gt;Kotlin is a great language but it&#39;s more like a subset of Java.&lt;/p&gt;
-&lt;p&gt;In this article, I will deal with Kotlin basics and see what&#39;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p&gt;
+&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -470,8 +470,8 @@ everyday?&lt;/p&gt;</description>
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
-      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&#39;s possible to authenticate through a certificate.
-What&#39;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
+      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
+What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
 &lt;p&gt;⚠ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This tutorial will show you:&lt;/p&gt;
@@ -501,7 +501,7 @@ What&#39;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certi
       <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; comes with an interesting concept: Publishing and subscribing record sets.
 But what the **** are those? My thought exactly!
-It&#39;s a new way of fetching data from the server.&lt;/p&gt;</description>
+It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -512,7 +512,7 @@ It&#39;s a new way of fetching data from the server.&lt;/p&gt;</description>
       <guid>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</guid>
       <description>&lt;p&gt;There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?&lt;/p&gt;
 &lt;p&gt;Well I think the strength of &lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; come from its powerful real time data synchronization for all connected users.&lt;/p&gt;
-&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&#39;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
+&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -536,7 +536,7 @@ It&#39;s a new way of fetching data from the server.&lt;/p&gt;</description>
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The most common exception that pulls you hair a thousands of times.
-I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production.
+I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;
 &lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;</description>
     </item>

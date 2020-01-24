@@ -17,7 +17,7 @@
       <pubDate>Fri, 25 Jan 2019 16:03:35 +0100</pubDate>
       
       <guid>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</guid>
-      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&#39;s Encrypt or even pay for one,
+      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&amp;rsquo;s Encrypt or even pay for one,
 we can use &lt;code&gt;openssl&lt;/code&gt; command line to generate self-signed certificates.&lt;/p&gt;</description>
     </item>
     

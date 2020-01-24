@@ -19,7 +19,7 @@
       <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; comes with an interesting concept: Publishing and subscribing record sets.
 But what the **** are those? My thought exactly!
-It&#39;s a new way of fetching data from the server.&lt;/p&gt;</description>
+It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@ It&#39;s a new way of fetching data from the server.&lt;/p&gt;</description>
       <guid>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</guid>
       <description>&lt;p&gt;There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?&lt;/p&gt;
 &lt;p&gt;Well I think the strength of &lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; come from its powerful real time data synchronization for all connected users.&lt;/p&gt;
-&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&#39;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
+&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
     </item>
     
   </channel>

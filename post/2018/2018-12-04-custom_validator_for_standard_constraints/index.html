@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/" />
@@ -153,10 +153,10 @@ However, what if we want to check a parameter type not supported by a standard c
     <div class="post-content">
       <p>Bean validation provides constraint annotations to check DTO parameters.
 However, what if we want to check a parameter type not supported by a standard constraint annotation?</p>
-<p>Let's say, we want to check a <code>LocalDateTime</code> is in the future. But, our parameter type is in <code>String</code>, a type not supported
+<p>Let&rsquo;s say, we want to check a <code>LocalDateTime</code> is in the future. But, our parameter type is in <code>String</code>, a type not supported
 by the annotation <code>@Future</code>.</p>
 <p>Instead of creating a new annotation, we will add configure so that it will support it.</p>
-<p>First, let's create our custom validator:</p>
+<p>First, let&rsquo;s create our custom validator:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1

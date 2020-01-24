@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" /><meta name="description" content="Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.
+<meta name="author" content="Louis LIN" /><meta name="description" content="Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.
 " /><meta name="keywords" content="software development" />
 
 
@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/" />
@@ -41,13 +41,13 @@
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Using host DNS in Docker container with Ubuntu 18" />
-<meta property="og:description" content="Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server." />
+<meta property="og:description" content="Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/" />
 <meta property="article:published_time" content="2018-09-03T11:22:04+02:00" />
 <meta property="article:modified_time" content="2018-11-10T11:31:30+01:00" />
 <meta itemprop="name" content="Using host DNS in Docker container with Ubuntu 18">
-<meta itemprop="description" content="Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.">
+<meta itemprop="description" content="Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server.">
 <meta itemprop="datePublished" content="2018-09-03T11:22:04&#43;02:00" />
 <meta itemprop="dateModified" content="2018-11-10T11:31:30&#43;01:00" />
 <meta itemprop="wordCount" content="274">
@@ -56,7 +56,7 @@
 
 <meta itemprop="keywords" content="ubuntu,docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Using host DNS in Docker container with Ubuntu 18"/>
-<meta name="twitter:description" content="Docker containers running in Ubuntu 18 can&#39;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server."/>
+<meta name="twitter:description" content="Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server 8.8.8.8 as their DNS server."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -150,7 +150,7 @@
 
     
     <div class="post-content">
-      <p>Docker containers running in Ubuntu 18 can't resolve DNS as they are trying to use the default Google DNS server <code>8.8.8.8</code> as their DNS server.</p>
+      <p>Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server <code>8.8.8.8</code> as their DNS server.</p>
 <p>Since Ubuntu 18, the file <code>/etc/resolv.conf</code> is a symlink to <code>/run/systemd/resolve/stub-resolv.conf</code> (<code>systemd-resolved</code> is set as default on Ubuntu 18) and its content always contains the local ip <code>127.0.0.53</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -56,10 +56,10 @@ is not quite straightforward.&lt;/p&gt;
       
       <guid>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</guid>
       <description>&lt;p&gt;I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
-coding, I no longer used those words and I feel like I sportsman that demonstrates what&#39;s the &amp;ldquo;way&amp;rdquo; to code
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code
 instead of explaining using common concepts to my peers.&lt;/p&gt;
 &lt;p&gt;For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less
-trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&#39;s kinda sad as I&#39;m no longer some new
+trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new
 guy freshly coming out of school.&lt;/p&gt;
 &lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;</description>
     </item>
@@ -80,8 +80,8 @@ guy freshly coming out of school.&lt;/p&gt;
       <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
-      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&#39;s possible to authenticate through a certificate.
-What&#39;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
+      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
+What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
 &lt;p&gt;⚠ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This tutorial will show you:&lt;/p&gt;
@@ -115,7 +115,7 @@ What&#39;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certi
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The most common exception that pulls you hair a thousands of times.
-I don&#39;t know how many time I see this exception every day. The worst of it is when it happens in production.
+I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
 There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;
 &lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;</description>
     </item>

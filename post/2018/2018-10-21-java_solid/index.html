@@ -25,7 +25,7 @@ This one will deal with the famous SOLID design principles:
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-10-21-java_solid/" />
@@ -218,9 +218,9 @@ Dependecy inversion principle
 <blockquote>
 <p>One class should have one and one responsibility.</p>
 </blockquote>
-<p>One of the few principles that is easy to understand but not simple to explain why it's important to respect this principle.
+<p>One of the few principles that is easy to understand but not simple to explain why it&rsquo;s important to respect this principle.
 We are often told to only have one responsibility for each class, or at a medium level, each component must do their part, or at a global level, each micro-service must perform one task in mind.</p>
-<p>Why is it so important? Why can't we have something that performs everything?</p>
+<p>Why is it so important? Why can&rsquo;t we have something that performs everything?</p>
 <p>A real life example: in a start-up, the CEO must perform multiple roles: the CEO, the accounting, the marketing, HR, &hellip;
 And it works&hellip; until the company reaches a certain scale when the CEO cannot perform every roles, otherwise, the CEO will be overwhelmed by the amount of work the CEO has to do.
 By delegating the roles to other people, the CEO can focus on what the CEO must do: giving the direction/vision of the company to its crew (IMHO).</p>
@@ -576,12 +576,12 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>As we can see, if we want to add a new type of cat, we only have to create a new class that implements the <code>Cat</code> interface. We don't have to change the content of the class <code>Meower</code>.</p>
+</div><p>As we can see, if we want to add a new type of cat, we only have to create a new class that implements the <code>Cat</code> interface. We don&rsquo;t have to change the content of the class <code>Meower</code>.</p>
 <h1 id="liskov-substitution-principle">Liskov substitution principle</h1>
 <blockquote>
 <p>Derived types must be completely substitutable for their base types.</p>
 </blockquote>
-<p>One of the principles that is really easy to forget, because, first of all, the name itself is not really helpful, but more importantly, it's quite &ldquo;hard&rdquo; (again, IMHO) to picture what the principle is all about.</p>
+<p>One of the principles that is really easy to forget, because, first of all, the name itself is not really helpful, but more importantly, it&rsquo;s quite &ldquo;hard&rdquo; (again, IMHO) to picture what the principle is all about.</p>
 <p>This principle is about extended classes that fit in the application without failure, i.e. you should design your classes so that client dependencies can be substituted with subclasses without the client knowing about the change.</p>
 <p>Often, if we have a class type detection/condition to perform some logic, we have a code smell that violates this principle.</p>
 <p>Violations of the LSP cause undefined behaviors, which is difficult to find during development (the project compiles and the application runs like intended) but will fail on production (unexpected behaviors).</p>
@@ -1126,7 +1126,7 @@ If all the details behind those abstractions change, then our class is still saf
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>If we want to add a new type of cats (e.g. tadar sauce), we just have to add a new class that implements the <code>Cat</code> interface. Thus, we don't have to change the <code>Meower</code> class as it uses the abstract <code>Cat</code> and not the concrete details, i.e. <code>DragonLi</code>, <code>NyanCat</code> and <code>Ragdoll</code>.</p>
+</div><p>If we want to add a new type of cats (e.g. tadar sauce), we just have to add a new class that implements the <code>Cat</code> interface. Thus, we don&rsquo;t have to change the <code>Meower</code> class as it uses the abstract <code>Cat</code> and not the concrete details, i.e. <code>DragonLi</code>, <code>NyanCat</code> and <code>Ragdoll</code>.</p>
     </div>
 
     <div class="post-copyright">

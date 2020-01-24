@@ -27,7 +27,7 @@ Whatever the reason, it can be much faster to complete some tasks using a Termin
 
 
 
-<meta name="generator" content="Hugo 0.62.2 with theme even" />
+<meta name="generator" content="Hugo 0.63.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/" />
@@ -275,7 +275,7 @@ touch foo<span class="se">\ </span>bar.txt
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="copypaste">Copy/paste</h2>
-<p>To copy or paste on the terminal, <code>ctrl+c</code> and <code>ctrl+v</code> won't work.</p>
+<p>To copy or paste on the terminal, <code>ctrl+c</code> and <code>ctrl+v</code> won&rsquo;t work.</p>
 <p>Instead, we must use <code>ctrl+shift+c</code> and <code>ctrl+shift+v</code>.</p>
 <p>⚠ <code>ctrl+c</code> is used to terminate the program</p>
 <h2 id="suspending-processes">Suspending processes</h2>
@@ -283,7 +283,7 @@ touch foo<span class="se">\ </span>bar.txt
 <p>Using <code>fg %1</code> will resume the job in foreground whereas <code>bg %1</code> will resume in background.</p>
 <p>To list all suspended jobs, just call <code>jobs</code>.</p>
 <h2 id="man-the-hell-up"><strong>man</strong> the hell up</h2>
-<p>Use <code>man</code> whenever you aren't sure about a command or its options&hellip;</p>
+<p>Use <code>man</code> whenever you aren&rsquo;t sure about a command or its options&hellip;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -296,9 +296,9 @@ man ls
 </div>
 </div><h2 id="shortcuts">Shortcuts</h2>
 <p><strong>tab</strong></p>
-<p>Always use the <code>tab</code> button to autocomplete your command. It's really useful to prevent any typos.</p>
+<p>Always use the <code>tab</code> button to autocomplete your command. It&rsquo;s really useful to prevent any typos.</p>
 <p><strong>ctrl+r</strong></p>
-<p>&ldquo;Reverse-i-search&rdquo; is a shortcut to display a list of commands you have already used. It's based on <code>history</code>.</p>
+<p>&ldquo;Reverse-i-search&rdquo; is a shortcut to display a list of commands you have already used. It&rsquo;s based on <code>history</code>.</p>
 <p><strong>!!</strong></p>
 <p>Re-execute last command:</p>
 <div class="highlight"><div class="chroma">
@@ -316,7 +316,7 @@ foobar
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>!$</strong></p>
-<p>Execute last command's value:</p>
+<p>Execute last command&rsquo;s value:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -676,11 +676,11 @@ l.lin
 <h3 id="classes">Classes</h3>
 <p>From <a href="https://en.wikipedia.org/wiki/File_system_permissions#Classes">wikipedia</a>:</p>
 <blockquote>
-<p>Files and directories are owned by a user. The owner determines the file's user class.
+<p>Files and directories are owned by a user. The owner determines the file&rsquo;s user class.
 Distinct permissions apply to the owner.</p>
-<p>Files and directories are assigned a group, which define the file's group class.
-Distinct permissions apply to members of the file's group. The owner may be a member of the file's group.</p>
-<p>Users who are not the owner, nor a member of the group, comprise a file's others class.
+<p>Files and directories are assigned a group, which define the file&rsquo;s group class.
+Distinct permissions apply to members of the file&rsquo;s group. The owner may be a member of the file&rsquo;s group.</p>
+<p>Users who are not the owner, nor a member of the group, comprise a file&rsquo;s others class.
 Distinct permissions apply to others.</p>
 <p>The effective permissions are determined based on the first class the user falls within in the order of user,
 group then others. For example, the user who is the owner of the file will have the permissions given to the user
@@ -774,7 +774,7 @@ chmod +rw README.md
 chmod <span class="m">761</span> README.md
 </code></pre></td></tr></table>
 </div>
-</div><p>⚠ Please, just don't do a <code>chmod -R 777 *</code>&hellip; for obvious security issues&hellip;</p>
+</div><p>⚠ Please, just don&rsquo;t do a <code>chmod -R 777 *</code>&hellip; for obvious security issues&hellip;</p>
 <h2 id="stdinstout">Stdin/Stout</h2>
 <p>There are three main file descriptors:</p>
 <ul>
@@ -853,7 +853,7 @@ cat non_existent_file 2&gt; error.log
 </code></pre></td></tr></table>
 </div>
 </div><p>There is a special file on the Linux system called <code>/dev/null</code> which can be considered as the &ldquo;Bin&rdquo;,
-but once information has gone to this file, it's gone forever.</p>
+but once information has gone to this file, it&rsquo;s gone forever.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -951,7 +951,7 @@ ls <span class="k">$(</span>find -name foobar<span class="k">)</span>
 <h3 id="vim-movement">VIM movement</h3>
 <p>In <code>normal</code> mode, you can navigate by using the arrow buttons, but vim has been thought for productivity.
 So instead of using the arrow buttons, and thus moving your right hand, vim has a set a buttons for which
-you won't need to move your palms and be able to reach every functionnalities vim has to offer.</p>
+you won&rsquo;t need to move your palms and be able to reach every functionnalities vim has to offer.</p>
 <p>So use the following to navigate in your file:</p>
 <ul>
 <li><code>h</code>: move left</li>
@@ -984,7 +984,7 @@ you won't need to move your palms and be able to reach every functionnalities vi
 <li><code>%</code>: go to matching parenthesis/brackets</li>
 </ul>
 <h3 id="vim-editing">VIM editing</h3>
-<p>You don't have to be in <code>insert</code> mode to edit text. You can also edit portion of your file in <code>normal</code> mode.</p>
+<p>You don&rsquo;t have to be in <code>insert</code> mode to edit text. You can also edit portion of your file in <code>normal</code> mode.</p>
 <ul>
 <li><code>x</code>: delete the character under the cursor</li>
 <li><code>X</code>: delete the character to the left of the cursor</li>
@@ -1030,7 +1030,7 @@ you won't need to move your palms and be able to reach every functionnalities vi
 <p>You can undo the last action by pressing the <code>u</code> button in <code>normal</code> mode.</p>
 <p>If you want to undo the undo, you can press the <code>ctrl+r</code> buttons.</p>
 <h3 id="going-further-with-vim">Going further with VIM</h3>
-<p>I did not cover everything, only what's needed to be able to perform basic edition on files using VIM.</p>
+<p>I did not cover everything, only what&rsquo;s needed to be able to perform basic edition on files using VIM.</p>
 <p>There are lot of tutorials out there:</p>
 <ul>
 <li><a href="http://vimdoc.sourceforge.net/htmldoc/usr_toc.html">VIM offial website</a></li>
@@ -1041,13 +1041,13 @@ you won't need to move your palms and be able to reach every functionnalities vi
 <li><a href="http://bfy.tw/HUUu">&hellip;</a></li>
 </ul>
 <h2 id="writing-a-sh-script">Writing a SH script</h2>
-<p>Linux doesn't care about extension. So if your script file name is <code>foobar.txt</code>, you can still execute it.</p>
-<p>However, it's considered as best practice to have the extension <code>.sh</code> for script files.</p>
+<p>Linux doesn&rsquo;t care about extension. So if your script file name is <code>foobar.txt</code>, you can still execute it.</p>
+<p>However, it&rsquo;s considered as best practice to have the extension <code>.sh</code> for script files.</p>
 <p>To run a script file, you cannot just type <code>script.sh</code>, you will need to precede the script by the PATH to the script,
-ie <code>/path/to/script.sh</code>, or if it's in the current directory <code>./script.sh</code>.</p>
-<p>⚠ Don't forget to add the <code>execute</code> permission to your file: <code>chmod +x /path/to/script.sh</code></p>
+ie <code>/path/to/script.sh</code>, or if it&rsquo;s in the current directory <code>./script.sh</code>.</p>
+<p>⚠ Don&rsquo;t forget to add the <code>execute</code> permission to your file: <code>chmod +x /path/to/script.sh</code></p>
 <h3 id="shebang-or-hashpling-">Shebang or hashpling #!</h3>
-<p>We need to tell the script what shell it's going to run under as the user that will execute the script may not use
+<p>We need to tell the script what shell it&rsquo;s going to run under as the user that will execute the script may not use
 the shell needed to execute the script.</p>
 <p>For example, if we want to force bash, we need to add the following at the first line of the script:</p>
 <div class="highlight"><div class="chroma">
