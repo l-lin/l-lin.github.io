@@ -16,6 +16,9 @@ You can do it by using a GUI, or you can do it using directly a terminal, which 
 
 <!--more-->
 
+__EDIT__: There is a menu editor for the GNOME desktop, [alacarte][], which is a better alternative
+than creating the shortcut yourself.
+
 There are two applications folders that Ubuntu is looking:
 
 * `/usr/share/applications/`
@@ -40,3 +43,5 @@ Sources:
 
 * https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop
 * https://askubuntu.com/questions/1006882/intellij-shortcut-location
+
+[alacarte]: https://en.wikipedia.org/wiki/Alacarte
