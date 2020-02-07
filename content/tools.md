@@ -12,12 +12,17 @@ A curated collection of awesome tools, resources, libraries and software I found
 
 - [Logofox](https://logofox.co/form/name): fast logo maker
 - [Happy Hues](https://www.happyhues.co/): color palettes to pick for your designs
-- [Design tip)(https://paul.copplest.one/blog/design.html): good design tips for developers
+- [Design tip](https://paul.copplest.one/blog/design.html): good design tips for developers
 
 ## Presentation
 
 - [Slides](https://slides.com): SAAS tool to make presentations for developers with features
   like syntax highlighted code, step-by-step code highlights presentation...
+- [Carbon](https://carbon.now.sh/): create and share beautiful images of your source code
+- [Flaticon](https://www.flaticon.com/): large database of icons
+- [The Noun project](https://thenounproject.com/): collection of icons
+- [Pexels](https://www.pexels.com/): free stock photos & videos
+- [Unsplash](https://unsplash.com/): free usable images
 
 ## Database
 
@@ -39,6 +44,11 @@ A curated collection of awesome tools, resources, libraries and software I found
 - [OOP design patterns](http://www.cheat-sheets.org/saved-copy/designpatternscard1.pdf)
 - [Java design patterns](https://java-design-patterns.com/): curated list of OOP design patterns
   with some examples implemented in Java
+
+## Frontend
+
+- [Frontend checklist](https://frontendchecklist.io/)
+- [A single div](https://a.singlediv.com/): collection of CSS drawings in single `div`s
 
 ## General
 
