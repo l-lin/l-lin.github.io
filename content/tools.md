@@ -61,3 +61,18 @@ A curated collection of awesome tools, resources, libraries and software I found
 - [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
 - [Effective engineer](https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f): some good
   advice to become a good engineer
+
+## Legal stuff
+
+- [Code du travail numérique](https://code.travail.gouv.fr/): collection of French labour legislation
+- [Antiobio'Malin](https://sante.fr/antibiomalin): collection of illness infections, how to catch
+  and treat them
+- [diplome.gouv.fr](https://diplome.gouv.fr): French website to get diploma attestation, useful in case you
+  lost your diplomas
+- [French online petition](https://petitions.senat.fr/): web application to file and sign petitions
+- [traffic offence simulation](https://www.service-public.fr/simulateur/calcul/Infraction):
+  online simulator to know what you risk when you breach some traffic regulation
+- [oups.gouv.fr](https://www.oups.gouv.fr/): advice to avoid making mistakes in your administrative
+  procedures
+- [mes droits sociaux](https://www.mesdroitssociaux.gouv.fr/): simulator for your social rights
+- [online tax stamps purchasing](https://www.mesdroitssociaux.gouv.fr/)
