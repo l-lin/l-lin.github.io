@@ -16,6 +16,7 @@ we can use `openssl` command line to generate self-signed certificates.
 <!--more-->
 
 ```bash
+#!/bin/bash
 #######################################################
 # This scripts is used to generate the rootCA and the #
 # user bi-keys                                        #
@@ -23,7 +24,6 @@ we can use `openssl` command line to generate self-signed certificates.
 # Usage:                                              #
 #           ./generate_certificate.sh                 #
 #######################################################
-#!/bin/bash
 
 rootca_home="./rootCA"
 rootca_validity=3650
