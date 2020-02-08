@@ -13,6 +13,8 @@ My name is Louis Lin: I'm a senior software engineer, I love reading light and w
 
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 
+Here's my [stackoverflow story view](https://stackoverflow.com/story/l-lin).
+
 # Overview of my side projects in Github
 
 ## 2019
