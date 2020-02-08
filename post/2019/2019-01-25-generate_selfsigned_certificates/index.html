@@ -46,12 +46,12 @@ we can use openssl command line to generate self-signed certificates." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/" />
 <meta property="article:published_time" content="2019-01-25T16:03:35+01:00" />
-<meta property="article:modified_time" content="2019-01-28T09:17:07+01:00" />
+<meta property="article:modified_time" content="2020-02-08T09:54:52+01:00" />
 <meta itemprop="name" content="How to generate self-signed certificates">
 <meta itemprop="description" content="When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
 we can use openssl command line to generate self-signed certificates.">
 <meta itemprop="datePublished" content="2019-01-25T16:03:35&#43;01:00" />
-<meta itemprop="dateModified" content="2019-01-28T09:17:07&#43;01:00" />
+<meta itemprop="dateModified" content="2020-02-08T09:54:52&#43;01:00" />
 <meta itemprop="wordCount" content="441">
 
 
@@ -274,14 +274,14 @@ we can use <code>openssl</code> command line to generate self-signed certificate
 </span><span class="lnt">113
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#######################################################</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#######################################################</span>
 <span class="c1"># This scripts is used to generate the rootCA and the #</span>
 <span class="c1"># user bi-keys                                        #</span>
 <span class="c1">#                                                     #</span>
 <span class="c1"># Usage:                                              #</span>
 <span class="c1">#           ./generate_certificate.sh                 #</span>
 <span class="c1">#######################################################</span>
-<span class="c1">#!/bin/bash</span>
 
 <span class="nv">rootca_home</span><span class="o">=</span><span class="s2">&#34;./rootCA&#34;</span>
 <span class="nv">rootca_validity</span><span class="o">=</span><span class="m">3650</span>
@@ -397,8 +397,8 @@ info <span class="s2">&#34;Generating CA and user certificates FINISHED!!!&#34;<
   <p class="copyright-item">
     <span class="item-title">Last modification</span>
     <span class="item-content">
-        2019-01-28
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/d523f084eb4ba194081f5e494e9b129ab2d5c1d0" title="post(x509): improve script">(d523f08)</a>
+        2020-02-08
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/b281bb1d0775380bd167b30a91afe0fb2117c449" title="post(certificate): fix script">(b281bb1)</a>
     </span>
   </p>
   
