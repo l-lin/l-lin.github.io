@@ -6,7 +6,7 @@ weight: 40
 comment: false
 ---
 
-A curated collection of awesome tools, resources, libraries and software I found on the internet.
+A curated collection of awesome tools, resources, libraries and softwares I found on the internet.
 
 ## Design
 
@@ -61,6 +61,10 @@ A curated collection of awesome tools, resources, libraries and software I found
 - [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
 - [Effective engineer](https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f): some good
   advice to become a good engineer
+
+## Scripting
+
+- [Best of VIM tips](https://vim.fandom.com/wiki/Best_Vim_Tips)
 
 ## Legal stuff
 
