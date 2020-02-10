@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Louis LIN" /><meta name="description" content="Although learning VIM can be quite painful, it has
+<meta name="author" content="Louis LIN" /><meta name="description" content="Although learning VIM can be quite painful, I learned it and now I love it so much I can&amp;rsquo;t write or code without it. Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM is not as trivial as clicking on a button like most IDEs.
+In this post, I will show some basic commands to use to debug a Go program with vim-go.
 " /><meta name="keywords" content="software development" />
 
 
@@ -41,22 +42,40 @@
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
 <meta property="og:title" content="Debugging With Vim Go" />
-<meta property="og:description" content="Although learning VIM can be quite painful, it has" />
+<meta property="og:description" content="Although learning VIM can be quite painful, I learned it and now I love it so much I can&rsquo;t write or
+code without it.
+Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
+functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
+is not as trivial as clicking on a button like most IDEs.
+In this post, I will show some basic commands to use to debug a Go program with
+vim-go." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/" />
 <meta property="article:published_time" content="2020-02-10T09:39:13+01:00" />
-<meta property="article:modified_time" content="2020-02-10T09:39:13+01:00" />
+<meta property="article:modified_time" content="2020-02-10T18:15:49+01:00" />
 <meta itemprop="name" content="Debugging With Vim Go">
-<meta itemprop="description" content="Although learning VIM can be quite painful, it has">
+<meta itemprop="description" content="Although learning VIM can be quite painful, I learned it and now I love it so much I can&rsquo;t write or
+code without it.
+Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
+functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
+is not as trivial as clicking on a button like most IDEs.
+In this post, I will show some basic commands to use to debug a Go program with
+vim-go.">
 <meta itemprop="datePublished" content="2020-02-10T09:39:13&#43;01:00" />
-<meta itemprop="dateModified" content="2020-02-10T09:39:13&#43;01:00" />
-<meta itemprop="wordCount" content="9">
+<meta itemprop="dateModified" content="2020-02-10T18:15:49&#43;01:00" />
+<meta itemprop="wordCount" content="338">
 
 
 
 <meta itemprop="keywords" content="golang,vim," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Debugging With Vim Go"/>
-<meta name="twitter:description" content="Although learning VIM can be quite painful, it has"/>
+<meta name="twitter:description" content="Although learning VIM can be quite painful, I learned it and now I love it so much I can&rsquo;t write or
+code without it.
+Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
+functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
+is not as trivial as clicking on a button like most IDEs.
+In this post, I will show some basic commands to use to debug a Go program with
+vim-go."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -142,7 +161,7 @@
             
           </div>
           
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -154,7 +173,56 @@
 
     
     <div class="post-content">
-      <p>Although learning VIM can be quite painful, it has</p>
+      <p>Although learning VIM can be quite painful, I learned it and now I love it so much I can&rsquo;t write or
+code without it.
+Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
+functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
+is not as trivial as clicking on a button like most IDEs.</p>
+<p>In this post, I will show some basic commands to use to debug a Go program with
+<a href="https://github.com/fatih/vim-go">vim-go</a>.</p>
+<p>Start the debugger by using <code>:GoDebugStart</code> in your <code>main</code> function. Your VIM
+should display the following:</p>
+<p><img src="/images/2020-02-10/vim-go-debug-default_config.png" alt="vim-go debug window default config"></p>
+<p>Your buffer will be split with new windows:</p>
+<ul>
+<li>stacktrace</li>
+<li>variables</li>
+<li>goroutine</li>
+<li>output of stdout/stderr</li>
+</ul>
+<p>Those windows display interesting information, but for my daily usage, I don&rsquo;t need to have all
+those windows. I just keep the variable and stacktrace windows. To do so, I edited my <code>.vimrc</code> file
+to include the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let g:go_debug_windows = {
+      \ &#39;vars&#39;:       &#39;rightbelow 60vnew&#39;,
+      \ &#39;stack&#39;:      &#39;rightbelow 10new&#39;,
+\ }
+</code></pre></td></tr></table>
+</div>
+</div><p>If you want to start with argument or some flag, you can do it by calling <code>:GoDebugStart . -someflag value</code>. In my example, I execute with <code>:GoDebugStart . -name Louis</code></p>
+<p>Then, place your cursor under the line you want to break and call <code>:GoDebugNext</code>. This will add a
+breakpoint, run your program and halt on the breakpoint:</p>
+<p><img src="/images/2020-02-10/vim-go-debug-next.png" alt="GoDebugNext"></p>
+<p>You can see the values of the local variables as well as the function argument&rsquo;s values.</p>
+<p>You can also print in the stdout if the variable is not displayed in the variable window (e.g. the
+value of a pointer, one element in a slice, &hellip;):</p>
+<p><img src="/images/2020-02-10/vim-go-debug-print.png" alt="GoDebugPrint"></p>
+<p>You can navigate and put a breakpoint anywhere you want. For example, I call <code>:GoDebugNext</code> inside
+my function <code>greet</code>:</p>
+<p><img src="/images/2020-02-10/vim-go-debug-next_inside_function.png" alt="GoDebugNext inside function"></p>
+<p>When you have finished, you can call <code>:GoDebugStop</code> to stop the debugging.</p>
+<p>A GIF to show the entire debugging of a simple Go program:</p>
+<p><img src="/images/2020-02-10/vim-go-debug.gif" alt="vim-go debug"></p>
+<p>If you want to go further, you can check the documentation in VIM with <code>:h vim-go</code> or directly
+<a href="https://github.com/fatih/vim-go/blob/master/doc/vim-go.txt">online</a>.</p>
     </div>
 
     <div class="post-copyright">
@@ -163,7 +231,7 @@
     <span class="item-title">Last modification</span>
     <span class="item-content">
         2020-02-10
-        
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/0920613d9666b7c6d207f65075adf04e312df31b" title="post(vim-go): add vim-go debugging">(0920613)</a>
     </span>
   </p>
   
