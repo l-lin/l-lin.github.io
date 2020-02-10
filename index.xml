@@ -6,7 +6,7 @@
     <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 08 Jan 2020 09:27:56 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2020 09:39:13 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,7 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>https://l-lin.github.io/tools/</guid>
-      <description>A curated collection of awesome tools, resources, libraries and software I found on the internet.
+      <description>A curated collection of awesome tools, resources, libraries and softwares I found on the internet.
 Design  Logofox: fast logo maker Happy Hues: color palettes to pick for your designs Design tip: good design tips for developers  Presentation  Slides: SAAS tool to make presentations for developers with features like syntax highlighted code, step-by-step code highlights presentation&amp;hellip; Carbon: create and share beautiful images of your source code Flaticon: large database of icons The Noun project: collection of icons Pexels: free stock photos &amp;amp; videos Unsplash: free usable images  Database  PGTune: generate optimized postgresql.</description>
     </item>
     
@@ -31,6 +31,15 @@ Design  Logofox: fast logo maker Happy Hues: color palettes to pick for your des
 This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
 Here&amp;rsquo;s my stackoverflow story view.
 Overview of my side projects in Github 2019 OWASP risk rating Asciidoctor table generator</description>
+    </item>
+    
+    <item>
+      <title>Debugging With Vim Go</title>
+      <link>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</link>
+      <pubDate>Mon, 10 Feb 2020 09:39:13 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</guid>
+      <description>&lt;p&gt;Although learning VIM can be quite painful, it has&lt;/p&gt;</description>
     </item>
     
     <item>
