@@ -74,9 +74,9 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [diplome.gouv.fr](https://diplome.gouv.fr): French website to get diploma attestation, useful in case you
   lost your diplomas
 - [French online petition](https://petitions.senat.fr/): web application to file and sign petitions
-- [traffic offence simulation](https://www.service-public.fr/simulateur/calcul/Infraction):
+- [Traffic offence simulation](https://www.service-public.fr/simulateur/calcul/Infraction):
   online simulator to know what you risk when you breach some traffic regulation
 - [oups.gouv.fr](https://www.oups.gouv.fr/): advice to avoid making mistakes in your administrative
   procedures
-- [mes droits sociaux](https://www.mesdroitssociaux.gouv.fr/): simulator for your social rights
-- [online tax stamps purchasing](https://www.mesdroitssociaux.gouv.fr/)
+- [Mes droits sociaux](https://www.mesdroitssociaux.gouv.fr/): simulator for your social rights
+- [Online tax stamps purchasing](https://www.mesdroitssociaux.gouv.fr/)
