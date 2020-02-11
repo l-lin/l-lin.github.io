@@ -9,13 +9,25 @@ mathjax: false
 
 {{< figure class="center" src="/images/hi.png" alt="Hello" >}}
 
-My name is Louis Lin: I'm a senior software engineer, I love reading light and web novels and watching the famous Korean variety show "Running man".
+My name is Louis Lin: I'm a senior software engineer, I love reading light and web novels and
+watching the famous Korean variety show "Running man".
 
-This site is dedicated to storing some tips and tricks, some thoughts and especially to improving myself at writing technical articles about software development.
+This site is dedicated to storing some tips and tricks, some thoughts and especially to improving
+myself at writing technical articles about software development.
 
 Here's my [stackoverflow story view](https://stackoverflow.com/story/l-lin).
 
 # Overview of my side projects in Github
+
+## 2020
+
+![golang][] [Trello daily logs](https://github.com/l-lin/trello-daily-logs)
+
+I want to track what I did during the day, and as I'm using Trello to manage my daily tasks, I can
+use the [Trello APIs](https://developers.trello.com/docs/api-introduction) to fetch the card
+information, especially the ones from my DONE list. Thus, I developed a simple command line tool to
+fetch the data from Trello, then write the content in markdown format in a file. Finally, I added a
+cron that executes the command at the end of the day.
 
 ## 2019
 
