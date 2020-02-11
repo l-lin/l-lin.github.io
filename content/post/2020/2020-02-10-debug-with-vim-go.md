@@ -54,8 +54,8 @@ breakpoint, run your program and halt on the breakpoint:
 
 You can see the values of the local variables as well as the function argument's values.
 
-You can also print in the stdout if the variable is not displayed in the variable window (e.g. the
-value of a pointer, one element in a slice, ...):
+You can also print in the stdout with `:GoDebugPrint variable` if the variable is not displayed in
+the variable window (e.g. the value of a pointer, one element in a slice, ...):
 
 ![GoDebugPrint](/images/2020-02-10/vim-go-debug-print.png)
 
