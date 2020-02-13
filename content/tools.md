@@ -61,6 +61,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
 - [Effective engineer](https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f): some good
   advice to become a good engineer
+- [40 Powerful concepts to describe the world](https://threadreaderapp.com/thread/1225561131122597896.html)
 
 ## Scripting
 
