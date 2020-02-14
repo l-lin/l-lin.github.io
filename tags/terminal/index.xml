@@ -6,10 +6,21 @@
     <description>Recent content in terminal on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jan 2020 09:33:51 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2020 09:01:43 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sed</title>
+      <link>https://l-lin.github.io/post/2020/2020-02-14-sed/</link>
+      <pubDate>Fri, 14 Feb 2020 09:01:43 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-02-14-sed/</guid>
+      <description>&lt;p&gt;SED is a powerful stream editor for filtering and transforming text. You can perform impressive
+and efficient operations with such tool.&lt;/p&gt;
+&lt;p&gt;In this post, we will discover the wonders of SED.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Change in bulk using sed</title>

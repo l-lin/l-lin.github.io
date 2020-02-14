@@ -6,7 +6,7 @@
     <description>Recent content on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Feb 2020 09:39:13 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2020 09:01:43 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,6 +32,17 @@ This site is dedicated to storing some tips and tricks, some thoughts and especi
 Here&amp;rsquo;s my stackoverflow story view.
 Overview of my side projects in Github 2020 Trello daily logs
 I want to track what I did during the day, and as I&amp;rsquo;m using Trello to manage my daily tasks, I can use the Trello APIs to fetch the card information, especially the ones from my DONE list.</description>
+    </item>
+    
+    <item>
+      <title>Sed</title>
+      <link>https://l-lin.github.io/post/2020/2020-02-14-sed/</link>
+      <pubDate>Fri, 14 Feb 2020 09:01:43 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-02-14-sed/</guid>
+      <description>&lt;p&gt;SED is a powerful stream editor for filtering and transforming text. You can perform impressive
+and efficient operations with such tool.&lt;/p&gt;
+&lt;p&gt;In this post, we will discover the wonders of SED.&lt;/p&gt;</description>
     </item>
     
     <item>

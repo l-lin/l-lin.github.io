@@ -17,7 +17,49 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2020-02-11T10:19:10+01:00</lastmod>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/</loc>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/</loc>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-02-14-sed/</loc>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/terminal/</loc>
+    <lastmod>2020-02-14T10:04:32+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,34 +73,6 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/golang/</loc>
-    <lastmod>2020-02-11T10:19:10+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/</loc>
-    <lastmod>2020-02-13T11:23:50+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2020-02-11T10:19:10+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2020-02-11T10:19:10+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/</loc>
     <lastmod>2020-02-11T10:19:10+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -94,13 +108,6 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</loc>
-    <lastmod>2020-01-07T15:49:44+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/terminal/</loc>
     <lastmod>2020-01-07T15:49:44+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
