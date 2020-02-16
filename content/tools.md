@@ -8,11 +8,38 @@ comment: false
 
 A curated collection of awesome tools, resources, libraries and softwares I found on the internet.
 
+## Development
+
+- [Cloud design pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/): design
+  patterns useful for building reliable, scalable, secure applications in the cloud by Microsoft
+- [OOP design patterns](http://www.cheat-sheets.org/saved-copy/designpatternscard1.pdf)
+- [Technology radar](https://www.thoughtworks.com/radar): opinionated guide to technology frontiers
+  by Thoughtworks
+- [Java design patterns](https://java-design-patterns.com/): curated list of OOP design patterns
+  with some examples implemented in Java
+- [SourceMaking Design patterns](https://sourcemaking.com/design_patterns)
+- [Frontend checklist](https://frontendchecklist.io/)
+- [Free programming notes](https://goalkicker.com/)
+- [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
+- [Best of VIM tips](https://vim.fandom.com/wiki/Best_Vim_Tips)
+- [Architecture of Open Source Applications](https://aosabook.org/en/index.html): books on how
+  softwares are structured and why
+- [Learn X in Y minutes](https://learnxinyminutes.com/): collection of tools & programming languages
+  coding examples to quickly learn them and have an overview of what they can do
+
+## Soft skills
+
+- [How to deal with difficult people](https://www.howtodeal.dev/): funny way to categorize difficult
+  people and how to deal with them
+- [Effective engineer](https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f): some good
+  advice to become a good engineer
+
 ## Design
 
 - [Logofox](https://logofox.co/form/name): fast logo maker
 - [Happy Hues](https://www.happyhues.co/): color palettes to pick for your designs
 - [Design tip](https://paul.copplest.one/blog/design.html): good design tips for developers
+- [Palette app](https://palettte.app): build smooth color scheme, fine tune hue, ...
 
 ## Presentation
 
@@ -30,43 +57,6 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Postgresqlco.nf](https://postgresqlco.nf/en/doc/param/): `postgresql.conf` documentation for
   humans
 
-## Human relationships
-
-- [How to deal with difficult people](https://www.howtodeal.dev/): funny way to categorize difficult
-  people and how to deal with them
-
-## Architecture
-
-- [Cloud design pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/): design
-  patterns useful for building reliable, scalable, secure applications in the cloud by Microsoft
-- [Technology radar](https://www.thoughtworks.com/radar): opinionated guide to technology frontiers
-  by Thoughtworks
-- [OOP design patterns](http://www.cheat-sheets.org/saved-copy/designpatternscard1.pdf)
-- [Java design patterns](https://java-design-patterns.com/): curated list of OOP design patterns
-  with some examples implemented in Java
-
-## Frontend
-
-- [Frontend checklist](https://frontendchecklist.io/)
-- [A single div](https://a.singlediv.com/): collection of CSS drawings in single `div`s
-
-## General
-
-- [Ethical alternative & resources](https://ethical.net/resources/): alternative tools and softwares
-  to mainstream stuffs
-- [Kialo](https://www.kialo.com/): tool to debate any subject
-- [CNIL GDPR guide for developer](https://lincnil.github.io/Guide-RGPD-du-developpeur/): best
-  practices written by the CNIL to address GDPR from the developer perspective
-- [Free programming notes](https://goalkicker.com/)
-- [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
-- [Effective engineer](https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f): some good
-  advice to become a good engineer
-- [40 Powerful concepts to describe the world](https://threadreaderapp.com/thread/1225561131122597896.html)
-
-## Scripting
-
-- [Best of VIM tips](https://vim.fandom.com/wiki/Best_Vim_Tips)
-
 ## Legal stuff
 
 - [Code du travail numérique](https://code.travail.gouv.fr/): collection of French labour legislation
@@ -81,3 +71,29 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   procedures
 - [Mes droits sociaux](https://www.mesdroitssociaux.gouv.fr/): simulator for your social rights
 - [Online tax stamps purchasing](https://www.mesdroitssociaux.gouv.fr/)
+- [Corrige ton impôt](https://www.corrigetonimpot.fr/): good advice to help you fill your tax
+  declaration
+- [Mon compte formation](https://www.moncompteformation.gouv.fr)
+  presentations or in documentation to insert a joke)
+- [Calculatrice fiscale LMNP](https://www.lecoindulmnp.fr/statut-lmnp/fiscalite/simulateur/)
+
+## Misc
+
+- [Ethical alternative & resources](https://ethical.net/resources/): alternative tools and softwares
+  to mainstream stuffs
+- [Kialo](https://www.kialo.com/): tool to debate any subject
+- [Arguman](https://en.arguman.org/): argument analysis platform
+- [CNIL GDPR guide for developer](https://lincnil.github.io/Guide-RGPD-du-developpeur/): best
+  practices written by the CNIL to address GDPR from the developer perspective
+- [40 Powerful concepts to describe the world](https://threadreaderapp.com/thread/1225561131122597896.html)
+- [A single div](https://a.singlediv.com/): collection of CSS drawings in single `div`s
+- [Est-ce qu'on met en prod aujourd'hui](https://www.estcequonmetenprodaujourdhui.info/)
+- [Developer excuses](http://developerexcuses.com/): some excuses a developer might say
+- [Windows 93](https://www.windows93.net): web emulation of Windows 93 (or some of it)
+- [PCE.js](https://jamesfriend.com.au/pce-js/): web emulation of classic computers
+- [CAAS](https://cataas.com/): Cat As A Service is a REST API to spread peace & love (or not) with
+  cats
+- [procatinator](https://procatinator.com/): random cat gifs with music
+- [The useless web](https://theuselessweb.com/): redirects you to an useless website
+- [Geek typer](http://geektyper.com): website to simulate what a "Hacker" do in movies
+- [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
