@@ -97,3 +97,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [The useless web](https://theuselessweb.com/): redirects you to an useless website
 - [Geek typer](http://geektyper.com): website to simulate what a "Hacker" do in movies
 - [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
+- [Tech interview handbook](https://yangshun.github.io/tech-interview-handbook): useful tips for
+  tech interviews
