@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/" />
@@ -170,8 +170,8 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Plane</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -200,8 +200,8 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">Plane</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">fun</span> <span class="nf">fly</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">class</span> <span class="nc">Plane</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">fly</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -210,7 +210,7 @@
 </span><span class="c1"></span>
 <span class="k">class</span> <span class="nc">Plane</span>
 
-<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -218,7 +218,7 @@
 </span><span class="c1"></span>
 <span class="k">class</span> <span class="nc">Plane</span>
 
-<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">(</span><span class="p">)</span> <span class="p">=</span> <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">Plane</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span> <span class="p">=</span> <span class="n">println</span><span class="p">(</span><span class="s">&#34;I&#39;m flying&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>It&rsquo;s interesting to note that other languages (like Golang) also uses the second form.</p>
@@ -252,7 +252,7 @@
     <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">firstName</span><span class="o">;</span>
     <span class="o">}</span>
 
@@ -260,11 +260,11 @@
         <span class="k">this</span><span class="o">.</span><span class="na">firstName</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">lastName</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLastName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLastName</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -315,30 +315,30 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cmd</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="n">Option</span> <span class="nf">getOption</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">)</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">execute</span><span class="o">();</span>
+    <span class="n">Option</span> <span class="nf">getOption</span><span class="o">();</span>
+    <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">AbstractCmd</span> <span class="kd">implements</span> <span class="n">Cmd</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">(</span><span class="n">CommandLine</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="n">getOption</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">String</span> <span class="n">longOpt</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="na">getLongOpt</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="na">hasOption</span><span class="o">(</span><span class="n">longOpt</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="n">getOption</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">longOpt</span> <span class="o">=</span> <span class="n">option</span><span class="o">.</span><span class="na">getLongOpt</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="na">hasOption</span><span class="o">(</span><span class="n">longOpt</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="n">HelpCmd</span> <span class="kd">extends</span> <span class="n">AbstractCmd</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Option</span><span class="o">(</span><span class="s">&#34;h&#34;</span><span class="o">,</span> <span class="s">&#34;help&#34;</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Option</span> <span class="n">option</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Option</span><span class="o">(</span><span class="s">&#34;h&#34;</span><span class="o">,</span> <span class="s">&#34;help&#34;</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="o">);</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Display help here&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Display help here&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">Option</span> <span class="nf">getOption</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Option</span> <span class="nf">getOption</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">option</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -373,26 +373,26 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">interface</span> <span class="nc">Cmd</span> <span class="p">{</span>
-    <span class="k">fun</span> <span class="nf">execute</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">fun</span> <span class="nf">getOption</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Option</span>
-    <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">)</span><span class="p">:</span> <span class="n">Boolean</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="k">fun</span> <span class="nf">getOption</span><span class="p">():</span> <span class="n">Option</span>
+    <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">):</span> <span class="n">Boolean</span>
 <span class="p">}</span>
 
 <span class="c1">// Keyword &#34;implements&#34; not needed
 </span><span class="c1"></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">AbstractCmd</span><span class="p">:</span> <span class="n">Cmd</span> <span class="p">{</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">)</span><span class="p">:</span> <span class="n">Boolean</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="n">hasOption</span><span class="p">(</span><span class="n">getOption</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">longOpt</span><span class="p">)</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="n">CommandLine</span><span class="p">):</span> <span class="n">Boolean</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">.</span><span class="n">hasOption</span><span class="p">(</span><span class="n">getOption</span><span class="p">().</span><span class="n">longOpt</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Keyword &#34;extends&#34; not needed
-</span><span class="c1"></span><span class="k">class</span> <span class="nc">HelpCmd</span><span class="p">:</span> <span class="n">AbstractCmd</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="k">class</span> <span class="nc">HelpCmd</span><span class="p">:</span> <span class="n">AbstractCmd</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// We need to declare as &#34;private&#34; and override the `getOption` method otherwise we have an &#34;accidental override&#34; error
 </span><span class="c1"></span>    <span class="k">private</span> <span class="k">val</span> <span class="py">option</span> <span class="p">=</span> <span class="n">Option</span><span class="p">(</span><span class="s">&#34;h&#34;</span><span class="p">,</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s">&#34;display the help and exit&#34;</span><span class="p">)</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getOption</span><span class="p">(</span><span class="p">)</span><span class="p">:</span> <span class="n">Option</span> <span class="p">=</span> <span class="n">option</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getOption</span><span class="p">():</span> <span class="n">Option</span> <span class="p">=</span> <span class="n">option</span>
 
     <span class="c1">// No need to add the character &#39;@&#39; and by default, the methods are public
-</span><span class="c1"></span>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">println</span><span class="p">(</span><span class="s">&#34;Display help here&#34;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>

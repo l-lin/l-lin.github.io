@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/" />
@@ -179,7 +179,7 @@ So you will need to create the tags using the following command:</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">git <span class="k">for</span>-each-ref refs/remotes/origin/tags <span class="p">|</span> cut -d / -f 5- <span class="p">|</span> grep -v @ <span class="p">|</span> <span class="se">\
-</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> tagname<span class="p">;</span> <span class="k">do</span> git tag <span class="s2">&#34;</span><span class="nv">$tagname</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="s2">origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> git branch -r -d <span class="s2">&#34;</span><span class="s2">origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
+</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> tagname<span class="p">;</span> <span class="k">do</span> git tag <span class="s2">&#34;</span><span class="nv">$tagname</span><span class="s2">&#34;</span> <span class="s2">&#34;origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> git branch -r -d <span class="s2">&#34;origin/tags/</span><span class="nv">$tagname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>You might need to adapt the command a little bit if your branch tags are not called <code>remotes/origin/tags/&lt;tagname&gt;</code>.</p>
@@ -191,7 +191,7 @@ So you will need to create the tags using the following command:</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">git <span class="k">for</span>-each-ref refs/remotes/origin <span class="p">|</span> cut -d / -f 4- <span class="p">|</span> grep -v @ <span class="p">|</span> <span class="se">\
-</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> branchname<span class="p">;</span> <span class="k">do</span> git checkout -b <span class="s2">&#34;</span><span class="nv">$branchname</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="s2">origin/</span><span class="nv">$branchname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
+</span><span class="se"></span><span class="k">while</span> <span class="nb">read</span> branchname<span class="p">;</span> <span class="k">do</span> git checkout -b <span class="s2">&#34;</span><span class="nv">$branchname</span><span class="s2">&#34;</span> <span class="s2">&#34;origin/</span><span class="nv">$branchname</span><span class="s2">&#34;</span><span class="p">;</span> <span class="k">done</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Finally, add your remote and push all:</p>

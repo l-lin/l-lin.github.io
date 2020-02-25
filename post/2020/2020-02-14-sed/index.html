@@ -25,7 +25,7 @@ In this post, we will discover the wonders of SED.
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2020/2020-02-14-sed/" />
@@ -48,13 +48,13 @@ In this post, we will discover the wonders of SED." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://l-lin.github.io/post/2020/2020-02-14-sed/" />
 <meta property="article:published_time" content="2020-02-14T09:01:43+01:00" />
-<meta property="article:modified_time" content="2020-02-14T10:04:32+01:00" />
+<meta property="article:modified_time" content="2020-02-25T12:24:32+01:00" />
 <meta itemprop="name" content="Sed">
 <meta itemprop="description" content="SED is a powerful stream editor for filtering and transforming text. You can perform impressive
 and efficient operations with such tool.
 In this post, we will discover the wonders of SED.">
 <meta itemprop="datePublished" content="2020-02-14T09:01:43&#43;01:00" />
-<meta itemprop="dateModified" content="2020-02-14T10:04:32&#43;01:00" />
+<meta itemprop="dateModified" content="2020-02-25T12:24:32&#43;01:00" />
 <meta itemprop="wordCount" content="413">
 
 
@@ -152,7 +152,19 @@ In this post, we will discover the wonders of SED."/>
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#text-conversion-and-substitution">Text conversion and substitution</a></li>
+    <li><a href="#selective-deletion">Selective deletion</a></li>
+    <li><a href="#print">Print</a></li>
+    <li><a href="#tricks">Tricks</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-image center">
       <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" />
     </div>
@@ -186,6 +198,9 @@ and efficient operations with such tool.</p>
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># match &#34;pattern&#34; against the pattern space and replace the 1st occurrence of each line</span>
@@ -209,6 +224,9 @@ sed <span class="s1">&#39;/foobar/!s/pattern/replacement/g&#39;</span>
 
 <span class="c1"># if you want to edit files in place, add the flag &#34;-i&#34;</span>
 sed -i <span class="s1">&#39;s/pattern/replacement/g&#39;</span> filename.txt
+
+<span class="c1"># replace commas with newlines (use \r, not \n)</span>
+sed <span class="s1">&#39;s/,/\r/g&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="selective-deletion">Selective deletion</h2>
@@ -231,12 +249,6 @@ sed -i <span class="s1">&#39;s/pattern/replacement/g&#39;</span> filename.txt
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># remove last character</span>
@@ -256,12 +268,6 @@ sed <span class="s1">&#39;1,10d&#39;</span>
 
 <span class="c1"># delete ALL blank lines</span>
 sed <span class="s1">&#39;/^$/d&#39;</span>
-
-<span class="c1"># replace commas with newlines (use \r, not \n)</span>
-sed <span class="s1">&#39;s/,/\r/g&#39;</span>
-
-<span class="c1"># insert 2 blank spaces at beginning of each line</span>
-sed <span class="s1">&#39;s/^/  /&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="print">Print</h2>
@@ -310,6 +316,9 @@ sed -n <span class="s1">&#39;2p&#39;</span>
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># you can perform multiple sed operations</span>
@@ -334,6 +343,9 @@ sed <span class="s1">&#39;/pattern/i foobar&#39;</span>
 sed <span class="s1">&#39;2a foobar&#39;</span>
 <span class="c1"># prepend &#34;foobar&#34; before 2nd line</span>
 sed <span class="s1">&#39;2i foobar&#39;</span>
+
+<span class="c1"># insert 2 blank spaces at beginning of each line</span>
+sed <span class="s1">&#39;s/^/  /&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -344,8 +356,8 @@ sed <span class="s1">&#39;2i foobar&#39;</span>
   <p class="copyright-item">
     <span class="item-title">Last modification</span>
     <span class="item-content">
-        2020-02-14
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/4c375e2a309570af4896e07e916cb3a4202fb88d" title="post(sed): add sed post">(4c375e2)</a>
+        2020-02-25
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/694ac197614ba45969c909405445be32799cdc31" title="post(sed): fix command positions">(694ac19)</a>
     </span>
   </p>
   

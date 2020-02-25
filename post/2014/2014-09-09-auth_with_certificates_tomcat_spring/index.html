@@ -28,7 +28,7 @@ This tutorial will show you:
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/" />
@@ -76,7 +76,7 @@ how to access with a third party application
 In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.">
 <meta itemprop="datePublished" content="2014-09-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-17T15:27:40&#43;01:00" />
-<meta itemprop="wordCount" content="1826">
+<meta itemprop="wordCount" content="1827">
 
 
 
@@ -360,15 +360,15 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
-	<span class="nt">&lt;version</span><span class="nt">&gt;</span>4.0.3.RELEASE<span class="nt">&lt;/version&gt;</span>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+	<span class="nt">&lt;version&gt;</span>4.0.3.RELEASE<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>spring-security-config<span class="nt">&lt;/artifactId&gt;</span>
-	<span class="nt">&lt;version</span><span class="nt">&gt;</span>4.0.3.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-security-config<span class="nt">&lt;/artifactId&gt;</span>
+	<span class="nt">&lt;version&gt;</span>4.0.3.RELEASE<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></td></tr></table>
 </div>
@@ -464,79 +464,79 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
          <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
          <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&#34;</span>
          <span class="na">version=</span><span class="s">&#34;3.0&#34;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;display-name</span><span class="nt">&gt;</span>Foobar Application<span class="nt">&lt;/display-name&gt;</span>
+    <span class="nt">&lt;display-name&gt;</span>Foobar Application<span class="nt">&lt;/display-name&gt;</span>
 
-    <span class="nt">&lt;context-param</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;param-name</span><span class="nt">&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;context-param&gt;</span>
+        <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+        <span class="nt">&lt;param-value&gt;</span>
             WEB-INF/foobar-web-app-context.xml
         <span class="nt">&lt;/param-value&gt;</span>
     <span class="nt">&lt;/context-param&gt;</span>
 
-    <span class="c">&lt;!--</span><span class="c"> Filter to ensure spring gets to handle requests and enforce security </span><span class="c">--&gt;</span>
-    <span class="nt">&lt;filter</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;filter-name</span><span class="nt">&gt;</span>springSecurityFilterChain<span class="nt">&lt;/filter-name&gt;</span>
-        <span class="nt">&lt;filter-class</span><span class="nt">&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span class="nt">&lt;/filter-class&gt;</span>
+    <span class="c">&lt;!-- Filter to ensure spring gets to handle requests and enforce security --&gt;</span>
+    <span class="nt">&lt;filter&gt;</span>
+        <span class="nt">&lt;filter-name&gt;</span>springSecurityFilterChain<span class="nt">&lt;/filter-name&gt;</span>
+        <span class="nt">&lt;filter-class&gt;</span>org.springframework.web.filter.DelegatingFilterProxy<span class="nt">&lt;/filter-class&gt;</span>
     <span class="nt">&lt;/filter&gt;</span>
-    <span class="nt">&lt;filter-mapping</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;filter-name</span><span class="nt">&gt;</span>springSecurityFilterChain<span class="nt">&lt;/filter-name&gt;</span>
-        <span class="nt">&lt;url-pattern</span><span class="nt">&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;filter-mapping&gt;</span>
+        <span class="nt">&lt;filter-name&gt;</span>springSecurityFilterChain<span class="nt">&lt;/filter-name&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
     <span class="nt">&lt;/filter-mapping&gt;</span>
 
-    <span class="nt">&lt;listener</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;listener-class</span><span class="nt">&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+    <span class="nt">&lt;listener&gt;</span>
+        <span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
     <span class="nt">&lt;/listener&gt;</span>
 
-    <span class="nt">&lt;servlet</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;servlet-name</span><span class="nt">&gt;</span>foobarSpringDispatchServlet<span class="nt">&lt;/servlet-name&gt;</span>
-        <span class="nt">&lt;servlet-class</span><span class="nt">&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
-        <span class="nt">&lt;init-param</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;param-name</span><span class="nt">&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
-            <span class="nt">&lt;param-value</span><span class="nt">&gt;</span>WEB-INF/epayment-web-app-context.xml<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;servlet&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>foobarSpringDispatchServlet<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
+        <span class="nt">&lt;init-param&gt;</span>
+            <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+            <span class="nt">&lt;param-value&gt;</span>WEB-INF/epayment-web-app-context.xml<span class="nt">&lt;/param-value&gt;</span>
         <span class="nt">&lt;/init-param&gt;</span>
-        <span class="nt">&lt;load-on-startup</span><span class="nt">&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+        <span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
     <span class="nt">&lt;/servlet&gt;</span>
 
-    <span class="nt">&lt;servlet-mapping</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;servlet-name</span><span class="nt">&gt;</span>foobarSpringDispatchServlet<span class="nt">&lt;/servlet-name&gt;</span>
-        <span class="nt">&lt;url-pattern</span><span class="nt">&gt;</span>/api/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;servlet-mapping&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>foobarSpringDispatchServlet<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/api/*<span class="nt">&lt;/url-pattern&gt;</span>
     <span class="nt">&lt;/servlet-mapping&gt;</span>
 
-    <span class="nt">&lt;welcome-file-list</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;welcome-file</span><span class="nt">&gt;</span>index.html<span class="nt">&lt;/welcome-file&gt;</span>
-        <span class="nt">&lt;welcome-file</span><span class="nt">&gt;</span>index.htm<span class="nt">&lt;/welcome-file&gt;</span>
-        <span class="nt">&lt;welcome-file</span><span class="nt">&gt;</span>index.jsp<span class="nt">&lt;/welcome-file&gt;</span>
-        <span class="nt">&lt;welcome-file</span><span class="nt">&gt;</span>default.html<span class="nt">&lt;/welcome-file&gt;</span>
-        <span class="nt">&lt;welcome-file</span><span class="nt">&gt;</span>default.htm<span class="nt">&lt;/welcome-file&gt;</span>
-        <span class="nt">&lt;welcome-file</span><span class="nt">&gt;</span>default.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+    <span class="nt">&lt;welcome-file-list&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>index.html<span class="nt">&lt;/welcome-file&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>index.htm<span class="nt">&lt;/welcome-file&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>index.jsp<span class="nt">&lt;/welcome-file&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>default.html<span class="nt">&lt;/welcome-file&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>default.htm<span class="nt">&lt;/welcome-file&gt;</span>
+        <span class="nt">&lt;welcome-file&gt;</span>default.jsp<span class="nt">&lt;/welcome-file&gt;</span>
     <span class="nt">&lt;/welcome-file-list&gt;</span>
 
-    <span class="nt">&lt;security-constraint</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;web-resource-collection</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;web-resource-name</span><span class="nt">&gt;</span>All users<span class="nt">&lt;/web-resource-name&gt;</span>
-            <span class="nt">&lt;url-pattern</span><span class="nt">&gt;</span>/favicon.ico<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;security-constraint&gt;</span>
+        <span class="nt">&lt;web-resource-collection&gt;</span>
+            <span class="nt">&lt;web-resource-name&gt;</span>All users<span class="nt">&lt;/web-resource-name&gt;</span>
+            <span class="nt">&lt;url-pattern&gt;</span>/favicon.ico<span class="nt">&lt;/url-pattern&gt;</span>
         <span class="nt">&lt;/web-resource-collection&gt;</span>
     <span class="nt">&lt;/security-constraint&gt;</span>
 
-    <span class="nt">&lt;security-constraint</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;web-resource-collection</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;web-resource-name</span><span class="nt">&gt;</span>AuthUser<span class="nt">&lt;/web-resource-name&gt;</span>
-            <span class="nt">&lt;url-pattern</span><span class="nt">&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;security-constraint&gt;</span>
+        <span class="nt">&lt;web-resource-collection&gt;</span>
+            <span class="nt">&lt;web-resource-name&gt;</span>AuthUser<span class="nt">&lt;/web-resource-name&gt;</span>
+            <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
         <span class="nt">&lt;/web-resource-collection&gt;</span>
-        <span class="nt">&lt;auth-constraint</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;role-name</span><span class="nt">&gt;</span>AUTH_USER<span class="nt">&lt;/role-name&gt;</span>
+        <span class="nt">&lt;auth-constraint&gt;</span>
+            <span class="nt">&lt;role-name&gt;</span>AUTH_USER<span class="nt">&lt;/role-name&gt;</span>
         <span class="nt">&lt;/auth-constraint&gt;</span>
-        <span class="nt">&lt;user-data-constraint</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;transport-guarantee</span><span class="nt">&gt;</span>CONFIDENTIAL<span class="nt">&lt;/transport-guarantee&gt;</span>
+        <span class="nt">&lt;user-data-constraint&gt;</span>
+            <span class="nt">&lt;transport-guarantee&gt;</span>CONFIDENTIAL<span class="nt">&lt;/transport-guarantee&gt;</span>
         <span class="nt">&lt;/user-data-constraint&gt;</span>
     <span class="nt">&lt;/security-constraint&gt;</span>
 
-    <span class="nt">&lt;login-config</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;auth-method</span><span class="nt">&gt;</span>CLIENT-CERT<span class="nt">&lt;/auth-method&gt;</span>
+    <span class="nt">&lt;login-config&gt;</span>
+        <span class="nt">&lt;auth-method&gt;</span>CLIENT-CERT<span class="nt">&lt;/auth-method&gt;</span>
     <span class="nt">&lt;/login-config&gt;</span>
 
-    <span class="nt">&lt;security-role</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;role-name</span><span class="nt">&gt;</span>AUTH_USER<span class="nt">&lt;/role-name&gt;</span>
+    <span class="nt">&lt;security-role&gt;</span>
+        <span class="nt">&lt;role-name&gt;</span>AUTH_USER<span class="nt">&lt;/role-name&gt;</span>
     <span class="nt">&lt;/security-role&gt;</span>
 <span class="nt">&lt;/web-app&gt;</span>
 </code></pre></td></tr></table>
@@ -624,11 +624,11 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">X509AuthenticationToken</span> <span class="kd">extends</span> <span class="n">UsernamePasswordAuthenticationToken</span> <span class="o">{</span>
 
     <span class="kd">public</span> <span class="nf">X509AuthenticationToken</span><span class="o">(</span><span class="n">Object</span> <span class="n">principal</span><span class="o">,</span> <span class="n">Object</span> <span class="n">credentials</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">principal</span><span class="o">,</span> <span class="n">credentials</span><span class="o">)</span><span class="o">;</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">principal</span><span class="o">,</span> <span class="n">credentials</span><span class="o">);</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="nf">X509AuthenticationToken</span><span class="o">(</span><span class="n">Object</span> <span class="n">principal</span><span class="o">,</span> <span class="n">Object</span> <span class="n">credentials</span><span class="o">,</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="o">?</span> <span class="kd">extends</span> <span class="n">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">principal</span><span class="o">,</span> <span class="n">credentials</span><span class="o">,</span> <span class="n">authorities</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">X509AuthenticationToken</span><span class="o">(</span><span class="n">Object</span> <span class="n">principal</span><span class="o">,</span> <span class="n">Object</span> <span class="n">credentials</span><span class="o">,</span> <span class="n">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">authorities</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">principal</span><span class="o">,</span> <span class="n">credentials</span><span class="o">,</span> <span class="n">authorities</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -649,7 +649,7 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">X509CustomEntryPoint</span> <span class="kd">implements</span> <span class="n">AuthenticationEntryPoint</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">commence</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">AuthenticationException</span> <span class="n">authException</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ServletException</span> <span class="o">{</span>
-        <span class="n">response</span><span class="o">.</span><span class="na">sendError</span><span class="o">(</span><span class="n">HttpServletResponse</span><span class="o">.</span><span class="na">SC_UNAUTHORIZED</span><span class="o">,</span> <span class="s">&#34;Unauthorized&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">response</span><span class="o">.</span><span class="na">sendError</span><span class="o">(</span><span class="n">HttpServletResponse</span><span class="o">.</span><span class="na">SC_UNAUTHORIZED</span><span class="o">,</span> <span class="s">&#34;Unauthorized&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -706,23 +706,23 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 
     <span class="nd">@Override</span>
     <span class="kd">protected</span> <span class="n">X509CustomUser</span> <span class="nf">retrieveUser</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">,</span> <span class="n">UsernamePasswordAuthenticationToken</span> <span class="n">authentication</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">AuthenticationException</span> <span class="o">{</span>
-        <span class="n">List</span><span class="o">&lt;</span><span class="n">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">grantedAuths</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="o">&gt;</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">GrantedAuthority</span><span class="o">&gt;</span> <span class="n">grantedAuths</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 
-        <span class="n">X509Certificate</span> <span class="n">certificate</span> <span class="o">=</span> <span class="o">(</span><span class="n">X509Certificate</span><span class="o">)</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">X509Certificate</span> <span class="n">certificate</span> <span class="o">=</span> <span class="o">(</span><span class="n">X509Certificate</span><span class="o">)</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">();</span>
 
         <span class="c1">// Use your service to fetch the certificate user from your DB, or LDAP or anywhere you like
-</span><span class="c1"></span>        <span class="n">CertificateUser</span> <span class="n">certificateUser</span> <span class="o">=</span> <span class="n">certificateUserService</span><span class="o">.</span><span class="na">findByCertificateId</span><span class="o">(</span><span class="n">certificate</span><span class="o">.</span><span class="na">getSubjectDN</span><span class="o">(</span><span class="o">)</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">CertificateUser</span> <span class="n">certificateUser</span> <span class="o">=</span> <span class="n">certificateUserService</span><span class="o">.</span><span class="na">findByCertificateId</span><span class="o">(</span><span class="n">certificate</span><span class="o">.</span><span class="na">getSubjectDN</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
 
         <span class="c1">// Convert in a DTO that can be exploited
-</span><span class="c1"></span>        <span class="n">X509CustomUser</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509CustomUser</span><span class="o">(</span><span class="n">certificateUser</span><span class="o">.</span><span class="na">getCertificateId</span><span class="o">(</span><span class="o">)</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">grantedAuths</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">BeanUtils</span><span class="o">.</span><span class="na">copyProperties</span><span class="o">(</span><span class="n">certificateUser</span><span class="o">,</span> <span class="n">user</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">X509CustomUser</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509CustomUser</span><span class="o">(</span><span class="n">certificateUser</span><span class="o">.</span><span class="na">getCertificateId</span><span class="o">(),</span> <span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">grantedAuths</span><span class="o">);</span>
+        <span class="n">BeanUtils</span><span class="o">.</span><span class="na">copyProperties</span><span class="o">(</span><span class="n">certificateUser</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
 
         <span class="k">return</span> <span class="n">user</span><span class="o">;</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="o">?</span><span class="o">&gt;</span> <span class="n">authentication</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">X509AuthenticationToken</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">authentication</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">authentication</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">X509AuthenticationToken</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">authentication</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -843,46 +843,46 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doFilter</span><span class="o">(</span><span class="n">ServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">ServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">FilterChain</span> <span class="n">chain</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ServletException</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="o">!</span><span class="o">(</span><span class="n">request</span> <span class="k">instanceof</span> <span class="n">HttpServletRequest</span> <span class="o">&amp;</span><span class="o">&amp;</span> <span class="n">response</span> <span class="k">instanceof</span> <span class="n">HttpServletResponse</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(!(</span><span class="n">request</span> <span class="k">instanceof</span> <span class="n">HttpServletRequest</span> <span class="o">&amp;&amp;</span> <span class="n">response</span> <span class="k">instanceof</span> <span class="n">HttpServletResponse</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
             <span class="k">return</span><span class="o">;</span>
         <span class="o">}</span>
 
-        <span class="k">if</span> <span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">X509</span><span class="o">)</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">X509</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
             <span class="k">return</span><span class="o">;</span>
         <span class="o">}</span>
 
-        <span class="n">X509Certificate</span><span class="o">[</span><span class="o">]</span> <span class="n">certificates</span> <span class="o">=</span> <span class="o">(</span><span class="n">X509Certificate</span><span class="o">[</span><span class="o">]</span><span class="o">)</span> <span class="n">request</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">X509</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">X509Certificate</span><span class="o">[]</span> <span class="n">certificates</span> <span class="o">=</span> <span class="o">(</span><span class="n">X509Certificate</span><span class="o">[])</span> <span class="n">request</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">X509</span><span class="o">);</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">certificates</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
             <span class="c1">//Using the first certificate, we don&#39;t know how to identify several at once
-</span><span class="c1"></span>            <span class="n">doAuthenticate</span><span class="o">(</span><span class="o">(</span><span class="n">HttpServletRequest</span><span class="o">)</span> <span class="n">request</span><span class="o">,</span> <span class="o">(</span><span class="n">HttpServletResponse</span><span class="o">)</span> <span class="n">response</span><span class="o">,</span> <span class="n">certificates</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>            <span class="n">doAuthenticate</span><span class="o">((</span><span class="n">HttpServletRequest</span><span class="o">)</span> <span class="n">request</span><span class="o">,</span> <span class="o">(</span><span class="n">HttpServletResponse</span><span class="o">)</span> <span class="n">response</span><span class="o">,</span> <span class="n">certificates</span><span class="o">[</span><span class="n">0</span><span class="o">]);</span>
         <span class="o">}</span>
 
-        <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">doAuthenticate</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">X509Certificate</span> <span class="n">certificate</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">Authentication</span> <span class="n">authResult</span><span class="o">;</span>
 
-        <span class="k">if</span> <span class="o">(</span><span class="n">certificate</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">(</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;No certificate found in request&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">certificate</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;No certificate found in request&#34;</span><span class="o">);</span>
             <span class="o">}</span>
 
             <span class="k">return</span><span class="o">;</span>
         <span class="o">}</span>
 
-        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">(</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;preAuthenticatedPrincipal = &#34;</span> <span class="o">+</span> <span class="n">certificate</span> <span class="o">+</span> <span class="s">&#34;, trying to authenticate&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;preAuthenticatedPrincipal = &#34;</span> <span class="o">+</span> <span class="n">certificate</span> <span class="o">+</span> <span class="s">&#34;, trying to authenticate&#34;</span><span class="o">);</span>
         <span class="o">}</span>
 
         <span class="k">try</span> <span class="o">{</span>
-            <span class="n">X509AuthenticationToken</span> <span class="n">authRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509AuthenticationToken</span><span class="o">(</span><span class="n">certificate</span><span class="o">,</span> <span class="n">getPreAuthenticatedCredentials</span><span class="o">(</span><span class="n">request</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-            <span class="n">authResult</span> <span class="o">=</span> <span class="n">authenticationManager</span><span class="o">.</span><span class="na">authenticate</span><span class="o">(</span><span class="n">authRequest</span><span class="o">)</span><span class="o">;</span>
-            <span class="n">successfulAuthentication</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">authResult</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">X509AuthenticationToken</span> <span class="n">authRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">X509AuthenticationToken</span><span class="o">(</span><span class="n">certificate</span><span class="o">,</span> <span class="n">getPreAuthenticatedCredentials</span><span class="o">(</span><span class="n">request</span><span class="o">));</span>
+            <span class="n">authResult</span> <span class="o">=</span> <span class="n">authenticationManager</span><span class="o">.</span><span class="na">authenticate</span><span class="o">(</span><span class="n">authRequest</span><span class="o">);</span>
+            <span class="n">successfulAuthentication</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">authResult</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">AuthenticationException</span> <span class="n">failed</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">unsuccessfulAuthentication</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">failed</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">unsuccessfulAuthentication</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">failed</span><span class="o">);</span>
             <span class="k">throw</span> <span class="n">failed</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">}</span>
@@ -916,13 +916,13 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 </span><span class="cm">     * @param failed the failed
 </span><span class="cm">     */</span>
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">unsuccessfulAuthentication</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">AuthenticationException</span> <span class="n">failed</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">clearContext</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">clearContext</span><span class="o">();</span>
 
-        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">(</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Cleared security context due to exception&#34;</span><span class="o">,</span> <span class="n">failed</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Cleared security context due to exception&#34;</span><span class="o">,</span> <span class="n">failed</span><span class="o">);</span>
         <span class="o">}</span>
 
-        <span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="n">WebAttributes</span><span class="o">.</span><span class="na">AUTHENTICATION_EXCEPTION</span><span class="o">,</span> <span class="n">failed</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="n">WebAttributes</span><span class="o">.</span><span class="na">AUTHENTICATION_EXCEPTION</span><span class="o">,</span> <span class="n">failed</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="cm">/**
@@ -932,10 +932,10 @@ In that cas, you will need to change the <code>clientAuth=&quot;false&quot;</cod
 </span><span class="cm">     * @param authResult the auth result
 </span><span class="cm">     */</span>
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">successfulAuthentication</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Authentication</span> <span class="n">authResult</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">(</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Authentication success: &#34;</span> <span class="o">+</span> <span class="n">authResult</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Authentication success: &#34;</span> <span class="o">+</span> <span class="n">authResult</span><span class="o">);</span>
         <span class="o">}</span>
-        <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">(</span><span class="o">)</span><span class="o">.</span><span class="na">setAuthentication</span><span class="o">(</span><span class="n">authResult</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setAuthentication</span><span class="o">(</span><span class="n">authResult</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>

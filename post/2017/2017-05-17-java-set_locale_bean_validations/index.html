@@ -25,7 +25,7 @@ However, the hibernate validation library also provides default validation messa
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/" />
@@ -178,9 +178,9 @@ However, the hibernate validation library also provides default validation messa
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneLocaleValidatorConfig</span> <span class="o">{</span>
     <span class="nd">@Bean</span>
-    <span class="n">LocaleResolver</span> <span class="nf">localeResolver</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">LocaleResolver</span> <span class="nf">localeResolver</span><span class="o">()</span> <span class="o">{</span>
         <span class="c1">// Force english for Spring Security error messages
-</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">FixedLocaleResolver</span><span class="o">(</span><span class="n">Locale</span><span class="o">.</span><span class="na">ENGLISH</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">FixedLocaleResolver</span><span class="o">(</span><span class="n">Locale</span><span class="o">.</span><span class="na">ENGLISH</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -214,17 +214,17 @@ However, the hibernate validation library also provides default validation messa
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneLocaleValidatorConfig</span> <span class="kd">extends</span> <span class="n">WebMvcConfigurerAdapter</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">Validator</span> <span class="nf">getValidator</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">LocalValidatorFactoryBean</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalValidatorFactoryBean</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">factory</span><span class="o">.</span><span class="na">setValidationMessageSource</span><span class="o">(</span><span class="n">messageSource</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">Validator</span> <span class="nf">getValidator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">LocalValidatorFactoryBean</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalValidatorFactoryBean</span><span class="o">();</span>
+        <span class="n">factory</span><span class="o">.</span><span class="na">setValidationMessageSource</span><span class="o">(</span><span class="n">messageSource</span><span class="o">());</span>
         <span class="k">return</span> <span class="n">factory</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">private</span> <span class="n">MessageSource</span> <span class="nf">messageSource</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ReloadableResourceBundleMessageSource</span> <span class="n">messageSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReloadableResourceBundleMessageSource</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">MessageSource</span> <span class="nf">messageSource</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ReloadableResourceBundleMessageSource</span> <span class="n">messageSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReloadableResourceBundleMessageSource</span><span class="o">();</span>
         <span class="c1">// Set our own validation message property so we only have english version
-</span><span class="c1"></span>        <span class="n">messageSource</span><span class="o">.</span><span class="na">setBasename</span><span class="o">(</span><span class="s">&#34;classpath:validation/OneLocaleValidationMessages&#34;</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">messageSource</span><span class="o">.</span><span class="na">setDefaultEncoding</span><span class="o">(</span><span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">.</span><span class="na">displayName</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">messageSource</span><span class="o">.</span><span class="na">setBasename</span><span class="o">(</span><span class="s">&#34;classpath:validation/OneLocaleValidationMessages&#34;</span><span class="o">);</span>
+        <span class="n">messageSource</span><span class="o">.</span><span class="na">setDefaultEncoding</span><span class="o">(</span><span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">.</span><span class="na">displayName</span><span class="o">());</span>
         <span class="k">return</span> <span class="n">messageSource</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>

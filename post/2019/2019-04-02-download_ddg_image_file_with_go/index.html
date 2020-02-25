@@ -25,7 +25,7 @@ One way is to fetch a vqd token from an initial basic request, then use it to fi
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/" />
@@ -347,11 +347,11 @@ the image.</p>
     <span class="s">&#34;strings&#34;</span>
 <span class="p">)</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">arg</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="nx">img</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">ImgFetchResult</span><span class="p">)</span>
-	<span class="nx">f</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">DDGImgFetcher</span><span class="p">{</span><span class="p">}</span>
+	<span class="nx">f</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">DDGImgFetcher</span><span class="p">{}</span>
 	<span class="k">go</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Fetch</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span> <span class="nx">arg</span><span class="p">)</span>
 	<span class="nx">result</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">img</span>
 	<span class="k">if</span> <span class="nx">result</span><span class="p">.</span><span class="nx">Error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -360,14 +360,14 @@ the image.</p>
 	<span class="nf">createFile</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Img</span><span class="p">,</span> <span class="s">&#34;/tmp/&#34;</span><span class="o">+</span><span class="nx">arg</span><span class="o">+</span><span class="s">&#34;.&#34;</span><span class="o">+</span><span class="nx">result</span><span class="p">.</span><span class="nx">ContentType</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">createFile</span><span class="p">(</span><span class="nx">content</span> <span class="p">[</span><span class="p">]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">filePath</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">createFile</span><span class="p">(</span><span class="nx">content</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">filePath</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalln</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">(</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 
-	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">content</span><span class="p">))</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalln</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span>
@@ -378,9 +378,9 @@ the image.</p>
 <span class="p">}</span>
 
 <span class="c1">// ImgFetchResult is the representation of the result to fetch the image
-</span><span class="c1"></span><span class="c1">// It wraps an error in case something went wrong
+</span><span class="c1">// It wraps an error in case something went wrong
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">ImgFetchResult</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Img</span>         <span class="p">[</span><span class="p">]</span><span class="kt">byte</span>
+	<span class="nx">Img</span>         <span class="p">[]</span><span class="kt">byte</span>
 	<span class="nx">ContentType</span> <span class="kt">string</span>
 	<span class="nx">Error</span>       <span class="kt">error</span>
 <span class="p">}</span>
@@ -388,7 +388,7 @@ the image.</p>
 <span class="kd">const</span> <span class="nx">ddgURL</span> <span class="p">=</span> <span class="s">&#34;https://duckduckgo.com&#34;</span>
 
 <span class="c1">// Fetch the image from duckduckgo
-</span><span class="c1"></span><span class="c1">// Code inspired from https://github.com/deepanprabhu/duckduckgo-images-api/blob/master/duckduckgo_images_api/api.py
+</span><span class="c1">// Code inspired from https://github.com/deepanprabhu/duckduckgo-images-api/blob/master/duckduckgo_images_api/api.py
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="o">*</span><span class="nx">DDGImgFetcher</span><span class="p">)</span> <span class="nf">Fetch</span><span class="p">(</span><span class="nx">result</span> <span class="kd">chan</span> <span class="o">*</span><span class="nx">ImgFetchResult</span><span class="p">,</span> <span class="nx">title</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">token</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">fetchToken</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -414,17 +414,17 @@ the image.</p>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not build the request for URL %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">ddgURL</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="nx">q</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="p">)</span>
+	<span class="nx">q</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">Query</span><span class="p">()</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span>
-	<span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="p">)</span>
-	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()</span>
+	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not fetch the result of %s&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not fetch the result of %s&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
 	<span class="p">}</span>
 	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Duckduckgo returns %v status code&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">(</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 	<span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from duckduckgo. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
@@ -433,7 +433,7 @@ the image.</p>
 	<span class="nx">content</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
 
 	<span class="nx">r</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MustCompile</span><span class="p">(</span><span class="s">&#34;vqd=([\\d-]+)&#34;</span><span class="p">)</span>
-	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nf">FindString</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="p">,</span> <span class="s">&#34;vqd=&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+	<span class="nx">token</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nf">FindString</span><span class="p">(</span><span class="nx">content</span><span class="p">),</span> <span class="s">&#34;vqd=&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
 
 	<span class="k">return</span> <span class="nx">token</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
@@ -444,39 +444,39 @@ the image.</p>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not build the request for URL %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="nx">q</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="p">)</span>
+	<span class="nx">q</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">Query</span><span class="p">()</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;l&#34;</span><span class="p">,</span> <span class="s">&#34;wt-wt&#34;</span><span class="p">)</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;o&#34;</span><span class="p">,</span> <span class="s">&#34;json&#34;</span><span class="p">)</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;vqd&#34;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;f&#34;</span><span class="p">,</span> <span class="s">&#34;,,,&#34;</span><span class="p">)</span>
 	<span class="nx">q</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">&#34;p&#34;</span><span class="p">,</span> <span class="s">&#34;2&#34;</span><span class="p">)</span>
-	<span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="p">)</span>
-	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">RawQuery</span> <span class="p">=</span> <span class="nx">q</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()</span>
+	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not fetch the result of %s&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not fetch the result of %s&#34;</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nf">String</span><span class="p">())</span>
 	<span class="p">}</span>
 	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Duckduckgo returns %v status code&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">(</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 	<span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from duckduckgo. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="kd">var</span> <span class="nx">data</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{</span><span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">data</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
 	<span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">data</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not parse the response body from wikipedia. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not parse the response body from wikipedia. Error was %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 	<span class="p">}</span>
 
-	<span class="nx">results</span> <span class="o">:=</span> <span class="nx">data</span><span class="p">[</span><span class="s">&#34;results&#34;</span><span class="p">]</span><span class="p">.</span><span class="p">(</span><span class="p">[</span><span class="p">]</span><span class="kd">interface</span><span class="p">{</span><span class="p">}</span><span class="p">)</span>
-	<span class="nx">firstResult</span> <span class="o">:=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{</span><span class="p">}</span><span class="p">)</span>
-	<span class="nx">imgURL</span> <span class="o">:=</span> <span class="nx">firstResult</span><span class="p">[</span><span class="s">&#34;image&#34;</span><span class="p">]</span><span class="p">.</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+	<span class="nx">results</span> <span class="o">:=</span> <span class="nx">data</span><span class="p">[</span><span class="s">&#34;results&#34;</span><span class="p">].([]</span><span class="kd">interface</span><span class="p">{})</span>
+	<span class="nx">firstResult</span> <span class="o">:=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span>
+	<span class="nx">imgURL</span> <span class="o">:=</span> <span class="nx">firstResult</span><span class="p">[</span><span class="s">&#34;image&#34;</span><span class="p">].(</span><span class="kt">string</span><span class="p">)</span>
 	<span class="k">return</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">downloadImg</span><span class="p">(</span><span class="nx">imgURL</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="p">[</span><span class="p">]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">downloadImg</span><span class="p">(</span><span class="nx">imgURL</span> <span class="kt">string</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">imgURL</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not download the image from %s&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">)</span>
@@ -484,12 +484,12 @@ the image.</p>
 	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not download the image from %s. Status comde was %v&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">(</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 	<span class="nx">body</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Could not read the response body from %s. Error was %s&#34;</span><span class="p">,</span> <span class="nx">imgURL</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 	<span class="p">}</span>
-	<span class="nx">contentType</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">)</span><span class="p">,</span> <span class="s">&#34;image/&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span><span class="p">)</span>
+	<span class="nx">contentType</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">ReplaceAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">),</span> <span class="s">&#34;image/&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
 	<span class="k">return</span> <span class="nx">body</span><span class="p">,</span> <span class="nx">contentType</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>

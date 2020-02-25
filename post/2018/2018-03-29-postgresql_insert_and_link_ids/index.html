@@ -26,7 +26,7 @@ This post is about creating the table containing the linked ids.
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/" />
@@ -187,11 +187,11 @@ various post migration operation.</p>
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">old_table</span> <span class="p">(</span>
   <span class="n">id</span> <span class="n">int4</span><span class="p">,</span>
   <span class="n">name</span> <span class="nb">VARCHAR</span>
-<span class="p">)</span><span class="p">;</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s1">foo</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s1">bar</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s1">foobar</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;</span><span class="s1">foo bar</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;foobar&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">old_table</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;foo bar&#39;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>I want to migrate to this new table:</p>
@@ -206,7 +206,7 @@ various post migration operation.</p>
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">new_table</span> <span class="p">(</span>
   <span class="n">id</span> <span class="nb">serial</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
   <span class="n">new_name</span> <span class="nb">VARCHAR</span>
-<span class="p">)</span><span class="p">;</span>
+<span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>With some CTE magic, I should be able to get my temp table that contains the links:</p>
@@ -230,10 +230,10 @@ various post migration operation.</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">sel</span> <span class="k">AS</span> <span class="p">(</span>
-  <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="n">row_number</span><span class="p">(</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rn</span>
+  <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="n">row_number</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rn</span>
   <span class="k">FROM</span> <span class="n">old_table</span>
   <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span>
-<span class="p">)</span><span class="p">,</span>
+<span class="p">),</span>
 <span class="n">ins</span> <span class="k">AS</span> <span class="p">(</span>
   <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">new_table</span> <span class="p">(</span><span class="n">new_name</span><span class="p">)</span>
   <span class="k">SELECT</span> <span class="n">name</span>
@@ -242,8 +242,8 @@ various post migration operation.</p>
 </span><span class="c1"></span>  <span class="n">RETURNING</span> <span class="n">id</span>
 <span class="p">)</span>
 <span class="k">SELECT</span> <span class="n">i</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">new_id</span><span class="p">,</span> <span class="n">sel</span><span class="p">.</span><span class="n">id</span> <span class="k">AS</span> <span class="n">old_id</span>
-<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">row_number</span><span class="p">(</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rn</span> <span class="k">FROM</span> <span class="n">ins</span><span class="p">)</span> <span class="n">i</span>
-<span class="k">JOIN</span> <span class="n">sel</span> <span class="k">USING</span> <span class="p">(</span><span class="n">rn</span><span class="p">)</span><span class="p">;</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">row_number</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rn</span> <span class="k">FROM</span> <span class="n">ins</span><span class="p">)</span> <span class="n">i</span>
+<span class="k">JOIN</span> <span class="n">sel</span> <span class="k">USING</span> <span class="p">(</span><span class="n">rn</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>And VOILA, this SQL query will return the link between the old and new IDs.</p>

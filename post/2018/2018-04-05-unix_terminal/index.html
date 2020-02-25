@@ -27,7 +27,7 @@ Whatever the reason, it can be much faster to complete some tasks using a Termin
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/" />
@@ -170,7 +170,7 @@ and menus. Another benefit is allowing access to many more commands and scripts.
     <li><a href="#beware-of-blank-spaces">Beware of blank spaces</a></li>
     <li><a href="#copypaste">Copy/paste</a></li>
     <li><a href="#suspending-processes">Suspending processes</a></li>
-    <li><a href="#man-the-hell-up">man the hell up</a></li>
+    <li><a href="#man-the-hell-up"><strong>man</strong> the hell up</a></li>
     <li><a href="#shortcuts">Shortcuts</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#super-user-vs-sudo">Super user VS sudo</a></li>
@@ -1098,7 +1098,7 @@ the shell needed to execute the script.</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">helloworld<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">helloworld<span class="o">()</span> <span class="o">{</span>
     <span class="nb">echo</span> <span class="s2">&#34;Hello world&#34;</span>
 <span class="o">}</span>
 
@@ -1128,7 +1128,7 @@ helloworld
 <span class="c1"># which are all in CAPITAL_LETTERS</span>
 <span class="nv">name</span><span class="o">=</span>Louis
 <span class="c1"># call the variable by using &#34;$variable_name&#34; or &#34;${variable_name}&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Hello </span><span class="nv">$name</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$name</span><span class="s2">&#34;</span>
 
 <span class="c1"># using export will set the environment variable when the script is called</span>
 <span class="nb">export</span> <span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&#34;-debug&#34;</span>
@@ -1151,8 +1151,8 @@ helloworld
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
-hello<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+hello<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
 <span class="c1"># This will display &#34;Hello &#34;</span>
@@ -1210,7 +1210,7 @@ hello Louis
 <span class="c1"># add this to stop the script whenever there is an error</span>
 <span class="nb">set</span> -e
 
-usage<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+usage<span class="o">()</span> <span class="o">{</span>
     <span class="nb">echo</span> <span class="s2">&#34;Usage:   hello [name]&#34;</span>
     <span class="nb">echo</span>
     <span class="nb">echo</span> <span class="s2">&#34;Example: hello Louis&#34;</span>
@@ -1231,7 +1231,7 @@ usage<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
     <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
 
 <span class="nb">exit</span> <span class="m">0</span>
 </code></pre></td></tr></table>
@@ -1262,7 +1262,7 @@ usage<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
 <span class="c1"># loop over sh files</span>
 <span class="k">for</span> f in <span class="k">$(</span>ls *.sh<span class="k">)</span>
 <span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">Display content of </span><span class="nv">$f</span><span class="s2">&#34;</span>
+    <span class="nb">echo</span> <span class="s2">&#34;Display content of </span><span class="nv">$f</span><span class="s2">&#34;</span>
     cat <span class="nv">$f</span>
 <span class="k">done</span>
 

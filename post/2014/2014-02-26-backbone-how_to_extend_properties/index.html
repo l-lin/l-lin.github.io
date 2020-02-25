@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/" />
@@ -179,7 +179,7 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Tab</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="p">{</span>
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Tab</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
     <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">i18nName</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
         <span class="nx">isCloseable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -189,11 +189,11 @@
         <span class="nx">hasGlyphicon</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="nx">className</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">PlusTab</span> <span class="o">=</span> <span class="nx">Tab</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="p">{</span>
-    <span class="nx">defaults</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">constructor</span><span class="p">.</span><span class="nx">__super__</span><span class="p">.</span><span class="nx">defaults</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">PlusTab</span> <span class="o">=</span> <span class="nx">Tab</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+    <span class="nx">defaults</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">constructor</span><span class="p">.</span><span class="nx">__super__</span><span class="p">.</span><span class="nx">defaults</span><span class="p">);</span>
         <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">tmp</span><span class="p">,</span> <span class="p">{</span>
             <span class="nx">i18nName</span><span class="o">:</span> <span class="s1">&#39;plus&#39;</span><span class="p">,</span>
             <span class="nx">buttonGlyphicon</span><span class="o">:</span> <span class="s1">&#39;glyphicon glyphicon-plus&#39;</span><span class="p">,</span>
@@ -201,9 +201,9 @@
             <span class="nx">isNeverActive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nx">hasGlyphicon</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nx">className</span><span class="o">:</span> <span class="s1">&#39;plus-tab&#39;</span>
-        <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+        <span class="p">});</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
 </div>

@@ -25,7 +25,7 @@ In this article, I will deal with Kotlin basics and see what&amp;rsquo;s differe
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/" />
@@ -193,8 +193,8 @@ In this article, I will deal with Kotlin basics and see what&rsquo;s different w
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foobar</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello world&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello world&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -221,7 +221,7 @@ When declaring a function, it must follow the following:</p>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Arrays</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span><span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Arrays</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello world&#34;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -246,7 +246,7 @@ When declaring a function, it must follow the following:</p>
 <td class="lntd">
 <pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span>
 <span class="c1">// is equivalent to
-</span><span class="c1"></span><span class="k">fun</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="k">fun</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">Int</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -291,9 +291,9 @@ When declaring a function, it must follow the following:</p>
 <td class="lntd">
 <pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="c1">// Read-only variable declaration
 </span><span class="c1"></span><span class="k">val</span> <span class="py">message</span> <span class="p">=</span> <span class="s">&#34;Hello world&#34;</span> <span class="c1">// Kotlin &#34;knows&#34; it&#39;s a String
-</span><span class="c1"></span><span class="c1">// Mutable variable
+</span><span class="c1">// Mutable variable
 </span><span class="c1"></span><span class="k">var</span> <span class="py">a</span> <span class="p">=</span> <span class="m">1</span>
-<span class="n">a</span> <span class="p">+</span><span class="p">=</span> <span class="m">2</span>
+<span class="n">a</span> <span class="p">+=</span> <span class="m">2</span>
 </code></pre></td></tr></table>
 </div>
 </div><figure class="center">
@@ -375,7 +375,7 @@ When declaring a function, it must follow the following:</p>
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foobar</span> <span class="n">foobar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foobar</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foobar</span> <span class="n">foobar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foobar</span><span class="o">();</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Whereas in Kotlin, you don&rsquo;t need the <code>new</code> keyword:</p>
@@ -384,7 +384,7 @@ When declaring a function, it must follow the following:</p>
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">var</span> <span class="py">foobar</span> <span class="p">=</span> <span class="n">Foobar</span><span class="p">(</span><span class="p">)</span>
+<pre class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="k">var</span> <span class="py">foobar</span> <span class="p">=</span> <span class="n">Foobar</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="for-loop">For loop</h1>
@@ -398,11 +398,11 @@ When declaring a function, it must follow the following:</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">)</span><span class="o">;</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
 <span class="o">}</span>
-<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">j</span><span class="o">+</span><span class="o">+</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">)</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>

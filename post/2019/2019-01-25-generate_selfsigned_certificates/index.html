@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/" />
@@ -288,11 +288,11 @@ we can use <code>openssl</code> command line to generate self-signed certificate
 <span class="nv">cert_validity</span><span class="o">=</span><span class="m">500</span>
 <span class="nv">subject</span><span class="o">=</span><span class="s2">&#34;/C=FR/ST=IDF/L=Paris/O=Foobar/OU=R&amp;D/CN=&#34;</span>
 
-info <span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">[INFO] </span><span class="nv">$1</span><span class="s2">&#34;</span>
+info <span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&#34;[INFO] </span><span class="nv">$1</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
-generateRootCA<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+generateRootCA<span class="o">()</span> <span class="o">{</span>
     info <span class="s2">&#34;Generating the Certification authority&#34;</span>
     rm -rf  <span class="si">${</span><span class="nv">rootca_home</span><span class="si">}</span>/*
     mkdir -p <span class="si">${</span><span class="nv">rootca_home</span><span class="si">}</span>
@@ -303,24 +303,24 @@ generateRootCA<span class="o">(</span><span class="o">)</span> <span class="o">{
 </span><span class="se"></span>            -days <span class="si">${</span><span class="nv">rootca_validity</span><span class="si">}</span> <span class="se">\
 </span><span class="se"></span>            -key <span class="si">${</span><span class="nv">rootca_home</span><span class="si">}</span>/rootCA.key <span class="se">\
 </span><span class="se"></span>            -out <span class="si">${</span><span class="nv">rootca_home</span><span class="si">}</span>/rootCA.pem <span class="se">\
-</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}</span><span class="s2">rootca</span><span class="s2">&#34;</span>
+</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}</span><span class="s2">rootca&#34;</span>
 <span class="o">}</span>
 
-generateRSA<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+generateRSA<span class="o">()</span> <span class="o">{</span>
     <span class="nb">local</span> <span class="nv">certificate_name</span><span class="o">=</span><span class="nv">$1</span>
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate RSA private key</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate RSA private key&#34;</span>
     openssl genrsa -out <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.rsa.key <span class="m">2048</span>
 
     generateSelfSignedCertificate <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span> rsa
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate certificate signing request for our RSA certificate</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate certificate signing request for our RSA certificate&#34;</span>
     openssl req -new <span class="se">\
 </span><span class="se"></span>            -key <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.rsa.key <span class="se">\
 </span><span class="se"></span>            -out <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.rsa.csr <span class="se">\
-</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">&#34;</span>
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Sign the RSA CSR using CA root key</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Sign the RSA CSR using CA root key&#34;</span>
     openssl x509 -req <span class="se">\
 </span><span class="se"></span>            -in <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.rsa.csr <span class="se">\
 </span><span class="se"></span>            -CA <span class="si">${</span><span class="nv">rootca_home</span><span class="si">}</span>/rootCA.pem <span class="se">\
@@ -331,21 +331,21 @@ generateRSA<span class="o">(</span><span class="o">)</span> <span class="o">{</s
 </span><span class="se"></span>            -sha256
 <span class="o">}</span>
 
-generateECDSA<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+generateECDSA<span class="o">()</span> <span class="o">{</span>
     <span class="nb">local</span> <span class="nv">certificate_name</span><span class="o">=</span><span class="nv">$1</span>
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate ECDSA private key</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate ECDSA private key&#34;</span>
     openssl ecparam -name prime256v1 -genkey -out <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.ecdsa.key
 
     generateSelfSignedCertificate <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span> ecdsa
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate certificate signing request for our ECDSA certificate</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Generate certificate signing request for our ECDSA certificate&#34;</span>
     openssl req -new -nodes <span class="se">\
 </span><span class="se"></span>            -key <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.ecdsa.key <span class="se">\
 </span><span class="se"></span>            -out <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.ecdsa.csr <span class="se">\
-</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">&#34;</span>
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Sign the RSA CSR using CA root key</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Sign the RSA CSR using CA root key&#34;</span>
     openssl x509 -req <span class="se">\
 </span><span class="se"></span>            -in <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.ecdsa.csr <span class="se">\
 </span><span class="se"></span>            -CA <span class="si">${</span><span class="nv">rootca_home</span><span class="si">}</span>/rootCA.pem <span class="se">\
@@ -356,22 +356,22 @@ generateECDSA<span class="o">(</span><span class="o">)</span> <span class="o">{<
 </span><span class="se"></span>            -sha256
 <span class="o">}</span>
 
-generateSelfSignedCertificate<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+generateSelfSignedCertificate<span class="o">()</span> <span class="o">{</span>
     <span class="nb">local</span> <span class="nv">certificate_name</span><span class="o">=</span><span class="nv">$1</span>
     <span class="nb">local</span> <span class="nv">certificate_type</span><span class="o">=</span><span class="nv">$2</span>
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">.</span><span class="si">${</span><span class="nv">certificate_type</span><span class="si">}</span><span class="s2"> - Generate self-signed certificate</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">.</span><span class="si">${</span><span class="nv">certificate_type</span><span class="si">}</span><span class="s2"> - Generate self-signed certificate&#34;</span>
     openssl req -new -x509 <span class="se">\
 </span><span class="se"></span>            -days <span class="si">${</span><span class="nv">cert_validity</span><span class="si">}</span> <span class="se">\
 </span><span class="se"></span>            -key <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.<span class="si">${</span><span class="nv">certificate_type</span><span class="si">}</span>.key <span class="se">\
 </span><span class="se"></span>            -out <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>/<span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>.self-signed.<span class="si">${</span><span class="nv">certificate_type</span><span class="si">}</span>.crt <span class="se">\
-</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span><span class="se"></span>            -subj <span class="s2">&#34;</span><span class="si">${</span><span class="nv">subject</span><span class="si">}${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2">&#34;</span>
 <span class="o">}</span>
 
-generateUserCertificate <span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+generateUserCertificate <span class="o">()</span> <span class="o">{</span>
     <span class="nb">local</span> <span class="nv">certificate_name</span><span class="o">=</span><span class="nv">$1</span>
 
-    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Delete existing files</span><span class="s2">&#34;</span>
+    info <span class="s2">&#34;</span><span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span><span class="s2"> - Delete existing files&#34;</span>
     rm -rf <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>
     mkdir -p <span class="si">${</span><span class="nv">certificate_name</span><span class="si">}</span>
 

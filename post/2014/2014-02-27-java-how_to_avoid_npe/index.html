@@ -25,7 +25,7 @@ However, there are many ways to avoid and reduce such NullPointerException.
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/" />
@@ -229,8 +229,8 @@ There are no real cure for this curse. Every application cannot escape this issu
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">fooFactory</span><span class="o">.</span><span class="na">getFoo</span><span class="o">(</span><span class="n">fooId</span><span class="o">)</span><span class="o">;</span>
-<span class="n">foo</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="c1">// =&gt; Throws NPE
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">fooFactory</span><span class="o">.</span><span class="na">getFoo</span><span class="o">(</span><span class="n">fooId</span><span class="o">);</span>
+<span class="n">foo</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span> <span class="c1">// =&gt; Throws NPE
 </span></code></pre></td></tr></table>
 </div>
 </div><p>The fix could be the following:</p>
@@ -242,9 +242,9 @@ There are no real cure for this curse. Every application cannot escape this issu
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">fooFactory</span><span class="o">.</span><span class="na">getFoo</span><span class="o">(</span><span class="n">fooId</span><span class="o">)</span><span class="o">;</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">foo</span> <span class="o">!</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">foo</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Foo</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">fooFactory</span><span class="o">.</span><span class="na">getFoo</span><span class="o">(</span><span class="n">fooId</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">foo</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">foo</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -266,10 +266,10 @@ So the error is caught upstream. The client does not see the bugs, all is well.<
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>com.google.code.findbugs<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>jsr305<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version</span><span class="nt">&gt;</span>1.3.9<span class="nt">&lt;/version&gt;</span>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.google.code.findbugs<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jsr305<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.3.9<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></td></tr></table>
 </div>
@@ -287,11 +287,11 @@ So the error is caught upstream. The client does not see the bugs, all is well.<
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">param</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="n">param</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
 <span class="o">}</span>
 
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">foo</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Findbugs will not be happy here!
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">foo</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// Findbugs will not be happy here!
 </span><span class="c1"></span><span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -305,7 +305,7 @@ So the error is caught upstream. The client does not see the bugs, all is well.<
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@NotNull</span>
-<span class="kd">private</span> <span class="n">String</span> <span class="nf">foo</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="s">&#34;foo&#34;</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -320,7 +320,7 @@ So why bother putting <code>@NotNull</code> everywhere? With the annotation <cod
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">param</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Findbugs will not be happy here!
+    <span class="n">param</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span> <span class="c1">// Findbugs will not be happy here!
 </span><span class="c1"></span><span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -380,15 +380,15 @@ To do so, you need to create a <code>package-info.java</code> at the root of you
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">permissions</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getPermissions</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getPermissions</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">UserNull</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;&#34;</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="s">&#34;&#34;</span><span class="o">;</span> <span class="o">}</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getPermissions</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span> <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getPermissions</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span> <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -408,8 +408,8 @@ To do so, you need to create a <code>package-info.java</code> at the root of you
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">param</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;Param must not be blank.&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">param</span><span class="o">))</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;Param must not be blank.&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -423,7 +423,7 @@ To do so, you need to create a <code>package-info.java</code> at the root of you
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">checkArgument</span><span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">param</span><span class="o">)</span><span class="o">,</span> <span class="s">&#34;Param must not be blank.&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="n">checkArgument</span><span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">param</span><span class="o">),</span> <span class="s">&#34;Param must not be blank.&#34;</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -445,11 +445,11 @@ This wrapper either returns the not <code>null</code> value or <code>absent</cod
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">(</span><span class="n">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalParam</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">fromNullable</span><span class="o">(</span><span class="n">param</span><span class="o">)</span><span class="o">;</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">optionalParam</span><span class="o">.</span><span class="na">isPresent</span><span class="o">(</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">optionalParam</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">optionalParam</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">fromNullable</span><span class="o">(</span><span class="n">param</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">optionalParam</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">optionalParam</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
     <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;optionalParam is absent&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;optionalParam is absent&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>

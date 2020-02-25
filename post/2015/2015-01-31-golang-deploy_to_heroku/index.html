@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/" />
@@ -199,20 +199,20 @@
 	<span class="s">&#34;fmt&#34;</span>
 <span class="p">)</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">port</span> <span class="o">:=</span> <span class="nf">GetPort</span><span class="p">(</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">port</span> <span class="o">:=</span> <span class="nf">GetPort</span><span class="p">()</span>
 	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[-] Listening on...&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
     <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">(</span><span class="nx">res</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="s">&#34;hello, world&#34;</span><span class="p">)</span>
-    <span class="p">}</span><span class="p">)</span>
+    <span class="p">})</span>
 
-    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:&#34;</span><span class="o">+</span><span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PORT&#34;</span><span class="p">)</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:&#34;</span><span class="o">+</span><span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PORT&#34;</span><span class="p">),</span> <span class="kc">nil</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
       <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">GetPort</span><span class="p">(</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">GetPort</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
 	<span class="nx">port</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;PORT&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">port</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
 		<span class="nx">port</span> <span class="p">=</span> <span class="s">&#34;4747&#34;</span>
@@ -359,33 +359,33 @@ For example, I needed to add a Postgresql. I just needed to execute one command 
 <span class="p">)</span>
 
 <span class="c1">// Fetch the list of novels
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetList</span><span class="p">(</span><span class="p">)</span> <span class="p">[</span><span class="p">]</span><span class="o">*</span><span class="nx">Novel</span> <span class="p">{</span>
-	<span class="nx">novels</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="p">[</span><span class="p">]</span><span class="o">*</span><span class="nx">Novel</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-	<span class="nx">database</span> <span class="o">:=</span> <span class="nf">connect</span><span class="p">(</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nx">database</span><span class="p">.</span><span class="nf">Close</span><span class="p">(</span><span class="p">)</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GetList</span><span class="p">()</span> <span class="p">[]</span><span class="o">*</span><span class="nx">Novel</span> <span class="p">{</span>
+	<span class="nx">novels</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="nx">Novel</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="nx">database</span> <span class="o">:=</span> <span class="nf">connect</span><span class="p">()</span>
+	<span class="k">defer</span> <span class="nx">database</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 
 	<span class="nx">rows</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">database</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;SELECT id, title, url, image_url, summary, favorite FROM novels&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 	<span class="p">}</span>
-	<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
 		<span class="nx">n</span> <span class="o">:=</span> <span class="nf">toNovel</span><span class="p">(</span><span class="nx">rows</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">n</span><span class="p">.</span><span class="nf">IsValid</span><span class="p">()</span> <span class="p">{</span>
 			<span class="nx">novels</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">novels</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Err</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Err</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Error when getting the list of novels. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">novels</span>
 <span class="p">}</span>
 
 <span class="c1">// Connect to Heroku database using the OS env DATABASE_URL
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">connect</span><span class="p">(</span><span class="p">)</span> <span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">connect</span><span class="p">()</span> <span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span> <span class="p">{</span>
 	<span class="nx">dbUrl</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Getenv</span><span class="p">(</span><span class="s">&#34;DATABASE_URL&#34;</span><span class="p">)</span>
 	<span class="nx">database</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">sql</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;postgres&#34;</span><span class="p">,</span> <span class="nx">dbUrl</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Could not open the connection to the database. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;[x] Could not open the connection to the database. Reason: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">database</span>
 <span class="p">}</span>

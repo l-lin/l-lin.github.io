@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/" />
@@ -45,7 +45,7 @@
 <meta property="og:description" content="A website on software development" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://l-lin.github.io/" />
-<meta property="og:updated_time" content="2020-02-14T09:01:43+01:00" />
+<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
 <meta itemprop="name" content="Louis LIN&#39;s blog">
 <meta itemprop="description" content="A website on software development"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Louis LIN&#39;s blog"/>
@@ -373,8 +373,8 @@ guy freshly coming out of school.</p>
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">pg_terminate_backend</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span> 
 <span class="k">FROM</span> <span class="n">pg_stat_activity</span> 
-<span class="k">WHERE</span> <span class="k">state</span> <span class="k">LIKE</span> <span class="s1">&#39;</span><span class="s1">idle %</span><span class="s1">&#39;</span> 
-<span class="k">AND</span> <span class="n">state_change</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">(</span><span class="p">)</span> <span class="o">-</span> <span class="nb">interval</span> <span class="s1">&#39;</span><span class="s1">1 hour</span><span class="s1">&#39;</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="k">state</span> <span class="k">LIKE</span> <span class="s1">&#39;idle %&#39;</span> 
+<span class="k">AND</span> <span class="n">state_change</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="nb">interval</span> <span class="s1">&#39;1 hour&#39;</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div>

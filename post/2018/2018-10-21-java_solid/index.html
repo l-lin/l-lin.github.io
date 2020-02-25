@@ -25,7 +25,7 @@ This one will deal with the famous SOLID design principles:
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-10-21-java_solid/" />
@@ -260,12 +260,12 @@ By delegating the roles to other people, the CEO can focus on what the CEO must 
         <span class="k">this</span><span class="o">.</span><span class="na">repo</span> <span class="o">=</span> <span class="n">repo</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">dao</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">this</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">dao</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -308,7 +308,7 @@ In small classes, there is no real impact, but when your class is starting to lo
         <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -321,7 +321,7 @@ In small classes, there is no real impact, but when your class is starting to lo
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="n">Cat</span> <span class="n">cat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">dao</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">cat</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">dao</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">cat</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -377,16 +377,16 @@ Hence, we will only touch the persistence functionalities without modifying the 
         <span class="k">this</span><span class="o">.</span><span class="na">catType</span> <span class="o">=</span> <span class="n">catType</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getCatType</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getCatType</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">catType</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">catType</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">catType</span><span class="o">))</span> <span class="o">{</span>
             <span class="k">return</span> <span class="s">&#34;Miaou&#34;</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">catType</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">catType</span><span class="o">))</span> <span class="o">{</span>
             <span class="k">return</span> <span class="s">&#34;Grumph&#34;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">catType</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">catType</span><span class="o">))</span> <span class="o">{</span>
             <span class="k">return</span> <span class="s">&#34;Nyan nyan&#34;</span><span class="o">;</span>
         <span class="o">}</span>
         <span class="k">return</span> <span class="s">&#34;Meow&#34;</span><span class="o">;</span>
@@ -394,11 +394,11 @@ Hence, we will only touch the persistence functionalities without modifying the 
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -437,27 +437,27 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomMeower</span> <span class="kd">extends</span> <span class="n">Meower</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">CustomMeower</span><span class="o">(</span><span class="n">String</span> <span class="n">catType</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">catType</span><span class="o">)</span><span class="o">;</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">catType</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="c1">// We are overriding the default behavior. If Cat change its method by adding some logic,
 </span><span class="c1"></span>        <span class="c1">// we won&#39;t be able to benefit the new changes.
-</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">getCatType</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">getCatType</span><span class="o">()))</span> <span class="o">{</span>
             <span class="k">return</span> <span class="s">&#34;Rawr&#34;</span><span class="o">;</span>
         <span class="o">}</span>
-        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">meow</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Will print &#34;Meow&#34;
-</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">CustomMeower</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Will print &#34;Rawr&#34;
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span> <span class="c1">// Will print &#34;Meow&#34;
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">CustomMeower</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">).</span><span class="na">meow</span><span class="o">());</span> <span class="c1">// Will print &#34;Rawr&#34;
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -524,26 +524,26 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cat</span> <span class="o">{</span>
-    <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="n">String</span> <span class="nf">meow</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ragdoll</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Miaou&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TadarSauce</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Grumph&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">NyanCat</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Nyan nyan&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -551,7 +551,7 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
 <span class="c1">// We can add without modifying the other forms of cat
 </span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DragonLi</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Rawr&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -565,17 +565,17 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
 
     <span class="c1">// We don&#39;t have to change the method, only the way of instanciating the Meower class 
 </span><span class="c1"></span>    <span class="c1">// can we define what cat is meowing
-</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">cat</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">cat</span><span class="o">.</span><span class="na">meow</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">TadarSauce</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">DragonLi</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">()).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">TadarSauce</span><span class="o">()).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">()).</span><span class="na">meow</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">DragonLi</span><span class="o">()).</span><span class="na">meow</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -642,32 +642,32 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
 
 <span class="kd">public</span> <span class="n">Ragdoll</span> <span class="kd">extends</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">Ragdoll</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">)</span><span class="o">;</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="n">NyanCat</span> <span class="kd">extends</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">NyanCat</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">)</span><span class="o">;</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PetStore</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sell</span><span class="o">(</span><span class="n">Cat</span> <span class="n">cat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">NyanCat</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">getClass</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">UnsellableCatException</span><span class="o">(</span><span class="s">&#34;This cat is too rare, I can&#39;t sell it to you!&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">NyanCat</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">getClass</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">UnsellableCatException</span><span class="o">(</span><span class="s">&#34;This cat is too rare, I can&#39;t sell it to you!&#34;</span><span class="o">);</span>
         <span class="o">}</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m selling &#34;</span> <span class="o">+</span> <span class="n">cat</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; to you&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m selling &#34;</span> <span class="o">+</span> <span class="n">cat</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; to you&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">PetStore</span> <span class="n">petStore</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PetStore</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">PetStore</span> <span class="n">petStore</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PetStore</span><span class="o">();</span>
         <span class="c1">// Printing: &#34;I&#39;m selling Mimi to you
-</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">(</span><span class="s">&#34;Mimi&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">(</span><span class="s">&#34;Mimi&#34;</span><span class="o">));</span>
         <span class="c1">// This will throw the UnsellableCatException and the program will fails if we are not careful
-</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="s">&#34;nyan&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="s">&#34;nyan&#34;</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -733,39 +733,39 @@ So, if you want to add a new type of cat, you will either have to copy/paste the
         <span class="k">this</span><span class="o">.</span><span class="na">isSellable</span> <span class="o">=</span> <span class="n">isSellable</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSellable</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isSellable</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">isSellable</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="n">Ragdoll</span> <span class="kd">extends</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">Ragdoll</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span><span class="o">;</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="n">NyanCat</span> <span class="kd">extends</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">NyanCat</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span><span class="o">;</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PetStore</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sell</span><span class="o">(</span><span class="n">Cat</span> <span class="n">cat</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="o">!</span><span class="n">cat</span><span class="o">.</span><span class="na">isSellable</span><span class="o">(</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;This cat is too rare, I can&#39;t sell it to you!&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">cat</span><span class="o">.</span><span class="na">isSellable</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;This cat is too rare, I can&#39;t sell it to you!&#34;</span><span class="o">);</span>
         <span class="o">}</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m selling &#34;</span> <span class="o">+</span> <span class="n">cat</span><span class="o">.</span><span class="na">getName</span><span class="o">(</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34; to you&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;I&#39;m selling &#34;</span> <span class="o">+</span> <span class="n">cat</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; to you&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">PetStore</span> <span class="n">petStore</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PetStore</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">PetStore</span> <span class="n">petStore</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PetStore</span><span class="o">();</span>
         <span class="c1">// Printing: &#34;I&#39;m selling Mimi to you
-</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">(</span><span class="s">&#34;Mimi&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">(</span><span class="s">&#34;Mimi&#34;</span><span class="o">));</span>
         <span class="c1">// Printing: &#34;This cat is too rare, I can&#39;t sell it to you!&#34;
-</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="s">&#34;nyan&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</span><span class="c1"></span>        <span class="n">petStore</span><span class="o">.</span><span class="na">sell</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="s">&#34;nyan&#34;</span><span class="o">));</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -823,43 +823,43 @@ Moreover, smaller interfaces are easier to implement, improve flexibility and re
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Animal</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="kt">void</span> <span class="nf">walk</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">fly</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">walk</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Animal</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="n">UnsupportedOperationException</span><span class="o">(</span><span class="s">&#34;Cats can&#39;t fly&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">UnsupportedOperationException</span><span class="o">(</span><span class="s">&#34;Cats can&#39;t fly&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The cat is walking&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The cat is walking&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Eagle</span> <span class="kd">implements</span> <span class="n">Animal</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is flying&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is flying&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is walking&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is walking&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Animal</span> <span class="n">eagle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Eagle</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">eagle</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">eagle</span><span class="o">.</span><span class="na">fly</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Animal</span> <span class="n">eagle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Eagle</span><span class="o">();</span>
+        <span class="n">eagle</span><span class="o">.</span><span class="na">walk</span><span class="o">();</span>
+        <span class="n">eagle</span><span class="o">.</span><span class="na">fly</span><span class="o">();</span>
 
-        <span class="n">Animal</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">cat</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">cat</span><span class="o">.</span><span class="na">fly</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="c1">// throws UnsupportedOperationException
+        <span class="n">Animal</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">();</span>
+        <span class="n">cat</span><span class="o">.</span><span class="na">walk</span><span class="o">();</span>
+        <span class="n">cat</span><span class="o">.</span><span class="na">fly</span><span class="o">();</span> <span class="c1">// throws UnsupportedOperationException
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -909,40 +909,40 @@ Moreover, smaller interfaces are easier to implement, improve flexibility and re
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Animal</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="nf">walk</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">walk</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Bird</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">fly</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Animal</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The cat is walking&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The cat is walking&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Eagle</span> <span class="kd">implements</span> <span class="n">Animal</span><span class="o">,</span> <span class="n">Bird</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is flying&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is flying&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is walking&#34;</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">walk</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;The eagle is walking&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Animal</span> <span class="n">eagle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Eagle</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">eagle</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">eagle</span><span class="o">.</span><span class="na">fly</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Animal</span> <span class="n">eagle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Eagle</span><span class="o">();</span>
+        <span class="n">eagle</span><span class="o">.</span><span class="na">walk</span><span class="o">();</span>
+        <span class="n">eagle</span><span class="o">.</span><span class="na">fly</span><span class="o">();</span>
 
-        <span class="n">Animal</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">cat</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">Animal</span> <span class="n">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">();</span>
+        <span class="n">cat</span><span class="o">.</span><span class="na">walk</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -994,36 +994,36 @@ If all the details behind those abstractions change, then our class is still saf
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DragonLi</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Rawr&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">NyanCat</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Nyan nyan&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Meower</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">DragonLi</span> <span class="n">dragonLi</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DragonLi</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">NyanCat</span> <span class="n">nyanCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">DragonLi</span> <span class="n">dragonLi</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DragonLi</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="n">NyanCat</span> <span class="n">nyanCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NyanCat</span><span class="o">();</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">meow</span><span class="o">(</span><span class="n">String</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">type</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dragonLi</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">type</span><span class="o">)</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nyanCat</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">type</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dragonLi</span><span class="o">.</span><span class="na">meow</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">type</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nyanCat</span><span class="o">.</span><span class="na">meow</span><span class="o">());</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Meower</span> <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Prints &#34;Rawr&#34;
-</span><span class="c1"></span>        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Prints &#34;Nyan nyan&#34;
-</span><span class="c1"></span>        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Prints nothing
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Meower</span> <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">();</span>
+        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="s">&#34;Dragon Li&#34;</span><span class="o">);</span> <span class="c1">// Prints &#34;Rawr&#34;
+</span><span class="c1"></span>        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">);</span> <span class="c1">// Prints &#34;Nyan nyan&#34;
+</span><span class="c1"></span>        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="s">&#34;Ragdoll&#34;</span><span class="o">);</span> <span class="c1">// Prints nothing
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -1082,26 +1082,26 @@ If all the details behind those abstractions change, then our class is still saf
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Cat</span> <span class="o">{</span>
-    <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="n">String</span> <span class="nf">meow</span><span class="o">();</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DragonLi</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Rawr&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">NyanCat</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Nyan nyan&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ragdoll</span> <span class="kd">implements</span> <span class="n">Cat</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&#34;Miaou&#34;</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -1113,19 +1113,19 @@ If all the details behind those abstractions change, then our class is still saf
         <span class="k">this</span><span class="o">.</span><span class="na">cat</span> <span class="o">=</span> <span class="n">cat</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">meow</span><span class="o">(</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">meow</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sandbox</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Meower</span> <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">DragonLi</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Prints &#34;Rawr&#34;
-</span><span class="c1"></span>        <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Prints &#34;Nyan nyan&#34;
-</span><span class="c1"></span>        <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
-        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">(</span><span class="o">)</span><span class="o">;</span> <span class="c1">// Prints &#34;Miaou&#34;
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Meower</span> <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">DragonLi</span><span class="o">());</span>
+        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">();</span> <span class="c1">// Prints &#34;Rawr&#34;
+</span><span class="c1"></span>        <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">NyanCat</span><span class="o">());</span>
+        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">();</span> <span class="c1">// Prints &#34;Nyan nyan&#34;
+</span><span class="c1"></span>        <span class="n">meower</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Meower</span><span class="o">(</span><span class="k">new</span> <span class="n">Ragdoll</span><span class="o">());</span>
+        <span class="n">meower</span><span class="o">.</span><span class="na">meow</span><span class="o">();</span> <span class="c1">// Prints &#34;Miaou&#34;
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
