@@ -10,8 +10,6 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 
 ## Development
 
-- [Cloud design pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/): design
-  patterns useful for building reliable, scalable, secure applications in the cloud by Microsoft
 - [OOP design patterns](http://www.cheat-sheets.org/saved-copy/designpatternscard1.pdf)
 - [Technology radar](https://www.thoughtworks.com/radar): opinionated guide to technology frontiers
   by Thoughtworks
@@ -22,10 +20,32 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Free programming notes](https://goalkicker.com/)
 - [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
 - [Best of VIM tips](https://vim.fandom.com/wiki/Best_Vim_Tips)
-- [Architecture of Open Source Applications](https://aosabook.org/en/index.html): books on how
-  softwares are structured and why
 - [Learn X in Y minutes](https://learnxinyminutes.com/): collection of tools & programming languages
   coding examples to quickly learn them and have an overview of what they can do
+- [Shell magic](https://shellmagic.xyz/): Bash quick references
+
+## Architecture
+
+- [Cloud design pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/): design
+  patterns useful for building reliable, scalable, secure applications in the cloud by Microsoft
+- [Architecture of Open Source Applications](https://aosabook.org/en/index.html): books on how
+  softwares are structured and why
+- [Security architecture
+  anti-patterns](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns): Design
+  patterns to avoid when designing computer systems by the National Cyber Security Centre
+- [Amazon whitepapers on their software
+    architecture](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc)
+
+## Documentation
+
+- [Notes on technical writing](https://mkaz.blog/misc/notes-on-technical-writing/): Advices for
+  writing technical documentation
+- [Improve communities through documentation](https://lwn.net/Articles/793927/)
+- [Architecture Decision
+  Record](https://github.com/joelparkerhenderson/architecture_decision_record): Document to capture
+  important architectural decision made along with its context and consequences
+- [Best practice for navigating API
+  documentation](https://blog.bearer.sh/best-practices-for-navigating-api-documentation/)
 
 ## Soft skills
 
