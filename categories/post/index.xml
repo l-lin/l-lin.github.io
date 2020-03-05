@@ -6,10 +6,21 @@
     <description>Recent content in post on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Feb 2020 09:01:43 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2020 09:13:03 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>From 8 to 14</title>
+      <link>https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/</link>
+      <pubDate>Thu, 05 Mar 2020 09:13:03 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://jdk.java.net/14/&#34;&gt;Java 14&lt;/a&gt; will soon be released and it&amp;rsquo;s time to leave our good ol&amp;rsquo; Java 8
+and begin to use the new language features Java brings with its versions.&lt;/p&gt;
+&lt;p&gt;In this post, I will only cover some of the newest Java features.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Sed</title>

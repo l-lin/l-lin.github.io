@@ -17,34 +17,48 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2020-02-25T12:24:32+01:00</lastmod>
+    <lastmod>2020-03-05T15:29:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/</loc>
+    <lastmod>2020-03-05T15:29:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/java/</loc>
+    <lastmod>2020-03-05T15:29:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2020-02-25T12:24:32+01:00</lastmod>
+    <lastmod>2020-03-05T15:29:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2020-02-25T12:24:32+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/2020/2020-02-14-sed/</loc>
-    <lastmod>2020-02-25T12:24:32+01:00</lastmod>
+    <lastmod>2020-03-05T15:29:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2020-03-05T15:29:00+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-02-14-sed/</loc>
     <lastmod>2020-02-25T12:24:32+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -214,13 +228,6 @@
   <url>
     <loc>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</loc>
     <lastmod>2018-12-04T09:21:21+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/java/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
