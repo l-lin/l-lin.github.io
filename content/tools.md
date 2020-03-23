@@ -76,6 +76,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [PGTune](https://pgtune.leopard.in.ua/#/): generate optimized `postgresql.conf`
 - [Postgresqlco.nf](https://postgresqlco.nf/en/doc/param/): `postgresql.conf` documentation for
   humans
+- [Joe Bot](https://postgres.ai/blog/joe-0.5/): a SQL query optimization assistant
 
 ## Legal stuff
 
@@ -119,3 +120,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
 - [Tech interview handbook](https://yangshun.github.io/tech-interview-handbook): useful tips for
   tech interviews
+- [Monitoror](https://monitoror.com/): unified monitoring wallboard
+
