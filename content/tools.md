@@ -23,6 +23,9 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Learn X in Y minutes](https://learnxinyminutes.com/): collection of tools & programming languages
   coding examples to quickly learn them and have an overview of what they can do
 - [Shell magic](https://shellmagic.xyz/): Bash quick references
+- [Web skills](https://andreasbm.github.io/web-skills/): visual learning guide for web developers
+- [Real world demo apps](https://github.com/gothinkster/realworld): demos using full stack
+  technologies
 
 ## Architecture
 
