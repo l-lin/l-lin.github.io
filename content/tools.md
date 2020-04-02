@@ -109,6 +109,11 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [1 on 1 questions](https://github.com/VGraupera/1on1-questions): good questions to ask on 1 on 1
   meetings
 
+## Video meetings
+
+- [Whereby](https://whereby.com/): flexible tool providing you with video meetings in the browser – no downloads & no logins for guests
+- [Jitsi](https://meet.jit.si/): secure, fully featured, and completely free video conferencing
+
 ## Misc
 
 - [Ethical alternative & resources](https://ethical.net/resources/): alternative tools and softwares
@@ -131,4 +136,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
 - [Monitoror](https://monitoror.com/): unified monitoring wallboard
 - [WriteMD](https://writemd.xyz): online shareable distraction-free markdown editor
+- [GifCap](https://gifcap.dev): online animated GIFs creator from a screen recording
 
