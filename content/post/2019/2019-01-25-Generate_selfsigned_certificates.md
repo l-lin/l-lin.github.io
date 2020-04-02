@@ -11,122 +11,245 @@ contentCopyright: false
 ---
 
 When developing, we may need to use certificate. Instead of using Let's Encrypt or even pay for one,
-we can use `openssl` command line to generate self-signed certificates.
+we can use `openssl` & `keytool` command line to generate self-signed certificates.
 
 <!--more-->
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 #######################################################
 # This scripts is used to generate the rootCA and the #
 # user bi-keys                                        #
-#                                                     #
-# Usage:                                              #
-#           ./generate_certificate.sh                 #
 #######################################################
 
-rootca_home="./rootCA"
-rootca_validity=3650
-cert_validity=500
-subject="/C=FR/ST=IDF/L=Paris/O=Foobar/OU=R&D/CN="
+set -e
 
-info () {
-    echo "[INFO] $1"
+rootca_home="./root_ca"
+rootca_validity=36500
+certificate_validity=36500
+out="$(pwd)/certificates"
+name="localhost"
+subject="/C=FR/ST=IDF/L=Paris/O=Foobar/OU=Engineering/CN="
+password="super-secret-password"
+
+show_help() {
+  cat << EOF
+Generate certificate
+
+Usage: ${0##*/} <flags> <args>
+
+Examples:
+    # Generate RSA bi-keys
+      ${0##*/} rsa
+    # Create certificate with name "some.domain.name"
+      ${0##*/} --name "some.domain.name" rsa
+    # Using all flags
+      ${0##*/} -n "some.domain.name" -s "/C=FR/ST=IDF/L=Paris/O=Foobar/OU=Engineering/CN=" -o "\$(pwd)/certificates" -p "S3cR3t" rsa
+
+Available commands:
+    rsa                   Generate CRT, KEY, P12 and JKS files with RSA algorithm
+    ecdsa                 Generate CRT and KEY files with ECDSA algorithm
+
+Flags:
+    -h, --help            Display help
+    -n, --name            Certificate name (default: ${name})
+    -s, --subject         Certificate subject (default: ${subject})
+    -o, --out             Output directory (default: ${out})
+
+EOF
 }
 
-generateRootCA() {
-    info "Generating the Certification authority"
-    rm -rf  ${rootca_home}/*
-    mkdir -p ${rootca_home}
+info() {
+  echo -e "\033[0;36mINFO: ${1}\033[0m"
+}
+
+generate_root_ca() {
+  local folder="${out}/${rootca_home}"
+  if [ ! -d "${folder}" ]; then
+    info "Generating the Certification Authority"
+    mkdir -p "${folder}"
 
     # Since we do not have any certification authority, we will generate our own.
-    openssl genrsa -out ${rootca_home}/rootCA.key 2048
+    openssl genrsa -out "${folder}/rootCA.key" 2048
     openssl req -new -nodes -x509 \
             -days ${rootca_validity} \
-            -key ${rootca_home}/rootCA.key \
-            -out ${rootca_home}/rootCA.pem \
+            -key "${folder}/rootCA.key" \
+            -out "${folder}/rootCA.pem" \
             -subj "${subject}rootca"
+  fi
 }
 
-generateRSA() {
-    local certificate_name=$1
+generate_rsa() {
+  local certificate_name=$1
+  local folder="${out}/${certificate_name}"
+  local rootca_folder="${out}/${rootca_home}"
 
-    info "${certificate_name} - Generate RSA private key"
-    openssl genrsa -out ${certificate_name}/${certificate_name}.rsa.key 2048
+  clean_folder "${certificate_name}" "rsa"
 
-    generateSelfSignedCertificate ${certificate_name} rsa
+  info "${certificate_name} - Generate RSA private key"
+  openssl genrsa -out "${folder}/${certificate_name}.rsa.key" 2048
 
-    info "${certificate_name} - Generate certificate signing request for our RSA certificate"
-    openssl req -new \
-            -key ${certificate_name}/${certificate_name}.rsa.key \
-            -out ${certificate_name}/${certificate_name}.rsa.csr \
-            -subj "${subject}${certificate_name}"
+  generate_self_signed_certificate "${certificate_name}" rsa
 
-    info "${certificate_name} - Sign the RSA CSR using CA root key"
-    openssl x509 -req \
-            -in ${certificate_name}/${certificate_name}.rsa.csr \
-            -CA ${rootca_home}/rootCA.pem \
-            -CAkey ${rootca_home}/rootCA.key \
-            -CAcreateserial \
-            -out ${certificate_name}/${certificate_name}.rsa.crt \
-            -days ${cert_validity} \
-            -sha256
+  info "${certificate_name} - Generate certificate signing request for our RSA certificate"
+  openssl req -new \
+          -key "${folder}/${certificate_name}.rsa.key" \
+          -out "${folder}/${certificate_name}.rsa.csr" \
+          -subj "${subject}${certificate_name}"
+
+  info "${certificate_name} - Sign the RSA CSR using CA root key"
+  openssl x509 -req \
+          -in "${folder}/${certificate_name}.rsa.csr" \
+          -CA "${rootca_folder}/rootCA.pem" \
+          -CAkey "${rootca_folder}/rootCA.key" \
+          -CAcreateserial \
+          -out "${folder}/${certificate_name}.rsa.crt" \
+          -days ${certificate_validity} \
+          -sha256
 }
 
-generateECDSA() {
-    local certificate_name=$1
+generate_ecdsa() {
+  local certificate_name=$1
+  local folder="${out}/${certificate_name}"
+  local rootca_folder="${out}/${rootca_home}"
 
-    info "${certificate_name} - Generate ECDSA private key"
-    openssl ecparam -name prime256v1 -genkey -out ${certificate_name}/${certificate_name}.ecdsa.key
+  clean_folder "${certificate_name}" "ecdsa"
 
-    generateSelfSignedCertificate ${certificate_name} ecdsa
+  info "${certificate_name} - Generate ECDSA private key"
+  openssl ecparam -name prime256v1 -genkey -out "${folder}/${certificate_name}.ecdsa.key"
 
-    info "${certificate_name} - Generate certificate signing request for our ECDSA certificate"
-    openssl req -new -nodes \
-            -key ${certificate_name}/${certificate_name}.ecdsa.key \
-            -out ${certificate_name}/${certificate_name}.ecdsa.csr \
-            -subj "${subject}${certificate_name}"
+  generate_self_signed_certificate "${certificate_name}" ecdsa
 
-    info "${certificate_name} - Sign the RSA CSR using CA root key"
-    openssl x509 -req \
-            -in ${certificate_name}/${certificate_name}.ecdsa.csr \
-            -CA ${rootca_home}/rootCA.pem \
-            -CAkey ${rootca_home}/rootCA.key \
-            -CAcreateserial \
-            -out ${certificate_name}/${certificate_name}.ecdsa.crt \
-            -days ${cert_validity} \
-            -sha256
+  info "${certificate_name} - Generate certificate signing request for our ECDSA certificate"
+  openssl req -new -nodes \
+          -key "${folder}/${certificate_name}.ecdsa.key" \
+          -out "${folder}/${certificate_name}.ecdsa.csr" \
+          -subj "${subject}${certificate_name}"
+
+  info "${certificate_name} - Sign the RSA CSR using CA root key"
+  openssl x509 -req \
+          -in "${folder}/${certificate_name}.ecdsa.csr" \
+          -CA "${rootca_folder}/rootCA.pem" \
+          -CAkey "${rootca_folder}/rootCA.key" \
+          -CAcreateserial \
+          -out "${folder}/${certificate_name}.ecdsa.crt" \
+          -days ${certificate_validity} \
+          -sha256
 }
 
-generateSelfSignedCertificate() {
-    local certificate_name=$1
-    local certificate_type=$2
+generate_p12_jks() {
+  local certificate_name=$1
+  local folder="${out}/${certificate_name}"
+  local rootca_folder="${out}/${rootca_home}"
 
-    info "${certificate_name}.${certificate_type} - Generate self-signed certificate"
-    openssl req -new -x509 \
-            -days ${cert_validity} \
-            -key ${certificate_name}/${certificate_name}.${certificate_type}.key \
-            -out ${certificate_name}/${certificate_name}.self-signed.${certificate_type}.crt \
-            -subj "${subject}${certificate_name}"
+  info "${certificate_name} - Generate the P12 with password '${password}'"
+  openssl pkcs12 -export \
+          -in "${folder}/${certificate_name}.rsa.crt" \
+          -inkey "${folder}/${certificate_name}.rsa.key" \
+          -out "${folder}/${certificate_name}.rsa.p12" \
+          -password "pass:${password}" \
+          -name "${certificate_name}"
+
+  info "${certificate_name} - Generate the JKS with password '${password}'"
+  keytool -importkeystore \
+          -srckeystore "${folder}/${certificate_name}.rsa.p12" \
+          -srcstoretype PKCS12 \
+          -srcstorepass "${password}" \
+          -srcalias "${certificate_name}" \
+          -destkeystore "${folder}/${certificate_name}.rsa.jks" \
+          -deststoretype JKS \
+          -deststorepass "${password}" \
+          -destalias "${certificate_name}"
 }
 
-generateUserCertificate () {
-    local certificate_name=$1
+generate_self_signed_certificate() {
+  local certificate_name=$1
+  local certificate_type=$2
+  local folder="${out}/${certificate_name}"
 
-    info "${certificate_name} - Delete existing files"
-    rm -rf ${certificate_name}
-    mkdir -p ${certificate_name}
-
-    generateRSA ${certificate_name}
-    generateECDSA ${certificate_name}
+  info "${certificate_name}.${certificate_type} - Generate self-signed certificate"
+  openssl req -new -x509 \
+          -days ${certificate_validity} \
+          -key "${folder}/${certificate_name}.${certificate_type}.key" \
+          -out "${folder}/${certificate_name}.self-signed.${certificate_type}.crt" \
+          -subj "${subject}${certificate_name}"
 }
 
-generateRootCA
+clean_folder() {
+  local certificate_name=$1
+  local certificate_type=$2
+  local folder="${out}/${certificate_name}"
 
-generateUserCertificate "l.lin"
-generateUserCertificate "localhost"
+  info "${certificate_name} - Delete existing ${certificate_type} files"
+  mkdir -p "${folder}"
+  if [ -f "${folder}/${certificate_name}.${certificate_type}.crt" ]; then
+    for f in ${folder}/*.${certificate_type}.*; do
+      rm "${f}"
+    done
+  fi
+}
 
-info "Generating CA and user certificates FINISHED!!!"
+main() {
+  # Flags in bash tutorial here: /usr/share/doc/util-linux/examples/getopt-parse.bash
+  TEMP=$(getopt -o 'hn:s:p:o:' --long 'help,name:,subject:,password:,out:' -n "${0##*/}" -- "$@")
+  eval set -- "$TEMP"
+  unset TEMP
+  while true; do
+    case "${1}" in
+      '-h'|'--help')
+        show_help
+        exit
+        ;;
+      '-n'|'--name')
+        name="${2}"
+        shift 2
+        continue
+        ;;
+      '-s'|'--subject')
+        subject="${2}"
+        shift 2
+        continue
+        ;;
+      '-p'|'--password')
+        password="${2}"
+        shift 2
+        continue
+        ;;
+      '-o'|'--out')
+        out="${2}"
+        shift 2
+        continue
+        ;;
+      '--')
+        shift
+        break
+        ;;
+      *)
+        break
+        ;;
+    esac
 
-exit 0
+    shift
+  done
+
+  case "${1}" in
+    'rsa')
+      generate_root_ca
+      generate_rsa "${name}"
+      generate_p12_jks "${name}"
+      info "Certificate generation FINISHED!!!"
+      ;;
+    'ecdsa')
+      generate_root_ca
+      generate_ecdsa "${name}"
+      info "Certificate generation FINISHED!!!"
+      ;;
+    *)
+      show_help
+      ;;
+  esac
+}
+
+main "$@"
 ```
+
