@@ -25,9 +25,8 @@ we can use `openssl` & `keytool` command line to generate self-signed certificat
 set -e
 
 rootca_home="./root_ca"
-rootca_validity=36500
-certificate_validity=36500
-out="$(pwd)/certificates"
+validity=36500
+out="$(pwd)"
 name="localhost"
 subject="/C=FR/ST=IDF/L=Paris/O=Foobar/OU=Engineering/CN="
 password="super-secret-password"
@@ -72,7 +71,7 @@ generate_root_ca() {
     # Since we do not have any certification authority, we will generate our own.
     openssl genrsa -out "${folder}/rootCA.key" 2048
     openssl req -new -nodes -x509 \
-            -days ${rootca_validity} \
+            -days ${validity} \
             -key "${folder}/rootCA.key" \
             -out "${folder}/rootCA.pem" \
             -subj "${subject}rootca"
@@ -104,7 +103,7 @@ generate_rsa() {
           -CAkey "${rootca_folder}/rootCA.key" \
           -CAcreateserial \
           -out "${folder}/${certificate_name}.rsa.crt" \
-          -days ${certificate_validity} \
+          -days ${validity} \
           -sha256
 }
 
@@ -133,11 +132,11 @@ generate_ecdsa() {
           -CAkey "${rootca_folder}/rootCA.key" \
           -CAcreateserial \
           -out "${folder}/${certificate_name}.ecdsa.crt" \
-          -days ${certificate_validity} \
+          -days ${validity} \
           -sha256
 }
 
-generate_p12_jks() {
+generate_p12() {
   local certificate_name=$1
   local folder="${out}/${certificate_name}"
   local rootca_folder="${out}/${rootca_home}"
@@ -147,19 +146,7 @@ generate_p12_jks() {
           -in "${folder}/${certificate_name}.rsa.crt" \
           -inkey "${folder}/${certificate_name}.rsa.key" \
           -out "${folder}/${certificate_name}.rsa.p12" \
-          -password "pass:${password}" \
-          -name "${certificate_name}"
-
-  info "${certificate_name} - Generate the JKS with password '${password}'"
-  keytool -importkeystore \
-          -srckeystore "${folder}/${certificate_name}.rsa.p12" \
-          -srcstoretype PKCS12 \
-          -srcstorepass "${password}" \
-          -srcalias "${certificate_name}" \
-          -destkeystore "${folder}/${certificate_name}.rsa.jks" \
-          -deststoretype JKS \
-          -deststorepass "${password}" \
-          -destalias "${certificate_name}"
+          -password "pass:${password}"
 }
 
 generate_self_signed_certificate() {
@@ -169,7 +156,7 @@ generate_self_signed_certificate() {
 
   info "${certificate_name}.${certificate_type} - Generate self-signed certificate"
   openssl req -new -x509 \
-          -days ${certificate_validity} \
+          -days ${validity} \
           -key "${folder}/${certificate_name}.${certificate_type}.key" \
           -out "${folder}/${certificate_name}.self-signed.${certificate_type}.crt" \
           -subj "${subject}${certificate_name}"
@@ -236,13 +223,16 @@ main() {
     'rsa')
       generate_root_ca
       generate_rsa "${name}"
-      generate_p12_jks "${name}"
+      generate_p12 "${name}"
       info "Certificate generation FINISHED!!!"
       ;;
     'ecdsa')
       generate_root_ca
       generate_ecdsa "${name}"
       info "Certificate generation FINISHED!!!"
+      ;;
+    'p12')
+      generate_root_ca
       ;;
     *)
       show_help
