@@ -115,6 +115,11 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Whereby](https://whereby.com/): flexible tool providing you with video meetings in the browser – no downloads & no logins for guests
 - [Jitsi](https://meet.jit.si/): secure, fully featured, and completely free video conferencing
 
+## Writing
+
+- [WriteMD](https://writemd.xyz): online shareable distraction-free markdown editor
+- [Markmap](https://markmap.js.org/): generate mindmaps from Markdown
+
 ## Misc
 
 - [Ethical alternative & resources](https://ethical.net/resources/): alternative tools and softwares
@@ -136,6 +141,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Geek typer](http://geektyper.com): website to simulate what a "Hacker" do in movies
 - [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
 - [Monitoror](https://monitoror.com/): unified monitoring wallboard
-- [WriteMD](https://writemd.xyz): online shareable distraction-free markdown editor
 - [GifCap](https://gifcap.dev): online animated GIFs creator from a screen recording
 
