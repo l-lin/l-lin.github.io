@@ -26,6 +26,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Web skills](https://andreasbm.github.io/web-skills/): visual learning guide for web developers
 - [Real world demo apps](https://github.com/gothinkster/realworld): demos using full stack
   technologies
+- [Developer roadmap](https://roadmap.sh/): community driven roadmaps, articles and resources for developers
 
 ## Architecture
 
