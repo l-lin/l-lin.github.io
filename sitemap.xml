@@ -3,7 +3,7 @@
   
   <url>
     <loc>https://l-lin.github.io/tools/</loc>
-    <lastmod>2020-04-02T10:00:32+02:00</lastmod>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -17,7 +17,49 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2020-04-02T17:48:57+02:00</lastmod>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/kafka/</loc>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</loc>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/</loc>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/spring/</loc>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,27 +74,6 @@
   <url>
     <loc>https://l-lin.github.io/tags/java/</loc>
     <lastmod>2020-03-05T15:29:00+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2020-04-02T17:48:57+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2020-04-02T17:48:57+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/</loc>
-    <lastmod>2020-04-02T17:48:57+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -451,7 +472,7 @@
   
   <url>
     <loc>https://l-lin.github.io/</loc>
-    <lastmod>2020-04-02T10:00:32+02:00</lastmod>
+    <lastmod>2020-04-13T21:55:05+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -598,13 +619,6 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</loc>
-    <lastmod>2019-12-17T15:27:40+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/spring/</loc>
     <lastmod>2019-12-17T15:27:40+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

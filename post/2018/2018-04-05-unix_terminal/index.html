@@ -27,7 +27,7 @@ Whatever the reason, it can be much faster to complete some tasks using a Termin
 
 
 
-<meta name="generator" content="Hugo 0.68.3 with theme even" />
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
 <link rel="canonical" href="https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/" />
@@ -281,7 +281,7 @@ touch foo<span class="se">\ </span>bar.txt
 </div><h2 id="copypaste">Copy/paste</h2>
 <p>To copy or paste on the terminal, <code>ctrl+c</code> and <code>ctrl+v</code> won&rsquo;t work.</p>
 <p>Instead, we must use <code>ctrl+shift+c</code> and <code>ctrl+shift+v</code>.</p>
-<p>⚠ <code>ctrl+c</code> is used to terminate the program</p>
+<p>⚠️ <code>ctrl+c</code> is used to terminate the program</p>
 <h2 id="suspending-processes">Suspending processes</h2>
 <p><code>ctrl+z</code> will suspend the current process.</p>
 <p>Using <code>fg %1</code> will resume the job in foreground whereas <code>bg %1</code> will resume in background.</p>
@@ -778,7 +778,7 @@ chmod +rw README.md
 chmod <span class="m">761</span> README.md
 </code></pre></td></tr></table>
 </div>
-</div><p>⚠ Please, just don&rsquo;t do a <code>chmod -R 777 *</code>&hellip; for obvious security issues&hellip;</p>
+</div><p>⚠️ Please, just don&rsquo;t do a <code>chmod -R 777 *</code>&hellip; for obvious security issues&hellip;</p>
 <h2 id="stdinstout">Stdin/Stout</h2>
 <p>There are three main file descriptors:</p>
 <ul>
@@ -1049,7 +1049,7 @@ you won&rsquo;t need to move your palms and be able to reach every functionnalit
 <p>However, it&rsquo;s considered as best practice to have the extension <code>.sh</code> for script files.</p>
 <p>To run a script file, you cannot just type <code>script.sh</code>, you will need to precede the script by the PATH to the script,
 ie <code>/path/to/script.sh</code>, or if it&rsquo;s in the current directory <code>./script.sh</code>.</p>
-<p>⚠ Don&rsquo;t forget to add the <code>execute</code> permission to your file: <code>chmod +x /path/to/script.sh</code></p>
+<p>⚠️ Don&rsquo;t forget to add the <code>execute</code> permission to your file: <code>chmod +x /path/to/script.sh</code></p>
 <h3 id="shebang-or-hashpling-">Shebang or hashpling #!</h3>
 <p>We need to tell the script what shell it&rsquo;s going to run under as the user that will execute the script may not use
 the shell needed to execute the script.</p>
