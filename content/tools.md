@@ -74,6 +74,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [The Noun project](https://thenounproject.com/): collection of icons
 - [Pexels](https://www.pexels.com/): free stock photos & videos
 - [Unsplash](https://unsplash.com/): free usable images
+- [How to speak by Pr Patrick Winston](https://ocw.mit.edu/resources/res-tll-005-how-to-speak-january-iap-2018/how-to-speak/)
 
 ## Database
 
