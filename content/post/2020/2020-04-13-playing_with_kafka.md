@@ -1,7 +1,7 @@
 ---
 title: "Playing with Kafka"
 date: 2020-04-13T20:47:48+02:00
-imageUrl: "/images/2020-04-11/heart-rates.gif"
+imageUrl: "/images/2020-04-13/heart-rates.gif"
 tags: ["kafka", "spring"]
 categories: ["post"]
 comment: true
@@ -45,7 +45,7 @@ Kafka).
 
 The target architecture is the following:
 
-{{< figure class="center" src="/images/2020-04-11/architecture.svg" alt="Target architecture" title="Target architecture" >}}
+{{< figure class="center" src="/images/2020-04-13/architecture.svg" alt="Target architecture" title="Target architecture" >}}
 
 - __heart-beat-producer__: when a smart-watch sends a heartbeat, it should end in Kafka right away
 - __heart-beat-validator__: this service deals with a stream of heartbeats to validate them and flag
@@ -272,7 +272,7 @@ It can be useful to boost the SDLC to check any potential issues when updating A
 
 ## Heart beat producer
 
-{{< figure class="center" src="/images/2020-04-11/heart-beat-producer.svg" alt="heart-beat-producer" title="heart-beat-producer" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-beat-producer.svg" alt="heart-beat-producer" title="heart-beat-producer" >}}
 
 The smart-watches must send their data somewhere. Thus, I started with a classical spring-boot
 MVC project, auto-generated from the [Spring Initializr](https://start.spring.io/). The `pom.xml`
@@ -698,7 +698,7 @@ interested on the implementation.
 
 ## Heart beat validator
 
-{{< figure class="center" src="/images/2020-04-11/heart-beat-validator.svg" alt="heart-beat-validator" title="heart-beat-validator" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-beat-validator.svg" alt="heart-beat-validator" title="heart-beat-validator" >}}
 
 We can now plug-in another service that will read that stream of heartbeats and apply a predicate to
 figure out if the heartbeat is valid or not. We can even plug-in a Machine learning model to
@@ -971,7 +971,7 @@ $ docker exec -it "${PWD##*/}_schema-registry_1" \
 
 ## Heart rate computor
 
-{{< figure class="center" src="/images/2020-04-11/heart-rate-computor.svg" alt="heart-rate-computor" title="heart-rate-computor" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-rate-computor.svg" alt="heart-rate-computor" title="heart-rate-computor" >}}
 
 Everything we have done previously is just moving data across the network. It's nice but it's not
 the heart of the whole project. Now we are tackling the service that reads heartbeats and compute
@@ -1197,7 +1197,7 @@ $ docker exec -it "${PWD##*/}_schema-registry_1" \
 
 ## Heart rate connector
 
-{{< figure class="center" src="/images/2020-04-11/heart-rate-connector.svg" alt="heart-rate-connector" title="heart-rate-connector" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-rate-connector.svg" alt="heart-rate-connector" title="heart-rate-connector" >}}
 
 Most modern backend services use a database to store and read data. So I choose PostgreSQL because
 that's the kind a database I'm most familiar with. However, it's totally possible to use another
@@ -1337,7 +1337,7 @@ Note: I did not find the configuration / a way to rename the table name...
 
 ## Heart rate consumer
 
-{{< figure class="center" src="/images/2020-04-11/heart-rate-consumer.svg" alt="heart-rate-consumer" title="heart-rate-consumer" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-rate-consumer.svg" alt="heart-rate-consumer" title="heart-rate-consumer" >}}
 
 Now, I need to display the heart rates in a nice graph in two ways:
 
@@ -1695,7 +1695,7 @@ here](https://github.com/l-lin/poc-kafka/blob/master/heart-rate-consumer/src/mai
 
 When all up and running, it displays a nice graph that updated in real time:
 
-{{< figure class="center" src="/images/2020-04-11/heart-rates.gif" alt="Heart rates real time display" title="Heart rate real time display" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-rates.gif" alt="Heart rates real time display" title="Heart rate real time display" >}}
 
 ### Database Access
 
@@ -1859,7 +1859,7 @@ the second element of the second array is the heart rate value.
 
 So it will display something like this:
 
-{{< figure class="center" src="/images/2020-04-11/heart-rates.png" alt="Last 60 seconds heart rates" title="Last 60 seconds heart rates" >}}
+{{< figure class="center" src="/images/2020-04-13/heart-rates.png" alt="Last 60 seconds heart rates" title="Last 60 seconds heart rates" >}}
 
 ### Running heart-rate-consumer
 
@@ -1889,6 +1889,28 @@ firefox http://localhost
   window](https://kafka.apache.org/24/documentation/streams/core-concepts#streams_concepts_windowing)
   in the `heart-rate-computor` could be another way to perform the aggregation and heart rate
   computation.
+
+You can run the whole system, scale the application to check out how it behaves when under heavy
+load:
+
+- change the value of
+  [`nb-users`](https://github.com/l-lin/poc-kafka/blob/master/docker-compose.yml#L186) of the
+  heart-smartwatch-simulator to perform more requests / seconds
+- you can use [docker-compose scale flag](https://docs.docker.com/compose/reference/up/) to mount
+  multiple instances of the services
+
+```bash
+docker-compose up -d \
+  --scale heart-beat-producer=3 \
+  --scale heart-beat-validator=3 \
+  --scale heart-rate-computor=3
+```
+
+:warning: you will need lots of resources. In my laptop with 4 CPU and 16Go RAM:
+
+{{< figure class="center" src="/images/2020-04-13/resources_usage.png" alt="Resources usage" title="Resource usages" >}}
+
+{{< figure class="center" src="/images/2020-04-13/docker-compose_consumption.png" alt="Consumption by containers" title="Consumption by containers" >}}
 
 ## Resources
 
