@@ -85,7 +85,7 @@ must enter your password, but your caps lock is on, thus you entered your passwo
 &lt;p>So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, how about changing to a button that you use
 everyday?&lt;/p></description></item><item><title>Debugging Maven plugin with IntelliJ</title><link>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</link><pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</guid><description/></item><item><title>Authentication using certificates, Tomcat and Spring security</title><link>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</link><pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid><description>&lt;p>Instead of the classic &lt;code>login/password&lt;/code> way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
 What&amp;rsquo;s more, you can also link a &lt;code>ROLE&lt;/code> to each certificate.&lt;/p>
-&lt;p>⚠ This tutorial is now obsolete and better solution can be used.&lt;/p>
+&lt;p>⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p>
 &lt;p>&lt;strong>TLDR&lt;/strong>: Check the sample project on my &lt;a href="https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth">Github&lt;/a>.&lt;/p>
 &lt;p>This tutorial will show you:&lt;/p>
 &lt;ul>
