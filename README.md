@@ -10,13 +10,13 @@
 
 ```bash
 # The sources are located in the `blog` branch
-git clone -b blog --recursive https://github.com/l-lin/l-lin.github.io
-cd l-lin.github.io
-# The generated HTML/CSS/JS files are located in the `master` branch and in the `public` folder
-git clone -b master https://github.com/l-lin/l-lin.github.io public
+git clone -b blog https://github.com/l-lin/l-lin.github.io
 # If you want to serve the website in localhost:1313
 hugo serve
-# This will generate the static files to the `public` folder
-hugo
 ```
+
+## Deployment
+
+The deployment to https://l-lin.github.io is performed automatically using the [Github
+actions](.github/workflows/hugo.yml) into `master` branch.
 
