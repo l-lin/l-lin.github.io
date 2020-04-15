@@ -1,39 +1,89 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>postgresql on Louis LIN's blog</title><link>https://l-lin.github.io/tags/postgresql/</link><description>Recent content in postgresql on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 15 Apr 2020 11:06:08 +0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreSQL - Import / export CSV</title><link>https://l-lin.github.io/post/2020/2020-04-15-psql-import_export_csv/</link><pubDate>Wed, 15 Apr 2020 11:06:08 +0200</pubDate><guid>https://l-lin.github.io/post/2020/2020-04-15-psql-import_export_csv/</guid><description>&lt;p>Export:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="err">\&lt;/span>&lt;span class="k">copy&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">SELECT&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="n">your_table&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">TO&lt;/span> &lt;span class="s1">&amp;#39;/tmp/your_table.csv&amp;#39;&lt;/span> &lt;span class="n">CSV&lt;/span> &lt;span class="n">HEADER&lt;/span> &lt;span class="k">FORCE&lt;/span> &lt;span class="n">QUOTE&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Import:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="err">\&lt;/span>&lt;span class="k">copy&lt;/span> &lt;span class="n">your_table&lt;/span> &lt;span class="k">FROM&lt;/span> &lt;span class="s1">&amp;#39;/tmp/your_table.csv&amp;#39;&lt;/span> &lt;span class="n">CSV&lt;/span> &lt;span class="n">HEADER&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>Remove idle transactions</title><link>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</link><pubDate>Fri, 31 Aug 2018 16:10:12 +0200</pubDate><guid>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="k">SELECT&lt;/span> &lt;span class="n">pg_terminate_backend&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">pid&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="k">FROM&lt;/span> &lt;span class="n">pg_stat_activity&lt;/span>
-&lt;span class="k">WHERE&lt;/span> &lt;span class="k">state&lt;/span> &lt;span class="k">LIKE&lt;/span> &lt;span class="s1">&amp;#39;idle %&amp;#39;&lt;/span>
-&lt;span class="k">AND&lt;/span> &lt;span class="n">state_change&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">now&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="nb">interval&lt;/span> &lt;span class="s1">&amp;#39;1 hour&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>How to link old and new IDs when migrating data from one table to another</title><link>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</link><pubDate>Thu, 29 Mar 2018 11:25:34 +0200</pubDate><guid>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</guid><description>&lt;p>When proceeding a database migration, I often had to create a temporary table that will contains
-the data from the old database.&lt;/p>
-&lt;p>However, after the migration, I still need to have links between the old IDs and the new IDs for
-various post migration operation.&lt;/p>
-&lt;p>This post is about creating the table containing the linked ids.&lt;/p></description></item><item><title>Do not prompt password and enable remote access</title><link>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</link><pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postgresql on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/postgresql/</link>
+    <description>Recent content in postgresql on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Apr 2020 11:06:08 +0200</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PostgreSQL - Import / export CSV</title>
+      <link>https://l-lin.github.io/post/2020/2020-04-15-psql-import_export_csv/</link>
+      <pubDate>Wed, 15 Apr 2020 11:06:08 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-04-15-psql-import_export_csv/</guid>
+      <description>&lt;p&gt;Export:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;err&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;copy&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;your_table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;TO&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/your_table.csv&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CSV&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HEADER&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FORCE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;QUOTE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Import:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;err&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;copy&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;your_table&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/your_table.csv&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CSV&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HEADER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Remove idle transactions</title>
+      <link>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</link>
+      <pubDate>Fri, 31 Aug 2018 16:10:12 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_terminate_backend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_stat_activity&lt;/span&gt; 
+&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;LIKE&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;idle %&amp;#39;&lt;/span&gt; 
+&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state_change&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;interval&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;1 hour&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to link old and new IDs when migrating data from one table to another</title>
+      <link>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</link>
+      <pubDate>Thu, 29 Mar 2018 11:25:34 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</guid>
+      <description>&lt;p&gt;When proceeding a database migration, I often had to create a temporary table that will contains
+the data from the old database.&lt;/p&gt;
+&lt;p&gt;However, after the migration, I still need to have links between the old IDs and the new IDs for
+various post migration operation.&lt;/p&gt;
+&lt;p&gt;This post is about creating the table containing the linked ids.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Do not prompt password and enable remote access</title>
+      <link>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</link>
+      <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

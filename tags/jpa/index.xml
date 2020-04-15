@@ -1,3 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jpa on Louis LIN's blog</title><link>https://l-lin.github.io/tags/jpa/</link><description>Recent content in jpa on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Nov 2018 16:40:06 +0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/jpa/index.xml" rel="self" type="application/rss+xml"/><item><title>JPA @OneToMany and composite primary key</title><link>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</link><pubDate>Wed, 14 Nov 2018 16:40:06 +0100</pubDate><guid>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</guid><description>&lt;p>To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
-is not quite straightforward.&lt;/p>
-&lt;p>We need to use a mix of JPA annotations along with creating some embeddable classes.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jpa on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/jpa/</link>
+    <description>Recent content in jpa on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 14 Nov 2018 16:40:06 +0100</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JPA @OneToMany and composite primary key</title>
+      <link>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</link>
+      <pubDate>Wed, 14 Nov 2018 16:40:06 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</guid>
+      <description>&lt;p&gt;To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
+is not quite straightforward.&lt;/p&gt;
+&lt;p&gt;We need to use a mix of JPA annotations along with creating some embeddable classes.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

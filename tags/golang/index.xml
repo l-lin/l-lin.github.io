@@ -1,10 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>golang on Louis LIN's blog</title><link>https://l-lin.github.io/tags/golang/</link><description>Recent content in golang on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 10 Feb 2020 09:39:13 +0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Debugging With Vim Go</title><link>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</link><pubDate>Mon, 10 Feb 2020 09:39:13 +0100</pubDate><guid>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</guid><description>&lt;p>Although learning VIM can be quite painful, I learned it and now I love it so much I can&amp;rsquo;t write or
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/golang/</link>
+    <description>Recent content in golang on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Feb 2020 09:39:13 +0100</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debugging With Vim Go</title>
+      <link>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</link>
+      <pubDate>Mon, 10 Feb 2020 09:39:13 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</guid>
+      <description>&lt;p&gt;Although learning VIM can be quite painful, I learned it and now I love it so much I can&amp;rsquo;t write or
 code without it.
 Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
 functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
-is not as trivial as clicking on a button like most IDEs.&lt;/p>
-&lt;p>In this post, I will show some basic commands to use to debug a Go program with
-&lt;a href="https://github.com/fatih/vim-go">vim-go&lt;/a>.&lt;/p></description></item><item><title>Download DDG image file with Go</title><link>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</link><pubDate>Tue, 02 Apr 2019 09:18:10 +0200</pubDate><guid>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</guid><description>&lt;p>While DuckDuckGo offers &lt;a href="https://duckduckgo.com/api">Instant Answer APIs&lt;/a>, it does not provide URLs to download images,
-certainly because of copyright isusses.&lt;/p>
-&lt;p>One way is to fetch a &lt;code>vqd&lt;/code> token from an initial basic request, then use it to find the image URLs, and finally download
-the image.&lt;/p></description></item></channel></rss>
+is not as trivial as clicking on a button like most IDEs.&lt;/p&gt;
+&lt;p&gt;In this post, I will show some basic commands to use to debug a Go program with
+&lt;a href=&#34;https://github.com/fatih/vim-go&#34;&gt;vim-go&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Download DDG image file with Go</title>
+      <link>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</link>
+      <pubDate>Tue, 02 Apr 2019 09:18:10 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</guid>
+      <description>&lt;p&gt;While DuckDuckGo offers &lt;a href=&#34;https://duckduckgo.com/api&#34;&gt;Instant Answer APIs&lt;/a&gt;, it does not provide URLs to download images,
+certainly because of copyright isusses.&lt;/p&gt;
+&lt;p&gt;One way is to fetch a &lt;code&gt;vqd&lt;/code&gt; token from an initial basic request, then use it to find the image URLs, and finally download
+the image.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

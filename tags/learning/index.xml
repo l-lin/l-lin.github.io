@@ -1,3 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>learning on Louis LIN's blog</title><link>https://l-lin.github.io/tags/learning/</link><description>Recent content in learning on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 12:05:16 +0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Kotlin Basics - Classes</title><link>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</link><pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate><guid>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</guid><description/></item><item><title>Kotlin Basics: syntax</title><link>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</link><pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate><guid>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</guid><description>&lt;p>Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p>
-&lt;p>In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p></description></item><item><title>My journey to learning Kotlin - The planning</title><link>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</link><pubDate>Thu, 25 Jan 2018 22:28:05 +0100</pubDate><guid>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</guid><description>&lt;p>Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>learning on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/learning/</link>
+    <description>Recent content in learning on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Feb 2018 12:05:16 +0100</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kotlin Basics - Classes </title>
+      <link>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</link>
+      <pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kotlin Basics: syntax</title>
+      <link>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</link>
+      <pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</guid>
+      <description>&lt;p&gt;Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p&gt;
+&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My journey to learning Kotlin - The planning</title>
+      <link>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</link>
+      <pubDate>Thu, 25 Jan 2018 22:28:05 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</guid>
+      <description>&lt;p&gt;Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
+It will be a shame to pass by without trying to use this language.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

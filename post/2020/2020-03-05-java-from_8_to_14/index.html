@@ -1,673 +1,1123 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>From 8 to 14 - Louis LIN's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Louis LIN"><meta name=description content="Java 14 will soon be released and it&amp;rsquo;s time to leave our good ol&amp;rsquo; Java 8 and begin to use the new language features Java brings with its versions.
-In this post, I will only cover some of the newest Java features."><meta name=keywords content="software development"><meta name=generator content="Hugo 0.69.0 with theme even"><link rel=canonical href=https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/><link rel=icon href=/favicon.ico><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=https://l-lin.github.io/sass/main.min.4d7c7d29d1ccb5efff5212ac69b997c173988cf1a117ea4f8b16c79beee8f518.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><link href="https://fonts.googleapis.com/css?family=Work+Sans" rel=stylesheet><meta property="og:title" content="From 8 to 14"><meta property="og:description" content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>From 8 to 14 - Louis LIN&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Louis LIN" /><meta name="description" content="Java 14 will soon be released and it&amp;rsquo;s time to leave our good ol&amp;rsquo; Java 8 and begin to use the new language features Java brings with its versions.
+In this post, I will only cover some of the newest Java features.
+" /><meta name="keywords" content="software development" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://l-lin.github.io/sass/main.min.4d7c7d29d1ccb5efff5212ac69b997c173988cf1a117ea4f8b16c79beee8f518.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+
+<meta property="og:title" content="From 8 to 14" />
+<meta property="og:description" content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
 and begin to use the new language features Java brings with its versions.
-In this post, I will only cover some of the newest Java features."><meta property="og:type" content="article"><meta property="og:url" content="https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/"><meta property="article:published_time" content="2020-03-05T09:13:03+01:00"><meta property="article:modified_time" content="2020-03-05T15:29:00+01:00"><meta itemprop=name content="From 8 to 14"><meta itemprop=description content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+In this post, I will only cover some of the newest Java features." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/" />
+<meta property="article:published_time" content="2020-03-05T09:13:03+01:00" />
+<meta property="article:modified_time" content="2020-03-05T15:29:00+01:00" />
+<meta itemprop="name" content="From 8 to 14">
+<meta itemprop="description" content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
 and begin to use the new language features Java brings with its versions.
-In this post, I will only cover some of the newest Java features."><meta itemprop=datePublished content="2020-03-05T09:13:03+01:00"><meta itemprop=dateModified content="2020-03-05T15:29:00+01:00"><meta itemprop=wordCount content="1486"><meta itemprop=keywords content="java,"><meta name=twitter:card content="summary"><meta name=twitter:title content="From 8 to 14"><meta name=twitter:description content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+In this post, I will only cover some of the newest Java features.">
+<meta itemprop="datePublished" content="2020-03-05T09:13:03&#43;01:00" />
+<meta itemprop="dateModified" content="2020-03-05T15:29:00&#43;01:00" />
+<meta itemprop="wordCount" content="1486">
+
+
+
+<meta itemprop="keywords" content="java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="From 8 to 14"/>
+<meta name="twitter:description" content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
 and begin to use the new language features Java brings with its versions.
-In this post, I will only cover some of the newest Java features."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>l-lin</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/tools/><li class=mobile-menu-item>Tools</li></a><a href=/about/><li class=mobile-menu-item>About me</li></a><li class=mobile-menu-item><form class=menu-search onsubmit="duckSearch('mobile-search-field')" action=javascript:void(0)><input id=mobile-search-field type=text placeholder=Search... style=width:110px></form></li></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo><img src=/images/yoo_jae_suk.png alt="Yoo Jae Suk">&nbsp;l-lin</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/tools/>Tools</a></li><li class=menu-item><a class=menu-item-link href=/about/>About me</a></li><li class=menu-item><form class=menu-search onsubmit="duckSearch('search-field')" action=javascript:void(0)><input id=search-field type=text placeholder=Search...></form></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>From 8 to 14</h1><div class=post-meta><span class=post-time>2020-03-05</span><div class=post-category><a href=/tags/java/>#java</a></div><span class=more-meta>7 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#java-9>Java 9</a><ul><li><a href=#private-methods-in-interfaces>Private methods in interfaces</a></li><li><a href=#new-optional-apis>New Optional APIs</a></li><li><a href=#new-future-apis>New Future APIs</a></li><li><a href=#new-collection-apis>New Collection APIs</a></li><li><a href=#jshell>JShell</a></li><li><a href=#jigsaw>Jigsaw</a></li></ul></li><li><a href=#java-10>Java 10</a><ul><li><a href=#inference-type>Inference type</a></li><li><a href=#new-optional-apis-1>New Optional APIs</a></li><li><a href=#new-collection-apis-1>New Collection APIs</a></li></ul></li><li><a href=#java-11>Java 11</a><ul><li><a href=#inference-type-on-lambda>Inference type on lambda</a></li><li><a href=#new-string-apis>New String APIs</a></li><li><a href=#new-files-apis>New Files APIs</a></li><li><a href=#new-httpclient-apis>New HttpClient APIs</a></li></ul></li><li><a href=#java-12>Java 12</a><ul><li><a href=#new-switch-expressions>New Switch expressions</a></li></ul></li><li><a href=#java-13>Java 13</a><ul><li><a href=#switch-expressions-enhancements>Switch expressions enhancements</a></li><li><a href=#text-blocks>Text blocks</a></li></ul></li><li><a href=#java-14>Java 14</a><ul><li><a href=#pattern-matching-for-instanceof>Pattern matching for instanceof</a></li><li><a href=#records>Records</a></li></ul></li></ul></nav></div></div><div class="post-image center"><img src="https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&y=293&crop=1"></div><div class=post-content><p><a href=https://jdk.java.net/14/>Java 14</a> will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
-and begin to use the new language features Java brings with its versions.</p><p>In this post, I will only cover some of the newest Java features.</p><h2 id=java-9>Java 9</h2><p><a href=https://openjdk.java.net/projects/jdk9/><img src=https://img.shields.io/badge/Release-notes-green.svg alt="Release notes"></a></p><h3 id=private-methods-in-interfaces>Private methods in interfaces</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>interface</span> <span class=nc>PetStore</span> <span class=o>{</span>
-  <span class=c1>// You can now define private methods in interfaces. It&#39;s quite useful if you
-</span><span class=c1></span>  <span class=c1>// want to factorize some code from default methods
-</span><span class=c1></span>  <span class=kd>private</span> <span class=kt>long</span> <span class=nf>getNumberAvailablePets</span><span class=o>(</span><span class=n>List</span><span class=o>&lt;</span><span class=n>Pet</span><span class=o>&gt;</span> <span class=n>pets</span><span class=o>,</span> <span class=n>Predicate</span><span class=o>&lt;</span><span class=n>Pet</span><span class=o>&gt;</span> <span class=n>predicate</span><span class=o>)</span> <span class=o>{</span>
-    <span class=k>return</span> <span class=n>pets</span><span class=o>.</span><span class=na>stream</span><span class=o>()</span>
-        <span class=o>.</span><span class=na>filter</span><span class=o>(</span><span class=n>Pet</span><span class=o>::</span><span class=n>isAvailable</span><span class=o>)</span>
-        <span class=o>.</span><span class=na>filter</span><span class=o>(</span><span class=n>predicate</span><span class=o>)</span>
-        <span class=o>.</span><span class=na>count</span><span class=o>();</span>
-  <span class=o>}</span>
+In this post, I will only cover some of the newest Java features."/>
 
-  <span class=k>default</span> <span class=kt>long</span> <span class=nf>getNumberAvailableCats</span><span class=o>(</span><span class=n>List</span><span class=o>&lt;</span><span class=n>Pet</span><span class=o>&gt;</span> <span class=n>pets</span><span class=o>)</span> <span class=o>{</span>
-    <span class=k>return</span> <span class=n>getNumberAvailablePets</span><span class=o>(</span><span class=n>pets</span><span class=o>,</span> <span class=n>pet</span> <span class=o>-&gt;</span> <span class=n>Pet</span><span class=o>.</span><span class=na>Type</span><span class=o>.</span><span class=na>CAT</span> <span class=o>==</span> <span class=n>pet</span><span class=o>.</span><span class=na>getType</span><span class=o>());</span>
-  <span class=o>}</span>
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
 
-  <span class=k>default</span> <span class=kt>long</span> <span class=nf>getNumberAvailableDogs</span><span class=o>(</span><span class=n>List</span><span class=o>&lt;</span><span class=n>Pet</span><span class=o>&gt;</span> <span class=n>pets</span><span class=o>)</span> <span class=o>{</span>
-    <span class=k>return</span> <span class=n>getNumberAvailablePets</span><span class=o>(</span><span class=n>pets</span><span class=o>,</span> <span class=n>pet</span> <span class=o>-&gt;</span> <span class=n>Pet</span><span class=o>.</span><span class=na>Type</span><span class=o>.</span><span class=na>DOG</span> <span class=o>==</span> <span class=n>pet</span><span class=o>.</span><span class=na>getType</span><span class=o>());</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=new-optional-apis>New Optional APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>class</span> <span class=nc>NewOptionalAPIs</span> <span class=o>{</span>
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
 
-  <span class=kd>private</span> <span class=kd>static</span> <span class=kd>final</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>Cat</span><span class=o>&gt;</span> <span class=n>CATS</span> <span class=o>=</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>asList</span><span class=o>(</span>
-      <span class=k>new</span> <span class=n>Cat</span><span class=o>(</span><span class=s>&#34;Tadar sauce&#34;</span><span class=o>),</span>
-      <span class=k>new</span> <span class=n>Cat</span><span class=o>(</span><span class=s>&#34;Nyan cat&#34;</span><span class=o>),</span>
-      <span class=k>new</span> <span class=n>Cat</span><span class=o>(</span><span class=s>&#34;Grumpy cat&#34;</span><span class=o>)</span>
-  <span class=o>);</span>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">l-lin</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/tools/">
+        <li class="mobile-menu-item">Tools</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About me</li>
+      </a>
+    <li class="mobile-menu-item">
+      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
+        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
+      </form>
+    </li>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
+</div>
 
-  <span class=kd>private</span> <span class=kd>static</span> <span class=n>Optional</span><span class=o>&lt;</span><span class=n>Cat</span><span class=o>&gt;</span> <span class=nf>findByName</span><span class=o>(</span><span class=n>String</span> <span class=n>name</span><span class=o>)</span> <span class=o>{</span>
-    <span class=k>return</span> <span class=n>CATS</span><span class=o>.</span><span class=na>stream</span><span class=o>().</span><span class=na>filter</span><span class=o>(</span><span class=n>c</span> <span class=o>-&gt;</span> <span class=n>name</span><span class=o>.</span><span class=na>equals</span><span class=o>(</span><span class=n>c</span><span class=o>.</span><span class=na>getName</span><span class=o>())).</span><span class=na>findAny</span><span class=o>();</span>
-  <span class=o>}</span>
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tools/">Tools</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About me</a>
+      </li>
+    <li class="menu-item">
+      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
+        <input id="search-field" type="text" placeholder="Search...">
+      </form>
+    </li>
+  </ul>
+</nav>
+    </header>
 
-  <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
-    <span class=cm>/*
-</span><span class=cm>     * Optional.ifPresentOrElse
-</span><span class=cm>     */</span>
-    <span class=n>Optional</span><span class=o>&lt;</span><span class=n>Cat</span><span class=o>&gt;</span> <span class=n>cat</span> <span class=o>=</span> <span class=n>findByName</span><span class=o>(</span><span class=s>&#34;Grumpy cat&#34;</span><span class=o>);</span>
-    <span class=c1>// Before
-</span><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>cat</span><span class=o>.</span><span class=na>isPresent</span><span class=o>())</span> <span class=o>{</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>cat</span><span class=o>.</span><span class=na>get</span><span class=o>().</span><span class=na>getName</span><span class=o>());</span>
-    <span class=o>}</span> <span class=k>else</span> <span class=o>{</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;No cat found&#34;</span><span class=o>);</span>
-    <span class=o>}</span>
-    <span class=c1>// After
-</span><span class=c1></span>    <span class=n>cat</span><span class=o>.</span><span class=na>ifPresentOrElse</span><span class=o>(</span><span class=n>c</span> <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>c</span><span class=o>.</span><span class=na>getName</span><span class=o>()),</span> <span class=o>()</span> <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;No cat found&#34;</span><span class=o>));</span>
-    <span class=n>findByName</span><span class=o>(</span><span class=s>&#34;foobar&#34;</span><span class=o>).</span><span class=na>ifPresentOrElse</span><span class=o>(</span><span class=n>c</span> <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>c</span><span class=o>.</span><span class=na>getName</span><span class=o>()),</span> <span class=o>()</span> <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;No cat found&#34;</span><span class=o>));</span>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">From 8 to 14</h1>
 
-    <span class=cm>/*
-</span><span class=cm>     * Optional.isEmpty
-</span><span class=cm>     */</span>
-     <span class=c1>// Before
-</span><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>cat</span><span class=o>.</span><span class=na>isEmpty</span><span class=o>())</span> <span class=o>{</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;No cat found&#34;</span><span class=o>);</span>
-    <span class=o>}</span> <span class=k>else</span> <span class=o>{</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>cat</span><span class=o>.</span><span class=na>get</span><span class=o>().</span><span class=na>getName</span><span class=o>());</span>
-    <span class=o>}</span>
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-05 </span>
+        <div class="post-category">
+            
+              <a href="/tags/java/"> #java </a>
+            
+          </div>
+          
+          <span class="more-meta"> 7 mins read </span>
+        
+      </div>
+    </header>
 
-    <span class=c1>// After
-</span><span class=c1></span>    <span class=c1>// Optional.or
-</span><span class=c1></span>    <span class=n>Optional</span><span class=o>&lt;</span><span class=n>Cat</span><span class=o>&gt;</span> <span class=n>c</span> <span class=o>=</span> <span class=n>findByName</span><span class=o>(</span><span class=s>&#34;Garfield&#34;</span><span class=o>)</span>
-        <span class=o>.</span><span class=na>or</span><span class=o>(()</span> <span class=o>-&gt;</span> <span class=n>findByName</span><span class=o>(</span><span class=s>&#34;Tata&#34;</span><span class=o>))</span>
-        <span class=o>.</span><span class=na>or</span><span class=o>(()</span> <span class=o>-&gt;</span> <span class=n>findByName</span><span class=o>(</span><span class=s>&#34;Toto&#34;</span><span class=o>));</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>c</span><span class=o>.</span><span class=na>orElse</span><span class=o>(</span><span class=k>new</span> <span class=n>Cat</span><span class=o>(</span><span class=s>&#34;titi&#34;</span><span class=o>)));</span>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#java-9">Java 9</a>
+      <ul>
+        <li><a href="#private-methods-in-interfaces">Private methods in interfaces</a></li>
+        <li><a href="#new-optional-apis">New Optional APIs</a></li>
+        <li><a href="#new-future-apis">New Future APIs</a></li>
+        <li><a href="#new-collection-apis">New Collection APIs</a></li>
+        <li><a href="#jshell">JShell</a></li>
+        <li><a href="#jigsaw">Jigsaw</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-10">Java 10</a>
+      <ul>
+        <li><a href="#inference-type">Inference type</a></li>
+        <li><a href="#new-optional-apis-1">New Optional APIs</a></li>
+        <li><a href="#new-collection-apis-1">New Collection APIs</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-11">Java 11</a>
+      <ul>
+        <li><a href="#inference-type-on-lambda">Inference type on lambda</a></li>
+        <li><a href="#new-string-apis">New String APIs</a></li>
+        <li><a href="#new-files-apis">New Files APIs</a></li>
+        <li><a href="#new-httpclient-apis">New HttpClient APIs</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-12">Java 12</a>
+      <ul>
+        <li><a href="#new-switch-expressions">New Switch expressions</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-13">Java 13</a>
+      <ul>
+        <li><a href="#switch-expressions-enhancements">Switch expressions enhancements</a></li>
+        <li><a href="#text-blocks">Text blocks</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-14">Java 14</a>
+      <ul>
+        <li><a href="#pattern-matching-for-instanceof">Pattern matching for instanceof</a></li>
+        <li><a href="#records">Records</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-image center">
+      <img src="https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1" />
+    </div>
 
-    <span class=c1>// Optional.stream
-</span><span class=c1></span>    <span class=n>String</span> <span class=n>name</span> <span class=o>=</span> <span class=s>&#34;Tom&#34;</span><span class=o>;</span>
-    <span class=n>Cat</span><span class=o>[]</span> <span class=n>cats</span> <span class=o>=</span> <span class=n>Optional</span><span class=o>.</span><span class=na>of</span><span class=o>(</span><span class=k>new</span> <span class=n>Cat</span><span class=o>(</span><span class=n>name</span><span class=o>)).</span><span class=na>stream</span><span class=o>().</span><span class=na>toArray</span><span class=o>(</span><span class=n>Cat</span><span class=o>[]::</span><span class=k>new</span><span class=o>);</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>cats</span><span class=o>);</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=new-future-apis>New Future APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// Annotation @Deprecated now has the attributes &#34;forRemoval&#34; and &#34;since&#34;, useful to document Java classes
-</span><span class=c1></span><span class=nd>@Deprecated</span><span class=o>(</span><span class=n>forRemoval</span> <span class=o>=</span> <span class=kc>true</span><span class=o>,</span> <span class=n>since</span> <span class=o>=</span> <span class=s>&#34;0.1.0&#34;</span><span class=o>)</span>
-<span class=kd>public</span> <span class=kd>class</span> <span class=nc>NewCompletableFutureAPIs</span> <span class=o>{</span>
+    
+    <div class="post-content">
+      <p><a href="https://jdk.java.net/14/">Java 14</a> will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+and begin to use the new language features Java brings with its versions.</p>
+<p>In this post, I will only cover some of the newest Java features.</p>
+<h2 id="java-9">Java 9</h2>
+<p><a href="https://openjdk.java.net/projects/jdk9/"><img src="https://img.shields.io/badge/Release-notes-green.svg" alt="Release notes"></a></p>
+<h3 id="private-methods-in-interfaces">Private methods in interfaces</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">PetStore</span> <span class="o">{</span>
+  <span class="c1">// You can now define private methods in interfaces. It&#39;s quite useful if you
+</span><span class="c1"></span>  <span class="c1">// want to factorize some code from default methods
+</span><span class="c1"></span>  <span class="kd">private</span> <span class="kt">long</span> <span class="nf">getNumberAvailablePets</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">pets</span><span class="o">,</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">predicate</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">pets</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">Pet</span><span class="o">::</span><span class="n">isAvailable</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">predicate</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">count</span><span class="o">();</span>
+  <span class="o">}</span>
 
-  <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=kd>throws</span> <span class=n>InterruptedException</span><span class=o>,</span> <span class=n>ExecutionException</span> <span class=o>{</span>
-    <span class=n>CompletableFuture</span><span class=o>&lt;</span><span class=n>String</span><span class=o>&gt;</span> <span class=n>future</span> <span class=o>=</span> <span class=k>new</span> <span class=n>CompletableFuture</span><span class=o>&lt;&gt;();</span>
-    <span class=c1>// Throw a TimeoutException if the task is not finished 
-</span><span class=c1></span>    <span class=n>future</span><span class=o>.</span><span class=na>orTimeout</span><span class=o>(</span><span class=n>2</span><span class=o>,</span> <span class=n>TimeUnit</span><span class=o>.</span><span class=na>SECONDS</span><span class=o>);</span>
-    <span class=c1>// Completes with the given value upon timeout
-</span><span class=c1>//  future.completeOnTimeout(&#34;foobar&#34;, 2, TimeUnit.SECONDS);
-</span><span class=c1></span>
-    <span class=n>Runnable</span> <span class=n>runnable</span> <span class=o>=</span> <span class=o>()</span> <span class=o>-&gt;</span> <span class=o>{</span>
-      <span class=k>try</span> <span class=o>{</span>
-        <span class=n>Thread</span><span class=o>.</span><span class=na>sleep</span><span class=o>(</span><span class=n>3000</span><span class=o>);</span>
-      <span class=o>}</span> <span class=k>catch</span> <span class=o>(</span><span class=n>InterruptedException</span> <span class=n>e</span><span class=o>)</span> <span class=o>{</span>
-        <span class=n>e</span><span class=o>.</span><span class=na>printStackTrace</span><span class=o>();</span>
-      <span class=o>}</span>
-      <span class=n>future</span><span class=o>.</span><span class=na>complete</span><span class=o>(</span><span class=s>&#34;finished&#34;</span><span class=o>);</span>
-    <span class=o>};</span>
-    <span class=n>runnable</span><span class=o>.</span><span class=na>run</span><span class=o>();</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>future</span><span class=o>.</span><span class=na>get</span><span class=o>());</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=new-collection-apis>New Collection APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
-  <span class=cm>/*
-</span><span class=cm>   * Set.of / List.of
-</span><span class=cm>   */</span>
-  <span class=c1>// Before
-</span><span class=c1></span>  <span class=n>Set</span><span class=o>&lt;</span><span class=n>String</span><span class=o>&gt;</span> <span class=n>catNames</span> <span class=o>=</span> <span class=k>new</span> <span class=n>HashSet</span><span class=o>&lt;&gt;();</span>
-  <span class=n>catNames</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=s>&#34;Tadar sauce&#34;</span><span class=o>);</span>
-  <span class=n>catNames</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=s>&#34;Grumpy cat&#34;</span><span class=o>);</span>
-  <span class=n>catNames</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=s>&#34;Nyan cat&#34;</span><span class=o>);</span>
-  <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>Collections</span><span class=o>.</span><span class=na>unmodifiableSet</span><span class=o>(</span><span class=n>catNames</span><span class=o>));</span>
+  <span class="k">default</span> <span class="kt">long</span> <span class="nf">getNumberAvailableCats</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">pets</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">getNumberAvailablePets</span><span class="o">(</span><span class="n">pets</span><span class="o">,</span> <span class="n">pet</span> <span class="o">-&gt;</span> <span class="n">Pet</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">CAT</span> <span class="o">==</span> <span class="n">pet</span><span class="o">.</span><span class="na">getType</span><span class="o">());</span>
+  <span class="o">}</span>
 
-  <span class=c1>// After
-</span><span class=c1></span>  <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>Set</span><span class=o>.</span><span class=na>of</span><span class=o>(</span><span class=s>&#34;Tadar sauce&#34;</span><span class=o>,</span> <span class=s>&#34;Grumpy cat&#34;</span><span class=o>,</span> <span class=s>&#34;Nyan cat&#34;</span><span class=o>));</span>
+  <span class="k">default</span> <span class="kt">long</span> <span class="nf">getNumberAvailableDogs</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span> <span class="n">pets</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">getNumberAvailablePets</span><span class="o">(</span><span class="n">pets</span><span class="o">,</span> <span class="n">pet</span> <span class="o">-&gt;</span> <span class="n">Pet</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">DOG</span> <span class="o">==</span> <span class="n">pet</span><span class="o">.</span><span class="na">getType</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-optional-apis">New Optional APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">NewOptionalAPIs</span> <span class="o">{</span>
 
-  <span class=cm>/*
-</span><span class=cm>   * Map.of
-</span><span class=cm>   */</span>
-  <span class=c1>// Before
-</span><span class=c1></span>  <span class=n>Map</span><span class=o>&lt;</span><span class=n>String</span><span class=o>,</span> <span class=n>Integer</span><span class=o>&gt;</span> <span class=n>catLikes</span> <span class=o>=</span> <span class=k>new</span> <span class=n>HashMap</span><span class=o>&lt;&gt;();</span>
-  <span class=n>catLikes</span><span class=o>.</span><span class=na>put</span><span class=o>(</span><span class=s>&#34;Tadar sauce&#34;</span><span class=o>,</span> <span class=n>10</span><span class=o>);</span>
-  <span class=n>catLikes</span><span class=o>.</span><span class=na>put</span><span class=o>(</span><span class=s>&#34;Grumpy cat&#34;</span><span class=o>,</span> <span class=n>1</span><span class=o>);</span>
-  <span class=n>catLikes</span><span class=o>.</span><span class=na>put</span><span class=o>(</span><span class=s>&#34;Nyan cat&#34;</span><span class=o>,</span> <span class=n>1000</span><span class=o>);</span>
-  <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>Collections</span><span class=o>.</span><span class=na>unmodifiableMap</span><span class=o>(</span><span class=n>catLikes</span><span class=o>));</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span> <span class="n">CATS</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+      <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">),</span>
+      <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">),</span>
+      <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="s">&#34;Grumpy cat&#34;</span><span class="o">)</span>
+  <span class="o">);</span>
 
-  <span class=c1>// After
-</span><span class=c1></span>  <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>Map</span><span class=o>.</span><span class=na>of</span><span class=o>(</span><span class=s>&#34;Tadar sauce&#34;</span><span class=o>,</span> <span class=n>10</span><span class=o>,</span> <span class=s>&#34;Grumpy cat&#34;</span><span class=o>,</span> <span class=n>1</span><span class=o>,</span> <span class=s>&#34;Nyan cat&#34;</span><span class=o>,</span> <span class=n>1000</span><span class=o>));</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=jshell>JShell</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=si>${</span><span class=nv>JAVA_HOME</span><span class=si>}</span>/bin/jshell
-<span class=p>|</span>  Welcome to JShell -- Version <span class=m>14</span>
-<span class=p>|</span>  For an introduction type: /help intro
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span> <span class="nf">findByName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">CATS</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getName</span><span class="o">())).</span><span class="na">findAny</span><span class="o">();</span>
+  <span class="o">}</span>
 
-jshell&gt; String <span class=nv>greeting</span> <span class=o>=</span> <span class=s2>&#34;Hello, world&#34;</span><span class=p>;</span>
-<span class=nv>greeting</span> <span class=o>==</span>&gt; <span class=s2>&#34;Hello, world&#34;</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="cm">/*
+</span><span class="cm">     * Optional.ifPresentOrElse
+</span><span class="cm">     */</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">findByName</span><span class="o">(</span><span class="s">&#34;Grumpy cat&#34;</span><span class="o">);</span>
+    <span class="c1">// Before
+</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;No cat found&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// After
+</span><span class="c1"></span>    <span class="n">cat</span><span class="o">.</span><span class="na">ifPresentOrElse</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getName</span><span class="o">()),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;No cat found&#34;</span><span class="o">));</span>
+    <span class="n">findByName</span><span class="o">(</span><span class="s">&#34;foobar&#34;</span><span class="o">).</span><span class="na">ifPresentOrElse</span><span class="o">(</span><span class="n">c</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getName</span><span class="o">()),</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;No cat found&#34;</span><span class="o">));</span>
 
-jshell&gt; System.out.println<span class=o>(</span>greeting<span class=o>)</span><span class=p>;</span>
+    <span class="cm">/*
+</span><span class="cm">     * Optional.isEmpty
+</span><span class="cm">     */</span>
+     <span class="c1">// Before
+</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;No cat found&#34;</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cat</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="c1">// After
+</span><span class="c1"></span>    <span class="c1">// Optional.or
+</span><span class="c1"></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">findByName</span><span class="o">(</span><span class="s">&#34;Garfield&#34;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">or</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">findByName</span><span class="o">(</span><span class="s">&#34;Tata&#34;</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">or</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">findByName</span><span class="o">(</span><span class="s">&#34;Toto&#34;</span><span class="o">));</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="s">&#34;titi&#34;</span><span class="o">)));</span>
+
+    <span class="c1">// Optional.stream
+</span><span class="c1"></span>    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Tom&#34;</span><span class="o">;</span>
+    <span class="n">Cat</span><span class="o">[]</span> <span class="n">cats</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="n">name</span><span class="o">)).</span><span class="na">stream</span><span class="o">().</span><span class="na">toArray</span><span class="o">(</span><span class="n">Cat</span><span class="o">[]::</span><span class="k">new</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cats</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-future-apis">New Future APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Annotation @Deprecated now has the attributes &#34;forRemoval&#34; and &#34;since&#34;, useful to document Java classes
+</span><span class="c1"></span><span class="nd">@Deprecated</span><span class="o">(</span><span class="n">forRemoval</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">since</span> <span class="o">=</span> <span class="s">&#34;0.1.0&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NewCompletableFutureAPIs</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">ExecutionException</span> <span class="o">{</span>
+    <span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompletableFuture</span><span class="o">&lt;&gt;();</span>
+    <span class="c1">// Throw a TimeoutException if the task is not finished 
+</span><span class="c1"></span>    <span class="n">future</span><span class="o">.</span><span class="na">orTimeout</span><span class="o">(</span><span class="n">2</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+    <span class="c1">// Completes with the given value upon timeout
+</span><span class="c1">//  future.completeOnTimeout(&#34;foobar&#34;, 2, TimeUnit.SECONDS);
+</span><span class="c1"></span>
+    <span class="n">Runnable</span> <span class="n">runnable</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">3000</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="n">future</span><span class="o">.</span><span class="na">complete</span><span class="o">(</span><span class="s">&#34;finished&#34;</span><span class="o">);</span>
+    <span class="o">};</span>
+    <span class="n">runnable</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">future</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-collection-apis">New Collection APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="cm">/*
+</span><span class="cm">   * Set.of / List.of
+</span><span class="cm">   */</span>
+  <span class="c1">// Before
+</span><span class="c1"></span>  <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">catNames</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+  <span class="n">catNames</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">);</span>
+  <span class="n">catNames</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;Grumpy cat&#34;</span><span class="o">);</span>
+  <span class="n">catNames</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">);</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">unmodifiableSet</span><span class="o">(</span><span class="n">catNames</span><span class="o">));</span>
+
+  <span class="c1">// After
+</span><span class="c1"></span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Set</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">,</span> <span class="s">&#34;Grumpy cat&#34;</span><span class="o">,</span> <span class="s">&#34;Nyan cat&#34;</span><span class="o">));</span>
+
+  <span class="cm">/*
+</span><span class="cm">   * Map.of
+</span><span class="cm">   */</span>
+  <span class="c1">// Before
+</span><span class="c1"></span>  <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">catLikes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+  <span class="n">catLikes</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">,</span> <span class="n">10</span><span class="o">);</span>
+  <span class="n">catLikes</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Grumpy cat&#34;</span><span class="o">,</span> <span class="n">1</span><span class="o">);</span>
+  <span class="n">catLikes</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;Nyan cat&#34;</span><span class="o">,</span> <span class="n">1000</span><span class="o">);</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">unmodifiableMap</span><span class="o">(</span><span class="n">catLikes</span><span class="o">));</span>
+
+  <span class="c1">// After
+</span><span class="c1"></span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;Tadar sauce&#34;</span><span class="o">,</span> <span class="n">10</span><span class="o">,</span> <span class="s">&#34;Grumpy cat&#34;</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="s">&#34;Nyan cat&#34;</span><span class="o">,</span> <span class="n">1000</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="jshell">JShell</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin/jshell
+<span class="p">|</span>  Welcome to JShell -- Version <span class="m">14</span>
+<span class="p">|</span>  For an introduction type: /help intro
+
+jshell&gt; String <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&#34;Hello, world&#34;</span><span class="p">;</span>
+<span class="nv">greeting</span> <span class="o">==</span>&gt; <span class="s2">&#34;Hello, world&#34;</span>
+
+jshell&gt; System.out.println<span class="o">(</span>greeting<span class="o">)</span><span class="p">;</span>
 Hello, world
 
 jshell&gt; /vars
-<span class=p>|</span>    String <span class=nv>greeting</span> <span class=o>=</span> <span class=s2>&#34;Hello, world&#34;</span>
+<span class="p">|</span>    String <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&#34;Hello, world&#34;</span>
 
 jshell&gt; 2+2*4
-<span class=nv>$3</span> <span class=o>==</span>&gt; <span class=m>10</span>
-</code></pre></td></tr></table></div></div><h3 id=jigsaw>Jigsaw</h3><p>Java 9 also brings the <a href=https://openjdk.java.net/projects/jigsaw/>Project Jigsaw</a> whose goal is to
-have a standard module system for the Java Platform.</p><p>This is a large topic that I will not cover here.</p><h2 id=java-10>Java 10</h2><p><a href=https://openjdk.java.net/projects/jdk/10/><img src=https://img.shields.io/badge/Release-notes-green.svg alt="Release notes"></a></p><h3 id=inference-type>Inference type</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>InferenceType</span> <span class=o>{</span>
-  <span class=c1>// Does not compile
-</span><span class=c1>//  private final var foobar = new String();
-</span><span class=c1></span>
-  <span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
-    <span class=n>var</span> <span class=n>catName</span> <span class=o>=</span> <span class=s>&#34;Grumpy cat&#34;</span><span class=o>;</span> <span class=c1>// String
-</span><span class=c1></span>    <span class=n>var</span> <span class=n>nbCat</span> <span class=o>=</span> <span class=n>Integer</span><span class=o>.</span><span class=na>valueOf</span><span class=o>(</span><span class=n>1</span><span class=o>);</span> <span class=c1>// int
-</span><span class=c1></span>    <span class=n>var</span> <span class=n>isCute</span> <span class=o>=</span> <span class=n>Boolean</span><span class=o>.</span><span class=na>TRUE</span><span class=o>;</span> <span class=c1>// Boolean
-</span><span class=c1></span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;There are &#34;</span> <span class=o>+</span> <span class=n>nbCat</span> <span class=o>+</span> <span class=s>&#34; &#34;</span> <span class=o>+</span> <span class=n>catName</span><span class=o>);</span>
+<span class="nv">$3</span> <span class="o">==</span>&gt; <span class="m">10</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="jigsaw">Jigsaw</h3>
+<p>Java 9 also brings the <a href="https://openjdk.java.net/projects/jigsaw/">Project Jigsaw</a> whose goal is to
+have a standard module system for the Java Platform.</p>
+<p>This is a large topic that I will not cover here.</p>
+<h2 id="java-10">Java 10</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/10/"><img src="https://img.shields.io/badge/Release-notes-green.svg" alt="Release notes"></a></p>
+<h3 id="inference-type">Inference type</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InferenceType</span> <span class="o">{</span>
+  <span class="c1">// Does not compile
+</span><span class="c1">//  private final var foobar = new String();
+</span><span class="c1"></span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">var</span> <span class="n">catName</span> <span class="o">=</span> <span class="s">&#34;Grumpy cat&#34;</span><span class="o">;</span> <span class="c1">// String
+</span><span class="c1"></span>    <span class="n">var</span> <span class="n">nbCat</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">1</span><span class="o">);</span> <span class="c1">// int
+</span><span class="c1"></span>    <span class="n">var</span> <span class="n">isCute</span> <span class="o">=</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">TRUE</span><span class="o">;</span> <span class="c1">// Boolean
+</span><span class="c1"></span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;There are &#34;</span> <span class="o">+</span> <span class="n">nbCat</span> <span class="o">+</span> <span class="s">&#34; &#34;</span> <span class="o">+</span> <span class="n">catName</span><span class="o">);</span>
 
-    <span class=k>for</span> <span class=o>(</span><span class=n>var</span> <span class=n>i</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>10</span><span class=o>;</span> <span class=n>i</span><span class=o>++)</span> <span class=o>{</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>i</span><span class=o>);</span>
-    <span class=o>}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    <span class=n>var</span> <span class=n>catNames</span> <span class=o>=</span> <span class=k>new</span> <span class=n>ArrayList</span><span class=o>&lt;</span><span class=n>String</span><span class=o>&gt;();</span> <span class=c1>// Type resolved
-</span><span class=c1></span>    <span class=c1>// Does not compile
-</span><span class=c1>//    catNames = new LinkedList&lt;String&gt;();
-</span><span class=c1></span>
-    <span class=c1>// Does not compile
-</span><span class=c1>//    var foo;
-</span><span class=c1>//    var ints = {0, 1};
-</span><span class=c1>//    var appendSpace = (String a) -&gt; a + &#34; &#34;;
-</span><span class=c1></span>  <span class=o>}</span>
+    <span class="n">var</span> <span class="n">catNames</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span> <span class="c1">// Type resolved
+</span><span class="c1"></span>    <span class="c1">// Does not compile
+</span><span class="c1">//    catNames = new LinkedList&lt;String&gt;();
+</span><span class="c1"></span>
+    <span class="c1">// Does not compile
+</span><span class="c1">//    var foo;
+</span><span class="c1">//    var ints = {0, 1};
+</span><span class="c1">//    var appendSpace = (String a) -&gt; a + &#34; &#34;;
+</span><span class="c1"></span>  <span class="o">}</span>
 
-  <span class=c1>// Does not compile
-</span><span class=c1>//  private var doSomething() {
-</span><span class=c1>//    return &#34;foobar&#34;;
-</span><span class=c1>//  }
-</span><span class=c1></span>
-  <span class=c1>// Does not compile
-</span><span class=c1>//  private String foobar(var s) {
-</span><span class=c1>//    return &#34;&#34;;
-</span><span class=c1>//  }
-</span><span class=c1></span><span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=new-optional-apis-1>New Optional APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
-  <span class=n>Optional</span><span class=o>.</span><span class=na>ofNullable</span><span class=o>(</span><span class=kc>null</span><span class=o>).</span><span class=na>orElseThrow</span><span class=o>();</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=new-collection-apis-1>New Collection APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
-  <span class=c1>// List.copyOf / Set.copyOf
-</span><span class=c1></span>  <span class=n>List</span><span class=o>.</span><span class=na>copyOf</span><span class=o>(</span><span class=n>List</span><span class=o>.</span><span class=na>of</span><span class=o>(</span><span class=s>&#34;foo&#34;</span><span class=o>,</span> <span class=s>&#34;bar&#34;</span><span class=o>))</span>
-      <span class=o>.</span><span class=na>stream</span><span class=o>()</span>
-      <span class=o>.</span><span class=na>collect</span><span class=o>(</span>
-          <span class=c1>// Collectors.toUnmodifiableList() / Collectors.toUnmodifiableSet
-</span><span class=c1></span>          <span class=n>Collectors</span><span class=o>.</span><span class=na>toUnmodifiableList</span><span class=o>()</span>
-      <span class=o>);</span>
-  <span class=c1>// Map.copyOf
-</span><span class=c1></span>  <span class=n>Map</span><span class=o>.</span><span class=na>copyOf</span><span class=o>(</span><span class=n>Map</span><span class=o>.</span><span class=na>of</span><span class=o>(</span><span class=s>&#34;foo&#34;</span><span class=o>,</span> <span class=s>&#34;bar&#34;</span><span class=o>));</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h2 id=java-11>Java 11</h2><p><a href=https://openjdk.java.net/projects/jdk/11/><img src=https://img.shields.io/badge/Release-notes-green.svg alt="Release notes"></a></p><h3 id=inference-type-on-lambda>Inference type on lambda</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>NewInferenceType</span> <span class=o>{</span>
-  <span class=kd>static</span> <span class=n>IntFunction</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=n>doubleIt1</span> <span class=o>=</span> <span class=n>x</span> <span class=o>-&gt;</span> <span class=n>x</span> <span class=o>*</span> <span class=n>2</span><span class=o>;</span>
-  <span class=c1>// Compiles on java 8
-</span><span class=c1></span>  <span class=kd>static</span> <span class=n>IntFunction</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=n>doubleIt2</span> <span class=o>=</span> <span class=o>(</span><span class=nd>@Deprecated</span> <span class=kt>int</span> <span class=n>x</span><span class=o>)</span> <span class=o>-&gt;</span> <span class=n>x</span> <span class=o>*</span> <span class=n>2</span><span class=o>;</span>
-  <span class=c1>// Compiles only from java 11
-</span><span class=c1></span>  <span class=c1>// Useful if we want to add annotations to the parameter
-</span><span class=c1></span>  <span class=kd>static</span> <span class=n>IntFunction</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=n>doubleIt3</span> <span class=o>=</span> <span class=o>(</span><span class=nd>@Deprecated</span> <span class=n>var</span> <span class=n>x</span><span class=o>)</span> <span class=o>-&gt;</span> <span class=n>x</span> <span class=o>*</span> <span class=n>2</span><span class=o>;</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=new-string-apis>New String APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// String.isBlank
-</span><span class=c1></span><span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34; &#34;</span><span class=o>.</span><span class=na>isBlank</span><span class=o>());</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;&#34;</span><span class=o>.</span><span class=na>isBlank</span><span class=o>());</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;foo&#34;</span><span class=o>.</span><span class=na>isBlank</span><span class=o>());</span>
+  <span class="c1">// Does not compile
+</span><span class="c1">//  private var doSomething() {
+</span><span class="c1">//    return &#34;foobar&#34;;
+</span><span class="c1">//  }
+</span><span class="c1"></span>
+  <span class="c1">// Does not compile
+</span><span class="c1">//  private String foobar(var s) {
+</span><span class="c1">//    return &#34;&#34;;
+</span><span class="c1">//  }
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-optional-apis-1">New Optional APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="kc">null</span><span class="o">).</span><span class="na">orElseThrow</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-collection-apis-1">New Collection APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// List.copyOf / Set.copyOf
+</span><span class="c1"></span>  <span class="n">List</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;foo&#34;</span><span class="o">,</span> <span class="s">&#34;bar&#34;</span><span class="o">))</span>
+      <span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">collect</span><span class="o">(</span>
+          <span class="c1">// Collectors.toUnmodifiableList() / Collectors.toUnmodifiableSet
+</span><span class="c1"></span>          <span class="n">Collectors</span><span class="o">.</span><span class="na">toUnmodifiableList</span><span class="o">()</span>
+      <span class="o">);</span>
+  <span class="c1">// Map.copyOf
+</span><span class="c1"></span>  <span class="n">Map</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;foo&#34;</span><span class="o">,</span> <span class="s">&#34;bar&#34;</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="java-11">Java 11</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/11/"><img src="https://img.shields.io/badge/Release-notes-green.svg" alt="Release notes"></a></p>
+<h3 id="inference-type-on-lambda">Inference type on lambda</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NewInferenceType</span> <span class="o">{</span>
+  <span class="kd">static</span> <span class="n">IntFunction</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">doubleIt1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">2</span><span class="o">;</span>
+  <span class="c1">// Compiles on java 8
+</span><span class="c1"></span>  <span class="kd">static</span> <span class="n">IntFunction</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">doubleIt2</span> <span class="o">=</span> <span class="o">(</span><span class="nd">@Deprecated</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">2</span><span class="o">;</span>
+  <span class="c1">// Compiles only from java 11
+</span><span class="c1"></span>  <span class="c1">// Useful if we want to add annotations to the parameter
+</span><span class="c1"></span>  <span class="kd">static</span> <span class="n">IntFunction</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">doubleIt3</span> <span class="o">=</span> <span class="o">(</span><span class="nd">@Deprecated</span> <span class="n">var</span> <span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="n">2</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-string-apis">New String APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// String.isBlank
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34; &#34;</span><span class="o">.</span><span class="na">isBlank</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">.</span><span class="na">isBlank</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;foo&#34;</span><span class="o">.</span><span class="na">isBlank</span><span class="o">());</span>
 
-<span class=c1>// String.lines
-</span><span class=c1></span><span class=s>&#34;foo\nbar&#34;</span><span class=o>.</span><span class=na>lines</span><span class=o>().</span><span class=na>forEach</span><span class=o>(</span><span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>::</span><span class=n>println</span><span class=o>);</span>
+<span class="c1">// String.lines
+</span><span class="c1"></span><span class="s">&#34;foo\nbar&#34;</span><span class="o">.</span><span class="na">lines</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
 
-<span class=c1>// String.strip ~= String.trim with &#34;Unicode aware&#34;
-</span><span class=c1></span><span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;foo&#34;</span> <span class=o>+</span> <span class=s>&#34; azert &#34;</span><span class=o>.</span><span class=na>strip</span><span class=o>()</span> <span class=o>+</span> <span class=s>&#34;bar&#34;</span><span class=o>);</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;foo&#34;</span> <span class=o>+</span> <span class=s>&#34; azert &#34;</span><span class=o>.</span><span class=na>stripLeading</span><span class=o>()</span> <span class=o>+</span> <span class=s>&#34;bar&#34;</span><span class=o>);</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;foo&#34;</span> <span class=o>+</span> <span class=s>&#34; azert &#34;</span><span class=o>.</span><span class=na>stripTrailing</span><span class=o>()</span> <span class=o>+</span> <span class=s>&#34;bar&#34;</span><span class=o>);</span>
+<span class="c1">// String.strip ~= String.trim with &#34;Unicode aware&#34;
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;foo&#34;</span> <span class="o">+</span> <span class="s">&#34; azert &#34;</span><span class="o">.</span><span class="na">strip</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;bar&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;foo&#34;</span> <span class="o">+</span> <span class="s">&#34; azert &#34;</span><span class="o">.</span><span class="na">stripLeading</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;bar&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;foo&#34;</span> <span class="o">+</span> <span class="s">&#34; azert &#34;</span><span class="o">.</span><span class="na">stripTrailing</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;bar&#34;</span><span class="o">);</span>
 
-<span class=c1>// String.repeat
-</span><span class=c1></span><span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;foobar&#34;</span><span class=o>.</span><span class=na>repeat</span><span class=o>(</span><span class=n>3</span><span class=o>));</span>
-</code></pre></td></tr></table></div></div><h3 id=new-files-apis>New Files APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// Files
-</span><span class=c1></span><span class=n>var</span> <span class=n>path</span> <span class=o>=</span> <span class=n>Files</span><span class=o>.</span><span class=na>writeString</span><span class=o>(</span><span class=n>Files</span><span class=o>.</span><span class=na>createTempFile</span><span class=o>(</span><span class=s>&#34;foobar&#34;</span><span class=o>,</span> <span class=s>&#34;.txt&#34;</span><span class=o>),</span> <span class=s>&#34;foobar&#34;</span><span class=o>);</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>path</span><span class=o>);</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>Files</span><span class=o>.</span><span class=na>readString</span><span class=o>(</span><span class=n>path</span><span class=o>));</span>
-</code></pre></td></tr></table></div></div><h3 id=new-httpclient-apis>New HttpClient APIs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// HttpClient
-</span><span class=c1></span><span class=n>var</span> <span class=n>httpClient</span> <span class=o>=</span> <span class=n>HttpClient</span><span class=o>.</span><span class=na>newBuilder</span><span class=o>()</span>
-    <span class=o>.</span><span class=na>version</span><span class=o>(</span><span class=n>HttpClient</span><span class=o>.</span><span class=na>Version</span><span class=o>.</span><span class=na>HTTP_2</span><span class=o>)</span>
-    <span class=o>.</span><span class=na>build</span><span class=o>();</span>
-<span class=n>var</span> <span class=n>request</span> <span class=o>=</span> <span class=n>HttpRequest</span><span class=o>.</span><span class=na>newBuilder</span><span class=o>()</span>
-    <span class=o>.</span><span class=na>uri</span><span class=o>(</span><span class=n>URI</span><span class=o>.</span><span class=na>create</span><span class=o>(</span><span class=s>&#34;http://localhost:8080/actuator/health&#34;</span><span class=o>))</span>
-    <span class=o>.</span><span class=na>GET</span><span class=o>()</span>
-    <span class=o>.</span><span class=na>build</span><span class=o>();</span>
-<span class=n>HttpResponse</span><span class=o>&lt;</span><span class=n>String</span><span class=o>&gt;</span> <span class=n>response</span> <span class=o>=</span> <span class=n>httpClient</span><span class=o>.</span><span class=na>send</span><span class=o>(</span><span class=n>request</span><span class=o>,</span> <span class=n>HttpResponse</span><span class=o>.</span><span class=na>BodyHandlers</span><span class=o>.</span><span class=na>ofString</span><span class=o>());</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>response</span><span class=o>.</span><span class=na>statusCode</span><span class=o>());</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>response</span><span class=o>.</span><span class=na>body</span><span class=o>());</span>
-<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>();</span>
+<span class="c1">// String.repeat
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;foobar&#34;</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">3</span><span class="o">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-files-apis">New Files APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Files
+</span><span class="c1"></span><span class="n">var</span> <span class="n">path</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">writeString</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">createTempFile</span><span class="o">(</span><span class="s">&#34;foobar&#34;</span><span class="o">,</span> <span class="s">&#34;.txt&#34;</span><span class="o">),</span> <span class="s">&#34;foobar&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">readString</span><span class="o">(</span><span class="n">path</span><span class="o">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="new-httpclient-apis">New HttpClient APIs</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// HttpClient
+</span><span class="c1"></span><span class="n">var</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClient</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">version</span><span class="o">(</span><span class="n">HttpClient</span><span class="o">.</span><span class="na">Version</span><span class="o">.</span><span class="na">HTTP_2</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">HttpRequest</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&#34;http://localhost:8080/actuator/health&#34;</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">GET</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">HttpResponse</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">HttpResponse</span><span class="o">.</span><span class="na">BodyHandlers</span><span class="o">.</span><span class="na">ofString</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">statusCode</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">body</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
 
-<span class=n>var</span> <span class=n>future</span> <span class=o>=</span> <span class=n>httpClient</span><span class=o>.</span><span class=na>sendAsync</span><span class=o>(</span><span class=n>request</span><span class=o>,</span> <span class=n>HttpResponse</span><span class=o>.</span><span class=na>BodyHandlers</span><span class=o>.</span><span class=na>ofString</span><span class=o>())</span>
-    <span class=o>.</span><span class=na>thenAccept</span><span class=o>(</span><span class=n>r</span> <span class=o>-&gt;</span> <span class=o>{</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>r</span><span class=o>.</span><span class=na>statusCode</span><span class=o>());</span>
-      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>r</span><span class=o>.</span><span class=na>body</span><span class=o>());</span>
-      <span class=n>r</span><span class=o>.</span><span class=na>body</span><span class=o>();</span>
-    <span class=o>});</span>
+<span class="n">var</span> <span class="n">future</span> <span class="o">=</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">sendAsync</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">HttpResponse</span><span class="o">.</span><span class="na">BodyHandlers</span><span class="o">.</span><span class="na">ofString</span><span class="o">())</span>
+    <span class="o">.</span><span class="na">thenAccept</span><span class="o">(</span><span class="n">r</span> <span class="o">-&gt;</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">statusCode</span><span class="o">());</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">body</span><span class="o">());</span>
+      <span class="n">r</span><span class="o">.</span><span class="na">body</span><span class="o">();</span>
+    <span class="o">});</span>
 
-<span class=n>future</span><span class=o>.</span><span class=na>get</span><span class=o>();</span>
-</code></pre></td></tr></table></div></div><h2 id=java-12>Java 12</h2><p><a href=https://openjdk.java.net/projects/jdk/12/><img src=https://img.shields.io/badge/Release-notes-green.svg alt="Release notes"></a></p><h3 id=new-switch-expressions>New Switch expressions</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// Before
-</span><span class=c1></span><span class=k>switch</span> <span class=o>(</span><span class=n>day</span><span class=o>)</span> <span class=o>{</span>
-  <span class=k>case</span> <span class=n>MONDAY</span><span class=o>:</span>
-  <span class=k>case</span> <span class=n>FRIDAY</span><span class=o>:</span>
-  <span class=k>case</span> <span class=n>SUNDAY</span><span class=o>:</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>6</span><span class=o>);</span>
-    <span class=k>break</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>TUESDAY</span><span class=o>:</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>7</span><span class=o>);</span>
-    <span class=k>break</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>THURSDAY</span><span class=o>:</span>
-  <span class=k>case</span> <span class=n>SATURDAY</span><span class=o>:</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>8</span><span class=o>);</span>
-    <span class=k>break</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>WEDNESDAY</span><span class=o>:</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>9</span><span class=o>);</span>
-    <span class=k>break</span><span class=o>;</span>
-<span class=o>}</span>
-<span class=c1>// After
-</span><span class=c1></span><span class=k>switch</span> <span class=o>(</span><span class=n>day</span><span class=o>)</span> <span class=o>{</span>
-  <span class=k>case</span> <span class=n>MONDAY</span><span class=o>,</span> <span class=n>FRIDAY</span><span class=o>,</span> <span class=n>SUNDAY</span> <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>6</span><span class=o>);</span>
-  <span class=k>case</span> <span class=n>TUESDAY</span>                <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>7</span><span class=o>);</span>
-  <span class=k>case</span> <span class=n>THURSDAY</span><span class=o>,</span> <span class=n>SATURDAY</span>     <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>8</span><span class=o>);</span>
-  <span class=k>case</span> <span class=n>WEDNESDAY</span>              <span class=o>-&gt;</span> <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>9</span><span class=o>);</span>
-<span class=o>}</span>
+<span class="n">future</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="java-12">Java 12</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/12/"><img src="https://img.shields.io/badge/Release-notes-green.svg" alt="Release notes"></a></p>
+<h3 id="new-switch-expressions">New Switch expressions</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Before
+</span><span class="c1"></span><span class="k">switch</span> <span class="o">(</span><span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="n">MONDAY</span><span class="o">:</span>
+  <span class="k">case</span> <span class="n">FRIDAY</span><span class="o">:</span>
+  <span class="k">case</span> <span class="n">SUNDAY</span><span class="o">:</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">6</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">TUESDAY</span><span class="o">:</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">7</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">THURSDAY</span><span class="o">:</span>
+  <span class="k">case</span> <span class="n">SATURDAY</span><span class="o">:</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">8</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">WEDNESDAY</span><span class="o">:</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">9</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="c1">// After
+</span><span class="c1"></span><span class="k">switch</span> <span class="o">(</span><span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="n">MONDAY</span><span class="o">,</span> <span class="n">FRIDAY</span><span class="o">,</span> <span class="n">SUNDAY</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">6</span><span class="o">);</span>
+  <span class="k">case</span> <span class="n">TUESDAY</span>                <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">7</span><span class="o">);</span>
+  <span class="k">case</span> <span class="n">THURSDAY</span><span class="o">,</span> <span class="n">SATURDAY</span>     <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">8</span><span class="o">);</span>
+  <span class="k">case</span> <span class="n">WEDNESDAY</span>              <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">9</span><span class="o">);</span>
+<span class="o">}</span>
 
-<span class=c1>// Can be used as an expression
-</span><span class=c1></span><span class=n>var</span> <span class=n>d</span> <span class=o>=</span> <span class=k>switch</span> <span class=o>(</span><span class=n>day</span><span class=o>)</span> <span class=o>{</span>
-  <span class=k>case</span> <span class=n>MONDAY</span><span class=o>,</span> <span class=n>FRIDAY</span><span class=o>,</span> <span class=n>SUNDAY</span> <span class=o>-&gt;</span> <span class=n>6</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>TUESDAY</span>                <span class=o>-&gt;</span> <span class=n>7</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>THURSDAY</span><span class=o>,</span> <span class=n>SATURDAY</span>     <span class=o>-&gt;</span> <span class=n>8</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>WEDNESDAY</span>              <span class=o>-&gt;</span> <span class=n>9</span><span class=o>;</span>
-  <span class=k>default</span>                     <span class=o>-&gt;</span> <span class=n>10</span><span class=o>;</span>
-<span class=o>};</span>
-</code></pre></td></tr></table></div></div><h2 id=java-13>Java 13</h2><p><a href=https://openjdk.java.net/projects/jdk/13/><img src=https://img.shields.io/badge/Release-notes-green.svg alt="Release notes"></a></p><h3 id=switch-expressions-enhancements>Switch expressions enhancements</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// yield keyword used when assigning / returning value
-</span><span class=c1>// and when we need to have multiple instructions in a block
-</span><span class=c1></span><span class=n>var</span> <span class=n>d</span> <span class=o>=</span> <span class=k>switch</span> <span class=o>(</span><span class=n>day</span><span class=o>)</span> <span class=o>{</span>
-  <span class=k>case</span> <span class=n>MONDAY</span><span class=o>,</span> <span class=n>FRIDAY</span><span class=o>,</span> <span class=n>SUNDAY</span><span class=o>:</span> <span class=n>yield</span> <span class=n>6</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>TUESDAY</span>               <span class=o>:</span> <span class=n>yield</span> <span class=n>7</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>THURSDAY</span><span class=o>,</span> <span class=n>SATURDAY</span>    <span class=o>:</span> <span class=n>yield</span> <span class=n>8</span><span class=o>;</span>
-  <span class=k>case</span> <span class=n>WEDNESDAY</span>             <span class=o>:</span> <span class=n>yield</span> <span class=n>9</span><span class=o>;</span>
-  <span class=k>default</span>                    <span class=o>:</span>
-    <span class=c1>// yield useful here compared to the Java 12 arrow &#34;-&gt;&#34;
-</span><span class=c1></span>    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;In default case&#34;</span><span class=o>);</span>
-    <span class=n>yield</span> <span class=n>10</span><span class=o>;</span>
-<span class=o>};</span>
-</code></pre></td></tr></table></div></div><p>To have this feature, you need to add a flag to enable it:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># when compiling</span>
-javac --release <span class=m>13</span> --enable-preview YourJavaClass.java
-<span class=c1># when running</span>
+<span class="c1">// Can be used as an expression
+</span><span class="c1"></span><span class="n">var</span> <span class="n">d</span> <span class="o">=</span> <span class="k">switch</span> <span class="o">(</span><span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="n">MONDAY</span><span class="o">,</span> <span class="n">FRIDAY</span><span class="o">,</span> <span class="n">SUNDAY</span> <span class="o">-&gt;</span> <span class="n">6</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">TUESDAY</span>                <span class="o">-&gt;</span> <span class="n">7</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">THURSDAY</span><span class="o">,</span> <span class="n">SATURDAY</span>     <span class="o">-&gt;</span> <span class="n">8</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">WEDNESDAY</span>              <span class="o">-&gt;</span> <span class="n">9</span><span class="o">;</span>
+  <span class="k">default</span>                     <span class="o">-&gt;</span> <span class="n">10</span><span class="o">;</span>
+<span class="o">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="java-13">Java 13</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/13/"><img src="https://img.shields.io/badge/Release-notes-green.svg" alt="Release notes"></a></p>
+<h3 id="switch-expressions-enhancements">Switch expressions enhancements</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// yield keyword used when assigning / returning value
+</span><span class="c1">// and when we need to have multiple instructions in a block
+</span><span class="c1"></span><span class="n">var</span> <span class="n">d</span> <span class="o">=</span> <span class="k">switch</span> <span class="o">(</span><span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="n">MONDAY</span><span class="o">,</span> <span class="n">FRIDAY</span><span class="o">,</span> <span class="n">SUNDAY</span><span class="o">:</span> <span class="n">yield</span> <span class="n">6</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">TUESDAY</span>               <span class="o">:</span> <span class="n">yield</span> <span class="n">7</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">THURSDAY</span><span class="o">,</span> <span class="n">SATURDAY</span>    <span class="o">:</span> <span class="n">yield</span> <span class="n">8</span><span class="o">;</span>
+  <span class="k">case</span> <span class="n">WEDNESDAY</span>             <span class="o">:</span> <span class="n">yield</span> <span class="n">9</span><span class="o">;</span>
+  <span class="k">default</span>                    <span class="o">:</span>
+    <span class="c1">// yield useful here compared to the Java 12 arrow &#34;-&gt;&#34;
+</span><span class="c1"></span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;In default case&#34;</span><span class="o">);</span>
+    <span class="n">yield</span> <span class="n">10</span><span class="o">;</span>
+<span class="o">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>To have this feature, you need to add a flag to enable it:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># when compiling</span>
+javac --release <span class="m">13</span> --enable-preview YourJavaClass.java
+<span class="c1"># when running</span>
 java --enable-preview YourJavaClass.java
-</code></pre></td></tr></table></div></div><h3 id=text-blocks>Text blocks</h3><blockquote><p>Finally&mldr;</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// Before
-</span><span class=c1></span><span class=n>var</span> <span class=n>html</span> <span class=o>=</span> <span class=s>&#34;&lt;html&gt;\n&#34;</span> <span class=o>+</span>
-           <span class=s>&#34;  &lt;body&gt;\n&#34;</span> <span class=o>+</span>
-           <span class=s>&#34;    &lt;h1&gt;Hello, world!&lt;/h1&gt;\n&#34;</span> <span class=o>+</span>
-           <span class=s>&#34;  &lt;/body&gt;\n&#34;</span> <span class=o>+</span>
-           <span class=s>&#34;&lt;/html&gt;\n&#34;</span><span class=o>;</span>
-<span class=c1>// After
-</span><span class=c1></span><span class=n>var</span> <span class=n>html</span> <span class=o>=</span> <span class=s>&#34;&#34;&#34;
-</span><span class=s>&lt;html&gt;
-</span><span class=s>  &lt;body&gt;
-</span><span class=s>    &lt;h1&gt;Hello, world!&lt;/h1&gt;
-</span><span class=s>  &lt;/body&gt;
-</span><span class=s>&lt;/html&gt;
-</span><span class=s>&#34;&#34;&#34;</span><span class=o>;</span>
-</code></pre></td></tr></table></div></div><h2 id=java-14>Java 14</h2><p><a href=https://openjdk.java.net/projects/jdk/14/><img src=https://img.shields.io/badge/Release-notes-green.svg alt="Release notes"></a></p><h3 id=pattern-matching-for-instanceof>Pattern matching for instanceof</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// Before
-</span><span class=c1></span><span class=k>if</span> <span class=o>(</span><span class=n>obj</span> <span class=k>instanceof</span> <span class=n>String</span><span class=o>)</span> <span class=o>{</span>
-  <span class=n>String</span> <span class=n>s</span> <span class=o>=</span> <span class=o>(</span><span class=n>String</span><span class=o>)</span> <span class=n>obj</span><span class=o>;</span>
-  <span class=k>if</span> <span class=o>(!</span><span class=n>s</span><span class=o>.</span><span class=na>isBlank</span><span class=o>())</span> <span class=o>{</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>s</span><span class=o>.</span><span class=na>repeat</span><span class=o>(</span><span class=n>3</span><span class=o>));</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-<span class=c1>// After
-</span><span class=c1></span><span class=k>if</span> <span class=o>(</span><span class=n>obj</span> <span class=k>instanceof</span> <span class=n>String</span> <span class=n>s</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=n>s</span><span class=o>.</span><span class=na>isBlank</span><span class=o>())</span> <span class=o>{</span>
-  <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>s</span><span class=o>.</span><span class=na>repeat</span><span class=o>(</span><span class=n>3</span><span class=o>));</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div><h3 id=records>Records</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=c1>// Lightweight class intended to carry data only (same as &#34;data&#34; class in Kotlin)
-</span><span class=c1></span><span class=kd>public</span> <span class=n>record</span> <span class=nf>Cat</span><span class=o>(</span>
-  <span class=c1>// Compact constructor to avoid writing verbose code (e.g. getters / setters)
-</span><span class=c1></span>  <span class=n>String</span> <span class=n>name</span><span class=o>,</span>
-  <span class=n>String</span> <span class=n>type</span><span class=o>,</span>
-  <span class=kt>int</span> <span class=n>age</span>
-<span class=o>){</span>
-  <span class=c1>// No explicit parameter in constructor
-</span><span class=c1></span>  <span class=kd>public</span> <span class=n>Cat</span><span class=o>{</span>
-    <span class=c1>// Can be used to validate inputs
-</span><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>age</span> <span class=o>&lt;</span> <span class=n>0</span><span class=o>)</span> <span class=o>{</span>
-      <span class=k>throw</span> <span class=k>new</span> <span class=n>IllegalArgumentException</span><span class=o>(</span><span class=s>&#34;Don&#39;t try to challenge time!&#34;</span><span class=o>);</span>
-    <span class=o>}</span>
-  <span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="text-blocks">Text blocks</h3>
+<blockquote>
+<p>Finally&hellip;</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Before
+</span><span class="c1"></span><span class="n">var</span> <span class="n">html</span> <span class="o">=</span> <span class="s">&#34;&lt;html&gt;\n&#34;</span> <span class="o">+</span>
+           <span class="s">&#34;  &lt;body&gt;\n&#34;</span> <span class="o">+</span>
+           <span class="s">&#34;    &lt;h1&gt;Hello, world!&lt;/h1&gt;\n&#34;</span> <span class="o">+</span>
+           <span class="s">&#34;  &lt;/body&gt;\n&#34;</span> <span class="o">+</span>
+           <span class="s">&#34;&lt;/html&gt;\n&#34;</span><span class="o">;</span>
+<span class="c1">// After
+</span><span class="c1"></span><span class="n">var</span> <span class="n">html</span> <span class="o">=</span> <span class="s">&#34;&#34;&#34;
+</span><span class="s">&lt;html&gt;
+</span><span class="s">  &lt;body&gt;
+</span><span class="s">    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+</span><span class="s">  &lt;/body&gt;
+</span><span class="s">&lt;/html&gt;
+</span><span class="s">&#34;&#34;&#34;</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="java-14">Java 14</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/14/"><img src="https://img.shields.io/badge/Release-notes-green.svg" alt="Release notes"></a></p>
+<h3 id="pattern-matching-for-instanceof">Pattern matching for instanceof</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Before
+</span><span class="c1"></span><span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="n">String</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">obj</span><span class="o">;</span>
+  <span class="k">if</span> <span class="o">(!</span><span class="n">s</span><span class="o">.</span><span class="na">isBlank</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">3</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">// After
+</span><span class="c1"></span><span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="n">String</span> <span class="n">s</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">s</span><span class="o">.</span><span class="na">isBlank</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">repeat</span><span class="o">(</span><span class="n">3</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="records">Records</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Lightweight class intended to carry data only (same as &#34;data&#34; class in Kotlin)
+</span><span class="c1"></span><span class="kd">public</span> <span class="n">record</span> <span class="nf">Cat</span><span class="o">(</span>
+  <span class="c1">// Compact constructor to avoid writing verbose code (e.g. getters / setters)
+</span><span class="c1"></span>  <span class="n">String</span> <span class="n">name</span><span class="o">,</span>
+  <span class="n">String</span> <span class="n">type</span><span class="o">,</span>
+  <span class="kt">int</span> <span class="n">age</span>
+<span class="o">){</span>
+  <span class="c1">// No explicit parameter in constructor
+</span><span class="c1"></span>  <span class="kd">public</span> <span class="n">Cat</span><span class="o">{</span>
+    <span class="c1">// Can be used to validate inputs
+</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;Don&#39;t try to challenge time!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 
-  <span class=c1>// Can create methods, however, records only have immutable data
-</span><span class=c1></span>  <span class=kd>public</span> <span class=kt>void</span> <span class=nf>meow</span><span class=o>()</span> <span class=o>{</span>
-    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;Meow! :3&#34;</span><span class=o>);</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-</code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Last modification</span>
-<span class=item-content>2020-03-05
-<a href=https://github.com/l-lin/l-lin.github.io/commit/7b9ef9c595ada6814fa7edcefcf77e3de7ab7782 title="post(java): add new Java features">(7b9ef9c)</a></span></p></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/2020/2020-04-13-playing_with_kafka/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Playing with Kafka</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/post/2020/2020-02-14-sed/><span class="next-text nav-default">Sed</span>
-<span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=l-lin/l-lin.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:lin.louis@pm.me class="iconfont icon-email" title=email></a><a href=https://stackexchange.com/users/4436278/l-lin class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/l-lin class="iconfont icon-github" title=github></a><a href=https://l-lin.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
-<span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Louis LIN</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=https://l-lin.github.io/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js></script><script type=text/javascript>function duckSearch(id){var searchField=document.getElementById(id);if(searchField&&searchField.value){var query=escape('site:l-lin.github.io '+searchField.value);window.location.href='https://duckduckgo.com/?q='+query;}}</script></body></html>
+  <span class="c1">// Can create methods, however, records only have immutable data
+</span><span class="c1"></span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">meow</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Meow! :3&#34;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">Last modification</span>
+    <span class="item-content">
+        2020-03-05
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/7b9ef9c595ada6814fa7edcefcf77e3de7ab7782" title="post(java): add new Java features">(7b9ef9c)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2020/2020-04-13-playing_with_kafka/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Playing with Kafka</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2020/2020-02-14-sed/">
+            <span class="next-text nav-default">Sed</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="l-lin/l-lin.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:lin.louis@pm.me" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
+  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Louis LIN</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://l-lin.github.io/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  function duckSearch(id) {
+      var searchField = document.getElementById(id);
+      if (searchField && searchField.value) {
+          var query = escape('site:l-lin.github.io ' + searchField.value);
+          window.location.href = 'https://duckduckgo.com/?q=' + query;
+      }
+  }
+</script>
+
+</body>
+</html>

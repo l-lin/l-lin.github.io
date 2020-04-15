@@ -1,23 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spring on Louis LIN's blog</title><link>https://l-lin.github.io/tags/spring/</link><description>Recent content in spring on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Apr 2020 20:47:48 +0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml"/><item><title>Playing with Kafka</title><link>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</link><pubDate>Mon, 13 Apr 2020 20:47:48 +0200</pubDate><guid>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</guid><description>&lt;p>During the COVID-19 shutdown, one way to &amp;ldquo;pass time&amp;rdquo; is to learn and play with new things.&lt;/p>
-&lt;p>I made a small project, &lt;a href="https://github.com/l-lin/heart-rate-calculator/">heart-rate-calculator&lt;/a>,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/spring/</link>
+    <description>Recent content in spring on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Apr 2020 20:47:48 +0200</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Playing with Kafka</title>
+      <link>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</link>
+      <pubDate>Mon, 13 Apr 2020 20:47:48 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</guid>
+      <description>&lt;p&gt;During the COVID-19 shutdown, one way to &amp;ldquo;pass time&amp;rdquo; is to learn and play with new things.&lt;/p&gt;
+&lt;p&gt;I made a small project, &lt;a href=&#34;https://github.com/l-lin/heart-rate-calculator/&#34;&gt;heart-rate-calculator&lt;/a&gt;,
 whose goal is to take a file containing heartbeat information in input, compute and write the
-heart rates in another file.&lt;/p>
-&lt;p>That was quite a nice project, but I was wondering if I want to go further, what the project would
+heart rates in another file.&lt;/p&gt;
+&lt;p&gt;That was quite a nice project, but I was wondering if I want to go further, what the project would
 look like? Let&amp;rsquo;s say, I want to have a whole SAAS solution, production-ready, to read a stream of
 data from smart-watches that measure heartbeats, then compute their heart rates and display a graph
 to the user. Of course, if that&amp;rsquo;s just that, it will be too simple, so what about having the
-challenge of dealing with massive amount of data. Mmh, a bit more tricky.&lt;/p>
-&lt;p>This is a good opportunity to play with Kafka and Kafka Streams! In this blog post, I will show how
-to build a resilient system to compute and generate heart rates from heartbeat data.&lt;/p>
-&lt;p>If you are in hurry, you can check the source code here: &lt;a href="https://github.com/l-lin/poc-kafka">https://github.com/l-lin/poc-kafka&lt;/a>&lt;/p></description></item><item><title>Authentication using certificates, Tomcat and Spring security</title><link>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</link><pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid><description>&lt;p>Instead of the classic &lt;code>login/password&lt;/code> way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
-What&amp;rsquo;s more, you can also link a &lt;code>ROLE&lt;/code> to each certificate.&lt;/p>
-&lt;p>⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p>
-&lt;p>&lt;strong>TLDR&lt;/strong>: Check the sample project on my &lt;a href="https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth">Github&lt;/a>.&lt;/p>
-&lt;p>This tutorial will show you:&lt;/p>
-&lt;ul>
-&lt;li>how to activate the SSL secured by a certificate for our Tomcat&lt;/li>
-&lt;li>how to secure the URL pattern with Spring Security&lt;/li>
-&lt;li>how to access with a browser&lt;/li>
-&lt;li>how to access with a third party application&lt;/li>
-&lt;/ul>
-&lt;p>In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p></description></item></channel></rss>
+challenge of dealing with massive amount of data. Mmh, a bit more tricky.&lt;/p&gt;
+&lt;p&gt;This is a good opportunity to play with Kafka and Kafka Streams! In this blog post, I will show how
+to build a resilient system to compute and generate heart rates from heartbeat data.&lt;/p&gt;
+&lt;p&gt;If you are in hurry, you can check the source code here: &lt;a href=&#34;https://github.com/l-lin/poc-kafka&#34;&gt;https://github.com/l-lin/poc-kafka&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Authentication using certificates, Tomcat and Spring security</title>
+      <link>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
+      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
+What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
+&lt;p&gt;⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This tutorial will show you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;how to activate the SSL secured by a certificate for our Tomcat&lt;/li&gt;
+&lt;li&gt;how to secure the URL pattern with Spring Security&lt;/li&gt;
+&lt;li&gt;how to access with a browser&lt;/li&gt;
+&lt;li&gt;how to access with a third party application&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
