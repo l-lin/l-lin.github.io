@@ -1,193 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Ubuntu custom desktop shortcuts - Louis LIN&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Louis LIN" /><meta name="description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.
-" /><meta name="keywords" content="software development" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
-
-
-<link rel="canonical" href="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/" />
-<link rel="icon" href="/favicon.ico" />
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="https://l-lin.github.io/sass/main.min.4d7c7d29d1ccb5efff5212ac69b997c173988cf1a117ea4f8b16c79beee8f518.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-
-<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
-
-<meta property="og:title" content="Ubuntu custom desktop shortcuts" />
-<meta property="og:description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/" />
-<meta property="article:published_time" content="2019-04-12T09:27:54+02:00" />
-<meta property="article:modified_time" content="2020-02-06T09:02:35+01:00" />
-<meta itemprop="name" content="Ubuntu custom desktop shortcuts">
-<meta itemprop="description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.">
-<meta itemprop="datePublished" content="2019-04-12T09:27:54&#43;02:00" />
-<meta itemprop="dateModified" content="2020-02-06T09:02:35&#43;01:00" />
-<meta itemprop="wordCount" content="140">
-
-
-
-<meta itemprop="keywords" content="ubuntu," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ubuntu custom desktop shortcuts"/>
-<meta name="twitter:description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
-You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">l-lin</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/tools/">
-        <li class="mobile-menu-item">Tools</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
-      </a>
-    <li class="mobile-menu-item">
-      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
-        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
-      </form>
-    </li>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">
-    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tools/">Tools</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
-      </li>
-    <li class="menu-item">
-      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
-        <input id="search-field" type="text" placeholder="Search...">
-      </form>
-    </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Ubuntu custom desktop shortcuts</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-04-12 </span>
-        <div class="post-category">
-            
-              <a href="/tags/ubuntu/"> #ubuntu </a>
-            
-          </div>
-          
-          <span class="more-meta"> 1 min read </span>
-        
-      </div>
-    </header>
-
-    
-    <div class="post-image center">
-      <img src="https://career.guru99.com/wp-content/uploads/2014/08/Ubuntu.png" />
-    </div>
-
-    
-    <div class="post-content">
-      <p>With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.</p>
-<p>You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.</p>
-<p><strong>EDIT</strong>: There is a menu editor for the GNOME desktop, <a href="https://en.wikipedia.org/wiki/Alacarte">alacarte</a>, which is a better alternative
-than creating the shortcut yourself.</p>
-<p>There are two applications folders that Ubuntu is looking:</p>
-<ul>
-<li><code>/usr/share/applications/</code>
-<ul>
-<li>Shared folder to every computer&rsquo;s users</li>
-</ul>
-</li>
-<li><code>~/.local/share/applications/</code>
-<ul>
-<li>Folder specific to the users, thus shortcuts only available for current user</li>
-</ul>
-</li>
-</ul>
-<p>If you want to create a custom one, create a <code>&lt;name&gt;.desktop</code> file into one of those two folders with the following content:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Desktop Entry]
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Ubuntu custom desktop shortcuts - Louis LIN's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Louis LIN"><meta name=description content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
+You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here."><meta name=keywords content="software development"><meta name=generator content="Hugo 0.68.3 with theme even"><link rel=canonical href=https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/><link rel=icon href=/favicon.ico><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=https://l-lin.github.io/sass/main.min.4d7c7d29d1ccb5efff5212ac69b997c173988cf1a117ea4f8b16c79beee8f518.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><link href="https://fonts.googleapis.com/css?family=Work+Sans" rel=stylesheet><meta property="og:title" content="Ubuntu custom desktop shortcuts"><meta property="og:description" content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
+You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here."><meta property="og:type" content="article"><meta property="og:url" content="https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/"><meta property="article:published_time" content="2019-04-12T09:27:54+02:00"><meta property="article:modified_time" content="2020-02-06T09:02:35+01:00"><meta itemprop=name content="Ubuntu custom desktop shortcuts"><meta itemprop=description content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
+You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here."><meta itemprop=datePublished content="2019-04-12T09:27:54+02:00"><meta itemprop=dateModified content="2020-02-06T09:02:35+01:00"><meta itemprop=wordCount content="140"><meta itemprop=keywords content="ubuntu,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ubuntu custom desktop shortcuts"><meta name=twitter:description content="With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.
+You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>l-lin</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/tools/><li class=mobile-menu-item>Tools</li></a><a href=/about/><li class=mobile-menu-item>About me</li></a><li class=mobile-menu-item><form class=menu-search onsubmit="duckSearch('mobile-search-field')" action=javascript:void(0)><input id=mobile-search-field type=text placeholder=Search... style=width:110px></form></li></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo><img src=/images/yoo_jae_suk.png alt="Yoo Jae Suk">&nbsp;l-lin</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/tools/>Tools</a></li><li class=menu-item><a class=menu-item-link href=/about/>About me</a></li><li class=menu-item><form class=menu-search onsubmit="duckSearch('search-field')" action=javascript:void(0)><input id=search-field type=text placeholder=Search...></form></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Ubuntu custom desktop shortcuts</h1><div class=post-meta><span class=post-time>2019-04-12</span><div class=post-category><a href=/tags/ubuntu/>#ubuntu</a></div><span class=more-meta>1 min read</span></div></header><div class="post-image center"><img src=https://career.guru99.com/wp-content/uploads/2014/08/Ubuntu.png></div><div class=post-content><p>With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.</p><p>You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.</p><p><strong>EDIT</strong>: There is a menu editor for the GNOME desktop, <a href=https://en.wikipedia.org/wiki/Alacarte>alacarte</a>, which is a better alternative
+than creating the shortcut yourself.</p><p>There are two applications folders that Ubuntu is looking:</p><ul><li><code>/usr/share/applications/</code><ul><li>Shared folder to every computer&rsquo;s users</li></ul></li><li><code>~/.local/share/applications/</code><ul><li>Folder specific to the users, thus shortcuts only available for current user</li></ul></li></ul><p>If you want to create a custom one, create a <code>&lt;name>.desktop</code> file into one of those two folders with the following content:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[Desktop Entry]
 Type=Application
 Name=Name of the app
 Icon=/path/to/your/icon.png
@@ -195,122 +19,17 @@ Exec=&#34;/path/to/your/exec&#34; %f
 Comment=Some comment
 Categories=Categories;separated;by;semi-commas;
 Terminal=false
-</code></pre></td></tr></table>
-</div>
-</div><p>Sources:</p>
-<ul>
-<li><a href="https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop">https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop</a></li>
-<li><a href="https://askubuntu.com/questions/1006882/intellij-shortcut-location">https://askubuntu.com/questions/1006882/intellij-shortcut-location</a></li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  
-  <p class="copyright-item">
-    <span class="item-title">Last modification</span>
-    <span class="item-content">
-        2020-02-06
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/dd4885098d994f3339f944cdcd0a460bd9b034c1" title="post(ubuntu): alacarte instead of custom shortcut">(dd48850)</a>
-    </span>
-  </p>
-  
-  
-</div>
-<footer class="post-footer">
-      
-      <nav class="post-nav">
-        <a class="prev" href="/post/2019/2019-06-24-software_documentation/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Mind map - Software documentation</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/2019/2019-04-08-git-url-shortcuts/">
-            <span class="next-text nav-default">Git URL Shortcuts</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-    <script src="https://utteranc.es/client.js"
-            repo="l-lin/l-lin.github.io"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:lin.louis@pm.me" class="iconfont icon-email" title="email"></a>
-      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
-  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Louis LIN</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="https://l-lin.github.io/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-  function duckSearch(id) {
-      var searchField = document.getElementById(id);
-      if (searchField && searchField.value) {
-          var query = escape('site:l-lin.github.io ' + searchField.value);
-          window.location.href = 'https://duckduckgo.com/?q=' + query;
-      }
-  }
-</script>
-
-</body>
-</html>
+</code></pre></td></tr></table></div></div><p>Sources:</p><ul><li><a href=https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop>https://askubuntu.com/questions/64222/how-can-i-create-launchers-on-my-desktop</a></li><li><a href=https://askubuntu.com/questions/1006882/intellij-shortcut-location>https://askubuntu.com/questions/1006882/intellij-shortcut-location</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Last modification</span>
+<span class=item-content>2020-02-06
+<a href=https://github.com/l-lin/l-lin.github.io/commit/dd4885098d994f3339f944cdcd0a460bd9b034c1 title="post(ubuntu): alacarte instead of custom shortcut">(dd48850)</a></span></p></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/2019/2019-06-24-software_documentation/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Mind map - Software documentation</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/2019/2019-04-08-git-url-shortcuts/><span class="next-text nav-default">Git URL Shortcuts</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=l-lin/l-lin.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:lin.louis@pm.me class="iconfont icon-email" title=email></a><a href=https://stackexchange.com/users/4436278/l-lin class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/l-lin class="iconfont icon-github" title=github></a><a href=https://l-lin.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Louis LIN</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=https://l-lin.github.io/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js></script><script type=text/javascript>function duckSearch(id){var searchField=document.getElementById(id);if(searchField&&searchField.value){var query=escape('site:l-lin.github.io '+searchField.value);window.location.href='https://duckduckgo.com/?q='+query;}}</script></body></html>

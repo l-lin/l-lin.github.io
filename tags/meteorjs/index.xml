@@ -1,46 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>meteorjs on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/meteorjs/</link>
-    <description>Recent content in meteorjs on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/meteorjs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Deploying a MeteorJS apps to Heroku</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</link>
-      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Publishing, subscribing... The magic and the mystery</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</link>
-      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; comes with an interesting concept: Publishing and subscribing record sets.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>meteorjs on Louis LIN's blog</title><link>https://l-lin.github.io/tags/meteorjs/</link><description>Recent content in meteorjs on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 03 May 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/meteorjs/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploying a MeteorJS apps to Heroku</title><link>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</link><pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</guid><description/></item><item><title>Publishing, subscribing... The magic and the mystery</title><link>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</link><pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</guid><description>&lt;p>&lt;a href="http://www.meteor.com">MeteorJS&lt;/a> comes with an interesting concept: Publishing and subscribing record sets.
 But what the **** are those? My thought exactly!
-It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>MeteorJS, yet another JS framework?</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</link>
-      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</guid>
-      <description>&lt;p&gt;There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?&lt;/p&gt;
-&lt;p&gt;Well I think the strength of &lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; come from its powerful real time data synchronization for all connected users.&lt;/p&gt;
-&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+It&amp;rsquo;s a new way of fetching data from the server.&lt;/p></description></item><item><title>MeteorJS, yet another JS framework?</title><link>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</link><pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</guid><description>&lt;p>There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?&lt;/p>
+&lt;p>Well I think the strength of &lt;a href="http://www.meteor.com">MeteorJS&lt;/a> come from its powerful real time data synchronization for all connected users.&lt;/p>
+&lt;p>In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!&lt;/p></description></item></channel></rss>

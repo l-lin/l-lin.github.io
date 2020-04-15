@@ -1,27 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>brackets on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/brackets/</link>
-    <description>Recent content in brackets on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 27 Nov 2013 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/brackets/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to exclude folders in Brackets</title>
-      <link>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</link>
-      <pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://brackets.io&#34;&gt;Brackets&lt;/a&gt; (Sprint &lt;strong&gt;34&lt;/strong&gt;) has a static list of excluded files and folders. The default ignored files and folders are files like &lt;code&gt;.gitignore&lt;/code&gt;, &lt;code&gt;DS_Store&lt;/code&gt;, and so on&amp;hellip;
-Sadly, this list is hard coded in the source&amp;hellip;&lt;/p&gt;
-&lt;p&gt;If you are like me, i.e. you use &lt;a href=&#34;http://yeoman.io&#34;&gt;Yeoman&lt;/a&gt; when creating new web projects, you will be left with two huge folders (&lt;code&gt;node_modules&lt;/code&gt; and &lt;code&gt;bower_components&lt;/code&gt; generated respectively by &lt;code&gt;NPM&lt;/code&gt; and &lt;code&gt;bower&lt;/code&gt;).
-Those folders contains a lot of files (JS, CSS,&amp;hellip;) and most of them are not useful for our project.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>brackets on Louis LIN's blog</title><link>https://l-lin.github.io/tags/brackets/</link><description>Recent content in brackets on Louis LIN's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 27 Nov 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/brackets/index.xml" rel="self" type="application/rss+xml"/><item><title>How to exclude folders in Brackets</title><link>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</link><pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate><guid>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</guid><description>&lt;p>&lt;a href="http://brackets.io">Brackets&lt;/a> (Sprint &lt;strong>34&lt;/strong>) has a static list of excluded files and folders. The default ignored files and folders are files like &lt;code>.gitignore&lt;/code>, &lt;code>DS_Store&lt;/code>, and so on&amp;hellip;
+Sadly, this list is hard coded in the source&amp;hellip;&lt;/p>
+&lt;p>If you are like me, i.e. you use &lt;a href="http://yeoman.io">Yeoman&lt;/a> when creating new web projects, you will be left with two huge folders (&lt;code>node_modules&lt;/code> and &lt;code>bower_components&lt;/code> generated respectively by &lt;code>NPM&lt;/code> and &lt;code>bower&lt;/code>).
+Those folders contains a lot of files (JS, CSS,&amp;hellip;) and most of them are not useful for our project.&lt;/p></description></item></channel></rss>

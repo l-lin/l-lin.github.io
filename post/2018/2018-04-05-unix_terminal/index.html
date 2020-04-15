@@ -1,1404 +1,598 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Unix terminal survival kit - Louis LIN&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="Louis LIN" /><meta name="description" content="Do you have to manage a server?
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Unix terminal survival kit - Louis LIN's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Louis LIN"><meta name=description content="Do you have to manage a server?
 Do you need to perform some actions in bulk?
 Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?
-Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications and menus. Another benefit is allowing access to many more commands and scripts.
-" /><meta name="keywords" content="software development" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
-
-
-<link rel="canonical" href="https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/" />
-<link rel="icon" href="/favicon.ico" />
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="https://l-lin.github.io/sass/main.min.4d7c7d29d1ccb5efff5212ac69b997c173988cf1a117ea4f8b16c79beee8f518.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-
-<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
-
-<meta property="og:title" content="Unix terminal survival kit" />
-<meta property="og:description" content="Do you have to manage a server?
+Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications and menus. Another benefit is allowing access to many more commands and scripts."><meta name=keywords content="software development"><meta name=generator content="Hugo 0.68.3 with theme even"><link rel=canonical href=https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/><link rel=icon href=/favicon.ico><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=https://l-lin.github.io/sass/main.min.4d7c7d29d1ccb5efff5212ac69b997c173988cf1a117ea4f8b16c79beee8f518.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><link href="https://fonts.googleapis.com/css?family=Work+Sans" rel=stylesheet><meta property="og:title" content="Unix terminal survival kit"><meta property="og:description" content="Do you have to manage a server?
 Do you need to perform some actions in bulk?
 Do you want impress your peers with a &ldquo;hacking&rdquo; skills?
 Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
-and menus. Another benefit is allowing access to many more commands and scripts." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/" />
-<meta property="article:published_time" content="2018-04-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-17T15:27:40+01:00" />
-<meta itemprop="name" content="Unix terminal survival kit">
-<meta itemprop="description" content="Do you have to manage a server?
+and menus. Another benefit is allowing access to many more commands and scripts."><meta property="og:type" content="article"><meta property="og:url" content="https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/"><meta property="article:published_time" content="2018-04-05T00:00:00+00:00"><meta property="article:modified_time" content="2019-12-17T15:27:40+01:00"><meta itemprop=name content="Unix terminal survival kit"><meta itemprop=description content="Do you have to manage a server?
 Do you need to perform some actions in bulk?
 Do you want impress your peers with a &ldquo;hacking&rdquo; skills?
 Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
-and menus. Another benefit is allowing access to many more commands and scripts.">
-<meta itemprop="datePublished" content="2018-04-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-17T15:27:40&#43;01:00" />
-<meta itemprop="wordCount" content="3453">
-
-
-
-<meta itemprop="keywords" content="terminal," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Unix terminal survival kit"/>
-<meta name="twitter:description" content="Do you have to manage a server?
+and menus. Another benefit is allowing access to many more commands and scripts."><meta itemprop=datePublished content="2018-04-05T00:00:00+00:00"><meta itemprop=dateModified content="2019-12-17T15:27:40+01:00"><meta itemprop=wordCount content="3453"><meta itemprop=keywords content="terminal,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Unix terminal survival kit"><meta name=twitter:description content="Do you have to manage a server?
 Do you need to perform some actions in bulk?
 Do you want impress your peers with a &ldquo;hacking&rdquo; skills?
 Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
-and menus. Another benefit is allowing access to many more commands and scripts."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">l-lin</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/tools/">
-        <li class="mobile-menu-item">Tools</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About me</li>
-      </a>
-    <li class="mobile-menu-item">
-      <form class="menu-search" onsubmit="duckSearch('mobile-search-field')" action="javascript:void(0)">
-        <input id="mobile-search-field" type="text" value="" placeholder="Search..." style="width: 110px">
-      </form>
-    </li>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">
-    <img src="/images/yoo_jae_suk.png" alt="Yoo Jae Suk" />&nbsp;l-lin</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tools/">Tools</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About me</a>
-      </li>
-    <li class="menu-item">
-      <form class="menu-search" onsubmit="duckSearch('search-field')" action="javascript:void(0)">
-        <input id="search-field" type="text" placeholder="Search...">
-      </form>
-    </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Unix terminal survival kit</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2018-04-05 </span>
-        <div class="post-category">
-            
-              <a href="/tags/terminal/"> #terminal </a>
-            
-          </div>
-          
-          <span class="more-meta"> 17 mins read </span>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#unix-representation">UNIX representation</a></li>
-    <li><a href="#case-sensitive">case-sensitive</a></li>
-    <li><a href="#beware-of-blank-spaces">Beware of blank spaces</a></li>
-    <li><a href="#copypaste">Copy/paste</a></li>
-    <li><a href="#suspending-processes">Suspending processes</a></li>
-    <li><a href="#man-the-hell-up"><strong>man</strong> the hell up</a></li>
-    <li><a href="#shortcuts">Shortcuts</a></li>
-    <li><a href="#navigation">Navigation</a></li>
-    <li><a href="#super-user-vs-sudo">Super user VS sudo</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#file-and-folder-navigation">File and folder navigation</a></li>
-    <li><a href="#file-and-directory-handling">File and directory handling</a></li>
-    <li><a href="#file-content">File content</a></li>
-    <li><a href="#processes-handling">Processes handling</a></li>
-    <li><a href="#folders-definition">Folders definition</a></li>
-    <li><a href="#file-and-folder-permissions">File and folder permissions</a>
-      <ul>
-        <li><a href="#classes">Classes</a></li>
-        <li><a href="#permissions">Permissions</a></li>
-      </ul>
-    </li>
-    <li><a href="#stdinstout">Stdin/Stout</a>
-      <ul>
-        <li><a href="#stdin">stdin</a></li>
-        <li><a href="#stdout">stdout</a></li>
-        <li><a href="#stderr">stderr</a></li>
-        <li><a href="#mixing-everything">Mixing everything</a></li>
-        <li><a href="#appending-to-file">Appending to file</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipes">Pipes</a></li>
-    <li><a href="#executing-a-command-within-a-command">Executing a command within a command</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#vim">VIM</a>
-      <ul>
-        <li><a href="#vim-movement">VIM movement</a></li>
-        <li><a href="#vim-editing">VIM editing</a></li>
-        <li><a href="#search-and-replace">Search and replace</a></li>
-        <li><a href="#other-vim-commands">Other VIM commands</a></li>
-        <li><a href="#undo">Undo</a></li>
-        <li><a href="#going-further-with-vim">Going further with VIM</a></li>
-      </ul>
-    </li>
-    <li><a href="#writing-a-sh-script">Writing a SH script</a>
-      <ul>
-        <li><a href="#shebang-or-hashpling-">Shebang or hashpling #!</a></li>
-        <li><a href="#exit">Exit</a></li>
-        <li><a href="#functions">Functions</a></li>
-        <li><a href="#variables">Variables</a></li>
-        <li><a href="#loops">Loops</a></li>
-        <li><a href="#unit-test">Unit test</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-image center">
-      <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" />
-    </div>
-
-    
-    <div class="post-content">
-      <p>Do you have to manage a server?</p>
-<p>Do you need to perform some actions in bulk?</p>
-<p>Do you want impress your peers with a &ldquo;hacking&rdquo; skills?</p>
-<p>Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
-and menus. Another benefit is allowing access to many more commands and scripts.</p>
-<h1 id="important-information">Important information</h1>
-<h2 id="unix-representation">UNIX representation</h2>
-<p>In UNIX everything is represented by a process or file. A process is an executing program.
-Files are collections of data organized by a directory structure.</p>
-<p>Files can be identified by absolute or relative paths. For example:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">/home/user/foobar.txt
+and menus. Another benefit is allowing access to many more commands and scripts."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>l-lin</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/tools/><li class=mobile-menu-item>Tools</li></a><a href=/about/><li class=mobile-menu-item>About me</li></a><li class=mobile-menu-item><form class=menu-search onsubmit="duckSearch('mobile-search-field')" action=javascript:void(0)><input id=mobile-search-field type=text placeholder=Search... style=width:110px></form></li></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo><img src=/images/yoo_jae_suk.png alt="Yoo Jae Suk">&nbsp;l-lin</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/tools/>Tools</a></li><li class=menu-item><a class=menu-item-link href=/about/>About me</a></li><li class=menu-item><form class=menu-search onsubmit="duckSearch('search-field')" action=javascript:void(0)><input id=search-field type=text placeholder=Search...></form></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Unix terminal survival kit</h1><div class=post-meta><span class=post-time>2018-04-05</span><div class=post-category><a href=/tags/terminal/>#terminal</a></div><span class=more-meta>17 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#unix-representation>UNIX representation</a></li><li><a href=#case-sensitive>case-sensitive</a></li><li><a href=#beware-of-blank-spaces>Beware of blank spaces</a></li><li><a href=#copypaste>Copy/paste</a></li><li><a href=#suspending-processes>Suspending processes</a></li><li><a href=#man-the-hell-up><strong>man</strong> the hell up</a></li><li><a href=#shortcuts>Shortcuts</a></li><li><a href=#navigation>Navigation</a></li><li><a href=#super-user-vs-sudo>Super user VS sudo</a></li></ul><ul><li><a href=#file-and-folder-navigation>File and folder navigation</a></li><li><a href=#file-and-directory-handling>File and directory handling</a></li><li><a href=#file-content>File content</a></li><li><a href=#processes-handling>Processes handling</a></li><li><a href=#folders-definition>Folders definition</a></li><li><a href=#file-and-folder-permissions>File and folder permissions</a><ul><li><a href=#classes>Classes</a></li><li><a href=#permissions>Permissions</a></li></ul></li><li><a href=#stdinstout>Stdin/Stout</a><ul><li><a href=#stdin>stdin</a></li><li><a href=#stdout>stdout</a></li><li><a href=#stderr>stderr</a></li><li><a href=#mixing-everything>Mixing everything</a></li><li><a href=#appending-to-file>Appending to file</a></li></ul></li><li><a href=#pipes>Pipes</a></li><li><a href=#executing-a-command-within-a-command>Executing a command within a command</a></li></ul><ul><li><a href=#vim>VIM</a><ul><li><a href=#vim-movement>VIM movement</a></li><li><a href=#vim-editing>VIM editing</a></li><li><a href=#search-and-replace>Search and replace</a></li><li><a href=#other-vim-commands>Other VIM commands</a></li><li><a href=#undo>Undo</a></li><li><a href=#going-further-with-vim>Going further with VIM</a></li></ul></li><li><a href=#writing-a-sh-script>Writing a SH script</a><ul><li><a href=#shebang-or-hashpling->Shebang or hashpling #!</a></li><li><a href=#exit>Exit</a></li><li><a href=#functions>Functions</a></li><li><a href=#variables>Variables</a></li><li><a href=#loops>Loops</a></li><li><a href=#unit-test>Unit test</a></li></ul></li></ul></nav></div></div><div class="post-image center"><img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"></div><div class=post-content><p>Do you have to manage a server?</p><p>Do you need to perform some actions in bulk?</p><p>Do you want impress your peers with a &ldquo;hacking&rdquo; skills?</p><p>Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
+and menus. Another benefit is allowing access to many more commands and scripts.</p><h1 id=important-information>Important information</h1><h2 id=unix-representation>UNIX representation</h2><p>In UNIX everything is represented by a process or file. A process is an executing program.
+Files are collections of data organized by a directory structure.</p><p>Files can be identified by absolute or relative paths. For example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>/home/user/foobar.txt
 ./foobar.txt
 ../foobar.txt
-<span class="c1"># ~ represents the home directory</span>
+<span class=c1># ~ represents the home directory</span>
 ~/foobar.txt
-<span class="c1"># environment variables are represented by a $NAME or ${NAME}</span>
-<span class="nv">$HOME</span>/foobar.txt
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="case-sensitive">case-sensitive</h2>
-<p>Everything written in the terminal is case-sensitive. When the command is <code>ls</code>, neither <code>Ls</code>, <code>lS</code> nor <code>LS</code> will work.</p>
-<p>Files and directories are also case-sensitive, eg <code>foobar.txt</code> and <code>FoObAr.txt</code> are two different files, even if they are in the same directory.</p>
-<h2 id="beware-of-blank-spaces">Beware of blank spaces</h2>
-<p>If you want to create/access/delete a file or directory that has a space in its filename, you can either put the whole filename in quotation mark <code>&quot;</code>
-or escape the space using the backslash <code>\ </code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">touch <span class="s2">&#34;foo bar.txt&#34;</span>
-touch foo<span class="se">\ </span>bar.txt
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="copypaste">Copy/paste</h2>
-<p>To copy or paste on the terminal, <code>ctrl+c</code> and <code>ctrl+v</code> won&rsquo;t work.</p>
-<p>Instead, we must use <code>ctrl+shift+c</code> and <code>ctrl+shift+v</code>.</p>
-<p>⚠️ <code>ctrl+c</code> is used to terminate the program</p>
-<h2 id="suspending-processes">Suspending processes</h2>
-<p><code>ctrl+z</code> will suspend the current process.</p>
-<p>Using <code>fg %1</code> will resume the job in foreground whereas <code>bg %1</code> will resume in background.</p>
-<p>To list all suspended jobs, just call <code>jobs</code>.</p>
-<h2 id="man-the-hell-up"><strong>man</strong> the hell up</h2>
-<p>Use <code>man</code> whenever you aren&rsquo;t sure about a command or its options&hellip;</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># This will display the help page of the command</span>
+<span class=c1># environment variables are represented by a $NAME or ${NAME}</span>
+<span class=nv>$HOME</span>/foobar.txt
+</code></pre></td></tr></table></div></div><h2 id=case-sensitive>case-sensitive</h2><p>Everything written in the terminal is case-sensitive. When the command is <code>ls</code>, neither <code>Ls</code>, <code>lS</code> nor <code>LS</code> will work.</p><p>Files and directories are also case-sensitive, eg <code>foobar.txt</code> and <code>FoObAr.txt</code> are two different files, even if they are in the same directory.</p><h2 id=beware-of-blank-spaces>Beware of blank spaces</h2><p>If you want to create/access/delete a file or directory that has a space in its filename, you can either put the whole filename in quotation mark <code>"</code>
+or escape the space using the backslash <code>\ </code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>touch <span class=s2>&#34;foo bar.txt&#34;</span>
+touch foo<span class=se>\ </span>bar.txt
+</code></pre></td></tr></table></div></div><h2 id=copypaste>Copy/paste</h2><p>To copy or paste on the terminal, <code>ctrl+c</code> and <code>ctrl+v</code> won&rsquo;t work.</p><p>Instead, we must use <code>ctrl+shift+c</code> and <code>ctrl+shift+v</code>.</p><p>⚠ <code>ctrl+c</code> is used to terminate the program</p><h2 id=suspending-processes>Suspending processes</h2><p><code>ctrl+z</code> will suspend the current process.</p><p>Using <code>fg %1</code> will resume the job in foreground whereas <code>bg %1</code> will resume in background.</p><p>To list all suspended jobs, just call <code>jobs</code>.</p><h2 id=man-the-hell-up><strong>man</strong> the hell up</h2><p>Use <code>man</code> whenever you aren&rsquo;t sure about a command or its options&mldr;</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># This will display the help page of the command</span>
 man ls
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="shortcuts">Shortcuts</h2>
-<p><strong>tab</strong></p>
-<p>Always use the <code>tab</code> button to autocomplete your command. It&rsquo;s really useful to prevent any typos.</p>
-<p><strong>ctrl+r</strong></p>
-<p>&ldquo;Reverse-i-search&rdquo; is a shortcut to display a list of commands you have already used. It&rsquo;s based on <code>history</code>.</p>
-<p><strong>!!</strong></p>
-<p>Re-execute last command:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> foobar
+</code></pre></td></tr></table></div></div><h2 id=shortcuts>Shortcuts</h2><p><strong>tab</strong></p><p>Always use the <code>tab</code> button to autocomplete your command. It&rsquo;s really useful to prevent any typos.</p><p><strong>ctrl+r</strong></p><p>&ldquo;Reverse-i-search&rdquo; is a shortcut to display a list of commands you have already used. It&rsquo;s based on <code>history</code>.</p><p><strong>!!</strong></p><p>Re-execute last command:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nb>echo</span> foobar
 foobar
 $ !!
 foobar
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>!$</strong></p>
-<p>Execute last command&rsquo;s value:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="nb">pwd</span>
-<span class="nb">pwd</span>
+</code></pre></td></tr></table></div></div><p><strong>!$</strong></p><p>Execute last command&rsquo;s value:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nb>echo</span> <span class=nb>pwd</span>
+<span class=nb>pwd</span>
 $ !$
 /home/l-lin
 $ !echo
-<span class="nb">pwd</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="navigation">Navigation</h2>
-<figure class="center">
-    <img src="https://memegenerator.net/img/instances/81614805/you-know-what-really-grinds-my-gears-when-people-keep-pressing-left-arrow-to-move-the-cursor-back-to.jpg"
-         alt="Please, use keyboard shortcuts"/> <figcaption>
-            <h4>Please, use keyboard shortcuts</h4>
-        </figcaption>
-</figure>
-
-<figure class="center">
-    <img src="/images/2018-04-05/keyboard_shortcuts.jpg"
-         alt="Moving efficiently in the CLI"/> <figcaption>
-            <h4>Moving efficiently in the CLI</h4>
-        </figcaption>
-</figure>
-
-<p>Credit to <a href="https://clementc.github.io/blog/2018/01/25/moving_cli/">Clément Chastagnol</a>.</p>
-<p>Of course, bear in mind these keyboard shortcuts depends on your unix distribution, your shell, your configuration, &hellip;</p>
-<h2 id="super-user-vs-sudo">Super user VS sudo</h2>
-<p>There are two ways to run administrative applications:</p>
-<ul>
-<li>run as &ldquo;super user&rdquo; (root) with the <code>su</code> command</li>
-<li>take advantage of <code>sudo</code> (Substitute User DO)</li>
-</ul>
-<p><code>sudo</code> allows an user to run a program as another user (most often as the root user).</p>
-<figure class="center">
-    <img src="https://imgs.xkcd.com/comics/sandwich.png"
-         alt="Credit to xkcd"/> <figcaption>
-            <h4>Credit to xkcd</h4>
-        </figcaption>
-</figure>
-
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># running apt-get install as root user</span>
+<span class=nb>pwd</span>
+</code></pre></td></tr></table></div></div><h2 id=navigation>Navigation</h2><figure class=center><img src=https://memegenerator.net/img/instances/81614805/you-know-what-really-grinds-my-gears-when-people-keep-pressing-left-arrow-to-move-the-cursor-back-to.jpg alt="Please, use keyboard shortcuts"><figcaption><h4>Please, use keyboard shortcuts</h4></figcaption></figure><figure class=center><img src=/images/2018-04-05/keyboard_shortcuts.jpg alt="Moving efficiently in the CLI"><figcaption><h4>Moving efficiently in the CLI</h4></figcaption></figure><p>Credit to <a href=https://clementc.github.io/blog/2018/01/25/moving_cli/>Clément Chastagnol</a>.</p><p>Of course, bear in mind these keyboard shortcuts depends on your unix distribution, your shell, your configuration, &mldr;</p><h2 id=super-user-vs-sudo>Super user VS sudo</h2><p>There are two ways to run administrative applications:</p><ul><li>run as &ldquo;super user&rdquo; (root) with the <code>su</code> command</li><li>take advantage of <code>sudo</code> (Substitute User DO)</li></ul><p><code>sudo</code> allows an user to run a program as another user (most often as the root user).</p><figure class=center><img src=https://imgs.xkcd.com/comics/sandwich.png alt="Credit to xkcd"><figcaption><h4>Credit to xkcd</h4></figcaption></figure><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># running apt-get install as root user</span>
 sudo apt-get install vim
-<span class="c1"># starting the nginx service</span>
+<span class=c1># starting the nginx service</span>
 sudo service nginx start
 
-<span class="c1"># connect as nobody user</span>
+<span class=c1># connect as nobody user</span>
 su - nobody
-<span class="c1"># connect as nobody user with Bash shell</span>
+<span class=c1># connect as nobody user with Bash shell</span>
 su - nobody -s /bin/bash
-<span class="c1"># connect as root user</span>
+<span class=c1># connect as root user</span>
 su
-<span class="c1"># when you are logged as root user, you don&#39;t need to use sudo anymore</span>
+<span class=c1># when you are logged as root user, you don&#39;t need to use sudo anymore</span>
 apt-get install vim
 service nginx start
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="basic-commands">Basic commands</h1>
-<h2 id="file-and-folder-navigation">File and folder navigation</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Print Working Directory</span>
-<span class="nb">pwd</span>
+</code></pre></td></tr></table></div></div><h1 id=basic-commands>Basic commands</h1><h2 id=file-and-folder-navigation>File and folder navigation</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># Print Working Directory</span>
+<span class=nb>pwd</span>
 
-<span class="c1"># LiSt directory contents</span>
+<span class=c1># LiSt directory contents</span>
 ls
 ls -a
 ls folder/
-ls <span class="nv">$HOME</span>
+ls <span class=nv>$HOME</span>
 ls ~
 
-<span class="c1"># FIND for files in a directory hierarchy</span>
-find -name <span class="s2">&#34;*.md&#34;</span>
-find ../foobar/ -name <span class="s2">&#34;*.md&#34;</span>
+<span class=c1># FIND for files in a directory hierarchy</span>
+find -name <span class=s2>&#34;*.md&#34;</span>
+find ../foobar/ -name <span class=s2>&#34;*.md&#34;</span>
 
-<span class="c1"># find files by name in the entire filesystem</span>
-locate <span class="s2">&#34;*.md&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="file-and-directory-handling">File and directory handling</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Make Directories</span>
+<span class=c1># find files by name in the entire filesystem</span>
+locate <span class=s2>&#34;*.md&#34;</span>
+</code></pre></td></tr></table></div></div><h2 id=file-and-directory-handling>File and directory handling</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># Make Directories</span>
 mkdir foo
 mkdir -p foo/bar
 
-<span class="c1"># change file timestamps</span>
+<span class=c1># change file timestamps</span>
 touch foo/bar/foobar.txt
 
-<span class="c1"># Change Directory to navigate between directories</span>
-<span class="nb">cd</span> foo/bar
-<span class="nb">cd</span> ../..
+<span class=c1># Change Directory to navigate between directories</span>
+<span class=nb>cd</span> foo/bar
+<span class=nb>cd</span> ../..
 
-<span class="c1"># CoPy file</span>
+<span class=c1># CoPy file</span>
 cp foo/bar/foobar.txt /tmp
 cp /tmp/foobar.txt /tmp/foobar2.txt
 cp -r foo/bar /tmp
 
-<span class="c1"># Move a file (also used to rename files)</span>
+<span class=c1># Move a file (also used to rename files)</span>
 mv foo/bar/foobar.txt /tmp
 mv /tmp/foobar.txt /tmp/barfoo.txt
 
-<span class="c1"># ReMove file</span>
+<span class=c1># ReMove file</span>
 rm /tmp/barfoo.txt
 rm -r foo/bar
 rm -rf foo/bar
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="file-content">File content</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># conCATenate files and print on the standard output</span>
+</code></pre></td></tr></table></div></div><h2 id=file-content>File content</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># conCATenate files and print on the standard output</span>
 cat foo/bar/foobar.txt
 
-<span class="c1"># lets you scroll some text</span>
+<span class=c1># lets you scroll some text</span>
 more foo/bar/foobar.txt
 
-<span class="c1"># similar to more, but better navigation</span>
+<span class=c1># similar to more, but better navigation</span>
 less foo/bar/foobar.txt
 
-<span class="c1"># SORT lines alphabetically or numerically</span>
+<span class=c1># SORT lines alphabetically or numerically</span>
 sort foo/bar/foobar.txt
 
-<span class="c1"># report or omit repeated lines</span>
+<span class=c1># report or omit repeated lines</span>
 uniq foo/bar/foobar.txt
 
-<span class="c1"># Search for particular text pattern</span>
+<span class=c1># Search for particular text pattern</span>
 grep foobar foo/bar/foobar.txt
 
-<span class="c1"># Word Count for a text file, printing the number of newlines, words and bytes</span>
+<span class=c1># Word Count for a text file, printing the number of newlines, words and bytes</span>
 wc foo/bar/foobar.txt
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="processes-handling">Processes handling</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># report a snapshot of the current processes</span>
+</code></pre></td></tr></table></div></div><h2 id=processes-handling>Processes handling</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># report a snapshot of the current processes</span>
 ps
-ps faux <span class="c1"># see every process on the system in tree view</span>
+ps faux <span class=c1># see every process on the system in tree view</span>
 
-<span class="c1"># send a signal to a process</span>
-<span class="nb">kill</span> <span class="m">12345</span>
-<span class="nb">kill</span> -9 <span class="m">12345</span> <span class="c1"># force kill</span>
-<span class="nb">kill</span> -3 <span class="m">12345</span> <span class="c1"># get the java thread dump in the standard output</span>
+<span class=c1># send a signal to a process</span>
+<span class=nb>kill</span> <span class=m>12345</span>
+<span class=nb>kill</span> -9 <span class=m>12345</span> <span class=c1># force kill</span>
+<span class=nb>kill</span> -3 <span class=m>12345</span> <span class=c1># get the java thread dump in the standard output</span>
 
-<span class="c1"># display amount of free and used memory in the system</span>
+<span class=c1># display amount of free and used memory in the system</span>
 free -h
 
-<span class="c1"># display Linux processes</span>
+<span class=c1># display Linux processes</span>
 top
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="folders-definition">Folders definition</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="c1"># /tmp is a temporary folder where everything is removed when the computer</span>
-$ <span class="c1"># /tmp can be used as a working directory for programs</span>
+</code></pre></td></tr></table></div></div><h2 id=folders-definition>Folders definition</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=c1># /tmp is a temporary folder where everything is removed when the computer</span>
+$ <span class=c1># /tmp can be used as a working directory for programs</span>
 $ touch /tmp/this_file_will_be_removed_after_restart
 
-$ <span class="c1"># /bin &amp; /sbin contain the binaries usable (e.g. cat, ls, ...) before the /usr partition is mounted</span>
+$ <span class=c1># /bin &amp; /sbin contain the binaries usable (e.g. cat, ls, ...) before the /usr partition is mounted</span>
 $ ls /bin
-chmod grep ls more <span class="nb">pwd</span> ....
+chmod grep ls more <span class=nb>pwd</span> ....
 
-$ <span class="c1"># /usr/bin contains the general system-wide binaries</span>
+$ <span class=c1># /usr/bin contains the general system-wide binaries</span>
 $ ls /usr/bin
 gcc vim vi ruby python ...
 
-$ <span class="c1"># /usr/local/bin should be the folder that contains your script/binaries</span>
-$ <span class="c1"># &#34;local&#34; means it&#39;s not managed by the system</span>
+$ <span class=c1># /usr/local/bin should be the folder that contains your script/binaries</span>
+$ <span class=c1># &#34;local&#34; means it&#39;s not managed by the system</span>
 $ ls /usr/local/bin
 bower node npm tmux ...
 
-$ <span class="c1"># $HOME/bin for user-scoped scripts/binaries</span>
-$ ls <span class="nv">$HOME</span>/bin
+$ <span class=c1># $HOME/bin for user-scoped scripts/binaries</span>
+$ ls <span class=nv>$HOME</span>/bin
 img2xterm vault ...
 
-$ <span class="c1"># /etc usually contains configuration files for all programs</span>
+$ <span class=c1># /etc usually contains configuration files for all programs</span>
 $ ls /etc
 bash.bashrc crontab debconf.version lsb-release os-release
 
-$ <span class="c1"># /opt contains third party app package installations which does not complies to the standard Linux file hierarchy</span>
+$ <span class=c1># /opt contains third party app package installations which does not complies to the standard Linux file hierarchy</span>
 $ ls /opt
 google openoffice4
 
-$ <span class="c1"># /var contains variable data, e.g. logs, news and so on which is constantly being modified by various programs running in the system</span>
+$ <span class=c1># /var contains variable data, e.g. logs, news and so on which is constantly being modified by various programs running in the system</span>
 $ ls /var
 apt docker log mail ...
 
-$ <span class="c1"># /srv contains site-specific data which is served by this system.</span>
-$ <span class="c1"># This main purpose of specifying this is so that users may find the location of the data files for particular service, and so that</span> 
-$ <span class="c1"># services which require a single tree for readonly data, writable data and scripts (such as cgi scripts) can be reasonably placed.</span>
+$ <span class=c1># /srv contains site-specific data which is served by this system.</span>
+$ <span class=c1># This main purpose of specifying this is so that users may find the location of the data files for particular service, and so that</span> 
+$ <span class=c1># services which require a single tree for readonly data, writable data and scripts (such as cgi scripts) can be reasonably placed.</span>
 $ ls /srv
 
-$ <span class="c1"># /home contains the user HOME directories</span>
+$ <span class=c1># /home contains the user HOME directories</span>
 $ ls /home
 l.lin
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="file-and-folder-permissions">File and folder permissions</h2>
-<p>Permissions are managed in three distinct scopes or classes:</p>
-<ul>
-<li>user</li>
-<li>group</li>
-<li>others</li>
-</ul>
-<h3 id="classes">Classes</h3>
-<p>From <a href="https://en.wikipedia.org/wiki/File_system_permissions#Classes">wikipedia</a>:</p>
-<blockquote>
-<p>Files and directories are owned by a user. The owner determines the file&rsquo;s user class.
-Distinct permissions apply to the owner.</p>
-<p>Files and directories are assigned a group, which define the file&rsquo;s group class.
-Distinct permissions apply to members of the file&rsquo;s group. The owner may be a member of the file&rsquo;s group.</p>
-<p>Users who are not the owner, nor a member of the group, comprise a file&rsquo;s others class.
-Distinct permissions apply to others.</p>
-<p>The effective permissions are determined based on the first class the user falls within in the order of user,
+</code></pre></td></tr></table></div></div><h2 id=file-and-folder-permissions>File and folder permissions</h2><p>Permissions are managed in three distinct scopes or classes:</p><ul><li>user</li><li>group</li><li>others</li></ul><h3 id=classes>Classes</h3><p>From <a href=https://en.wikipedia.org/wiki/File_system_permissions#Classes>wikipedia</a>:</p><blockquote><p>Files and directories are owned by a user. The owner determines the file&rsquo;s user class.
+Distinct permissions apply to the owner.</p><p>Files and directories are assigned a group, which define the file&rsquo;s group class.
+Distinct permissions apply to members of the file&rsquo;s group. The owner may be a member of the file&rsquo;s group.</p><p>Users who are not the owner, nor a member of the group, comprise a file&rsquo;s others class.
+Distinct permissions apply to others.</p><p>The effective permissions are determined based on the first class the user falls within in the order of user,
 group then others. For example, the user who is the owner of the file will have the permissions given to the user
-class regardless of the permissions assigned to the group class or others class.</p>
-</blockquote>
-<h3 id="permissions">Permissions</h3>
-<p>From <a href="https://en.wikipedia.org/wiki/File_system_permissions#Permissions">wikipedia</a>:</p>
-<blockquote>
-<p>Unix-like systems implement three specific permissions that apply to each class:</p>
-<ul>
-<li>The read permission grants the ability to read a file. When set for a directory, this permission grants the
+class regardless of the permissions assigned to the group class or others class.</p></blockquote><h3 id=permissions>Permissions</h3><p>From <a href=https://en.wikipedia.org/wiki/File_system_permissions#Permissions>wikipedia</a>:</p><blockquote><p>Unix-like systems implement three specific permissions that apply to each class:</p><ul><li>The read permission grants the ability to read a file. When set for a directory, this permission grants the
 ability to read the names of files in the directory, but not to find out any further information about them
-such as contents, file type, size, ownership, permissions.</li>
-<li>The write permission grants the ability to modify a file. When set for a directory, this permission grants
-the ability to modify entries in the directory. This includes creating files, deleting files, and renaming files.</li>
-<li>The execute permission grants the ability to execute a file. This permission must be set for executable programs,
+such as contents, file type, size, ownership, permissions.</li><li>The write permission grants the ability to modify a file. When set for a directory, this permission grants
+the ability to modify entries in the directory. This includes creating files, deleting files, and renaming files.</li><li>The execute permission grants the ability to execute a file. This permission must be set for executable programs,
 in order to allow the operating system to run them. When set for a directory, the execute permission is interpreted
 as the search permission: it grants the ability to access file contents and meta-information if its name is known,
-but not list files inside the directory, unless read is set also.</li>
-</ul>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ ls -l
--rwxrw-r--  <span class="m">1</span> foobar l-lin  <span class="m">598</span> févr. <span class="m">10</span> 12:07 README.md
-<span class="c1"># the owner &#34;l-lin&#34; has the permissions &#34;read&#34;, &#34;write&#34; and &#34;execute&#34; on the file &#34;README.md&#34;</span>
-<span class="c1"># the members of the group &#34;foobar&#34; have the permissions &#34;read&#34; and &#34;write&#34; on the file &#34;README.md&#34;</span>
-<span class="c1"># the other users only have the permission &#34;read&#34; on the file &#34;README.md&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>From <a href="https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation">wikipedia</a>:</p>
-<blockquote>
-<p>Another method for representing Unix permissions is an octal notation. This notation consists of at least 3 digits.</p>
-<p>Each digit represent a different component of the permission: owner, group and others.</p>
-<p>Each digit is the sum of its component bit in the binary numeral system:</p>
-<ul>
-<li><code>read</code> = 4</li>
-<li><code>write</code> = 2</li>
-<li><code>execute</code> = 1</li>
-</ul>
-<p>which means:</p>
-<ul>
-<li>7 = read + write + execute</li>
-<li>6 = read + write</li>
-<li>5 = read + execute</li>
-<li>3 = write + execute</li>
-</ul>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># change the ownership of the file &#34;README.md&#34; to the group &#34;foobar&#34; and user &#34;l-lin&#34;</span>
+but not list files inside the directory, unless read is set also.</li></ul></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ ls -l
+-rwxrw-r--  <span class=m>1</span> foobar l-lin  <span class=m>598</span> févr. <span class=m>10</span> 12:07 README.md
+<span class=c1># the owner &#34;l-lin&#34; has the permissions &#34;read&#34;, &#34;write&#34; and &#34;execute&#34; on the file &#34;README.md&#34;</span>
+<span class=c1># the members of the group &#34;foobar&#34; have the permissions &#34;read&#34; and &#34;write&#34; on the file &#34;README.md&#34;</span>
+<span class=c1># the other users only have the permission &#34;read&#34; on the file &#34;README.md&#34;</span>
+</code></pre></td></tr></table></div></div><p>From <a href=https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation>wikipedia</a>:</p><blockquote><p>Another method for representing Unix permissions is an octal notation. This notation consists of at least 3 digits.</p><p>Each digit represent a different component of the permission: owner, group and others.</p><p>Each digit is the sum of its component bit in the binary numeral system:</p><ul><li><code>read</code> = 4</li><li><code>write</code> = 2</li><li><code>execute</code> = 1</li></ul><p>which means:</p><ul><li>7 = read + write + execute</li><li>6 = read + write</li><li>5 = read + execute</li><li>3 = write + execute</li></ul></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># change the ownership of the file &#34;README.md&#34; to the group &#34;foobar&#34; and user &#34;l-lin&#34;</span>
 chown foobar:l-lin README.md
-<span class="c1"># change the ownership of the file &#34;README.md&#34; to the group &#34;nobody&#34; but keep the user ownership</span>
+<span class=c1># change the ownership of the file &#34;README.md&#34; to the group &#34;nobody&#34; but keep the user ownership</span>
 chown nobody README.md
-<span class="c1"># change the ownership of the file &#34;README.md&#34; to the group &#34;nobody&#34; and user &#34;nobody&#34;</span>
-<span class="c1"># notice the user ownership is set in an implicit way</span>
+<span class=c1># change the ownership of the file &#34;README.md&#34; to the group &#34;nobody&#34; and user &#34;nobody&#34;</span>
+<span class=c1># notice the user ownership is set in an implicit way</span>
 chown nobody: README.md
-<span class="c1"># change recursively the ownership of all current files and folders to group &#34;nobody&#34; and user &#34;nobody&#34;</span>
+<span class=c1># change recursively the ownership of all current files and folders to group &#34;nobody&#34; and user &#34;nobody&#34;</span>
 chown -R nobody: ./*
 
-<span class="c1"># add the permission &#34;execute&#34; to user, group and other classes</span>
+<span class=c1># add the permission &#34;execute&#34; to user, group and other classes</span>
 chmod +x README.md
-<span class="c1"># add the permissions &#34;read&#34; and &#34;write&#34;</span>
+<span class=c1># add the permissions &#34;read&#34; and &#34;write&#34;</span>
 chmod +rw README.md
-<span class="c1"># set the permission to &#34;rwxrw-r--&#34;</span>
-chmod <span class="m">761</span> README.md
-</code></pre></td></tr></table>
-</div>
-</div><p>⚠️ Please, just don&rsquo;t do a <code>chmod -R 777 *</code>&hellip; for obvious security issues&hellip;</p>
-<h2 id="stdinstout">Stdin/Stout</h2>
-<p>There are three main file descriptors:</p>
-<ul>
-<li><code>stdin</code> is the input from the keyboard</li>
-<li><code>stdout</code> is output</li>
-<li><code>stderr</code> is the error output</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Symbol</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stdin</td>
-<td><code>0&lt;</code></td>
-</tr>
-<tr>
-<td>stdout</td>
-<td><code>1&gt;</code></td>
-</tr>
-<tr>
-<td>stderr</td>
-<td><code>2&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="stdin">stdin</h3>
-<p>Allows you take standard input from a file:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">cat &lt; README.md
-<span class="c1"># same as follow:</span>
+<span class=c1># set the permission to &#34;rwxrw-r--&#34;</span>
+chmod <span class=m>761</span> README.md
+</code></pre></td></tr></table></div></div><p>⚠ Please, just don&rsquo;t do a <code>chmod -R 777 *</code>&mldr; for obvious security issues&mldr;</p><h2 id=stdinstout>Stdin/Stout</h2><p>There are three main file descriptors:</p><ul><li><code>stdin</code> is the input from the keyboard</li><li><code>stdout</code> is output</li><li><code>stderr</code> is the error output</li></ul><table><thead><tr><th>Type</th><th>Symbol</th></tr></thead><tbody><tr><td>stdin</td><td><code>0&lt;</code></td></tr><tr><td>stdout</td><td><code>1></code></td></tr><tr><td>stderr</td><td><code>2></code></td></tr></tbody></table><h3 id=stdin>stdin</h3><p>Allows you take standard input from a file:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>cat &lt; README.md
+<span class=c1># same as follow:</span>
 cat 0&lt; README.md
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="stdout">stdout</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># display the content of the file README.md to the terminal console</span>
+</code></pre></td></tr></table></div></div><h3 id=stdout>stdout</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># display the content of the file README.md to the terminal console</span>
 cat README.md
-<span class="c1"># we can redirect the output in a file</span>
+<span class=c1># we can redirect the output in a file</span>
 cat README.md &gt; foobar.md
-<span class="c1"># same as follow:</span>
+<span class=c1># same as follow:</span>
 cat README.md 1&gt; foobar.md
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="stderr">stderr</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># display the error &#34;cat: non_existent_file: no file or directory found&#34; to the terminal console</span>
+</code></pre></td></tr></table></div></div><h3 id=stderr>stderr</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># display the error &#34;cat: non_existent_file: no file or directory found&#34; to the terminal console</span>
 cat non_existent_file
-<span class="c1"># we can redirect the error output in a file</span>
+<span class=c1># we can redirect the error output in a file</span>
 cat non_existent_file 2&gt; error.log
-</code></pre></td></tr></table>
-</div>
-</div><p>There is a special file on the Linux system called <code>/dev/null</code> which can be considered as the &ldquo;Bin&rdquo;,
-but once information has gone to this file, it&rsquo;s gone forever.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># this will discard all error messages</span>
+</code></pre></td></tr></table></div></div><p>There is a special file on the Linux system called <code>/dev/null</code> which can be considered as the &ldquo;Bin&rdquo;,
+but once information has gone to this file, it&rsquo;s gone forever.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># this will discard all error messages</span>
 cat non_existent_file 2&gt; /dev/null
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="mixing-everything">Mixing everything</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># this will print the content of &#34;README.md&#34; to the file &#34;foobar.md&#34; and redirect all error messages to &#34;error.log&#34;</span>
+</code></pre></td></tr></table></div></div><h3 id=mixing-everything>Mixing everything</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># this will print the content of &#34;README.md&#34; to the file &#34;foobar.md&#34; and redirect all error messages to &#34;error.log&#34;</span>
 cat &lt; README.md &gt; foobar.md 2&gt; error.log
-<span class="c1"># this will tell to redirect all error message as the same as stdout, which is &#34;foobar.md&#34; in this case</span>
-cat README.md &gt; foobar.md 2&gt;<span class="p">&amp;</span><span class="m">1</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="appending-to-file">Appending to file</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># append the content of &#34;README.md&#34; to the file &#34;foobar.md&#34;</span>
+<span class=c1># this will tell to redirect all error message as the same as stdout, which is &#34;foobar.md&#34; in this case</span>
+cat README.md &gt; foobar.md 2&gt;<span class=p>&amp;</span><span class=m>1</span>
+</code></pre></td></tr></table></div></div><h3 id=appending-to-file>Appending to file</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># append the content of &#34;README.md&#34; to the file &#34;foobar.md&#34;</span>
 cat README.md &gt;&gt; foobar.md
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="pipes">Pipes</h2>
-<p>You can connect two commands together so that the ouput from one program becomes the input of the next program
-by using the <code>|</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># print the content of the file &#34;README.md&#34; and filter all lines that contain the word &#34;foobar&#34;</span>
-cat README.md <span class="p">|</span> grep foobar
-<span class="c1"># count the number of lines of the file &#34;README.md&#34;</span>
-cat README.md <span class="p">|</span> wc -l
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="executing-a-command-within-a-command">Executing a command within a command</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># this will first find the folders whose name has &#34;foobar&#34; and display its content</span>
-ls <span class="sb">`</span>find -name foobar<span class="sb">`</span>
-<span class="c1"># same as follow:</span>
-ls <span class="k">$(</span>find -name foobar<span class="k">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="scripting">Scripting</h1>
-<h2 id="vim">VIM</h2>
-<p>When editing a file in a linux server, you do not have the choice of your favorite GUI notepad or IDE.</p>
-<p>You will have to stick with a terminal editor, like vi, vim, nano,&hellip;</p>
-<p>I have my preference on vim so I will share just a few tips on how to use it without being lost.</p>
-<p>First of all, vim has 3 modes:</p>
-<ul>
-<li><code>insert</code> mode: you write text as if in normal text editor
-<ul>
-<li>use the <code>i</code> button to switch to this mode</li>
-<li>use the <code>a</code> button to switch to this mode and move the cursor to the next character</li>
-<li>use the <code>o</code> button to switch to this mode and add a newline</li>
-</ul>
-</li>
-<li><code>normal</code> mode: provides efficient ways to navigate and manipulate texts
-<ul>
-<li>use the <code>Esc</code> button to switch to this mode</li>
-</ul>
-</li>
-<li><code>visual</code> mode: select text using movement keys before deciding what to do with it
-<ul>
-<li>use the <code>v</code> button to switch to this mode</li>
-<li>use the <code>shift+v</code> buttons to select lines instead of characters</li>
-</ul>
-</li>
-</ul>
-<h3 id="vim-movement">VIM movement</h3>
-<p>In <code>normal</code> mode, you can navigate by using the arrow buttons, but vim has been thought for productivity.
+</code></pre></td></tr></table></div></div><h2 id=pipes>Pipes</h2><p>You can connect two commands together so that the ouput from one program becomes the input of the next program
+by using the <code>|</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># print the content of the file &#34;README.md&#34; and filter all lines that contain the word &#34;foobar&#34;</span>
+cat README.md <span class=p>|</span> grep foobar
+<span class=c1># count the number of lines of the file &#34;README.md&#34;</span>
+cat README.md <span class=p>|</span> wc -l
+</code></pre></td></tr></table></div></div><h2 id=executing-a-command-within-a-command>Executing a command within a command</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># this will first find the folders whose name has &#34;foobar&#34; and display its content</span>
+ls <span class=sb>`</span>find -name foobar<span class=sb>`</span>
+<span class=c1># same as follow:</span>
+ls <span class=k>$(</span>find -name foobar<span class=k>)</span>
+</code></pre></td></tr></table></div></div><h1 id=scripting>Scripting</h1><h2 id=vim>VIM</h2><p>When editing a file in a linux server, you do not have the choice of your favorite GUI notepad or IDE.</p><p>You will have to stick with a terminal editor, like vi, vim, nano,&mldr;</p><p>I have my preference on vim so I will share just a few tips on how to use it without being lost.</p><p>First of all, vim has 3 modes:</p><ul><li><code>insert</code> mode: you write text as if in normal text editor<ul><li>use the <code>i</code> button to switch to this mode</li><li>use the <code>a</code> button to switch to this mode and move the cursor to the next character</li><li>use the <code>o</code> button to switch to this mode and add a newline</li></ul></li><li><code>normal</code> mode: provides efficient ways to navigate and manipulate texts<ul><li>use the <code>Esc</code> button to switch to this mode</li></ul></li><li><code>visual</code> mode: select text using movement keys before deciding what to do with it<ul><li>use the <code>v</code> button to switch to this mode</li><li>use the <code>shift+v</code> buttons to select lines instead of characters</li></ul></li></ul><h3 id=vim-movement>VIM movement</h3><p>In <code>normal</code> mode, you can navigate by using the arrow buttons, but vim has been thought for productivity.
 So instead of using the arrow buttons, and thus moving your right hand, vim has a set a buttons for which
-you won&rsquo;t need to move your palms and be able to reach every functionnalities vim has to offer.</p>
-<p>So use the following to navigate in your file:</p>
-<ul>
-<li><code>h</code>: move left</li>
-<li><code>j</code>: move down</li>
-<li><code>k</code>: move up</li>
-<li><code>l</code>: move right</li>
-</ul>
-<p>You can also move by words:</p>
-<ul>
-<li><code>w</code>: moves to the start of the next word</li>
-<li><code>e</code>: moves to the end of the word</li>
-<li><code>b</code>: moves to the beginning of the word</li>
-</ul>
-<p>If you want to navigate quickly in your file:</p>
-<ul>
-<li><code>ctrl+d</code>: page down</li>
-<li><code>ctrl+u</code>: page up</li>
-<li><code>gg</code>: go to the first line</li>
-<li><code>shift+g</code>: go to the last line</li>
-<li><code>&lt;number&gt;g</code>: go to line <!-- raw HTML omitted -->
-<ul>
-<li><code>5g</code>: go to line 5</li>
-<li><code>10g</code>: go to line 10</li>
-</ul>
-</li>
-<li><code>0</code>: move cursor to the beginning of the line</li>
-<li><code>$</code>: move cursor to the end of the line</li>
-<li><code>*</code>: find next occurrence of the word under the cursor</li>
-<li><code>#</code>: find previous occurrence of the word under the cursor</li>
-<li><code>%</code>: go to matching parenthesis/brackets</li>
-</ul>
-<h3 id="vim-editing">VIM editing</h3>
-<p>You don&rsquo;t have to be in <code>insert</code> mode to edit text. You can also edit portion of your file in <code>normal</code> mode.</p>
-<ul>
-<li><code>x</code>: delete the character under the cursor</li>
-<li><code>X</code>: delete the character to the left of the cursor</li>
-<li><code>r</code>: replace only one character under the cursor</li>
-<li><code>cw</code>: remove character until the end the word and switch to <code>insert</code> mode</li>
-<li><code>c$</code>: remove character until the end of the line and switch to <code>insert</code> mode</li>
-<li><code>dw</code>: delete the first word on the right side of the cursor and copies the content</li>
-<li><code>dd</code>: delete the line and copies the content</li>
-<li><code>yw</code>: copy word</li>
-<li><code>yy</code>: copy line</li>
-<li><code>p</code>: paste the copied content</li>
-<li><code>.</code>: repeat the previous command</li>
-</ul>
-<h3 id="search-and-replace">Search and replace</h3>
-<p>Still in <code>normal</code> mode:</p>
-<ul>
-<li><code>/</code>: search from top to bottom</li>
-<li><code>?</code>: search from bottom to top</li>
-</ul>
-<p>Use <code>n</code> and <code>N</code> to search next and previous occurrence, respectively.</p>
-<p>To replace, you can use the same syntax as <code>sed</code> command:</p>
-<ul>
-<li><code>:s/wordtoreplace/replacedword/</code>: only replace the first instance of &ldquo;wordtoreplace&rdquo; of the line where the cursor is</li>
-<li><code>:%s/wordtoreplace/replacedword/</code>: apply to the entire file</li>
-<li><code>:%s/wordtoreplace/replacedword/g</code>: apply to all instances</li>
-</ul>
-<h3 id="other-vim-commands">Other VIM commands</h3>
-<p>In <code>normal</code> mode:</p>
-<ul>
-<li><code>:w</code>: save file</li>
-<li><code>:q</code>: quit file edition</li>
-<li><code>:q!</code>: force quit</li>
-<li><code>:wq</code>: save and quit file edition</li>
-<li><code>:x</code>: save and quit the file edition</li>
-<li><code>:set invnumber</code>: display/hide line numbers</li>
-<li><code>:set invpaste</code>: format/do not format copied content (useful when copy pasting formatted code)</li>
-</ul>
-<p>In <code>insert</code> mode:</p>
-<ul>
-<li>press the <code>ctrl+n</code> for autocompletion</li>
-</ul>
-<h3 id="undo">Undo</h3>
-<p>You can undo the last action by pressing the <code>u</code> button in <code>normal</code> mode.</p>
-<p>If you want to undo the undo, you can press the <code>ctrl+r</code> buttons.</p>
-<h3 id="going-further-with-vim">Going further with VIM</h3>
-<p>I did not cover everything, only what&rsquo;s needed to be able to perform basic edition on files using VIM.</p>
-<p>There are lot of tutorials out there:</p>
-<ul>
-<li><a href="http://vimdoc.sourceforge.net/htmldoc/usr_toc.html">VIM offial website</a></li>
-<li><a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">VIM wikipedia</a></li>
-<li><a href="http://openvim.com/">openvim</a></li>
-<li><a href="https://vim-adventures.com/">VIM adventures</a></li>
-<li><code>:help tutor</code>: launch VIM own tutorial</li>
-<li><a href="http://bfy.tw/HUUu">&hellip;</a></li>
-</ul>
-<h2 id="writing-a-sh-script">Writing a SH script</h2>
-<p>Linux doesn&rsquo;t care about extension. So if your script file name is <code>foobar.txt</code>, you can still execute it.</p>
-<p>However, it&rsquo;s considered as best practice to have the extension <code>.sh</code> for script files.</p>
-<p>To run a script file, you cannot just type <code>script.sh</code>, you will need to precede the script by the PATH to the script,
-ie <code>/path/to/script.sh</code>, or if it&rsquo;s in the current directory <code>./script.sh</code>.</p>
-<p>⚠️ Don&rsquo;t forget to add the <code>execute</code> permission to your file: <code>chmod +x /path/to/script.sh</code></p>
-<h3 id="shebang-or-hashpling-">Shebang or hashpling #!</h3>
-<p>We need to tell the script what shell it&rsquo;s going to run under as the user that will execute the script may not use
-the shell needed to execute the script.</p>
-<p>For example, if we want to force bash, we need to add the following at the first line of the script:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span></code></pre></td></tr></table>
-</div>
-</div><p>If we want to use another shell, like Korn shell:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/ksh
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id="exit">Exit</h3>
-<p>The standard way to exit a script file is by returning the number <code>0</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="nb">echo</span> <span class="s2">&#34;Everything went OK&#34;</span>
-<span class="nb">exit</span> <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>If the script exists with anything other than 0 (a number between 1 and 255), that means there was an error.</p>
-<h3 id="functions">Functions</h3>
-<p>To declare a function, all you need is to declare like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">helloworld<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Hello world&#34;</span>
-<span class="o">}</span>
+you won&rsquo;t need to move your palms and be able to reach every functionnalities vim has to offer.</p><p>So use the following to navigate in your file:</p><ul><li><code>h</code>: move left</li><li><code>j</code>: move down</li><li><code>k</code>: move up</li><li><code>l</code>: move right</li></ul><p>You can also move by words:</p><ul><li><code>w</code>: moves to the start of the next word</li><li><code>e</code>: moves to the end of the word</li><li><code>b</code>: moves to the beginning of the word</li></ul><p>If you want to navigate quickly in your file:</p><ul><li><code>ctrl+d</code>: page down</li><li><code>ctrl+u</code>: page up</li><li><code>gg</code>: go to the first line</li><li><code>shift+g</code>: go to the last line</li><li><code>&lt;number>g</code>: go to line<ul><li><code>5g</code>: go to line 5</li><li><code>10g</code>: go to line 10</li></ul></li><li><code>0</code>: move cursor to the beginning of the line</li><li><code>$</code>: move cursor to the end of the line</li><li><code>*</code>: find next occurrence of the word under the cursor</li><li><code>#</code>: find previous occurrence of the word under the cursor</li><li><code>%</code>: go to matching parenthesis/brackets</li></ul><h3 id=vim-editing>VIM editing</h3><p>You don&rsquo;t have to be in <code>insert</code> mode to edit text. You can also edit portion of your file in <code>normal</code> mode.</p><ul><li><code>x</code>: delete the character under the cursor</li><li><code>X</code>: delete the character to the left of the cursor</li><li><code>r</code>: replace only one character under the cursor</li><li><code>cw</code>: remove character until the end the word and switch to <code>insert</code> mode</li><li><code>c$</code>: remove character until the end of the line and switch to <code>insert</code> mode</li><li><code>dw</code>: delete the first word on the right side of the cursor and copies the content</li><li><code>dd</code>: delete the line and copies the content</li><li><code>yw</code>: copy word</li><li><code>yy</code>: copy line</li><li><code>p</code>: paste the copied content</li><li><code>.</code>: repeat the previous command</li></ul><h3 id=search-and-replace>Search and replace</h3><p>Still in <code>normal</code> mode:</p><ul><li><code>/</code>: search from top to bottom</li><li><code>?</code>: search from bottom to top</li></ul><p>Use <code>n</code> and <code>N</code> to search next and previous occurrence, respectively.</p><p>To replace, you can use the same syntax as <code>sed</code> command:</p><ul><li><code>:s/wordtoreplace/replacedword/</code>: only replace the first instance of &ldquo;wordtoreplace&rdquo; of the line where the cursor is</li><li><code>:%s/wordtoreplace/replacedword/</code>: apply to the entire file</li><li><code>:%s/wordtoreplace/replacedword/g</code>: apply to all instances</li></ul><h3 id=other-vim-commands>Other VIM commands</h3><p>In <code>normal</code> mode:</p><ul><li><code>:w</code>: save file</li><li><code>:q</code>: quit file edition</li><li><code>:q!</code>: force quit</li><li><code>:wq</code>: save and quit file edition</li><li><code>:x</code>: save and quit the file edition</li><li><code>:set invnumber</code>: display/hide line numbers</li><li><code>:set invpaste</code>: format/do not format copied content (useful when copy pasting formatted code)</li></ul><p>In <code>insert</code> mode:</p><ul><li>press the <code>ctrl+n</code> for autocompletion</li></ul><h3 id=undo>Undo</h3><p>You can undo the last action by pressing the <code>u</code> button in <code>normal</code> mode.</p><p>If you want to undo the undo, you can press the <code>ctrl+r</code> buttons.</p><h3 id=going-further-with-vim>Going further with VIM</h3><p>I did not cover everything, only what&rsquo;s needed to be able to perform basic edition on files using VIM.</p><p>There are lot of tutorials out there:</p><ul><li><a href=http://vimdoc.sourceforge.net/htmldoc/usr_toc.html>VIM offial website</a></li><li><a href=http://vim.wikia.com/wiki/Vim_Tips_Wiki>VIM wikipedia</a></li><li><a href=http://openvim.com/>openvim</a></li><li><a href=https://vim-adventures.com/>VIM adventures</a></li><li><code>:help tutor</code>: launch VIM own tutorial</li><li><a href=http://bfy.tw/HUUu>&mldr;</a></li></ul><h2 id=writing-a-sh-script>Writing a SH script</h2><p>Linux doesn&rsquo;t care about extension. So if your script file name is <code>foobar.txt</code>, you can still execute it.</p><p>However, it&rsquo;s considered as best practice to have the extension <code>.sh</code> for script files.</p><p>To run a script file, you cannot just type <code>script.sh</code>, you will need to precede the script by the PATH to the script,
+ie <code>/path/to/script.sh</code>, or if it&rsquo;s in the current directory <code>./script.sh</code>.</p><p>⚠ Don&rsquo;t forget to add the <code>execute</code> permission to your file: <code>chmod +x /path/to/script.sh</code></p><h3 id=shebang-or-hashpling->Shebang or hashpling #!</h3><p>We need to tell the script what shell it&rsquo;s going to run under as the user that will execute the script may not use
+the shell needed to execute the script.</p><p>For example, if we want to force bash, we need to add the following at the first line of the script:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span></code></pre></td></tr></table></div></div><p>If we want to use another shell, like Korn shell:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh><span class=cp>#!/bin/ksh
+</span></code></pre></td></tr></table></div></div><h3 id=exit>Exit</h3><p>The standard way to exit a script file is by returning the number <code>0</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span><span class=nb>echo</span> <span class=s2>&#34;Everything went OK&#34;</span>
+<span class=nb>exit</span> <span class=m>0</span>
+</code></pre></td></tr></table></div></div><p>If the script exists with anything other than 0 (a number between 1 and 255), that means there was an error.</p><h3 id=functions>Functions</h3><p>To declare a function, all you need is to declare like this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>helloworld<span class=o>()</span> <span class=o>{</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Hello world&#34;</span>
+<span class=o>}</span>
 
-<span class="c1"># call the function like this:</span>
+<span class=c1># call the function like this:</span>
 helloworld
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="variables">Variables</h3>
-<p>You can define variables simply like this:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># use # at the start of the line for comments</span>
+</code></pre></td></tr></table></div></div><h3 id=variables>Variables</h3><p>You can define variables simply like this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># use # at the start of the line for comments</span>
 
-<span class="c1"># variable name shall be in lower_case (not really mandatory) as to prevent conflicts with environment variables</span>
-<span class="c1"># which are all in CAPITAL_LETTERS</span>
-<span class="nv">name</span><span class="o">=</span>Louis
-<span class="c1"># call the variable by using &#34;$variable_name&#34; or &#34;${variable_name}&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$name</span><span class="s2">&#34;</span>
+<span class=c1># variable name shall be in lower_case (not really mandatory) as to prevent conflicts with environment variables</span>
+<span class=c1># which are all in CAPITAL_LETTERS</span>
+<span class=nv>name</span><span class=o>=</span>Louis
+<span class=c1># call the variable by using &#34;$variable_name&#34; or &#34;${variable_name}&#34;</span>
+<span class=nb>echo</span> <span class=s2>&#34;Hello </span><span class=nv>$name</span><span class=s2>&#34;</span>
 
-<span class="c1"># using export will set the environment variable when the script is called</span>
-<span class="nb">export</span> <span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&#34;-debug&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>If you want to add a parameter in your function:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-hello<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
-<span class="o">}</span>
+<span class=c1># using export will set the environment variable when the script is called</span>
+<span class=nb>export</span> <span class=nv>JAVA_OPTS</span><span class=o>=</span><span class=s2>&#34;-debug&#34;</span>
+</code></pre></td></tr></table></div></div><p>If you want to add a parameter in your function:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span>
+hello<span class=o>()</span> <span class=o>{</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Hello </span><span class=nv>$1</span><span class=s2>&#34;</span>
+<span class=o>}</span>
 
-<span class="c1"># This will display &#34;Hello &#34;</span>
+<span class=c1># This will display &#34;Hello &#34;</span>
 hello
-<span class="c1"># This will display &#34;Hello Louis&#34;</span>
+<span class=c1># This will display &#34;Hello Louis&#34;</span>
 hello Louis
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li><code>$#</code>: represents the number of parameters</li>
-<li><code>$0</code>: represents the script filename</li>
-<li><code>$1</code>: represents the first parameter</li>
-<li><code>$2</code>: represents the second parameter</li>
-<li><code>$3</code>: represents the third parameter</li>
-<li>&hellip;</li>
-</ul>
-<p>Here a sample script that will display a help message if there are no parameter provided:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="c1"># Simple hello script</span>
+</code></pre></td></tr></table></div></div><ul><li><code>$#</code>: represents the number of parameters</li><li><code>$0</code>: represents the script filename</li><li><code>$1</code>: represents the first parameter</li><li><code>$2</code>: represents the second parameter</li><li><code>$3</code>: represents the third parameter</li><li>&mldr;</li></ul><p>Here a sample script that will display a help message if there are no parameter provided:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span><span class=c1># Simple hello script</span>
 
-<span class="c1"># add this to stop the script whenever there is an error</span>
-<span class="nb">set</span> -e
+<span class=c1># add this to stop the script whenever there is an error</span>
+<span class=nb>set</span> -e
 
-usage<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Usage:   hello [name]&#34;</span>
-    <span class="nb">echo</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Example: hello Louis&#34;</span>
-    <span class="nb">echo</span> <span class="s2">&#34;         hello Foobar&#34;</span>
-<span class="o">}</span>
+usage<span class=o>()</span> <span class=o>{</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Usage:   hello [name]&#34;</span>
+    <span class=nb>echo</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Example: hello Louis&#34;</span>
+    <span class=nb>echo</span> <span class=s2>&#34;         hello Foobar&#34;</span>
+<span class=o>}</span>
 
-<span class="c1"># check if the content of the first parameter is not empty</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">]</span>
-<span class="k">then</span>
+<span class=c1># check if the content of the first parameter is not empty</span>
+<span class=k>if</span> <span class=o>[</span> -z <span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span> <span class=o>]</span>
+<span class=k>then</span>
     usage
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
+    <span class=nb>exit</span> <span class=m>1</span>
+<span class=k>fi</span>
 
-<span class="c1"># or you can play with the number of parameters</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span>
-<span class="k">then</span>
+<span class=c1># or you can play with the number of parameters</span>
+<span class=k>if</span> <span class=o>[</span> <span class=nv>$#</span> -eq <span class=m>0</span> <span class=o>]</span>
+<span class=k>then</span>
     usage
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
+    <span class=nb>exit</span> <span class=m>1</span>
+<span class=k>fi</span>
 
-<span class="nb">echo</span> <span class="s2">&#34;Hello </span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class=nb>echo</span> <span class=s2>&#34;Hello </span><span class=nv>$1</span><span class=s2>&#34;</span>
 
-<span class="nb">exit</span> <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="loops">Loops</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="c1"># simple script to cat every file from current directory</span>
+<span class=nb>exit</span> <span class=m>0</span>
+</code></pre></td></tr></table></div></div><h3 id=loops>Loops</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</span><span class=cp></span><span class=c1># simple script to cat every file from current directory</span>
 
-<span class="nb">set</span> -e
+<span class=nb>set</span> -e
 
-<span class="c1"># loop over sh files</span>
-<span class="k">for</span> f in <span class="k">$(</span>ls *.sh<span class="k">)</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&#34;Display content of </span><span class="nv">$f</span><span class="s2">&#34;</span>
-    cat <span class="nv">$f</span>
-<span class="k">done</span>
+<span class=c1># loop over sh files</span>
+<span class=k>for</span> f in <span class=k>$(</span>ls *.sh<span class=k>)</span>
+<span class=k>do</span>
+    <span class=nb>echo</span> <span class=s2>&#34;Display content of </span><span class=nv>$f</span><span class=s2>&#34;</span>
+    cat <span class=nv>$f</span>
+<span class=k>done</span>
 
-<span class="nb">exit</span> <span class="m">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="unit-test">Unit test</h3>
-<p>There are tools like <a href="https://github.com/sstephenson/bats">Bash Automated Testing System (or bats)</a> that can help you test
-your scripts.</p>
-<h1 id="customizing-your-terminal">Customizing your terminal</h1>
-<p>You can customize your terminal by editing your <code>.bashrc</code>, <code>.zshrc</code>, &hellip; to:</p>
-<ul>
-<li>add aliases</li>
-<li>add environment variables</li>
-<li>add plugins</li>
-<li>&hellip;</li>
-</ul>
-<p>There are lot of resources out there:</p>
-<ul>
-<li><a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> is a good start to customize your terminal</li>
-<li><a href="https://dotfiles.github.io/">dotfiles on github</a> list a set of setups you can inspire from for your computer setup</li>
-<li><a href="https://github.com/l-lin/dotfiles">my dotfiles</a></li>
-</ul>
-<blockquote>
-<p>Your terminal can also feel like $HOME</p>
-</blockquote>
-    </div>
-
-    <div class="post-copyright">
-  
-  <p class="copyright-item">
-    <span class="item-title">Last modification</span>
-    <span class="item-content">
-        2019-12-17
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/446565ed627d3d6b122adab8f5ad3490ace098bf" title="site: fix figure tag">(446565e)</a>
-    </span>
-  </p>
-  
-  
-</div>
-<footer class="post-footer">
-      
-      <nav class="post-nav">
-        <a class="prev" href="/post/2018/2018-05-13-event_sourcing/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Event sourcing</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/2018/2018-04-04-sidecar/">
-            <span class="next-text nav-default">Sidecar</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-    <script src="https://utteranc.es/client.js"
-            repo="l-lin/l-lin.github.io"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:lin.louis@pm.me" class="iconfont icon-email" title="email"></a>
-      <a href="https://stackexchange.com/users/4436278/l-lin" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/l-lin" class="iconfont icon-github" title="github"></a>
-  <a href="https://l-lin.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Louis LIN</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="https://l-lin.github.io/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js"></script>
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-  function duckSearch(id) {
-      var searchField = document.getElementById(id);
-      if (searchField && searchField.value) {
-          var query = escape('site:l-lin.github.io ' + searchField.value);
-          window.location.href = 'https://duckduckgo.com/?q=' + query;
-      }
-  }
-</script>
-
-</body>
-</html>
+<span class=nb>exit</span> <span class=m>0</span>
+</code></pre></td></tr></table></div></div><h3 id=unit-test>Unit test</h3><p>There are tools like <a href=https://github.com/sstephenson/bats>Bash Automated Testing System (or bats)</a> that can help you test
+your scripts.</p><h1 id=customizing-your-terminal>Customizing your terminal</h1><p>You can customize your terminal by editing your <code>.bashrc</code>, <code>.zshrc</code>, &mldr; to:</p><ul><li>add aliases</li><li>add environment variables</li><li>add plugins</li><li>&mldr;</li></ul><p>There are lot of resources out there:</p><ul><li><a href=https://github.com/robbyrussell/oh-my-zsh>oh-my-zsh</a> is a good start to customize your terminal</li><li><a href=https://dotfiles.github.io/>dotfiles on github</a> list a set of setups you can inspire from for your computer setup</li><li><a href=https://github.com/l-lin/dotfiles>my dotfiles</a></li></ul><blockquote><p>Your terminal can also feel like $HOME</p></blockquote></div><div class=post-copyright><p class=copyright-item><span class=item-title>Last modification</span>
+<span class=item-content>2019-12-17
+<a href=https://github.com/l-lin/l-lin.github.io/commit/446565ed627d3d6b122adab8f5ad3490ace098bf title="site: fix figure tag">(446565e)</a></span></p></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/2018/2018-05-13-event_sourcing/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Event sourcing</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/2018/2018-04-04-sidecar/><span class="next-text nav-default">Sidecar</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=l-lin/l-lin.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:lin.louis@pm.me class="iconfont icon-email" title=email></a><a href=https://stackexchange.com/users/4436278/l-lin class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/l-lin class="iconfont icon-github" title=github></a><a href=https://l-lin.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Louis LIN</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=https://l-lin.github.io/js/main.4d21c1cefdf1cd0b77ef59bab2d1bbe3112fc9d6cc04710bb1f0b1fd7b891f11.js></script><script type=text/javascript>function duckSearch(id){var searchField=document.getElementById(id);if(searchField&&searchField.value){var query=escape('site:l-lin.github.io '+searchField.value);window.location.href='https://duckduckgo.com/?q='+query;}}</script></body></html>
