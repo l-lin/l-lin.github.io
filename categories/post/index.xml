@@ -6,10 +6,20 @@
     <description>Recent content in post on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Apr 2020 11:06:08 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 11:13:13 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Debug Java container</title>
+      <link>https://l-lin.github.io/post/2020/2020-04-15-docker-debug_java_container/</link>
+      <pubDate>Wed, 15 Apr 2020 11:13:13 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-04-15-docker-debug_java_container/</guid>
+      <description>&lt;p&gt;Debugging a Java container is the same as debugging a remote Java application. All you need to do is
+to add some arguments to the JVM, run the Java application and attach the debugger.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PostgreSQL - Import / export CSV</title>
