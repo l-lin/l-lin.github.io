@@ -40,13 +40,18 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Amazon whitepapers on their software
     architecture](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc)
 
+## Devops
+
+- [Pulumi](https://www.pulumi.com/): modern infrastructure as code
+- [squash](https://squash.solo.io/): debug microservices apps while they run in Kubernetes
+
 ## Documentation
 
-- [Notes on technical writing](https://mkaz.blog/misc/notes-on-technical-writing/): Advices for
+- [Notes on technical writing](https://mkaz.blog/misc/notes-on-technical-writing/): advices for
   writing technical documentation
 - [Improve communities through documentation](https://lwn.net/Articles/793927/)
 - [Architecture Decision
-  Record](https://github.com/joelparkerhenderson/architecture_decision_record): Document to capture
+  Record](https://github.com/joelparkerhenderson/architecture_decision_record): document to capture
   important architectural decision made along with its context and consequences
 - [Best practice for navigating API
   documentation](https://blog.bearer.sh/best-practices-for-navigating-api-documentation/)
