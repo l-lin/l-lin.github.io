@@ -12,8 +12,8 @@ mathjax: false
 My name is Louis Lin: I'm a senior software engineer, I love reading light and web novels and
 watching the famous Korean variety show "Running man".
 
-This site is dedicated to storing some tips and tricks, some thoughts and especially to improving
-myself at writing technical articles about software development.
+This is my digital garden, dedicated to storing some tips and tricks, thoughts, ideas and all other
+stuffs I think I want to preserve somewhere in the web.
 
 Here's my [stackoverflow story view](https://stackoverflow.com/story/l-lin).
 
