@@ -40,7 +40,7 @@ to build a resilient system to compute and generate heart rates from heartbeat d
       <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
 What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
 &lt;p&gt;⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/poc-tomcat-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This tutorial will show you:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;how to activate the SSL secured by a certificate for our Tomcat&lt;/li&gt;
