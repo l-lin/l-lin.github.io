@@ -15,7 +15,7 @@ What's more, you can also link a `ROLE` to each certificate.
 
 :warning: This tutorial is now obsolete and better solution can be used.
 
-**TLDR**: Check the sample project on my [Github](https://github.com/l-lin/dev-cheat-sheet/tree/master/java/tomcat-sample-cert-auth).
+**TLDR**: Check the sample project on my [Github](https://github.com/l-lin/poc-tomcat-cert-auth).
 
 This tutorial will show you:
 
