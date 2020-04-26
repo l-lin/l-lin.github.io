@@ -38,12 +38,15 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   anti-patterns](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns): Design
   patterns to avoid when designing computer systems by the National Cyber Security Centre
 - [Amazon whitepapers on their software
-    architecture](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc)
+  architecture](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc)
 
 ## Devops
 
 - [Pulumi](https://www.pulumi.com/): modern infrastructure as code
-- [squash](https://squash.solo.io/): debug microservices apps while they run in Kubernetes
+- [Squash](https://squash.solo.io/): debug microservices apps while they run in Kubernetes
+- [Paketo](https://paketo.io/): cloud native container images buildpacks
+- [AWS calculator](https://www.duckbillgroup.com/aws-super-simple-storage-calculator/): simple
+  storage pricing calculator for AWS
 
 ## Documentation
 
