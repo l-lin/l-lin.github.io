@@ -22,7 +22,7 @@ This one will deal with the famous **SOLID** design principles:
 
 <!--more-->
 
-# Single responsibility principle
+## Single responsibility principle
 
 > One class should have one and one responsibility.
 
@@ -35,7 +35,7 @@ A real life example: in a start-up, the CEO must perform multiple roles: the CEO
 And it works... until the company reaches a certain scale when the CEO cannot perform every roles, otherwise, the CEO will be overwhelmed by the amount of work the CEO has to do.
 By delegating the roles to other people, the CEO can focus on what the CEO must do: giving the direction/vision of the company to its crew (IMHO).
 
-## Bad example
+### Bad example
 
 In this example, we have a cat that can save itself.
 
@@ -62,7 +62,7 @@ public class Cat {
 Sure it works, but whenever we want to change the persistence, we will need to change this class.
 In small classes, there is no real impact, but when your class is starting to look like a [Blob](https://sourcemaking.com/antipatterns/the-blob) or a God class that does everything, the cost to change its behavior will be huge, enough to make you throw up and have a hangover for years.
 
-## One solution
+### One solution
 
 One solution is to create another class `CatRepository` that deals with the persistence.
 
@@ -95,13 +95,13 @@ public class CatRepository {
 Thus, moving the persistence to another class will clearly separate the responsibility and we are free to update the persistent methods without touching the `Cat` class.
 Hence, we will only touch the persistence functionalities without modifying the business logic.
 
-# Open/Closed principle
+## Open/Closed principle
 
 > Software components should be open for extension, but closed for modification.
 
 It means to have a class that can be extensible in its functionalities, but prevent the users to change its core logic.
 
-## Bad example
+### Bad example
 
 In this example, we have a `Cat` class that has a `meow` method that is different from each cat types.
 
@@ -172,7 +172,7 @@ public class Sandbox {
 }
 ```
 
-## One solution
+### One solution
 
 One solution is to simply use polymorphism and composition (or strategy design pattern) that helps the developer to extends the class without modifying the core logic.
 
@@ -236,7 +236,7 @@ public class Sandbox {
 
 As we can see, if we want to add a new type of cat, we only have to create a new class that implements the `Cat` interface. We don't have to change the content of the class `Meower`.
 
-# Liskov substitution principle
+## Liskov substitution principle
 
 > Derived types must be completely substitutable for their base types.
 
@@ -248,7 +248,7 @@ Often, if we have a class type detection/condition to perform some logic, we hav
 
 Violations of the LSP cause undefined behaviors, which is difficult to find during development (the project compiles and the application runs like intended) but will fail on production (unexpected behaviors).
 
-## Bad example
+### Bad example
 
 ```java
 public abstract class Cat {
@@ -295,7 +295,7 @@ The `PetStore` is tightly coupled to `NyanCat` class. In this example, we can ea
 
 However, if we have another examples, where the behavior is more complex (e.g. in accounting), debugging/fixing will be more difficult.
 
-## One solution
+### One solution
 
 In the example above, we can add an attribute `isSellable`:
 
@@ -346,7 +346,7 @@ public class Sandbox {
 }
 ```
 
-# Interface segregation principle
+## Interface segregation principle
 
 > Clients should not be forced to implement unnecessary methods which they will not use.
 
@@ -355,7 +355,7 @@ This principle favors multiple, smaller, cohesive interfaces overs larger, monol
 By reducing classes dependencies, unused members, we reduce coupling accordingly.
 Moreover, smaller interfaces are easier to implement, improve flexibility and reuse.
 
-## Bad example
+### Bad example
 
 ```java
 public interface Animal {
@@ -402,7 +402,7 @@ public class Sandbox {
 
 In this example, `Cat` implements the interface `Animal`, thus it must implements every methods of `Animal`, even the `fly` method which is not logical.
 
-## One solution
+### One solution
 
 Make interfaces more abstract so that the classes only implement the functionalities they need.
 
@@ -446,7 +446,7 @@ public class Sandbox {
 }
 ```
 
-# Dependency inversion principle
+## Dependency inversion principle
 
 > Depend on abstractions, not on concretions.
 
@@ -456,7 +456,7 @@ If all the details behind those abstractions change, then our class is still saf
 
 Moreover, this principle can help test easily in isolation, for example, the database is a concrete detail in our application (we can use to store our data in a file system, or a database, or something else).
 
-## Bad example
+### Bad example
 
 ```java
 public class DragonLi {
@@ -496,7 +496,7 @@ public class Sandbox {
 
 If we want to add the ragdoll cat, we will have to create a `Ragdoll` and add to `Meower` attributes.
 
-## One solution
+### One solution
 
 ```java
 public interface Cat {
