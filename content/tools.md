@@ -27,6 +27,10 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Real world demo apps](https://github.com/gothinkster/realworld): demos using full stack
   technologies
 - [Developer roadmap](https://roadmap.sh/): community driven roadmaps, articles and resources for developers
+- [Conventional commit](https://www.conventionalcommits.org/en/v1.0.0/): specification for adding
+  human and machine readable meaning to commit messages
+- [Conventional comment](https://conventionalcomments.org/): comments that are easy to grok and
+  comment
 
 ## Architecture
 
