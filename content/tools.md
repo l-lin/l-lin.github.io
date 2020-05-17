@@ -18,7 +18,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [SourceMaking Design patterns](https://sourcemaking.com/design_patterns)
 - [Frontend checklist](https://frontendchecklist.io/)
 - [Free programming notes](https://goalkicker.com/)
-- [Dev hints](https://devhints.io/): Rico's collection of cheatsheets 
+- [Dev hints](https://devhints.io/): Rico's collection of cheatsheets
 - [Best of VIM tips](https://vim.fandom.com/wiki/Best_Vim_Tips)
 - [Learn X in Y minutes](https://learnxinyminutes.com/): collection of tools & programming languages
   coding examples to quickly learn them and have an overview of what they can do
@@ -31,6 +31,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   human and machine readable meaning to commit messages
 - [Conventional comment](https://conventionalcomments.org/): comments that are easy to grok and
   comment
+- [Big-O cheatsheet](https://www.bigocheatsheet.com/)
 
 ## Architecture
 
