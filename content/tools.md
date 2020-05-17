@@ -155,4 +155,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
 - [Monitoror](https://monitoror.com/): unified monitoring wallboard
 - [GifCap](https://gifcap.dev): online animated GIFs creator from a screen recording
+- [Remote tools](https://www.remote.tools/): top remote tech products
 
