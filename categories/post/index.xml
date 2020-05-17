@@ -6,10 +6,19 @@
     <description>Recent content in post on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 02 May 2020 19:37:18 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2020 14:50:13 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/categories/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Pragmatic Programmer</title>
+      <link>https://l-lin.github.io/post/2020/2020-05-17-the_pragmatic_programmer/</link>
+      <pubDate>Sun, 17 May 2020 14:50:13 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-05-17-the_pragmatic_programmer/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Project structures</title>
