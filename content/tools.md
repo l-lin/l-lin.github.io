@@ -157,4 +157,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Monitoror](https://monitoror.com/): unified monitoring wallboard
 - [GifCap](https://gifcap.dev): online animated GIFs creator from a screen recording
 - [Remote tools](https://www.remote.tools/): top remote tech products
+- [Planning poker online](https://planningpokeronline.com/): secretly vote your estimation without influencing others
 
