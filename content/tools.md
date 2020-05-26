@@ -44,6 +44,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   patterns to avoid when designing computer systems by the National Cyber Security Centre
 - [Amazon whitepapers on their software
   architecture](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc)
+- [List of web software architectures](https://medium.com/better-programming/how-to-design-a-web-application-software-architecture-101-df568b88da76)
 
 ## Devops
 
