@@ -110,7 +110,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [oups.gouv.fr](https://www.oups.gouv.fr/): advice to avoid making mistakes in your administrative
   procedures
 - [Mes droits sociaux](https://www.mesdroitssociaux.gouv.fr/): simulator for your social rights
-- [Online tax stamps purchasing](https://www.mesdroitssociaux.gouv.fr/)
+- [Online tax stamps purchasing](https://timbres.impots.gouv.fr/)
 - [Corrige ton impôt](https://www.corrigetonimpot.fr/): good advice to help you fill your tax
   declaration
 - [Mon compte formation](https://www.moncompteformation.gouv.fr)
