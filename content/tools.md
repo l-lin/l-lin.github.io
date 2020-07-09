@@ -114,7 +114,6 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Corrige ton impôt](https://www.corrigetonimpot.fr/): good advice to help you fill your tax
   declaration
 - [Mon compte formation](https://www.moncompteformation.gouv.fr)
-  presentations or in documentation to insert a joke)
 - [Calculatrice fiscale LMNP](https://www.lecoindulmnp.fr/statut-lmnp/fiscalite/simulateur/)
 
 ## Interviews
