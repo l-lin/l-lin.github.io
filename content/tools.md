@@ -64,6 +64,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   important architectural decision made along with its context and consequences
 - [Best practice for navigating API
   documentation](https://blog.bearer.sh/best-practices-for-navigating-api-documentation/)
+- [Best book summaries](https://www.bestbooksummaries.com): free book summaries
 
 ## Soft skills
 
@@ -158,4 +159,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [GifCap](https://gifcap.dev): online animated GIFs creator from a screen recording
 - [Remote tools](https://www.remote.tools/): top remote tech products
 - [Planning poker online](https://planningpokeronline.com/): secretly vote your estimation without influencing others
+- [Dollar Street](https://lectures.dollarstreet.org): see how families live around the world
 
