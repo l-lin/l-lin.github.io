@@ -53,6 +53,8 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Paketo](https://paketo.io/): cloud native container images buildpacks
 - [AWS calculator](https://www.duckbillgroup.com/aws-super-simple-storage-calculator/): simple
   storage pricing calculator for AWS
+- [12-factor app](https://12factor.net/): methodology for building software-as-a-service apps
+- [Devops newsletters](https://devopsnewsletters.com/)
 
 ## Documentation
 
@@ -66,12 +68,13 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   documentation](https://blog.bearer.sh/best-practices-for-navigating-api-documentation/)
 - [Best book summaries](https://www.bestbooksummaries.com): free book summaries
 
-## Soft skills
+## Engineering career
 
 - [How to deal with difficult people](https://www.howtodeal.dev/): funny way to categorize difficult
   people and how to deal with them
 - [Effective engineer](https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f): some good
   advice to become a good engineer
+- [Public engineering career ladder](https://www.swyx.io/writing/career-ladders/)
 
 ## Design
 
@@ -79,6 +82,9 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Happy Hues](https://www.happyhues.co/): color palettes to pick for your designs
 - [Design tip](https://paul.copplest.one/blog/design.html): good design tips for developers
 - [Palette app](https://palettte.app): build smooth color scheme, fine tune hue, ...
+- [No design](https://nodesign.dev/): collection of tools for developers with little to no artistic
+  talent
+- [Krita](https://krita.org/en): open source painting program
 
 ## Presentation
 
@@ -116,6 +122,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   declaration
 - [Mon compte formation](https://www.moncompteformation.gouv.fr)
 - [Calculatrice fiscale LMNP](https://www.lecoindulmnp.fr/statut-lmnp/fiscalite/simulateur/)
+- [Déclaration changement de coordonnées](https://psl.service-public.fr/mademarche/JeChangeDeCoordonnees/demarche?execution=e1s1)
 
 ## Interviews
 
@@ -134,6 +141,10 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 
 - [WriteMD](https://writemd.xyz): online shareable distraction-free markdown editor
 - [Markmap](https://markmap.js.org/): generate mindmaps from Markdown
+
+## Productivity
+
+- [Personal OKRs](https://mohitkhare.me/blog/personal-okrs/)
 
 ## Misc
 
