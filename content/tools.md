@@ -85,6 +85,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [No design](https://nodesign.dev/): collection of tools for developers with little to no artistic
   talent
 - [Krita](https://krita.org/en): open source painting program
+- [Shoelace](https://shoelace.style): collection of every day UI components built on a framework-agnostic technology
 
 ## Presentation
 
