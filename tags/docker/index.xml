@@ -6,10 +6,19 @@
     <description>Recent content in docker on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Apr 2020 11:13:13 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 09:18:05 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Some tips and tricks in Docker Compose</title>
+      <link>https://l-lin.github.io/post/2020/2020-08-25-docker-compose-tips-n-tricks/</link>
+      <pubDate>Tue, 25 Aug 2020 09:18:05 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-08-25-docker-compose-tips-n-tricks/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Debug Java container</title>
