@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2020 09:18:05 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2020 09:26:31 +0200</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mindmaps</title>
+      <link>https://l-lin.github.io/tags/mindmaps/</link>
+      <pubDate>Mon, 21 Sep 2020 09:26:31 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/tags/mindmaps/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -17,15 +26,6 @@
       <pubDate>Tue, 25 Aug 2020 09:18:05 +0200</pubDate>
       
       <guid>https://l-lin.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mindmaps</title>
-      <link>https://l-lin.github.io/tags/mindmaps/</link>
-      <pubDate>Sun, 17 May 2020 14:50:13 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/tags/mindmaps/</guid>
       <description></description>
     </item>
     
