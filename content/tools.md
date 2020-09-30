@@ -32,6 +32,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Conventional comment](https://conventionalcomments.org/): comments that are easy to grok and
   comment
 - [Big-O cheatsheet](https://www.bigocheatsheet.com/)
+- [On YOLOsec and FOMOsec](https://swagitda.com/blog/posts/on-yolosec-and-fomosec/)
 
 ## Architecture
 
