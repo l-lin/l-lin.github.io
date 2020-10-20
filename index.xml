@@ -34,6 +34,17 @@ Overview of my side projects in Github 2020 Trello daily logs</description>
     </item>
     
     <item>
+      <title>Write secur and efficient Dockerfiles</title>
+      <link>https://l-lin.github.io/post/2020/2020-10-20-dockerfile-best-practice/</link>
+      <pubDate>Tue, 20 Oct 2020 09:36:02 +0200</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-10-20-dockerfile-best-practice/</guid>
+      <description>&lt;p&gt;This post covers some best practices for building secure and efficient docker images.
+This is not an exhaustive list, but covers most best practices for writing good enough secure &amp;amp;
+efficient Dockerfiles.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Difficult conversations</title>
       <link>https://l-lin.github.io/post/2020/2020-09-29-difficult_conversations/</link>
       <pubDate>Tue, 29 Sep 2020 09:31:07 +0200</pubDate>
