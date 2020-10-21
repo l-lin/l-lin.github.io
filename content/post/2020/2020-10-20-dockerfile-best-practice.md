@@ -1,5 +1,5 @@
 ---
-title: "Write secur and efficient Dockerfiles"
+title: "Write secure and efficient Dockerfiles"
 date: 2020-10-20T09:36:02+02:00
 imageUrl: "https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg"
 tags: ["docker"]
