@@ -34,6 +34,16 @@ Overview of my side projects in Github 2020 Trello daily logs</description>
     </item>
     
     <item>
+      <title>How to add CORS headers with Nginx</title>
+      <link>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</link>
+      <pubDate>Sat, 31 Oct 2020 16:59:51 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</guid>
+      <description>&lt;p&gt;Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
+reverse proxy behind the app that will add the headers.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Write secure and efficient Dockerfiles</title>
       <link>https://l-lin.github.io/post/2020/2020-10-20-dockerfile-best-practice/</link>
       <pubDate>Tue, 20 Oct 2020 09:36:02 +0200</pubDate>

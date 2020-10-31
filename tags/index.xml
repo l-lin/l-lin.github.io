@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Oct 2020 09:36:02 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2020 16:59:51 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nginx</title>
+      <link>https://l-lin.github.io/tags/nginx/</link>
+      <pubDate>Sat, 31 Oct 2020 16:59:51 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -107,15 +116,6 @@
       <pubDate>Wed, 08 Jan 2020 09:27:56 +0100</pubDate>
       
       <guid>https://l-lin.github.io/tags/documentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nginx</title>
-      <link>https://l-lin.github.io/tags/nginx/</link>
-      <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/tags/nginx/</guid>
       <description></description>
     </item>
     

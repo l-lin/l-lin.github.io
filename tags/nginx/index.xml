@@ -6,10 +6,20 @@
     <description>Recent content in nginx on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 19 Jul 2019 16:44:41 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2020 16:59:51 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to add CORS headers with Nginx</title>
+      <link>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</link>
+      <pubDate>Sat, 31 Oct 2020 16:59:51 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</guid>
+      <description>&lt;p&gt;Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
+reverse proxy behind the app that will add the headers.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Nginx fallback</title>
