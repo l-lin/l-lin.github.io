@@ -34,6 +34,18 @@ Overview of my side projects in Github 2020 Trello daily logs</description>
     </item>
     
     <item>
+      <title>MDC in Spring MVC</title>
+      <link>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</link>
+      <pubDate>Tue, 03 Nov 2020 09:16:28 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</guid>
+      <description>&lt;p&gt;Logging with Mapped Diagnostic Context (MDC) to provide a way to enrich log messages with pieces of
+information that can be useful for better tracking program execution.&lt;/p&gt;
+&lt;p&gt;In this post, we will see how to include basic MDC, such as request information or the authenticated
+user id, with Spring MVC.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>How to add CORS headers with Nginx</title>
       <link>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</link>
       <pubDate>Sat, 31 Oct 2020 16:59:51 +0100</pubDate>

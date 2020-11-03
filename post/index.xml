@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2020 16:59:51 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 09:16:28 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MDC in Spring MVC</title>
+      <link>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</link>
+      <pubDate>Tue, 03 Nov 2020 09:16:28 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</guid>
+      <description>&lt;p&gt;Logging with Mapped Diagnostic Context (MDC) to provide a way to enrich log messages with pieces of
+information that can be useful for better tracking program execution.&lt;/p&gt;
+&lt;p&gt;In this post, we will see how to include basic MDC, such as request information or the authenticated
+user id, with Spring MVC.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to add CORS headers with Nginx</title>

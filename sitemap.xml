@@ -17,7 +17,42 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2020-10-31T17:44:02+01:00</lastmod>
+    <lastmod>2020-11-03T09:54:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</loc>
+    <lastmod>2020-11-03T09:54:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2020-11-03T09:54:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/</loc>
+    <lastmod>2020-11-03T09:54:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/spring/</loc>
+    <lastmod>2020-11-03T09:54:58+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2020-11-03T09:54:58+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,27 +66,6 @@
   
   <url>
     <loc>https://l-lin.github.io/tags/nginx/</loc>
-    <lastmod>2020-10-31T17:44:02+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2020-10-31T17:44:02+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2020-10-31T17:44:02+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/</loc>
     <lastmod>2020-10-31T17:44:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -122,13 +136,6 @@
   
   <url>
     <loc>https://l-lin.github.io/post/2020/2020-05-02-project-structures/</loc>
-    <lastmod>2020-05-02T21:15:39+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/spring/</loc>
     <lastmod>2020-05-02T21:15:39+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
