@@ -1,7 +1,7 @@
 ---
 title: "JPA @OneToMany and composite primary key"
 date: 2018-11-14T16:40:06+01:00
-imageUrl: "https://www.codingpedia.org/wp-content/uploads/2014/01/jpa-spring-hibernate.png"
+imageUrl: "https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg"
 tags: ["jpa", "java"]
 categories: ["post"]
 comment: true
