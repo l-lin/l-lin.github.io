@@ -33,6 +33,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   comment
 - [Big-O cheatsheet](https://www.bigocheatsheet.com/)
 - [On YOLOsec and FOMOsec](https://swagitda.com/blog/posts/on-yolosec-and-fomosec/)
+- [Programming idioms](https://programming-idioms.org/)
 
 ## Architecture
 
