@@ -17,7 +17,42 @@
   
   <url>
     <loc>https://l-lin.github.io/categories/</loc>
-    <lastmod>2020-11-28T18:51:22+01:00</lastmod>
+    <lastmod>2021-02-04T15:24:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</loc>
+    <lastmod>2021-02-04T15:24:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/java/</loc>
+    <lastmod>2021-02-04T15:24:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/categories/post/</loc>
+    <lastmod>2021-02-04T15:24:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/post/</loc>
+    <lastmod>2021-02-04T15:24:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://l-lin.github.io/tags/</loc>
+    <lastmod>2021-02-04T15:24:17+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,29 +65,8 @@
   </url>
   
   <url>
-    <loc>https://l-lin.github.io/categories/post/</loc>
-    <lastmod>2020-11-28T18:51:22+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/post/</loc>
-    <lastmod>2020-11-28T18:51:22+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://l-lin.github.io/tags/spring/</loc>
     <lastmod>2020-11-03T09:54:58+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/</loc>
-    <lastmod>2020-11-28T18:51:22+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -123,13 +137,6 @@
   <url>
     <loc>https://l-lin.github.io/tags/concept/</loc>
     <lastmod>2020-05-09T17:51:59+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://l-lin.github.io/tags/java/</loc>
-    <lastmod>2020-11-28T18:51:22+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

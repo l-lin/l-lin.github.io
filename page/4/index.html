@@ -124,6 +124,48 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <a class="post-image" href="/post/2018/2018-08-31-postgresql_remove_idle_transactions/" style="background-image: url('https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png')">
+      &nbsp;
+    </a>
+    <h1 class="post-title"><a class="post-link" href="/post/2018/2018-08-31-postgresql_remove_idle_transactions/">Remove idle transactions</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-08-31 </span>
+      <div class="post-category">
+          
+            <a href="/tags/postgresql/"> #postgresql </a>
+          
+        </div>
+        
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">pg_terminate_backend</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span> 
+<span class="k">FROM</span> <span class="n">pg_stat_activity</span> 
+<span class="k">WHERE</span> <span class="k">state</span> <span class="k">LIKE</span> <span class="s1">&#39;idle %&#39;</span> 
+<span class="k">AND</span> <span class="n">state_change</span> <span class="o">&lt;</span> <span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="nb">interval</span> <span class="s1">&#39;1 hour&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/2018/2018-08-31-postgresql_remove_idle_transactions/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     
     <h1 class="post-title"><a class="post-link" href="/post/2018/2018-08-19-circuit_breaker/">Circuit breaker</a></h1>
     <div class="post-meta">
@@ -382,34 +424,6 @@ various post migration operation.</p>
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    
-    <h1 class="post-title"><a class="post-link" href="/post/2018/2018-03-08-strangler_pattern/">Strangler pattern</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-03-08 </span>
-      <div class="post-category">
-          
-            <a href="/tags/architecture/"> #architecture </a>
-          
-            <a href="/tags/patterns/"> #patterns </a>
-          
-        </div>
-        
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>How to migrate legacy apps efficiently.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/2018/2018-03-08-strangler_pattern/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -451,7 +465,7 @@ various post migration operation.</p>
   <span class="copyright-year">
     &copy; 
     2013 - 
-    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Louis LIN</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Louis LIN</span>
   </span>
 </div>
 
