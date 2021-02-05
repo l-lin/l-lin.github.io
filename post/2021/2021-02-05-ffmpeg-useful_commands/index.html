@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>How to extract thread and heap dump from running JRE in container - Louis LIN&#39;s blog</title>
+  <title>FFmpeg - useful commands - Louis LIN&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://l-lin.github.io/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/" />
+<link rel="canonical" href="https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/" />
 <link rel="icon" href="/favicon.ico" />
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
@@ -40,22 +40,22 @@
 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
 
-<meta property="og:title" content="How to extract thread and heap dump from running JRE in container" />
+<meta property="og:title" content="FFmpeg - useful commands" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/" />
-<meta property="article:published_time" content="2021-02-04T15:21:47+01:00" />
-<meta property="article:modified_time" content="2021-02-04T15:24:17+01:00" />
-<meta itemprop="name" content="How to extract thread and heap dump from running JRE in container">
+<meta property="og:url" content="https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/" />
+<meta property="article:published_time" content="2021-02-05T10:56:06+01:00" />
+<meta property="article:modified_time" content="2021-02-05T11:01:07+01:00" />
+<meta itemprop="name" content="FFmpeg - useful commands">
 <meta itemprop="description" content="">
-<meta itemprop="datePublished" content="2021-02-04T15:21:47&#43;01:00" />
-<meta itemprop="dateModified" content="2021-02-04T15:24:17&#43;01:00" />
-<meta itemprop="wordCount" content="125">
+<meta itemprop="datePublished" content="2021-02-05T10:56:06&#43;01:00" />
+<meta itemprop="dateModified" content="2021-02-05T11:01:07&#43;01:00" />
+<meta itemprop="wordCount" content="257">
 
 
 
-<meta itemprop="keywords" content="java," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to extract thread and heap dump from running JRE in container"/>
+<meta itemprop="keywords" content="ffmpeg," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FFmpeg - useful commands"/>
 <meta name="twitter:description" content=""/>
 
 <!--[if lte IE 9]>
@@ -130,17 +130,17 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">How to extract thread and heap dump from running JRE in container</h1>
+      <h1 class="post-title">FFmpeg - useful commands</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2021-02-04 </span>
+        <span class="post-time"> 2021-02-05 </span>
         <div class="post-category">
             
-              <a href="/tags/java/"> #java </a>
+              <a href="/tags/ffmpeg/"> #ffmpeg </a>
             
           </div>
           
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
@@ -150,8 +150,7 @@
 
     
     <div class="post-content">
-      <p><a href="https://github.com/apangin/jattach">jattach</a> is a utility to send commands to remote JVM.</p>
-<div class="highlight"><div class="chroma">
+      <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -178,33 +177,47 @@
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># attach tty to the container</span>
-docker <span class="nb">exec</span> -it container sh
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># show streams infos</span>
+ffprobe -loglevel <span class="m">16</span> -show_streams -show_private_data -print_format flat -i input.mp4
 
-<span class="c1"># for alpine image, install like this</span>
-apk add --no-cache jattach --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
+<span class="c1"># display the frame timestamps with their associated coded picture number (== encoding order)</span>
+<span class="c1"># /!\ coded_picture_number != frame number</span>
+<span class="c1"># If there are no B-frames, the coded_picture_number is the same as the frame number</span>
+ffprobe input.mp4 -select_streams v -show_entries <span class="nv">frame</span><span class="o">=</span>coded_picture_number,pkt_pts_time -of <span class="nv">csv</span><span class="o">=</span><span class="nv">p</span><span class="o">=</span>0:nk<span class="o">=</span><span class="m">1</span> -v <span class="m">0</span> -pretty <span class="p">|</span> less
 
-<span class="c1"># otherwise, you can download the binary</span>
-wget -L -O /usr/local/bin/jattach <span class="se">\
-</span><span class="se"></span>  https://github.com/apangin/jattach/releases/download/v1.5/jattach <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>  chmod +x /usr/local/bin/jattach
+<span class="c1"># cut video without from 10s to 20s</span>
+<span class="c1"># using &#34;-vcodec copy&#34; to take the input codec =&gt; no re-encoding</span>
+<span class="c1"># may only work if the video do not contain any B-frame</span>
+ffmpeg -ss <span class="m">10</span> -to <span class="m">20</span> -i input.mp4 -vcodec copy out.mp4
 
-<span class="c1"># generate heap dump</span>
-jattach <span class="m">1</span> dumpheap container.hprof
+<span class="c1"># to concat multiple videos, we need to create a text file containing all the videos to concatenate in order</span>
+cat <span class="s">&lt;&lt; EOF &gt; files.txt
+</span><span class="s">file &#39;gap.mp4&#39;
+</span><span class="s">file &#39;original_left.mp4&#39;
+</span><span class="s">file &#39;original_right.mp4&#39;
+</span><span class="s">EOF</span>
+ffmpeg -f concat -i files.txt -c copy concatenated_video.mp4
 
-<span class="c1"># generate thread dump</span>
-jattach <span class="m">1</span> threaddump &gt; container.tdump
+<span class="c1"># concatenate images from folder into a video</span>
+<span class="k">for</span> f in *.jpg<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&#34;file &#39;</span><span class="nv">$f</span><span class="s2">&#39;&#34;</span> &gt;&gt; to_video.txt<span class="p">;</span> <span class="k">done</span>
+<span class="c1"># -r 0.5: show every image for 2 seconds</span>
+ffmpeg -r 0.5 -f concat -i to_video.txt -vcodec libx264 video.mp4
+rm to_video.txt
 
-<span class="c1"># go back to host</span>
-<span class="nb">exit</span>
+<span class="c1"># check if a video has B-frames (0: no b-frames, 2: has b-frames)</span>
+ffprobe -loglevel <span class="m">16</span> -show_streams -show_private_data -print_format flat -i input.mp4 <span class="p">|</span> grep has_b_frames
 
-<span class="c1"># copy thread &amp; heap dump to host</span>
-docker cp container:/container.hprof .
-docker cp container:/container.tdump .
-
-<span class="c1"># use jconsole or visualvm to analyse the dumps</span>
+<span class="c1"># check I/P/B-frame type for each frame</span>
+ffprobe -loglevel <span class="m">16</span> -show_frames input.mp4 <span class="p">|</span> grep pict_type <span class="p">|</span> less
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -215,8 +228,8 @@ docker cp container:/container.tdump .
   <p class="copyright-item">
     <span class="item-title">Last modification</span>
     <span class="item-content">
-        2021-02-04
-        <a href="https://github.com/l-lin/l-lin.github.io/commit/6fd5cd2937191ce1ae6925b0d8bc7a56f48cda24" title="post(java): how to extract thread and heap dump from running JRE in container">(6fd5cd2)</a>
+        2021-02-05
+        <a href="https://github.com/l-lin/l-lin.github.io/commit/2c7ab5366f9b1e9a61531b8f82d08f2a4ce3041c" title="post(ffmpeg): add useful commands">(2c7ab53)</a>
     </span>
   </p>
   
@@ -225,13 +238,9 @@ docker cp container:/container.tdump .
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/2021/2021-02-05-ffmpeg-useful_commands/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">FFmpeg - useful commands</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/2020/2020-11-03-spring_mvc_mdc/">
-            <span class="next-text nav-default">MDC in Spring MVC</span>
+        
+        <a class="next" href="/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/">
+            <span class="next-text nav-default">How to extract thread and heap dump from running JRE in container</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Louis LIN&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Feb 2021 15:21:47 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 05 Feb 2021 10:56:06 +0100</lastBuildDate>
     
 	<atom:link href="https://l-lin.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>FFmpeg - useful commands</title>
+      <link>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</link>
+      <pubDate>Fri, 05 Feb 2021 10:56:06 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>How to extract thread and heap dump from running JRE in container</title>

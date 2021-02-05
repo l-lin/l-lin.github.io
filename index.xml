@@ -34,6 +34,15 @@ Overview of my side projects in Github 2020 Trello daily logs</description>
     </item>
     
     <item>
+      <title>FFmpeg - useful commands</title>
+      <link>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</link>
+      <pubDate>Fri, 05 Feb 2021 10:56:06 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>How to extract thread and heap dump from running JRE in container</title>
       <link>https://l-lin.github.io/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</link>
       <pubDate>Thu, 04 Feb 2021 15:21:47 +0100</pubDate>

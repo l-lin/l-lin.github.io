@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ffmpeg on Louis LIN&#39;s blog</title>
+    <link>https://l-lin.github.io/tags/ffmpeg/</link>
+    <description>Recent content in ffmpeg on Louis LIN&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Feb 2021 10:56:06 +0100</lastBuildDate>
+    
+	<atom:link href="https://l-lin.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FFmpeg - useful commands</title>
+      <link>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</link>
+      <pubDate>Fri, 05 Feb 2021 10:56:06 +0100</pubDate>
+      
+      <guid>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
