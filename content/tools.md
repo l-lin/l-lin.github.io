@@ -42,13 +42,28 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   patterns useful for building reliable, scalable, secure applications in the cloud by Microsoft
 - [Architecture of Open Source Applications](https://aosabook.org/en/index.html): books on how
   softwares are structured and why
-- [Security architecture
-  anti-patterns](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns): Design
-  patterns to avoid when designing computer systems by the National Cyber Security Centre
 - [Amazon whitepapers on their software
   architecture](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc)
 - [List of web software architectures](https://medium.com/better-programming/how-to-design-a-web-application-software-architecture-101-df568b88da76)
+- [Architecture Decision
+  Record](https://github.com/joelparkerhenderson/architecture_decision_record): document to capture
+  important architectural decision made along with its context and consequences
+- [ADR](https://adr.github.io/): Architectural Decision Record
+
+## Security
+
+- [Microsoft SDL practices](https://www.microsoft.com/en-us/securityengineering/sdl/practices)
+- [Microsoft threat modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)
+- [Security architecture
+  anti-patterns](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns): Design
+  patterns to avoid when designing computer systems by the National Cyber Security Centre
 - [Microservice security patterns](https://developer.okta.com/blog/2020/03/23/microservice-security-patterns)
+- [10 ways to secure a Spring Boot App](https://developer.okta.com/blog/2018/07/30/10-ways-to-secure-spring-boot)
+- [Web security hack anatomy](https://www.infoq.com/podcasts/web-security-hack-anatomy/)
+- [ANSSI agile and security](https://www.ssi.gouv.fr/particulier/guide/agilite-et-securite-numeriques-methode-et-outils-a-lusage-des-equipes-projet/): ANSSI's recommendations for including security in agile processes
+- [Threat modeling manifesto](https://www.threatmodelingmanifesto.org/)
+- [OWASP top ten web app security risks](https://owasp.org/www-project-top-ten/)
+- [Agile threat modelling](https://martinfowler.com/articles/agile-threat-modelling.html)
 
 ## Devops
 
@@ -59,15 +74,13 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   storage pricing calculator for AWS
 - [12-factor app](https://12factor.net/): methodology for building software-as-a-service apps
 - [Devops newsletters](https://devopsnewsletters.com/)
+- [AWS cheat sheets](https://tutorialsdojo.com/aws-cheat-sheets/)
 
 ## Documentation
 
 - [Notes on technical writing](https://mkaz.blog/misc/notes-on-technical-writing/): advices for
   writing technical documentation
 - [Improve communities through documentation](https://lwn.net/Articles/793927/)
-- [Architecture Decision
-  Record](https://github.com/joelparkerhenderson/architecture_decision_record): document to capture
-  important architectural decision made along with its context and consequences
 - [Best practice for navigating API
   documentation](https://blog.bearer.sh/best-practices-for-navigating-api-documentation/)
 - [Best book summaries](https://www.bestbooksummaries.com): free book summaries
@@ -152,6 +165,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 ## Productivity
 
 - [Personal OKRs](https://mohitkhare.me/blog/personal-okrs/)
+- [The mediocre programmer](http://themediocreprogrammer.com/)
 
 ## Misc
 
