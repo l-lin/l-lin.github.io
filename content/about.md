@@ -1,10 +1,7 @@
 ---
 title: "About me"
 date: 2017-08-20T21:38:52+08:00
-menu: "main"
-weight: 50
 comment: false
-mathjax: false
 ---
 
 {{< figure class="center" src="/images/hi.png" alt="Hello" >}}
