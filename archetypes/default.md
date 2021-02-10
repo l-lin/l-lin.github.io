@@ -1,13 +1,9 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
-imageUrl: ""
+featuredImage: ""
 tags: []
 categories: ["post"]
-comment: true
-toc: false
-autoCollapseToc: false
-contentCopyright: false
 ---
 
 
