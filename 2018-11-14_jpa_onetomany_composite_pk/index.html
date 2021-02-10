@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>JPA @OneToMany and composite primary key - Louis Lin&#39;s digital garden</title><meta name="Description" content="A website on software development"><meta property="og:title" content="JPA @OneToMany and composite primary key" />
+<meta property="og:description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
+is not quite straightforward.
+We need to use a mix of JPA annotations along with creating some embeddable classes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2018-11-14_jpa_onetomany_composite_pk/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2018-11-14T16:40:06+01:00" />
+<meta property="article:modified_time" content="2021-02-10T17:11:09+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="JPA @OneToMany and composite primary key"/>
+<meta name="twitter:description" content="To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
+is not quite straightforward.
+We need to use a mix of JPA annotations along with creating some embeddable classes."/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2018-11-14_jpa_onetomany_composite_pk/" /><link rel="prev" href="https://l-lin.github.io/2018-10-21-java_solid/" /><link rel="next" href="https://l-lin.github.io/2018-12-04-custom_validator_for_standard_constraints/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "JPA @OneToMany and composite primary key",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2018-11-14_jpa_onetomany_composite_pk\/"
+        },"genre": "posts","keywords": "jpa, java","wordcount":  231 ,
+        "url": "https:\/\/l-lin.github.io\/2018-11-14_jpa_onetomany_composite_pk\/","datePublished": "2018-11-14T16:40:06+01:00","dateModified": "2021-02-10T17:11:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">JPA @OneToMany and composite primary key</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2018-11-14">2018-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;231 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg"
+        data-srcset="https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg, https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg 1.5x, https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg 2x"
+        data-sizes="auto"
+        alt="https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg"
+        title="https://huongdanjava.com/wp-content/uploads/2017/10/jpa.jpg" /></div><div class="content" id="content"><p>To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
+is not quite straightforward.</p>
+<p>We need to use a mix of JPA annotations along with creating some embeddable classes.</p>
+<p>Suppose we have the following representation in our database:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">+=======+          +=============+          +=======+
+|cat    |          |cat_toy_usage|          |toy    |
+|-------|1        N|-------------|N        1|-------|
+|cat_id*|----------|cat_id*      |----------|toy_id*|
+|name   |          |toy_id*      |          |name   |
++=======+          |usage_status |          +=======+
+                   +=============+
+</code></pre></td></tr></table>
+</div>
+</div><p>We have:</p>
+<ul>
+<li>cats</li>
+<li>toys for cats
+<ul>
+<li>a toy can be shared between cats</li>
+</ul>
+</li>
+<li>an usage status (either <code>USED</code> or <code>UNUSED</code>)</li>
+</ul>
+<p>Using JPA, we will have the following:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span>
+    <span class="kd">private</span> <span class="n">Long</span> <span class="n">catId</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">mappedBy</span><span class="o">=</span><span class="s">&#34;id.cat&#34;</span><span class="o">,</span> <span class="n">fetched</span> <span class="o">=</span> <span class="n">FechType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">,</span> <span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">CatToyUsage</span><span class="o">&gt;</span> <span class="n">toyUsages</span><span class="o">;</span>
+
+    <span class="c1">// Getters + setters
+</span><span class="c1"></span><span class="o">}</span>
+
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatToyUsage</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="nd">@Embeddable</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Pk</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+        <span class="nd">@ManyToOne</span>
+        <span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;cat_id&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Cat</span> <span class="n">cat</span><span class="o">;</span>
+
+        <span class="nd">@Column</span><span class="o">(</span><span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Long</span> <span class="n">toyId</span><span class="o">;</span>
+
+        <span class="c1">// Getters + setters + equals + hashCode
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="nd">@EmbeddedId</span>
+    <span class="kd">private</span> <span class="n">Pk</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="nd">@Enumerated</span><span class="o">(</span><span class="n">EnumType</span><span class="o">.</span><span class="na">STRING</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">UsageStatus</span> <span class="n">usageStatus</span><span class="o">;</span>
+
+    <span class="c1">// Getters + setters
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Sources:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/2611619/onetomany-and-composite-primary-keys/20002180#20002180" target="_blank" rel="noopener noreffer">Stackoverflow</a></li>
+<li><a href="https://www.logicbig.com/tutorials/java-ee-tutorial/jpa/embedded-element-collection.html" target="_blank" rel="noopener noreffer">LogicBig</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-10&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/2c3a28753a7a7dd79ae33c81b6e8f5812a87661e" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 2c3a28753a7a7dd79ae33c81b6e8f5812a87661e: theme: move post to posts">
+                                    <i class="fas fa-hashtag fa-fw"></i>2c3a287</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2018-11-14_jpa_onetomany_composite_pk/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/jpa/">jpa</a>,&nbsp;<a href="/tags/java/">java</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2018-10-21-java_solid/" class="prev" rel="prev" title="(Rock) SOLID"><i class="fas fa-angle-left fa-fw"></i>(Rock) SOLID</a>
+            <a href="/2018-12-04-custom_validator_for_standard_constraints/" class="next" rel="next" title="Custom validator for standard constraints">Custom validator for standard constraints<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"l-lin","label":"","lightTheme":"github-light","repo":"l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

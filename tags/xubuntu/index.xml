@@ -1,38 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>xubuntu on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/xubuntu/</link>
-    <description>Recent content in xubuntu on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 27 Aug 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/xubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to share internet connexion to mobile using bluetooth USB key</title>
-      <link>https://l-lin.github.io/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/</link>
-      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/</guid>
-      <description>&lt;p&gt;This tutorial was done using the &lt;a href=&#34;http://www.amazon.fr/gp/product/B00CM83SC0&#34;&gt;ASUS USB-BT400 Mini Bluetooth 4,0 Dongle USB 2,0&lt;/a&gt;
-and Xubuntu.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Changing the Caps Lock key to Ctrl</title>
-      <link>https://l-lin.github.io/post/2015/2015-01-25-change_capslock_to_ctrl/</link>
-      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-01-25-change_capslock_to_ctrl/</guid>
-      <description>&lt;p&gt;How many times have you used the &lt;code&gt;caps lock&lt;/code&gt; key compare to the &lt;code&gt;ctrl&lt;/code&gt; button?
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>xubuntu - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/xubuntu/</link>
+        <description>xubuntu - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 27 Aug 2015 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/xubuntu/" rel="self" type="application/rss+xml" /><item>
+    <title>How to share internet connexion to mobile using bluetooth USB key</title>
+    <link>https://l-lin.github.io/2015-08-27-internet_sharing_with_bluetooth_usb_key/</link>
+    <pubDate>Thu, 27 Aug 2015 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2015-08-27-internet_sharing_with_bluetooth_usb_key/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/218717/pexels-photo-218717.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" referrerpolicy="no-referrer">
+            </div><p>This tutorial was done using the <a href="http://www.amazon.fr/gp/product/B00CM83SC0" target="_blank" rel="noopener noreffer">ASUS USB-BT400 Mini Bluetooth 4,0 Dongle USB 2,0</a>
+and Xubuntu.</p>]]></description>
+</item><item>
+    <title>Changing the Caps Lock key to Ctrl</title>
+    <link>https://l-lin.github.io/2015-01-25-change_capslock_to_ctrl/</link>
+    <pubDate>Sun, 25 Jan 2015 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2015-01-25-change_capslock_to_ctrl/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" referrerpolicy="no-referrer">
+            </div><p>How many times have you used the <code>caps lock</code> key compare to the <code>ctrl</code> button?
 Once a year maybe? You must have experienced at least once a situation where you
-must enter your password, but your caps lock is on, thus you entered your password wrong.&lt;/p&gt;
-&lt;p&gt;So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, how about changing to a button that you use
-everyday?&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+must enter your password, but your caps lock is on, thus you entered your password wrong.</p>
+<p>So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
+everyday?</p>]]></description>
+</item></channel>
 </rss>

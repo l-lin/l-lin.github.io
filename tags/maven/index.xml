@@ -1,24 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>maven on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/maven/</link>
-    <description>Recent content in maven on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 19 Sep 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Debugging Maven plugin with IntelliJ</title>
-      <link>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</link>
-      <pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>maven - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/maven/</link>
+        <description>maven - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Sep 2014 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/maven/" rel="self" type="application/rss+xml" /><item>
+    <title>Debugging Maven plugin with IntelliJ</title>
+    <link>https://l-lin.github.io/2014-09-19-debug_maven_plugin/</link>
+    <pubDate>Fri, 19 Sep 2014 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2014-09-19-debug_maven_plugin/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/52608/pexels-photo-52608.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item></channel>
 </rss>

@@ -1,818 +1,100 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/</link>
-    <description>Recent content on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Tools</title>
-      <link>https://l-lin.github.io/tools/</link>
-      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
-      
-      <guid>https://l-lin.github.io/tools/</guid>
-      <description>A curated collection of awesome tools, resources, libraries and softwares I found on the internet.
-Development  OOP design patterns Technology radar: opinionated guide to technology frontiers by Thoughtworks Java design patterns: curated list of OOP design patterns with some examples implemented in Java SourceMaking Design patterns Frontend checklist Free programming notes Dev hints: Rico&amp;rsquo;s collection of cheatsheets Best of VIM tips Learn X in Y minutes: collection of tools &amp;amp; programming languages coding examples to quickly learn them and have an overview of what they can do Shell magic: Bash quick references Web skills: visual learning guide for web developers Real world demo apps: demos using full stack technologies Developer roadmap: community driven roadmaps, articles and resources for developers Conventional commit: specification for adding human and machine readable meaning to commit messages Conventional comment: comments that are easy to grok and comment Big-O cheatsheet On YOLOsec and FOMOsec Programming idioms Command Line Interface Guidelines  Architecture  Cloud design pattern: design patterns useful for building reliable, scalable, secure applications in the cloud by Microsoft Architecture of Open Source Applications: books on how softwares are structured and why Amazon whitepapers on their software architecture List of web software architectures Architecture Decision Record: document to capture important architectural decision made along with its context and consequences ADR: Architectural Decision Record  Security  Microsoft SDL practices Microsoft threat modeling Security architecture anti-patterns: Design patterns to avoid when designing computer systems by the National Cyber Security Centre Microservice security patterns 10 ways to secure a Spring Boot App Web security hack anatomy ANSSI agile and security: ANSSI&amp;rsquo;s recommendations for including security in agile processes Threat modeling manifesto OWASP top ten web app security risks Agile threat modelling  Devops  Pulumi: modern infrastructure as code Squash: debug microservices apps while they run in Kubernetes Paketo: cloud native container images buildpacks AWS calculator: simple storage pricing calculator for AWS 12-factor app: methodology for building software-as-a-service apps Devops newsletters AWS cheat sheets  Documentation  Notes on technical writing: advices for writing technical documentation Improve communities through documentation Best practice for navigating API documentation Best book summaries: free book summaries  Engineering career  How to deal with difficult people: funny way to categorize difficult people and how to deal with them Effective engineer: some good advice to become a good engineer Public engineering career ladder  Design  Logofox: fast logo maker Happy Hues: color palettes to pick for your designs Design tip: good design tips for developers Palette app: build smooth color scheme, fine tune hue, &amp;hellip; No design: collection of tools for developers with little to no artistic talent Krita: open source painting program Shoelace: collection of every day UI components built on a framework-agnostic technology  Presentation  Slides: SAAS tool to make presentations for developers with features like syntax highlighted code, step-by-step code highlights presentation&amp;hellip; Carbon: create and share beautiful images of your source code Flaticon: large database of icons The Noun project: collection of icons Pexels: free stock photos &amp;amp; videos Unsplash: free usable images How to speak by Pr Patrick Winston  Database  PGTune: generate optimized postgresql.</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://l-lin.github.io/about/</link>
-      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
-      
-      <guid>https://l-lin.github.io/about/</guid>
-      <description>My name is Louis Lin: I&amp;rsquo;m a senior software engineer, I love reading light and web novels and watching the famous Korean variety show &amp;ldquo;Running man&amp;rdquo;.
-This is my digital garden, dedicated to storing some tips and tricks, thoughts, ideas and all other stuffs I think I want to preserve somewhere in the web.
-Here&amp;rsquo;s my stackoverflow story view.
-Overview of my side projects in Github 2020 Trello daily logs</description>
-    </item>
-    
-    <item>
-      <title>FFmpeg - useful commands</title>
-      <link>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</link>
-      <pubDate>Fri, 05 Feb 2021 10:56:06 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2021/2021-02-05-ffmpeg-useful_commands/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to extract thread and heap dump from running JRE in container</title>
-      <link>https://l-lin.github.io/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</link>
-      <pubDate>Thu, 04 Feb 2021 15:21:47 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2021/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MDC in Spring MVC</title>
-      <link>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</link>
-      <pubDate>Tue, 03 Nov 2020 09:16:28 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-11-03-spring_mvc_mdc/</guid>
-      <description>&lt;p&gt;Logging with Mapped Diagnostic Context (MDC) to provide a way to enrich log messages with pieces of
-information that can be useful for better tracking program execution.&lt;/p&gt;
-&lt;p&gt;In this post, we will see how to include basic MDC, such as request information or the authenticated
-user id, with Spring MVC.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to add CORS headers with Nginx</title>
-      <link>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</link>
-      <pubDate>Sat, 31 Oct 2020 16:59:51 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</guid>
-      <description>&lt;p&gt;Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
-reverse proxy behind the app that will add the headers.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Write secure and efficient Dockerfiles</title>
-      <link>https://l-lin.github.io/post/2020/2020-10-20-dockerfile-best-practice/</link>
-      <pubDate>Tue, 20 Oct 2020 09:36:02 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-10-20-dockerfile-best-practice/</guid>
-      <description>&lt;p&gt;This post covers some best practices for building secure and efficient docker images.
-This is not an exhaustive list, but covers most best practices for writing good enough secure &amp;amp;
-efficient Dockerfiles.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Difficult conversations</title>
-      <link>https://l-lin.github.io/post/2020/2020-09-29-difficult_conversations/</link>
-      <pubDate>Tue, 29 Sep 2020 09:31:07 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-09-29-difficult_conversations/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The subtle art of not giving a fck</title>
-      <link>https://l-lin.github.io/post/2020/2020-09-21-not_giving_a_fuck/</link>
-      <pubDate>Mon, 21 Sep 2020 09:26:31 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-09-21-not_giving_a_fuck/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Some tips and tricks in Docker Compose</title>
-      <link>https://l-lin.github.io/post/2020/2020-08-25-docker-compose-tips-n-tricks/</link>
-      <pubDate>Tue, 25 Aug 2020 09:18:05 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-08-25-docker-compose-tips-n-tricks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The Pragmatic Programmer</title>
-      <link>https://l-lin.github.io/post/2020/2020-05-17-the_pragmatic_programmer/</link>
-      <pubDate>Sun, 17 May 2020 14:50:13 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-05-17-the_pragmatic_programmer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Project structures</title>
-      <link>https://l-lin.github.io/post/2020/2020-05-02-project-structures/</link>
-      <pubDate>Sat, 02 May 2020 19:37:18 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-05-02-project-structures/</guid>
-      <description>&lt;p&gt;Structuring a project is not really exciting, nor is it the main focus in a project life, but it&amp;rsquo;s
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/</link>
+        <description>A website on software development</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Aug 2017 21:38:52 &#43;0800</lastBuildDate>
+            <atom:link href="https://l-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>FFmpeg - useful commands</title>
+    <link>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</link>
+    <pubDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>How to extract thread and heap dump from running JRE in container</title>
+    <link>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</link>
+    <pubDate>Thu, 04 Feb 2021 15:21:47 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>MDC in Spring MVC</title>
+    <link>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</link>
+    <pubDate>Tue, 03 Nov 2020 09:16:28 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</guid>
+    <description><![CDATA[<p>Logging with Mapped Diagnostic Context (MDC) to provide a way to enrich log messages with pieces of
+information that can be useful for better tracking program execution.</p>
+<p>In this post, we will see how to include basic MDC, such as request information or the authenticated
+user id, with Spring MVC.</p>]]></description>
+</item><item>
+    <title>How to add CORS headers with Nginx</title>
+    <link>https://l-lin.github.io/2020-10-31-nginx_cors/</link>
+    <pubDate>Sat, 31 Oct 2020 16:59:51 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-10-31-nginx_cors/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png" referrerpolicy="no-referrer">
+            </div><p>Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
+reverse proxy behind the app that will add the headers.</p>]]></description>
+</item><item>
+    <title>Write secure and efficient Dockerfiles</title>
+    <link>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</link>
+    <pubDate>Tue, 20 Oct 2020 09:36:02 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg" referrerpolicy="no-referrer">
+            </div><p>This post covers some best practices for building secure and efficient docker images.
+This is not an exhaustive list, but covers most best practices for writing good enough secure &amp;
+efficient Dockerfiles.</p>]]></description>
+</item><item>
+    <title>Difficult conversations</title>
+    <link>https://l-lin.github.io/2020-09-29-difficult_conversations/</link>
+    <pubDate>Tue, 29 Sep 2020 09:31:07 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-09-29-difficult_conversations/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/418o27lNqRL._SX324_BO1,204,203,200_.jpg" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
+    <title>The subtle art of not giving a fck</title>
+    <link>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</link>
+    <pubDate>Mon, 21 Sep 2020 09:26:31 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://s3-us-west-2.amazonaws.com/tabs.web.media/c/2/c2sk/c2sk-square-orig.jpg" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
+    <title>Some tips and tricks in Docker Compose</title>
+    <link>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</link>
+    <pubDate>Tue, 25 Aug 2020 09:18:05 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>The Pragmatic Programmer</title>
+    <link>https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/</link>
+    <pubDate>Sun, 17 May 2020 14:50:13 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/518FqJvR9aL._SY445_QL70_ML2_.jpg" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
+    <title>Project structures</title>
+    <link>https://l-lin.github.io/2020-05-02-project-structures/</link>
+    <pubDate>Sat, 02 May 2020 19:37:18 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-05-02-project-structures/</guid>
+    <description><![CDATA[<p>Structuring a project is not really exciting, nor is it the main focus in a project life, but it&rsquo;s
 certainly one of the most important decision to make at the beginning of the project if you do not
 want to have a massive refactoring afterwards and if you want your project to be quickly understood
-and workable by other developers.&lt;/p&gt;
-&lt;p&gt;If you want to directly check the code:
-&lt;a href=&#34;https://github.com/l-lin/architecture-cheat-sheet/tree/master/project-structures&#34;&gt;Github project&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Debug Java container</title>
-      <link>https://l-lin.github.io/post/2020/2020-04-15-docker-debug_java_container/</link>
-      <pubDate>Wed, 15 Apr 2020 11:13:13 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-04-15-docker-debug_java_container/</guid>
-      <description>&lt;p&gt;Debugging a Java container is the same as debugging a remote Java application. All you need to do is
-to add some arguments to the JVM, run the Java application and attach the debugger.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>PostgreSQL - Import / export CSV</title>
-      <link>https://l-lin.github.io/post/2020/2020-04-15-psql-import_export_csv/</link>
-      <pubDate>Wed, 15 Apr 2020 11:06:08 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-04-15-psql-import_export_csv/</guid>
-      <description>&lt;p&gt;Export:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;err&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;copy&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;your_table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;TO&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/your_table.csv&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CSV&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HEADER&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FORCE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;QUOTE&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Import:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;err&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;copy&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;your_table&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;/tmp/your_table.csv&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;CSV&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HEADER&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Playing with Kafka</title>
-      <link>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</link>
-      <pubDate>Mon, 13 Apr 2020 20:47:48 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-04-13-playing_with_kafka/</guid>
-      <description>&lt;p&gt;During the COVID-19 shutdown, one way to &amp;ldquo;pass time&amp;rdquo; is to learn and play with new things.&lt;/p&gt;
-&lt;p&gt;I made a small project, &lt;a href=&#34;https://github.com/l-lin/heart-rate-calculator/&#34;&gt;heart-rate-calculator&lt;/a&gt;,
-whose goal is to take a file containing heartbeat information in input, compute and write the
-heart rates in another file.&lt;/p&gt;
-&lt;p&gt;That was quite a nice project, but I was wondering if I want to go further, what the project would
-look like? Let&amp;rsquo;s say, I want to have a whole SAAS solution, production-ready, to read a stream of
-data from smart-watches that measure heartbeats, then compute their heart rates and display a graph
-to the user. Of course, if that&amp;rsquo;s just that, it will be too simple, so what about having the
-challenge of dealing with massive amount of data. Mmh, a bit more tricky.&lt;/p&gt;
-&lt;p&gt;This is a good opportunity to play with Kafka and Kafka Streams! In this blog post, I will show how
-to build a resilient system to compute and generate heart rates from heartbeat data.&lt;/p&gt;
-&lt;p&gt;If you are in hurry, you can check the source code here: &lt;a href=&#34;https://github.com/l-lin/poc-kafka&#34;&gt;https://github.com/l-lin/poc-kafka&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>From 8 to 14</title>
-      <link>https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/</link>
-      <pubDate>Thu, 05 Mar 2020 09:13:03 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-03-05-java-from_8_to_14/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://jdk.java.net/14/&#34;&gt;Java 14&lt;/a&gt; will soon be released and it&amp;rsquo;s time to leave our good ol&amp;rsquo; Java 8
-and begin to use the new language features Java brings with its versions.&lt;/p&gt;
-&lt;p&gt;In this post, I will only cover some of the newest Java features.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sed</title>
-      <link>https://l-lin.github.io/post/2020/2020-02-14-sed/</link>
-      <pubDate>Fri, 14 Feb 2020 09:01:43 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-02-14-sed/</guid>
-      <description>&lt;p&gt;SED is a powerful stream editor for filtering and transforming text. You can perform impressive
-and efficient operations with such tool.&lt;/p&gt;
-&lt;p&gt;In this post, we will discover the wonders of SED.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Debugging With Vim Go</title>
-      <link>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</link>
-      <pubDate>Mon, 10 Feb 2020 09:39:13 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</guid>
-      <description>&lt;p&gt;Although learning VIM can be quite painful, I learned it and now I love it so much I can&amp;rsquo;t write or
-code without it.
-Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
-functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
-is not as trivial as clicking on a button like most IDEs.&lt;/p&gt;
-&lt;p&gt;In this post, I will show some basic commands to use to debug a Go program with
-&lt;a href=&#34;https://github.com/fatih/vim-go&#34;&gt;vim-go&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Mind map - Soft skills</title>
-      <link>https://l-lin.github.io/post/2020/2020-01-08-soft_skills/</link>
-      <pubDate>Wed, 08 Jan 2020 09:27:56 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-01-08-soft_skills/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Change in bulk using sed</title>
-      <link>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</link>
-      <pubDate>Tue, 07 Jan 2020 09:33:51 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://ss64.com/bash/sed.html&#34;&gt;&lt;code&gt;sed&lt;/code&gt;&lt;/a&gt; is a powerful terminal tool to perform basic text
-transformations on an input stream (file or input from a pipeline).&lt;/p&gt;
-&lt;p&gt;You run the command in &amp;ldquo;dry-run&amp;rdquo; to preview the changes the command will perform. But it&amp;rsquo;s quite
-difficult to follow the changes if you are running the command recursively in a folder.&lt;/p&gt;
-&lt;p&gt;In this post, we will what we can use to run &lt;code&gt;sed&lt;/code&gt; without worrying and with the ability to rollback
-in case something went wrong.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nginx fallback</title>
-      <link>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</link>
-      <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
-      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
-environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
-&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Mind map - API management</title>
-      <link>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</link>
-      <pubDate>Mon, 24 Jun 2019 09:28:18 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-06-24-mind_map-api_management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mind map - Software documentation</title>
-      <link>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</link>
-      <pubDate>Mon, 24 Jun 2019 09:01:16 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-06-24-software_documentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ubuntu custom desktop shortcuts</title>
-      <link>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</link>
-      <pubDate>Fri, 12 Apr 2019 09:27:54 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</guid>
-      <description>&lt;p&gt;With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.&lt;/p&gt;
-&lt;p&gt;You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Git URL Shortcuts</title>
-      <link>https://l-lin.github.io/post/2019/2019-04-08-git-url-shortcuts/</link>
-      <pubDate>Mon, 08 Apr 2019 16:02:14 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-04-08-git-url-shortcuts/</guid>
-      <description>&lt;p&gt;You can create shortcuts for git URL paths to clone without typing full URL.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Download DDG image file with Go</title>
-      <link>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</link>
-      <pubDate>Tue, 02 Apr 2019 09:18:10 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-04-02-download_ddg_image_file_with_go/</guid>
-      <description>&lt;p&gt;While DuckDuckGo offers &lt;a href=&#34;https://duckduckgo.com/api&#34;&gt;Instant Answer APIs&lt;/a&gt;, it does not provide URLs to download images,
-certainly because of copyright isusses.&lt;/p&gt;
-&lt;p&gt;One way is to fetch a &lt;code&gt;vqd&lt;/code&gt; token from an initial basic request, then use it to find the image URLs, and finally download
-the image.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to generate self-signed certificates</title>
-      <link>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</link>
-      <pubDate>Fri, 25 Jan 2019 16:03:35 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</guid>
-      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&amp;rsquo;s Encrypt or even pay for one,
-we can use &lt;code&gt;openssl&lt;/code&gt; &amp;amp; &lt;code&gt;keytool&lt;/code&gt; command line to generate self-signed certificates.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Custom validator for standard constraints</title>
-      <link>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</link>
-      <pubDate>Tue, 04 Dec 2018 09:01:20 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</guid>
-      <description>&lt;p&gt;Bean validation provides constraint annotations to check DTO parameters.
-However, what if we want to check a parameter type not supported by a standard constraint annotation?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>JPA @OneToMany and composite primary key</title>
-      <link>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</link>
-      <pubDate>Wed, 14 Nov 2018 16:40:06 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-11-14_jpa_onetomany_composite_pk/</guid>
-      <description>&lt;p&gt;To implement an parent object in one-to-many relation with a child object that has a composite primary key (i.e. multiple columns as primary key)
-is not quite straightforward.&lt;/p&gt;
-&lt;p&gt;We need to use a mix of JPA annotations along with creating some embeddable classes.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>(Rock) SOLID</title>
-      <link>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</link>
-      <pubDate>Sun, 21 Oct 2018 14:08:39 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</guid>
-      <description>&lt;p&gt;This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.&lt;/p&gt;
-&lt;p&gt;This one will deal with the famous &lt;strong&gt;SOLID&lt;/strong&gt; design principles:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;ingle responsibility principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt;pen/closed principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt;iskov substitution principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt;nterface segregation principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt;ependecy inversion principle&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Back to basics</title>
-      <link>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</link>
-      <pubDate>Sun, 14 Oct 2018 12:27:51 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</guid>
-      <description>&lt;p&gt;I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
-coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code
-instead of explaining using common concepts to my peers.&lt;/p&gt;
-&lt;p&gt;For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less
-trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new
-guy freshly coming out of school.&lt;/p&gt;
-&lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Throttling pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-09-13-throttling_pattern/</link>
-      <pubDate>Thu, 13 Sep 2018 10:38:53 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-09-13-throttling_pattern/</guid>
-      <description>&lt;p&gt;Control the resource consumption by throttling them when limit is reached.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Using host DNS in Docker container with Ubuntu 18</title>
-      <link>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</link>
-      <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</guid>
-      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Remove idle transactions</title>
-      <link>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</link>
-      <pubDate>Fri, 31 Aug 2018 16:10:12 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-08-31-postgresql_remove_idle_transactions/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_terminate_backend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pg_stat_activity&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;LIKE&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;idle %&amp;#39;&lt;/span&gt; 
-&lt;span class=&#34;k&#34;&gt;AND&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;state_change&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;interval&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;1 hour&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Circuit breaker</title>
-      <link>https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/</link>
-      <pubDate>Sun, 19 Aug 2018 14:52:25 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/</guid>
-      <description>&lt;p&gt;Handle failures that might take a variable amount of time to recover from&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Retry pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-08-05-retry_pattern/</link>
-      <pubDate>Sun, 05 Aug 2018 16:39:08 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-08-05-retry_pattern/</guid>
-      <description>&lt;p&gt;Handle transient failures to improve application stability.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CQRS</title>
-      <link>https://l-lin.github.io/post/2018/2018-05-19-cqrs/</link>
-      <pubDate>Sat, 19 May 2018 23:13:31 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-05-19-cqrs/</guid>
-      <description>&lt;p&gt;Separate your model between write and read.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Event sourcing</title>
-      <link>https://l-lin.github.io/post/2018/2018-05-13-event_sourcing/</link>
-      <pubDate>Sun, 13 May 2018 12:31:05 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-05-13-event_sourcing/</guid>
-      <description>&lt;p&gt;How to record states in a non-destructive way.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Unix terminal survival kit</title>
-      <link>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</link>
-      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</guid>
-      <description>&lt;p&gt;Do you have to manage a server?&lt;/p&gt;
-&lt;p&gt;Do you need to perform some actions in bulk?&lt;/p&gt;
-&lt;p&gt;Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?&lt;/p&gt;
-&lt;p&gt;Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
-and menus. Another benefit is allowing access to many more commands and scripts.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sidecar</title>
-      <link>https://l-lin.github.io/post/2018/2018-04-04-sidecar/</link>
-      <pubDate>Wed, 04 Apr 2018 12:06:14 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-04-04-sidecar/</guid>
-      <description>&lt;p&gt;How to enhance your service with 3rd party apps/services&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to link old and new IDs when migrating data from one table to another</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</link>
-      <pubDate>Thu, 29 Mar 2018 11:25:34 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-29-postgresql_insert_and_link_ids/</guid>
-      <description>&lt;p&gt;When proceeding a database migration, I often had to create a temporary table that will contains
-the data from the old database.&lt;/p&gt;
-&lt;p&gt;However, after the migration, I still need to have links between the old IDs and the new IDs for
-various post migration operation.&lt;/p&gt;
-&lt;p&gt;This post is about creating the table containing the linked ids.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Gateway routing</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-11-gateway_routing/</link>
-      <pubDate>Sun, 11 Mar 2018 12:25:42 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-11-gateway_routing/</guid>
-      <description>&lt;p&gt;Route requests to multiple services using a single endpoint&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Anti-corruption layer pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-08-acl/</link>
-      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-08-acl/</guid>
-      <description>&lt;p&gt;How to work around legacy apps.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Strangler pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-08-strangler_pattern/</link>
-      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-08-strangler_pattern/</guid>
-      <description>&lt;p&gt;How to migrate legacy apps efficiently.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to add a new Tomcat service on CentOS7</title>
-      <link>https://l-lin.github.io/post/2018/2018-02-23-centos7_add_new_tomcat_service/</link>
-      <pubDate>Fri, 23 Feb 2018 13:19:45 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-02-23-centos7_add_new_tomcat_service/</guid>
-      <description>&lt;p&gt;Starting with version 7, CentOS is now using &lt;a href=&#34;https://freedesktop.org/wiki/Software/systemd/&#34;&gt;systemd&lt;/a&gt; as a service manager.
-Adding a new service is no longer done by creating a SH script in the &lt;code&gt;/etc/init.d&lt;/code&gt; folder.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Kotlin Basics - Classes </title>
-      <link>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</link>
-      <pubDate>Sat, 10 Feb 2018 12:05:16 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-02-10-kotlin-classes_basics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to open firewall port on CentOS7</title>
-      <link>https://l-lin.github.io/post/2018/2018-02-09-centos7_open_port/</link>
-      <pubDate>Fri, 09 Feb 2018 16:56:55 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-02-09-centos7_open_port/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to extract folders with history with git</title>
-      <link>https://l-lin.github.io/post/2018/2018-02-08-git_extract_folders_with_history/</link>
-      <pubDate>Thu, 08 Feb 2018 10:42:13 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-02-08-git_extract_folders_with_history/</guid>
-      <description>&lt;p&gt;Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.&lt;/p&gt;
-&lt;p&gt;Thus, you will need to extract the folder of the sub-project.&lt;/p&gt;
-&lt;p&gt;Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.&lt;/p&gt;
-&lt;p&gt;Git is an awesome tool which has a &amp;ldquo;magical&amp;rdquo; command.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Kotlin Basics: syntax</title>
-      <link>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</link>
-      <pubDate>Sun, 28 Jan 2018 17:37:03 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-01-28-kotlin-basics_syntax/</guid>
-      <description>&lt;p&gt;Kotlin is a great language but it&amp;rsquo;s more like a subset of Java.&lt;/p&gt;
-&lt;p&gt;In this article, I will deal with Kotlin basics and see what&amp;rsquo;s different with Java in terms of syntax, form and types.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>My journey to learning Kotlin - The planning</title>
-      <link>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</link>
-      <pubDate>Thu, 25 Jan 2018 22:28:05 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-01-25-journey_to_kotlin_planning/</guid>
-      <description>&lt;p&gt;Kotlin is really a promising programming language nowadays and is gaining lots of popularity.
-It will be a shame to pass by without trying to use this language.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to set locale for java bean validations</title>
-      <link>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</link>
-      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</guid>
-      <description>&lt;p&gt;Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like &lt;code&gt;@NotBlank&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to migrate SVN projects to Git</title>
-      <link>https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/</link>
-      <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to share internet connexion to mobile using bluetooth USB key</title>
-      <link>https://l-lin.github.io/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/</link>
-      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-08-27-internet_sharing_with_bluetooth_usb_key/</guid>
-      <description>&lt;p&gt;This tutorial was done using the &lt;a href=&#34;http://www.amazon.fr/gp/product/B00CM83SC0&#34;&gt;ASUS USB-BT400 Mini Bluetooth 4,0 Dongle USB 2,0&lt;/a&gt;
-and Xubuntu.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to connect VisualVM to a remote Tomcat</title>
-      <link>https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/</link>
-      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-07-23-connecting_visualvm_to_remote_tomcat/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to kill inactive ssh sessions</title>
-      <link>https://l-lin.github.io/post/2015/2015-07-21-how_to_kill_inactive_ssh/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-07-21-how_to_kill_inactive_ssh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Do not prompt password and enable remote access</title>
-      <link>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</link>
-      <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-06-04-postgresql_enable_remote_connexion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chrome extension and &#39;Access-Control-Allow-Origin&#39;</title>
-      <link>https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/</link>
-      <pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-02-28-chrome_extension_and_origin_not_allowed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deploying a Golang web apps to Heroku</title>
-      <link>https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/</link>
-      <pubDate>Sat, 31 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/</guid>
-      <description>&lt;p&gt;Deploying a &lt;a href=&#34;https://golang.org/&#34;&gt;Golang&lt;/a&gt; web apps to &lt;a href=&#34;https://www.heroku.com&#34;&gt;Heroku&lt;/a&gt; is quite easy.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Changing the Caps Lock key to Ctrl</title>
-      <link>https://l-lin.github.io/post/2015/2015-01-25-change_capslock_to_ctrl/</link>
-      <pubDate>Sun, 25 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-01-25-change_capslock_to_ctrl/</guid>
-      <description>&lt;p&gt;How many times have you used the &lt;code&gt;caps lock&lt;/code&gt; key compare to the &lt;code&gt;ctrl&lt;/code&gt; button?
-Once a year maybe? You must have experienced at least once a situation where you
-must enter your password, but your caps lock is on, thus you entered your password wrong.&lt;/p&gt;
-&lt;p&gt;So instead of having an &amp;ldquo;useless&amp;rdquo; button on your keyboad, how about changing to a button that you use
-everyday?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Debugging Maven plugin with IntelliJ</title>
-      <link>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</link>
-      <pubDate>Fri, 19 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-09-19-debug_maven_plugin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Authentication using certificates, Tomcat and Spring security</title>
-      <link>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</link>
-      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-09-09-auth_with_certificates_tomcat_spring/</guid>
-      <description>&lt;p&gt;Instead of the classic &lt;code&gt;login/password&lt;/code&gt; way to access to a secured application, it&amp;rsquo;s possible to authenticate through a certificate.
-What&amp;rsquo;s more, you can also link a &lt;code&gt;ROLE&lt;/code&gt; to each certificate.&lt;/p&gt;
-&lt;p&gt;⚠️ This tutorial is now obsolete and better solution can be used.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Check the sample project on my &lt;a href=&#34;https://github.com/l-lin/poc-tomcat-cert-auth&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This tutorial will show you:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;how to activate the SSL secured by a certificate for our Tomcat&lt;/li&gt;
-&lt;li&gt;how to secure the URL pattern with Spring Security&lt;/li&gt;
-&lt;li&gt;how to access with a browser&lt;/li&gt;
-&lt;li&gt;how to access with a third party application&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In order to fully comprehend the tutorial, I will demonstrate it with a concrete example.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Deploying a MeteorJS apps to Heroku</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</link>
-      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Publishing, subscribing... The magic and the mystery</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</link>
-      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-subscribe_and_publish/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; comes with an interesting concept: Publishing and subscribing record sets.
-But what the **** are those? My thought exactly!
-It&amp;rsquo;s a new way of fetching data from the server.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>MeteorJS, yet another JS framework?</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</link>
-      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-02-meteor-another_js_framework/</guid>
-      <description>&lt;p&gt;There are so many JS framework out there, and everyday dozen (maybe more) of JS frameworks are created. So why another framework?&lt;/p&gt;
-&lt;p&gt;Well I think the strength of &lt;a href=&#34;http://www.meteor.com&#34;&gt;MeteorJS&lt;/a&gt; come from its powerful real time data synchronization for all connected users.&lt;/p&gt;
-&lt;p&gt;In other words, any change from one device/user will affect the other devices/users in real time. So they won&amp;rsquo;t need to refresh their page, the data is already fresh!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Avoiding Null Pointers</title>
-      <link>https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/</link>
-      <pubDate>Thu, 27 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-02-27-java-how_to_avoid_npe/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Exception in thread &amp;#34;main&amp;#34; java.lang.NullPointerException
-    at ...
-    at ...
-    at ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;The most common exception that pulls you hair a thousands of times.
-I don&amp;rsquo;t know how many time I see this exception every day. The worst of it is when it happens in production.
-There are no real cure for this curse. Every application cannot escape this issue.&lt;/p&gt;
-&lt;p&gt;However, there are many ways to avoid and reduce such &lt;code&gt;NullPointerException&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to extend properties of parent class</title>
-      <link>https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/</link>
-      <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-02-26-backbone-how_to_extend_properties/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to test asynchronous calls with AngularJS</title>
-      <link>https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/</link>
-      <pubDate>Mon, 03 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-02-03-angularjs-testing_asynchronous_calls/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Configuring git behind a proxy</title>
-      <link>https://l-lin.github.io/post/2014/2014-01-04-git-configure_git_behind_a_proxy/</link>
-      <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-01-04-git-configure_git_behind_a_proxy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nested directives</title>
-      <link>https://l-lin.github.io/post/2013/2013-12-30-angularjs-nested_directives/</link>
-      <pubDate>Mon, 30 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2013/2013-12-30-angularjs-nested_directives/</guid>
-      <description>&lt;p&gt;Sometimes, you need to have nested directives. For example, you need to display an array of an array of items.
-With two levels of nested arrays, it is easy to implement such thing.
-However, if you need to have a dynamical level of nested arrays, it is not as obvious as implementing two levels of nested arrays.&lt;/p&gt;
-&lt;p&gt;There are two ways (in my knowledge) to build nested directives.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Using the directive &lt;code&gt;ng-include&lt;/code&gt; and one custom directive&lt;/li&gt;
-&lt;li&gt;Using two custom directives&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to exclude folders in Brackets</title>
-      <link>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</link>
-      <pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2013/2013-11-27-brackets-exclude_folders/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://brackets.io&#34;&gt;Brackets&lt;/a&gt; (Sprint &lt;strong&gt;34&lt;/strong&gt;) has a static list of excluded files and folders. The default ignored files and folders are files like &lt;code&gt;.gitignore&lt;/code&gt;, &lt;code&gt;DS_Store&lt;/code&gt;, and so on&amp;hellip;
-Sadly, this list is hard coded in the source&amp;hellip;&lt;/p&gt;
-&lt;p&gt;If you are like me, i.e. you use &lt;a href=&#34;http://yeoman.io&#34;&gt;Yeoman&lt;/a&gt; when creating new web projects, you will be left with two huge folders (&lt;code&gt;node_modules&lt;/code&gt; and &lt;code&gt;bower_components&lt;/code&gt; generated respectively by &lt;code&gt;NPM&lt;/code&gt; and &lt;code&gt;bower&lt;/code&gt;).
-Those folders contains a lot of files (JS, CSS,&amp;hellip;) and most of them are not useful for our project.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Routes unit testing</title>
-      <link>https://l-lin.github.io/post/2013/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/</link>
-      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2013/2013-11-23-marionettejs_jasmine_sinonjs_-_routes_unit_testing/</guid>
-      <description>&lt;p&gt;To test &lt;a href=&#34;http://marionettejs.com/&#34;&gt;MarionetteJS&lt;/a&gt; routes, it is not as obvious as testing Backbone Models.
-This is one way to test routers by using &lt;a href=&#34;http://pivotal.github.io/jasmine/&#34;&gt;JasmineJS&lt;/a&gt; and &lt;a href=&#34;http://sinonjs.org&#34;&gt;SinonJS&lt;/a&gt; for mocking purpose.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+and workable by other developers.</p>
+<p>If you want to directly check the code:
+<a href="https://github.com/l-lin/architecture-cheat-sheet/tree/master/project-structures" target="_blank" rel="noopener noreffer">Github project</a></p>]]></description>
+</item></channel>
 </rss>

@@ -1,61 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>concept on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/concept/</link>
-    <description>Recent content in concept on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 02 May 2020 19:37:18 +0200</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/concept/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Project structures</title>
-      <link>https://l-lin.github.io/post/2020/2020-05-02-project-structures/</link>
-      <pubDate>Sat, 02 May 2020 19:37:18 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-05-02-project-structures/</guid>
-      <description>&lt;p&gt;Structuring a project is not really exciting, nor is it the main focus in a project life, but it&amp;rsquo;s
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>concept - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/concept/</link>
+        <description>concept - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 02 May 2020 19:37:18 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/concept/" rel="self" type="application/rss+xml" /><item>
+    <title>Project structures</title>
+    <link>https://l-lin.github.io/2020-05-02-project-structures/</link>
+    <pubDate>Sat, 02 May 2020 19:37:18 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-05-02-project-structures/</guid>
+    <description><![CDATA[<p>Structuring a project is not really exciting, nor is it the main focus in a project life, but it&rsquo;s
 certainly one of the most important decision to make at the beginning of the project if you do not
 want to have a massive refactoring afterwards and if you want your project to be quickly understood
-and workable by other developers.&lt;/p&gt;
-&lt;p&gt;If you want to directly check the code:
-&lt;a href=&#34;https://github.com/l-lin/architecture-cheat-sheet/tree/master/project-structures&#34;&gt;Github project&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>(Rock) SOLID</title>
-      <link>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</link>
-      <pubDate>Sun, 21 Oct 2018 14:08:39 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-10-21-java_solid/</guid>
-      <description>&lt;p&gt;This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.&lt;/p&gt;
-&lt;p&gt;This one will deal with the famous &lt;strong&gt;SOLID&lt;/strong&gt; design principles:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;ingle responsibility principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt;pen/closed principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt;iskov substitution principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt;nterface segregation principle&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt;ependecy inversion principle&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Back to basics</title>
-      <link>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</link>
-      <pubDate>Sun, 14 Oct 2018 12:27:51 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-10-14-java_back_to_basics/</guid>
-      <description>&lt;p&gt;I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
-coding, I no longer used those words and I feel like I sportsman that demonstrates what&amp;rsquo;s the &amp;ldquo;way&amp;rdquo; to code
-instead of explaining using common concepts to my peers.&lt;/p&gt;
-&lt;p&gt;For example, I hear myself say &amp;ldquo;This feels more right doing this way because I feel that way should bring us less
-trouble in the future&amp;rdquo;, even after several years of development&amp;hellip; That&amp;rsquo;s kinda sad as I&amp;rsquo;m no longer some new
-guy freshly coming out of school.&lt;/p&gt;
-&lt;p&gt;The purpose of this article is to remind myself the fundamental concepts and patterns.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+and workable by other developers.</p>
+<p>If you want to directly check the code:
+<a href="https://github.com/l-lin/architecture-cheat-sheet/tree/master/project-structures" target="_blank" rel="noopener noreffer">Github project</a></p>]]></description>
+</item><item>
+    <title>(Rock) SOLID</title>
+    <link>https://l-lin.github.io/2018-10-21-java_solid/</link>
+    <pubDate>Sun, 21 Oct 2018 14:08:39 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-10-21-java_solid/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1532502413135-cea634d4b044?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=17af51dc9352b24342aeaf1995008570&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" referrerpolicy="no-referrer">
+            </div><p>This article is the follow-up of the previous article on the basics of software development, to remind myself of what I learned in the beginning of my software developer career.</p>
+<p>This one will deal with the famous <strong>SOLID</strong> design principles:</p>
+<ul>
+<li><strong>S</strong>ingle responsibility principle</li>
+<li><strong>O</strong>pen/closed principle</li>
+<li><strong>L</strong>iskov substitution principle</li>
+<li><strong>I</strong>nterface segregation principle</li>
+<li><strong>D</strong>ependecy inversion principle</li>
+</ul>]]></description>
+</item><item>
+    <title>Back to basics</title>
+    <link>https://l-lin.github.io/2018-10-14-java_back_to_basics/</link>
+    <pubDate>Sun, 14 Oct 2018 12:27:51 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-10-14-java_back_to_basics/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://dorothydalton.files.wordpress.com/2013/05/back-to-basics.jpg" referrerpolicy="no-referrer">
+            </div><p>I learned programming concepts mostly during my school years. Unfortunately, during my professional career, when
+coding, I no longer used those words and I feel like I sportsman that demonstrates what&rsquo;s the &ldquo;way&rdquo; to code
+instead of explaining using common concepts to my peers.</p>
+<p>For example, I hear myself say &ldquo;This feels more right doing this way because I feel that way should bring us less
+trouble in the future&rdquo;, even after several years of development&hellip; That&rsquo;s kinda sad as I&rsquo;m no longer some new
+guy freshly coming out of school.</p>
+<p>The purpose of this article is to remind myself the fundamental concepts and patterns.</p>]]></description>
+</item></channel>
 </rss>

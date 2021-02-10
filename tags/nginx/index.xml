@@ -1,37 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>nginx on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/nginx/</link>
-    <description>Recent content in nginx on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 31 Oct 2020 16:59:51 +0100</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to add CORS headers with Nginx</title>
-      <link>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</link>
-      <pubDate>Sat, 31 Oct 2020 16:59:51 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-10-31-nginx_cors/</guid>
-      <description>&lt;p&gt;Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
-reverse proxy behind the app that will add the headers.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nginx fallback</title>
-      <link>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</link>
-      <pubDate>Fri, 19 Jul 2019 16:44:41 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-07-19-nginx_fallback/</guid>
-      <description>&lt;p&gt;When developing multiple services that depends on other service, it&amp;rsquo;s comfortable to have a dev
-environment. I usually have a &lt;code&gt;docker-compose&lt;/code&gt; file that mount a local environment. However, I do
-not want to mount the whole ecosystem locally, just the services I&amp;rsquo;m currently developing.&lt;/p&gt;
-&lt;p&gt;By using Nginx, it&amp;rsquo;s possible to configure a fallback in case the local service is not up.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>nginx - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/nginx/</link>
+        <description>nginx - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 31 Oct 2020 16:59:51 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/nginx/" rel="self" type="application/rss+xml" /><item>
+    <title>How to add CORS headers with Nginx</title>
+    <link>https://l-lin.github.io/2020-10-31-nginx_cors/</link>
+    <pubDate>Sat, 31 Oct 2020 16:59:51 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-10-31-nginx_cors/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png" referrerpolicy="no-referrer">
+            </div><p>Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
+reverse proxy behind the app that will add the headers.</p>]]></description>
+</item><item>
+    <title>Nginx fallback</title>
+    <link>https://l-lin.github.io/2019-07-19-nginx_fallback/</link>
+    <pubDate>Fri, 19 Jul 2019 16:44:41 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2019-07-19-nginx_fallback/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png" referrerpolicy="no-referrer">
+            </div><p>When developing multiple services that depends on other service, it&rsquo;s comfortable to have a dev
+environment. I usually have a <code>docker-compose</code> file that mount a local environment. However, I do
+not want to mount the whole ecosystem locally, just the services I&rsquo;m currently developing.</p>
+<p>By using Nginx, it&rsquo;s possible to configure a fallback in case the local service is not up.</p>]]></description>
+</item></channel>
 </rss>

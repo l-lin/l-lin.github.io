@@ -1,30 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>vim on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/vim/</link>
-    <description>Recent content in vim on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 10 Feb 2020 09:39:13 +0100</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Debugging With Vim Go</title>
-      <link>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</link>
-      <pubDate>Mon, 10 Feb 2020 09:39:13 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-02-10-debug-with-vim-go/</guid>
-      <description>&lt;p&gt;Although learning VIM can be quite painful, I learned it and now I love it so much I can&amp;rsquo;t write or
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>vim - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/vim/</link>
+        <description>vim - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 Feb 2020 09:39:13 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/vim/" rel="self" type="application/rss+xml" /><item>
+    <title>Debugging With Vim Go</title>
+    <link>https://l-lin.github.io/2020-02-10-debug-with-vim-go/</link>
+    <pubDate>Mon, 10 Feb 2020 09:39:13 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-02-10-debug-with-vim-go/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/golang.png" referrerpolicy="no-referrer">
+            </div><p>Although learning VIM can be quite painful, I learned it and now I love it so much I can&rsquo;t write or
 code without it.
 Unfortunately, VIM is not super intuitive and is not as user friendly as modern IDEs. Some
 functionalities are not easy to use and / or easy to find. For example, debugging programs using VIM
-is not as trivial as clicking on a button like most IDEs.&lt;/p&gt;
-&lt;p&gt;In this post, I will show some basic commands to use to debug a Go program with
-&lt;a href=&#34;https://github.com/fatih/vim-go&#34;&gt;vim-go&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+is not as trivial as clicking on a button like most IDEs.</p>
+<p>In this post, I will show some basic commands to use to debug a Go program with
+<a href="https://github.com/fatih/vim-go" target="_blank" rel="noopener noreffer">vim-go</a>.</p>]]></description>
+</item></channel>
 </rss>

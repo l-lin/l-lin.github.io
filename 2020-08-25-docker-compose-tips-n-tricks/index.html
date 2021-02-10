@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Some tips and tricks in Docker Compose - Louis Lin&#39;s digital garden</title><meta name="Description" content="A website on software development"><meta property="og:title" content="Some tips and tricks in Docker Compose" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-08-25T09:18:05+02:00" />
+<meta property="article:modified_time" content="2021-02-10T17:11:09+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Some tips and tricks in Docker Compose"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/" /><link rel="prev" href="https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/" /><link rel="next" href="https://l-lin.github.io/2020-09-21-not_giving_a_fuck/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Some tips and tricks in Docker Compose",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2020-08-25-docker-compose-tips-n-tricks\/"
+        },"genre": "posts","keywords": "docker","wordcount":  228 ,
+        "url": "https:\/\/l-lin.github.io\/2020-08-25-docker-compose-tips-n-tricks\/","datePublished": "2020-08-25T09:18:05+02:00","dateModified": "2021-02-10T17:11:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Some tips and tricks in Docker Compose</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-25">2020-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;228 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="content" id="content"><h2 id="alias-and-anchors">Alias and anchors</h2>
+<p>Anchors and aliases let you identify an item with an anchor in a YAML document, and then refer to
+that item with an alias later in the same document. Anchors are identified by an <code>&amp;</code> character, and
+aliases by an <code>*</code> character.</p>
+<p>The following example will start up 3 nginx servers with the same volumes in ports 80, 81 and 82.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">web1</span><span class="p">:</span><span class="w"> </span><span class="cp">&amp;web</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>nginx<span class="w">
+</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- ./nginx.conf<span class="p">:</span>/etc/nginx/nginx.conf<span class="p">:</span>ro<span class="w">
+</span><span class="w">      </span>- ./templates<span class="p">:</span>/etc/nginx/templates<span class="w">
+</span><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">80</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">  </span><span class="k">web2</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*web</span><span class="w">
+</span><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">81</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">  </span><span class="k">web3</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*web</span><span class="w">
+</span><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">82</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>We can also use the prefix <code>x-</code> to set generic definition outside of the <code>services</code> definition. It
+allows us to do something like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="c"># basic backend definition</span><span class="w">
+</span><span class="w"></span><span class="k">x-backend</span><span class="p">:</span><span class="w"> </span><span class="cp">&amp;function</span><span class="w">
+</span><span class="w">  </span><span class="k">labels</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">backend</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="w">
+</span><span class="w">  </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- db<span class="w">
+</span><span class="w">  </span><span class="k">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- backend<span class="w">
+</span><span class="w"></span><span class="c"># deploy mode replicated</span><span class="w">
+</span><span class="w"></span><span class="k">x-replicated</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">mode</span><span class="p">:</span><span class="w"> </span>replicated<span class="w">
+</span><span class="w">    </span><span class="k">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w"></span><span class="c"># deploy mode global</span><span class="w">
+</span><span class="w"></span><span class="k">x-global</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">mode</span><span class="p">:</span><span class="w"> </span>global<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">app1</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*x-backend</span><span class="w">
+</span><span class="w">    </span><span class="k">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*x-replicated</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>app1<span class="w">
+</span><span class="w">  </span><span class="k">app2</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*x-backend</span><span class="w">
+</span><span class="w">    </span><span class="k">&lt;&lt;</span><span class="p">:</span><span class="w"> </span><span class="cp">*x-global</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>app2<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="scaling-and-port-mapping">Scaling and port mapping</h2>
+<p>We can scale applications with the following commands:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker-compose up --scale <span class="nv">app1</span><span class="o">=</span><span class="m">3</span> --scale <span class="nv">app2</span><span class="o">=</span><span class="m">4</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>However, if we want to bind ports to local ports, we need to set a range of ports instead in the
+docker-compose.yml file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">app1</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>app1<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="c"># app1 will start in a port from 8180 to 8199</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8180:8199:8080&#34;</span><span class="w">
+</span><span class="w">  </span><span class="k">app2</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>app2<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="c"># app2 will start in a port from 8280 to 8299</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8280:8299:8080&#34;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-10&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/2c3a28753a7a7dd79ae33c81b6e8f5812a87661e" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 2c3a28753a7a7dd79ae33c81b6e8f5812a87661e: theme: move post to posts">
+                                    <i class="fas fa-hashtag fa-fw"></i>2c3a287</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020-08-25-docker-compose-tips-n-tricks/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-05-17-the_pragmatic_programmer/" class="prev" rel="prev" title="The Pragmatic Programmer"><i class="fas fa-angle-left fa-fw"></i>The Pragmatic Programmer</a>
+            <a href="/2020-09-21-not_giving_a_fuck/" class="next" rel="next" title="The subtle art of not giving a fck">The subtle art of not giving a fck<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"l-lin","label":"","lightTheme":"github-light","repo":"l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

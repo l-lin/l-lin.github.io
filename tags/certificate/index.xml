@@ -1,25 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>certificate on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/certificate/</link>
-    <description>Recent content in certificate on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 25 Jan 2019 16:03:35 +0100</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/certificate/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to generate self-signed certificates</title>
-      <link>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</link>
-      <pubDate>Fri, 25 Jan 2019 16:03:35 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-01-25-generate_selfsigned_certificates/</guid>
-      <description>&lt;p&gt;When developing, we may need to use certificate. Instead of using Let&amp;rsquo;s Encrypt or even pay for one,
-we can use &lt;code&gt;openssl&lt;/code&gt; &amp;amp; &lt;code&gt;keytool&lt;/code&gt; command line to generate self-signed certificates.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>certificate - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/certificate/</link>
+        <description>certificate - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 25 Jan 2019 16:03:35 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/certificate/" rel="self" type="application/rss+xml" /><item>
+    <title>How to generate self-signed certificates</title>
+    <link>https://l-lin.github.io/2019-01-25-generate_selfsigned_certificates/</link>
+    <pubDate>Fri, 25 Jan 2019 16:03:35 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2019-01-25-generate_selfsigned_certificates/</guid>
+    <description><![CDATA[<p>When developing, we may need to use certificate. Instead of using Let&rsquo;s Encrypt or even pay for one,
+we can use <code>openssl</code> &amp; <code>keytool</code> command line to generate self-signed certificates.</p>]]></description>
+</item></channel>
 </rss>

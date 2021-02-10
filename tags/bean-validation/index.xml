@@ -1,35 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bean validation on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/bean-validation/</link>
-    <description>Recent content in bean validation on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 04 Dec 2018 09:01:20 +0100</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/bean-validation/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Custom validator for standard constraints</title>
-      <link>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</link>
-      <pubDate>Tue, 04 Dec 2018 09:01:20 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-12-04-custom_validator_for_standard_constraints/</guid>
-      <description>&lt;p&gt;Bean validation provides constraint annotations to check DTO parameters.
-However, what if we want to check a parameter type not supported by a standard constraint annotation?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to set locale for java bean validations</title>
-      <link>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</link>
-      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2017/2017-05-17-java-set_locale_bean_validations/</guid>
-      <description>&lt;p&gt;Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like &lt;code&gt;@NotBlank&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;However, the hibernate validation library also provides default validation messages, for several languages (which is great).&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>bean validation - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/bean-validation/</link>
+        <description>bean validation - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Dec 2018 09:01:20 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/bean-validation/" rel="self" type="application/rss+xml" /><item>
+    <title>Custom validator for standard constraints</title>
+    <link>https://l-lin.github.io/2018-12-04-custom_validator_for_standard_constraints/</link>
+    <pubDate>Tue, 04 Dec 2018 09:01:20 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-12-04-custom_validator_for_standard_constraints/</guid>
+    <description><![CDATA[<p>Bean validation provides constraint annotations to check DTO parameters.
+However, what if we want to check a parameter type not supported by a standard constraint annotation?</p>]]></description>
+</item><item>
+    <title>How to set locale for java bean validations</title>
+    <link>https://l-lin.github.io/2017-05-17-java-set_locale_bean_validations/</link>
+    <pubDate>Wed, 17 May 2017 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2017-05-17-java-set_locale_bean_validations/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/268438/pexels-photo-268438.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" referrerpolicy="no-referrer">
+            </div><p>Using JSR303 Java bean validations is great! Using with hibernate validation annotations is also great as it provides default validations like <code>@NotBlank</code>.</p>
+<p>However, the hibernate validation library also provides default validation messages, for several languages (which is great).</p>]]></description>
+</item></channel>
 </rss>

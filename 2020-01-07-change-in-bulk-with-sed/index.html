@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Change in bulk using sed - Louis Lin&#39;s digital garden</title><meta name="Description" content="A website on software development"><meta property="og:title" content="Change in bulk using sed" />
+<meta property="og:description" content="sed is a powerful terminal tool to perform basic text
+transformations on an input stream (file or input from a pipeline).
+You run the command in &ldquo;dry-run&rdquo; to preview the changes the command will perform. But it&rsquo;s quite
+difficult to follow the changes if you are running the command recursively in a folder.
+In this post, we will what we can use to run sed without worrying and with the ability to rollback
+in case something went wrong." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2020-01-07-change-in-bulk-with-sed/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-01-07T09:33:51+01:00" />
+<meta property="article:modified_time" content="2021-02-10T17:11:09+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Change in bulk using sed"/>
+<meta name="twitter:description" content="sed is a powerful terminal tool to perform basic text
+transformations on an input stream (file or input from a pipeline).
+You run the command in &ldquo;dry-run&rdquo; to preview the changes the command will perform. But it&rsquo;s quite
+difficult to follow the changes if you are running the command recursively in a folder.
+In this post, we will what we can use to run sed without worrying and with the ability to rollback
+in case something went wrong."/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2020-01-07-change-in-bulk-with-sed/" /><link rel="prev" href="https://l-lin.github.io/2019-07-19-nginx_fallback/" /><link rel="next" href="https://l-lin.github.io/2020-01-08-soft_skills/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Change in bulk using sed",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2020-01-07-change-in-bulk-with-sed\/"
+        },"genre": "posts","keywords": "terminal","wordcount":  667 ,
+        "url": "https:\/\/l-lin.github.io\/2020-01-07-change-in-bulk-with-sed\/","datePublished": "2020-01-07T09:33:51+01:00","dateModified": "2021-02-10T17:11:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Change in bulk using sed</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-01-07">2020-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;667 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260"
+        data-srcset="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260, https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260 1.5x, https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260 2x"
+        data-sizes="auto"
+        alt="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260"
+        title="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" /></div><div class="content" id="content"><p><a href="https://ss64.com/bash/sed.html" target="_blank" rel="noopener noreffer"><code>sed</code></a> is a powerful terminal tool to perform basic text
+transformations on an input stream (file or input from a pipeline).</p>
+<p>You run the command in &ldquo;dry-run&rdquo; to preview the changes the command will perform. But it&rsquo;s quite
+difficult to follow the changes if you are running the command recursively in a folder.</p>
+<p>In this post, we will what we can use to run <code>sed</code> without worrying and with the ability to rollback
+in case something went wrong.</p>
+<h2 id="using-terminal-basic-commands">Using terminal basic commands</h2>
+<p>There are other powerful tools that can be used along with <code>sed</code> to perform the operation in
+&ldquo;dry-run&rdquo;.</p>
+<p>First, we need to fetch all file names that needs to be changed. We will be using <code>find</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">find /path/to/folder -type f -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Explanation about the arguments:</p>
+<ul>
+<li><code>/path/to/folder</code>: is the folder path in which I want to perform the changes</li>
+<li><code>-type f</code>: only target files, not folders</li>
+<li><code>-not -path &quot;.git/*&quot;</code>: exclude the git folder</li>
+<li><code>-name &quot;*.go&quot;</code>: only target golang files</li>
+</ul>
+<p>We want to change the text <code>text-to-change</code> into <code>new-text</code>. We will use <code>sed</code> to perform the change
+without overwriting the files:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sed <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> /path/to/file
+</code></pre></td></tr></table>
+</div>
+</div><p>As we want to check the difference before and after the change, we will use the <code>diff</code> command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sed <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> /path/to/file <span class="p">|</span> diff -u /path/to/file
+</code></pre></td></tr></table>
+</div>
+</div><p>Iterate to all the targeted files:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> f in <span class="k">$(</span>find . -type f -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> sed <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> <span class="nv">$f</span> <span class="p">|</span> diff -u <span class="nv">$f</span> -<span class="p">;</span> <span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>However, with the previous command, everything will be displayed in your console output, which can
+be enormous if you have lots of files that need to be changed. So we will use <code>less</code> to &ldquo;buffer&rdquo; the
+output so that we can follow the change at our own rhythm:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> f in <span class="k">$(</span>find . -type f -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> sed <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> <span class="nv">$f</span> <span class="p">|</span> diff -u <span class="nv">$f</span> - <span class="p">|</span> less<span class="p">;</span> <span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>As you may have notices, by doing this, it&rsquo;s not really helping as it will open a new buffer to read
+the difference for each file, which is not really user-friendly.</p>
+<p>So, a way is to concatenate all the diff into a temporary file, then use <code>less</code> to view the changes
+in a single buffer. We will use <code>mktemp</code> to create this temporary file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">tmp_file</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="k">for</span> f in <span class="k">$(</span>find . -type f -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> sed <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> <span class="nv">$f</span> <span class="p">|</span> diff -u <span class="nv">$f</span> - &gt;&gt; <span class="nv">$tmp_file</span><span class="p">;</span> <span class="k">done</span> <span class="o">&amp;&amp;</span> less <span class="nv">$tmp_file</span> <span class="o">&amp;&amp;</span> rm <span class="nv">$tmp_file</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can also use <code>colorDiff</code> to pretty print your output.</p>
+<p>Putting all together:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">tmp_file</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="k">for</span> f in <span class="k">$(</span>find . -type f -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> sed <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> <span class="nv">$f</span> <span class="p">|</span> diff -u <span class="nv">$f</span> - &gt;&gt; <span class="nv">$tmp_file</span><span class="p">;</span> <span class="k">done</span> <span class="o">&amp;&amp;</span> cat <span class="nv">$tmp_file</span> <span class="p">|</span> colordiff <span class="p">|</span> less <span class="o">&amp;&amp;</span> rm <span class="nv">$tmp_file</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>If you are now sure to change the content, use <code>sed</code> with the <code>-i</code> flag:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">for</span> f in <span class="k">$(</span>find . -type f -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> sed -i <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span> <span class="nv">$f</span><span class="p">;</span> <span class="k">done</span>
+<span class="c1"># or you can use xargs</span>
+find . -type f -print0 -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span> <span class="p">|</span> xargs -0 sed -i <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="using-git">Using GIT</h2>
+<p>Using git is more straightforward:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># if your folder is not versionned, initialize it with git:</span>
+git init
+<span class="c1"># commit your files BEFORE the operation</span>
+git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;before the big bang&#34;</span>
+<span class="c1"># perform your changes in bulk (avoid the .git folder)</span>
+find . -type f -print0 -not -path <span class="s2">&#34;.git/*&#34;</span> -name <span class="s2">&#34;*.go&#34;</span> <span class="p">|</span> xargs -0 sed -i <span class="s1">&#39;s/text-to-change/new-text/g&#39;</span>
+<span class="c1"># check the changes with the following</span>
+git diff
+<span class="c1"># if the result is not satisfactory for a single file</span>
+git checkout path/to/the/incorrect/file
+<span class="c1"># if the result is not satisfactory for a entire folder</span>
+git checkout path/to/the/incorrect/folder
+<span class="c1"># if everything is not satisfactory</span>
+git checkout .
+<span class="c1"># if it&#39;s all good, remove the .git folder if your folder is not versionned</span>
+rm -rf .git
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-10&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/2c3a28753a7a7dd79ae33c81b6e8f5812a87661e" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 2c3a28753a7a7dd79ae33c81b6e8f5812a87661e: theme: move post to posts">
+                                    <i class="fas fa-hashtag fa-fw"></i>2c3a287</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020-01-07-change-in-bulk-with-sed/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/terminal/">terminal</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2019-07-19-nginx_fallback/" class="prev" rel="prev" title="Nginx fallback"><i class="fas fa-angle-left fa-fw"></i>Nginx fallback</a>
+            <a href="/2020-01-08-soft_skills/" class="next" rel="next" title="Mind map - Soft skills">Mind map - Soft skills<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"l-lin","label":"","lightTheme":"github-light","repo":"l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

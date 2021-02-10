@@ -1,53 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>terminal on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/terminal/</link>
-    <description>Recent content in terminal on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 14 Feb 2020 09:01:43 +0100</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Sed</title>
-      <link>https://l-lin.github.io/post/2020/2020-02-14-sed/</link>
-      <pubDate>Fri, 14 Feb 2020 09:01:43 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-02-14-sed/</guid>
-      <description>&lt;p&gt;SED is a powerful stream editor for filtering and transforming text. You can perform impressive
-and efficient operations with such tool.&lt;/p&gt;
-&lt;p&gt;In this post, we will discover the wonders of SED.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Change in bulk using sed</title>
-      <link>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</link>
-      <pubDate>Tue, 07 Jan 2020 09:33:51 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2020/2020-01-07-change-in-bulk-with-sed/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://ss64.com/bash/sed.html&#34;&gt;&lt;code&gt;sed&lt;/code&gt;&lt;/a&gt; is a powerful terminal tool to perform basic text
-transformations on an input stream (file or input from a pipeline).&lt;/p&gt;
-&lt;p&gt;You run the command in &amp;ldquo;dry-run&amp;rdquo; to preview the changes the command will perform. But it&amp;rsquo;s quite
-difficult to follow the changes if you are running the command recursively in a folder.&lt;/p&gt;
-&lt;p&gt;In this post, we will what we can use to run &lt;code&gt;sed&lt;/code&gt; without worrying and with the ability to rollback
-in case something went wrong.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Unix terminal survival kit</title>
-      <link>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</link>
-      <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-04-05-unix_terminal/</guid>
-      <description>&lt;p&gt;Do you have to manage a server?&lt;/p&gt;
-&lt;p&gt;Do you need to perform some actions in bulk?&lt;/p&gt;
-&lt;p&gt;Do you want impress your peers with a &amp;ldquo;hacking&amp;rdquo; skills?&lt;/p&gt;
-&lt;p&gt;Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
-and menus. Another benefit is allowing access to many more commands and scripts.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>terminal - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/terminal/</link>
+        <description>terminal - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Feb 2020 09:01:43 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/terminal/" rel="self" type="application/rss+xml" /><item>
+    <title>Sed</title>
+    <link>https://l-lin.github.io/2020-02-14-sed/</link>
+    <pubDate>Fri, 14 Feb 2020 09:01:43 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-02-14-sed/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" referrerpolicy="no-referrer">
+            </div><p>SED is a powerful stream editor for filtering and transforming text. You can perform impressive
+and efficient operations with such tool.</p>
+<p>In this post, we will discover the wonders of SED.</p>]]></description>
+</item><item>
+    <title>Change in bulk using sed</title>
+    <link>https://l-lin.github.io/2020-01-07-change-in-bulk-with-sed/</link>
+    <pubDate>Tue, 07 Jan 2020 09:33:51 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-01-07-change-in-bulk-with-sed/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" referrerpolicy="no-referrer">
+            </div><p><a href="https://ss64.com/bash/sed.html" target="_blank" rel="noopener noreffer"><code>sed</code></a> is a powerful terminal tool to perform basic text
+transformations on an input stream (file or input from a pipeline).</p>
+<p>You run the command in &ldquo;dry-run&rdquo; to preview the changes the command will perform. But it&rsquo;s quite
+difficult to follow the changes if you are running the command recursively in a folder.</p>
+<p>In this post, we will what we can use to run <code>sed</code> without worrying and with the ability to rollback
+in case something went wrong.</p>]]></description>
+</item><item>
+    <title>Unix terminal survival kit</title>
+    <link>https://l-lin.github.io/2018-04-05-unix_terminal/</link>
+    <pubDate>Thu, 05 Apr 2018 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-04-05-unix_terminal/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" referrerpolicy="no-referrer">
+            </div><p>Do you have to manage a server?</p>
+<p>Do you need to perform some actions in bulk?</p>
+<p>Do you want impress your peers with a &ldquo;hacking&rdquo; skills?</p>
+<p>Whatever the reason, it can be much faster to complete some tasks using a Terminal than with graphical applications
+and menus. Another benefit is allowing access to many more commands and scripts.</p>]]></description>
+</item></channel>
 </rss>

@@ -1,96 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>patterns on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/patterns/</link>
-    <description>Recent content in patterns on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 13 Sep 2018 10:38:53 +0200</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/patterns/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Throttling pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-09-13-throttling_pattern/</link>
-      <pubDate>Thu, 13 Sep 2018 10:38:53 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-09-13-throttling_pattern/</guid>
-      <description>&lt;p&gt;Control the resource consumption by throttling them when limit is reached.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Circuit breaker</title>
-      <link>https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/</link>
-      <pubDate>Sun, 19 Aug 2018 14:52:25 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-08-19-circuit_breaker/</guid>
-      <description>&lt;p&gt;Handle failures that might take a variable amount of time to recover from&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Retry pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-08-05-retry_pattern/</link>
-      <pubDate>Sun, 05 Aug 2018 16:39:08 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-08-05-retry_pattern/</guid>
-      <description>&lt;p&gt;Handle transient failures to improve application stability.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CQRS</title>
-      <link>https://l-lin.github.io/post/2018/2018-05-19-cqrs/</link>
-      <pubDate>Sat, 19 May 2018 23:13:31 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-05-19-cqrs/</guid>
-      <description>&lt;p&gt;Separate your model between write and read.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Event sourcing</title>
-      <link>https://l-lin.github.io/post/2018/2018-05-13-event_sourcing/</link>
-      <pubDate>Sun, 13 May 2018 12:31:05 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-05-13-event_sourcing/</guid>
-      <description>&lt;p&gt;How to record states in a non-destructive way.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sidecar</title>
-      <link>https://l-lin.github.io/post/2018/2018-04-04-sidecar/</link>
-      <pubDate>Wed, 04 Apr 2018 12:06:14 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-04-04-sidecar/</guid>
-      <description>&lt;p&gt;How to enhance your service with 3rd party apps/services&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Gateway routing</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-11-gateway_routing/</link>
-      <pubDate>Sun, 11 Mar 2018 12:25:42 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-11-gateway_routing/</guid>
-      <description>&lt;p&gt;Route requests to multiple services using a single endpoint&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Anti-corruption layer pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-08-acl/</link>
-      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-08-acl/</guid>
-      <description>&lt;p&gt;How to work around legacy apps.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Strangler pattern</title>
-      <link>https://l-lin.github.io/post/2018/2018-03-08-strangler_pattern/</link>
-      <pubDate>Thu, 08 Mar 2018 21:09:19 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-03-08-strangler_pattern/</guid>
-      <description>&lt;p&gt;How to migrate legacy apps efficiently.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>patterns - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/patterns/</link>
+        <description>patterns - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Sep 2018 10:38:53 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/patterns/" rel="self" type="application/rss+xml" /><item>
+    <title>Throttling pattern</title>
+    <link>https://l-lin.github.io/2018-09-13-throttling_pattern/</link>
+    <pubDate>Thu, 13 Sep 2018 10:38:53 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-09-13-throttling_pattern/</guid>
+    <description><![CDATA[<p>Control the resource consumption by throttling them when limit is reached.</p>]]></description>
+</item><item>
+    <title>Circuit breaker</title>
+    <link>https://l-lin.github.io/2018-08-19-circuit_breaker/</link>
+    <pubDate>Sun, 19 Aug 2018 14:52:25 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-08-19-circuit_breaker/</guid>
+    <description><![CDATA[<p>Handle failures that might take a variable amount of time to recover from</p>]]></description>
+</item><item>
+    <title>Retry pattern</title>
+    <link>https://l-lin.github.io/2018-08-05-retry_pattern/</link>
+    <pubDate>Sun, 05 Aug 2018 16:39:08 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-08-05-retry_pattern/</guid>
+    <description><![CDATA[<p>Handle transient failures to improve application stability.</p>]]></description>
+</item><item>
+    <title>CQRS</title>
+    <link>https://l-lin.github.io/2018-05-19-cqrs/</link>
+    <pubDate>Sat, 19 May 2018 23:13:31 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-05-19-cqrs/</guid>
+    <description><![CDATA[<p>Separate your model between write and read.</p>]]></description>
+</item><item>
+    <title>Event sourcing</title>
+    <link>https://l-lin.github.io/2018-05-13-event_sourcing/</link>
+    <pubDate>Sun, 13 May 2018 12:31:05 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-05-13-event_sourcing/</guid>
+    <description><![CDATA[<p>How to record states in a non-destructive way.</p>]]></description>
+</item><item>
+    <title>Sidecar</title>
+    <link>https://l-lin.github.io/2018-04-04-sidecar/</link>
+    <pubDate>Wed, 04 Apr 2018 12:06:14 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-04-04-sidecar/</guid>
+    <description><![CDATA[<p>How to enhance your service with 3rd party apps/services</p>]]></description>
+</item><item>
+    <title>Gateway routing</title>
+    <link>https://l-lin.github.io/2018-03-11-gateway_routing/</link>
+    <pubDate>Sun, 11 Mar 2018 12:25:42 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-03-11-gateway_routing/</guid>
+    <description><![CDATA[<p>Route requests to multiple services using a single endpoint</p>]]></description>
+</item><item>
+    <title>Anti-corruption layer pattern</title>
+    <link>https://l-lin.github.io/2018-03-08-acl/</link>
+    <pubDate>Thu, 08 Mar 2018 21:09:19 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-03-08-acl/</guid>
+    <description><![CDATA[<p>How to work around legacy apps.</p>]]></description>
+</item><item>
+    <title>Strangler pattern</title>
+    <link>https://l-lin.github.io/2018-03-08-strangler_pattern/</link>
+    <pubDate>Thu, 08 Mar 2018 21:09:19 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-03-08-strangler_pattern/</guid>
+    <description><![CDATA[<p>How to migrate legacy apps efficiently.</p>]]></description>
+</item></channel>
 </rss>

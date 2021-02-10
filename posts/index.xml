@@ -1,0 +1,98 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/posts/</link>
+        <description>All Posts | Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>FFmpeg - useful commands</title>
+    <link>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</link>
+    <pubDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>How to extract thread and heap dump from running JRE in container</title>
+    <link>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</link>
+    <pubDate>Thu, 04 Feb 2021 15:21:47 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>MDC in Spring MVC</title>
+    <link>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</link>
+    <pubDate>Tue, 03 Nov 2020 09:16:28 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</guid>
+    <description><![CDATA[<p>Logging with Mapped Diagnostic Context (MDC) to provide a way to enrich log messages with pieces of
+information that can be useful for better tracking program execution.</p>
+<p>In this post, we will see how to include basic MDC, such as request information or the authenticated
+user id, with Spring MVC.</p>]]></description>
+</item><item>
+    <title>How to add CORS headers with Nginx</title>
+    <link>https://l-lin.github.io/2020-10-31-nginx_cors/</link>
+    <pubDate>Sat, 31 Oct 2020 16:59:51 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-10-31-nginx_cors/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png" referrerpolicy="no-referrer">
+            </div><p>Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
+reverse proxy behind the app that will add the headers.</p>]]></description>
+</item><item>
+    <title>Write secure and efficient Dockerfiles</title>
+    <link>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</link>
+    <pubDate>Tue, 20 Oct 2020 09:36:02 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg" referrerpolicy="no-referrer">
+            </div><p>This post covers some best practices for building secure and efficient docker images.
+This is not an exhaustive list, but covers most best practices for writing good enough secure &amp;
+efficient Dockerfiles.</p>]]></description>
+</item><item>
+    <title>Difficult conversations</title>
+    <link>https://l-lin.github.io/2020-09-29-difficult_conversations/</link>
+    <pubDate>Tue, 29 Sep 2020 09:31:07 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-09-29-difficult_conversations/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/418o27lNqRL._SX324_BO1,204,203,200_.jpg" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
+    <title>The subtle art of not giving a fck</title>
+    <link>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</link>
+    <pubDate>Mon, 21 Sep 2020 09:26:31 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://s3-us-west-2.amazonaws.com/tabs.web.media/c/2/c2sk/c2sk-square-orig.jpg" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
+    <title>Some tips and tricks in Docker Compose</title>
+    <link>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</link>
+    <pubDate>Tue, 25 Aug 2020 09:18:05 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>The Pragmatic Programmer</title>
+    <link>https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/</link>
+    <pubDate>Sun, 17 May 2020 14:50:13 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/518FqJvR9aL._SY445_QL70_ML2_.jpg" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
+    <title>Project structures</title>
+    <link>https://l-lin.github.io/2020-05-02-project-structures/</link>
+    <pubDate>Sat, 02 May 2020 19:37:18 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2020-05-02-project-structures/</guid>
+    <description><![CDATA[<p>Structuring a project is not really exciting, nor is it the main focus in a project life, but it&rsquo;s
+certainly one of the most important decision to make at the beginning of the project if you do not
+want to have a massive refactoring afterwards and if you want your project to be quickly understood
+and workable by other developers.</p>
+<p>If you want to directly check the code:
+<a href="https://github.com/l-lin/architecture-cheat-sheet/tree/master/project-structures" target="_blank" rel="noopener noreffer">Github project</a></p>]]></description>
+</item></channel>
+</rss>

@@ -1,33 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>heroku on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/heroku/</link>
-    <description>Recent content in heroku on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 31 Jan 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Deploying a Golang web apps to Heroku</title>
-      <link>https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/</link>
-      <pubDate>Sat, 31 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2015/2015-01-31-golang-deploy_to_heroku/</guid>
-      <description>&lt;p&gt;Deploying a &lt;a href=&#34;https://golang.org/&#34;&gt;Golang&lt;/a&gt; web apps to &lt;a href=&#34;https://www.heroku.com&#34;&gt;Heroku&lt;/a&gt; is quite easy.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Deploying a MeteorJS apps to Heroku</title>
-      <link>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</link>
-      <pubDate>Sat, 03 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-05-03-meteor-deploy_to_heroku/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>heroku - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/heroku/</link>
+        <description>heroku - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 31 Jan 2015 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/heroku/" rel="self" type="application/rss+xml" /><item>
+    <title>Deploying a Golang web apps to Heroku</title>
+    <link>https://l-lin.github.io/2015-01-31-golang-deploy_to_heroku/</link>
+    <pubDate>Sat, 31 Jan 2015 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2015-01-31-golang-deploy_to_heroku/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/golang.png" referrerpolicy="no-referrer">
+            </div><p>Deploying a <a href="https://golang.org/" target="_blank" rel="noopener noreffer">Golang</a> web apps to <a href="https://www.heroku.com" target="_blank" rel="noopener noreffer">Heroku</a> is quite easy.</p>]]></description>
+</item><item>
+    <title>Deploying a MeteorJS apps to Heroku</title>
+    <link>https://l-lin.github.io/2014-05-03-meteor-deploy_to_heroku/</link>
+    <pubDate>Sat, 03 May 2014 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2014-05-03-meteor-deploy_to_heroku/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
 </rss>

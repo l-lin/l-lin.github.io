@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Changing the Caps Lock key to Ctrl - Louis Lin&#39;s digital garden</title><meta name="Description" content="A website on software development"><meta property="og:title" content="Changing the Caps Lock key to Ctrl" />
+<meta property="og:description" content="How many times have you used the caps lock key compare to the ctrl button?
+Once a year maybe? You must have experienced at least once a situation where you
+must enter your password, but your caps lock is on, thus you entered your password wrong.
+So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
+everyday?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2015-01-25-change_capslock_to_ctrl/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2015-01-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-10T17:11:09+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Changing the Caps Lock key to Ctrl"/>
+<meta name="twitter:description" content="How many times have you used the caps lock key compare to the ctrl button?
+Once a year maybe? You must have experienced at least once a situation where you
+must enter your password, but your caps lock is on, thus you entered your password wrong.
+So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
+everyday?"/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2015-01-25-change_capslock_to_ctrl/" /><link rel="prev" href="https://l-lin.github.io/2014-09-19-debug_maven_plugin/" /><link rel="next" href="https://l-lin.github.io/2015-01-31-golang-deploy_to_heroku/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Changing the Caps Lock key to Ctrl",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2015-01-25-change_capslock_to_ctrl\/"
+        },"genre": "posts","keywords": "xubuntu, windows","wordcount":  234 ,
+        "url": "https:\/\/l-lin.github.io\/2015-01-25-change_capslock_to_ctrl\/","datePublished": "2015-01-25T00:00:00+00:00","dateModified": "2021-02-10T17:11:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Louis Lin&#39;s digital garden">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Changing the Caps Lock key to Ctrl</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2015-01-25">2015-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;234 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb"
+        data-srcset="https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb, https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb 1.5x, https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb 2x"
+        data-sizes="auto"
+        alt="https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb"
+        title="https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" /></div><div class="content" id="content"><p>How many times have you used the <code>caps lock</code> key compare to the <code>ctrl</code> button?
+Once a year maybe? You must have experienced at least once a situation where you
+must enter your password, but your caps lock is on, thus you entered your password wrong.</p>
+<p>So instead of having an &ldquo;useless&rdquo; button on your keyboad, how about changing to a button that you use
+everyday?</p>
+<p>In my opinion, I feel that the <code>left ctrl</code> key is way too low on the keyboard.
+My pinky finger has to make one heck of an effort to press that key! So at the end of the day,
+after hundred of &ldquo;copy/paste&rdquo;, this little finger has hurt his back and won&rsquo;t work anymore&hellip;
+Jokes aside, it has been like a year I change it to <code>left ctrl</code>, and I feel that typing has been
+smoother now.</p>
+<p>Anyway, here are the steps to change on XUbuntu (best OS I found so far) and Windows:</p>
+<h1 id="on-xubuntu">On Xubuntu</h1>
+<ul>
+<li>Xubuntu → Settings Manager → Session and Startup</li>
+<li>Then in the Sessions and Startup configurator go</li>
+<li>Application Autostart (tab at the top) → Add (bottom button)</li>
+</ul>
+<p>Now on the Add Application screen</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">Name: Remap CapsLk to Ctrl
+Description: Remaps the CapsLk key to Control
+Command: /usr/bin/setxkbmap -option &#34;ctrl:nocaps&#34;
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="on-windows">On Windows</h1>
+<ul>
+<li>Open <code>regedit.exe</code></li>
+<li>Look for <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout</code></li>
+<li>Now change the binary values to look like this:</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/2015-01-25/windows_capslock_to_ctrl.png"
+        data-srcset="/images/2015-01-25/windows_capslock_to_ctrl.png, /images/2015-01-25/windows_capslock_to_ctrl.png 1.5x, /images/2015-01-25/windows_capslock_to_ctrl.png 2x"
+        data-sizes="auto"
+        alt="/images/2015-01-25/windows_capslock_to_ctrl.png"
+        title="Windows Caps lock to Ctrl" /></p>
+<p>More information on <a href="http://www.howtogeek.com/howto/windows-vista/disable-caps-lock-key-in-windows-vista/" target="_blank" rel="noopener noreffer">howtogeek</a>.</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-10&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/2c3a28753a7a7dd79ae33c81b6e8f5812a87661e" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 2c3a28753a7a7dd79ae33c81b6e8f5812a87661e: theme: move post to posts">
+                                    <i class="fas fa-hashtag fa-fw"></i>2c3a287</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2015-01-25-change_capslock_to_ctrl/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/xubuntu/">xubuntu</a>,&nbsp;<a href="/tags/windows/">windows</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2014-09-19-debug_maven_plugin/" class="prev" rel="prev" title="Debugging Maven plugin with IntelliJ"><i class="fas fa-angle-left fa-fw"></i>Debugging Maven plugin with IntelliJ</a>
+            <a href="/2015-01-31-golang-deploy_to_heroku/" class="next" rel="next" title="Deploying a Golang web apps to Heroku">Deploying a Golang web apps to Heroku<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"l-lin","label":"","lightTheme":"github-light","repo":"l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

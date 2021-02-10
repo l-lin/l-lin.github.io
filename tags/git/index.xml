@@ -1,54 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>git on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/git/</link>
-    <description>Recent content in git on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 08 Apr 2019 16:02:14 +0200</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Git URL Shortcuts</title>
-      <link>https://l-lin.github.io/post/2019/2019-04-08-git-url-shortcuts/</link>
-      <pubDate>Mon, 08 Apr 2019 16:02:14 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-04-08-git-url-shortcuts/</guid>
-      <description>&lt;p&gt;You can create shortcuts for git URL paths to clone without typing full URL.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to extract folders with history with git</title>
-      <link>https://l-lin.github.io/post/2018/2018-02-08-git_extract_folders_with_history/</link>
-      <pubDate>Thu, 08 Feb 2018 10:42:13 +0100</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-02-08-git_extract_folders_with_history/</guid>
-      <description>&lt;p&gt;Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.&lt;/p&gt;
-&lt;p&gt;Thus, you will need to extract the folder of the sub-project.&lt;/p&gt;
-&lt;p&gt;Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.&lt;/p&gt;
-&lt;p&gt;Git is an awesome tool which has a &amp;ldquo;magical&amp;rdquo; command.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to migrate SVN projects to Git</title>
-      <link>https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/</link>
-      <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2016/2016-07-03-migrate_svn_to_git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Configuring git behind a proxy</title>
-      <link>https://l-lin.github.io/post/2014/2014-01-04-git-configure_git_behind_a_proxy/</link>
-      <pubDate>Sat, 04 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2014/2014-01-04-git-configure_git_behind_a_proxy/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>git - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/git/</link>
+        <description>git - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Apr 2019 16:02:14 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>Git URL Shortcuts</title>
+    <link>https://l-lin.github.io/2019-04-08-git-url-shortcuts/</link>
+    <pubDate>Mon, 08 Apr 2019 16:02:14 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2019-04-08-git-url-shortcuts/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://gitforwindows.org/img/git_logo.png" referrerpolicy="no-referrer">
+            </div><p>You can create shortcuts for git URL paths to clone without typing full URL.</p>]]></description>
+</item><item>
+    <title>How to extract folders with history with git</title>
+    <link>https://l-lin.github.io/2018-02-08-git_extract_folders_with_history/</link>
+    <pubDate>Thu, 08 Feb 2018 10:42:13 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-02-08-git_extract_folders_with_history/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/51191/stack-letters-letter-handwriting-family-letters-51191.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" referrerpolicy="no-referrer">
+            </div><p>Sometimes at the end of life of a project, one of its sub-project will fly on its own and will have its own lifecycle.</p>
+<p>Thus, you will need to extract the folder of the sub-project.</p>
+<p>Will a simple copy/paste work? Not so fast, because we will lose the git history of the sub-project.</p>
+<p>Git is an awesome tool which has a &ldquo;magical&rdquo; command.</p>]]></description>
+</item><item>
+    <title>How to migrate SVN projects to Git</title>
+    <link>https://l-lin.github.io/2016-07-03-migrate_svn_to_git/</link>
+    <pubDate>Mon, 07 Mar 2016 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2016-07-03-migrate_svn_to_git/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Configuring git behind a proxy</title>
+    <link>https://l-lin.github.io/2014-01-04-git-configure_git_behind_a_proxy/</link>
+    <pubDate>Sat, 04 Jan 2014 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2014-01-04-git-configure_git_behind_a_proxy/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
 </rss>

@@ -1,34 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ubuntu on Louis LIN&#39;s blog</title>
-    <link>https://l-lin.github.io/tags/ubuntu/</link>
-    <description>Recent content in ubuntu on Louis LIN&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 12 Apr 2019 09:27:54 +0200</lastBuildDate>
-    
-	<atom:link href="https://l-lin.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Ubuntu custom desktop shortcuts</title>
-      <link>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</link>
-      <pubDate>Fri, 12 Apr 2019 09:27:54 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2019/2019-04-12-ubuntu_custom_desktop_shortcuts/</guid>
-      <description>&lt;p&gt;With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.&lt;/p&gt;
-&lt;p&gt;You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Using host DNS in Docker container with Ubuntu 18</title>
-      <link>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</link>
-      <pubDate>Mon, 03 Sep 2018 11:22:04 +0200</pubDate>
-      
-      <guid>https://l-lin.github.io/post/2018/2018-09-03-docker_ubuntu_18_dns/</guid>
-      <description>&lt;p&gt;Docker containers running in Ubuntu 18 can&amp;rsquo;t resolve DNS as they are trying to use the default Google DNS server &lt;code&gt;8.8.8.8&lt;/code&gt; as their DNS server.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ubuntu - Tag - Louis Lin&#39;s digital garden</title>
+        <link>https://l-lin.github.io/tags/ubuntu/</link>
+        <description>ubuntu - Tag - Louis Lin&#39;s digital garden</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 12 Apr 2019 09:27:54 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu custom desktop shortcuts</title>
+    <link>https://l-lin.github.io/2019-04-12-ubuntu_custom_desktop_shortcuts/</link>
+    <pubDate>Fri, 12 Apr 2019 09:27:54 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2019-04-12-ubuntu_custom_desktop_shortcuts/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://career.guru99.com/wp-content/uploads/2014/08/Ubuntu.png" referrerpolicy="no-referrer">
+            </div><p>With Ubuntu, you can create your own desktop shortcuts that will be accessible directly from the launcher.</p>
+<p>You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.</p>]]></description>
+</item><item>
+    <title>Using host DNS in Docker container with Ubuntu 18</title>
+    <link>https://l-lin.github.io/2018-09-03-docker_ubuntu_18_dns/</link>
+    <pubDate>Mon, 03 Sep 2018 11:22:04 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2018-09-03-docker_ubuntu_18_dns/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg" referrerpolicy="no-referrer">
+            </div><p>Docker containers running in Ubuntu 18 can&rsquo;t resolve DNS as they are trying to use the default Google DNS server <code>8.8.8.8</code> as their DNS server.</p>]]></description>
+</item></channel>
 </rss>
