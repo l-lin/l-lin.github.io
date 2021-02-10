@@ -423,7 +423,7 @@ enableEmoji = true
       [params.page.comment.utterances]
         enable = true
         # owner/repo
-        repo = "l-lin.github.io"
+        repo = "l-lin/l-lin.github.io"
         issueTerm = "l-lin"
         label = ""
         lightTheme = "github-light"
