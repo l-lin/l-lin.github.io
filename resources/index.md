@@ -1,4 +1,4 @@
-# Tools
+# Resources
 
 
 A curated collection of awesome tools, resources, libraries and softwares I found on the internet.
