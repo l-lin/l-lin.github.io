@@ -68,11 +68,11 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.en.menu.main]]
-        identifier = "tools"
+        identifier = "resources"
         pre = ""
         post = ""
-        name = "Tools"
-        url = "/tools/"
+        name = "Resources"
+        url = "/resources/"
         title = ""
         weight = 4
       [[languages.en.menu.main]]
