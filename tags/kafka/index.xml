@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>kafka - Tag - Louis Lin&#39;s digital garden</title>
+        <title>kafka - Tag - Blog on software development</title>
         <link>https://l-lin.github.io/tags/kafka/</link>
-        <description>kafka - Tag - Louis Lin&#39;s digital garden</description>
+        <description>kafka - Tag - Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 13 Apr 2020 20:47:48 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/kafka/" rel="self" type="application/rss+xml" /><item>
     <title>Playing with Kafka</title>
     <link>https://l-lin.github.io/2020-04-13-playing_with_kafka/</link>

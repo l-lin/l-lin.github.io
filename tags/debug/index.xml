@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>debug - Tag - Louis Lin&#39;s digital garden</title>
+        <title>debug - Tag - Blog on software development</title>
         <link>https://l-lin.github.io/tags/debug/</link>
-        <description>debug - Tag - Louis Lin&#39;s digital garden</description>
+        <description>debug - Tag - Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Sep 2014 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/debug/" rel="self" type="application/rss+xml" /><item>
     <title>Debugging Maven plugin with IntelliJ</title>
     <link>https://l-lin.github.io/2014-09-19-debug_maven_plugin/</link>

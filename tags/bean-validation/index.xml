@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>bean validation - Tag - Louis Lin&#39;s digital garden</title>
+        <title>bean validation - Tag - Blog on software development</title>
         <link>https://l-lin.github.io/tags/bean-validation/</link>
-        <description>bean validation - Tag - Louis Lin&#39;s digital garden</description>
+        <description>bean validation - Tag - Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Dec 2018 09:01:20 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/bean-validation/" rel="self" type="application/rss+xml" /><item>
     <title>Custom validator for standard constraints</title>
     <link>https://l-lin.github.io/2018-12-04-custom_validator_for_standard_constraints/</link>

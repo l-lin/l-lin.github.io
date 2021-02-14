@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>tomcat - Tag - Louis Lin&#39;s digital garden</title>
+        <title>tomcat - Tag - Blog on software development</title>
         <link>https://l-lin.github.io/tags/tomcat/</link>
-        <description>tomcat - Tag - Louis Lin&#39;s digital garden</description>
+        <description>tomcat - Tag - Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Jul 2015 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/tomcat/" rel="self" type="application/rss+xml" /><item>
     <title>How to connect VisualVM to a remote Tomcat</title>
     <link>https://l-lin.github.io/2015-07-23-connecting_visualvm_to_remote_tomcat/</link>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>angularjs - Tag - Louis Lin&#39;s digital garden</title>
+        <title>angularjs - Tag - Blog on software development</title>
         <link>https://l-lin.github.io/tags/angularjs/</link>
-        <description>angularjs - Tag - Louis Lin&#39;s digital garden</description>
+        <description>angularjs - Tag - Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Feb 2014 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/angularjs/" rel="self" type="application/rss+xml" /><item>
     <title>How to test asynchronous calls with AngularJS</title>
     <link>https://l-lin.github.io/2014-02-03-angularjs-testing_asynchronous_calls/</link>

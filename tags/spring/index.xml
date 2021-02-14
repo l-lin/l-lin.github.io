@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>spring - Tag - Louis Lin&#39;s digital garden</title>
+        <title>spring - Tag - Blog on software development</title>
         <link>https://l-lin.github.io/tags/spring/</link>
-        <description>spring - Tag - Louis Lin&#39;s digital garden</description>
+        <description>spring - Tag - Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 03 Nov 2020 09:16:28 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/spring/" rel="self" type="application/rss+xml" /><item>
     <title>MDC in Spring MVC</title>
     <link>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</link>

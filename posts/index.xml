@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - Louis Lin&#39;s digital garden</title>
+        <title>All Posts - Blog on software development</title>
         <link>https://l-lin.github.io/posts/</link>
-        <description>All Posts | Louis Lin&#39;s digital garden</description>
+        <description>All Posts | Blog on software development</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>FFmpeg - useful commands</title>
     <link>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</link>
