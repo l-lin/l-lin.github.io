@@ -16,6 +16,14 @@ Here's my [stackoverflow story view](https://stackoverflow.com/story/l-lin).
 
 # Overview of my side projects in Github
 
+## 2021
+
+![golang][] [Trello interactive CLI](https://github.com/l-lin/tcli)
+
+I'm mostly using the command line, and I like using VIM to edit contents. The Trello web UI is
+great, but I prefer staying in the terminal. I could not find some good CLI / prompt, hence this
+project was born.
+
 ## 2020
 
 ![golang][] [Trello daily logs](https://github.com/l-lin/trello-daily-logs)
