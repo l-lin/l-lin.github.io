@@ -62,6 +62,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Threat modeling manifesto](https://www.threatmodelingmanifesto.org/)
 - [OWASP top ten web app security risks](https://owasp.org/www-project-top-ten/)
 - [Agile threat modelling](https://martinfowler.com/articles/agile-threat-modelling.html)
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
 
 ## Devops
 
