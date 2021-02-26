@@ -33,6 +33,8 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [On YOLOsec and FOMOsec](https://swagitda.com/blog/posts/on-yolosec-and-fomosec/)
 - [Programming idioms](https://programming-idioms.org/)
 - [Command Line Interface Guidelines](https://clig.dev)
+- [free-for.dev](https://free-for.dev/): list of softwares and other offerings that have free tiers
+  for developers
 
 ## Architecture
 
