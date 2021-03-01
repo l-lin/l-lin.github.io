@@ -113,6 +113,17 @@ $ !echo
 pwd
 ```
 
+**ctrl+q**
+
+"Parks" the current command you're currently typing. Useful if you forgot to perform another command
+before executing another.
+
+> It may only be available on zsh.
+
+**ctr+x+e**
+
+Edit a command you're currently typing. Useful if it's a long command.
+
 ## Navigation
 
 {{< figure class="center" src="https://memegenerator.net/img/instances/81614805/you-know-what-really-grinds-my-gears-when-people-keep-pressing-left-arrow-to-move-the-cursor-back-to.jpg" alt="Please, use keyboard shortcuts" title="Please, use keyboard shortcuts" >}}
