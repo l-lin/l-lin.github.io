@@ -71,8 +71,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Pulumi](https://www.pulumi.com/): modern infrastructure as code
 - [Squash](https://squash.solo.io/): debug microservices apps while they run in Kubernetes
 - [Paketo](https://paketo.io/): cloud native container images buildpacks
-- [AWS calculator](https://www.duckbillgroup.com/aws-super-simple-storage-calculator/): simple
-  storage pricing calculator for AWS
+- [AWS EC2 instance comparison](https://instances.vantage.sh/)
 - [12-factor app](https://12factor.net/): methodology for building software-as-a-service apps
 - [Devops newsletters](https://devopsnewsletters.com/)
 - [AWS cheat sheets](https://tutorialsdojo.com/aws-cheat-sheets/)
