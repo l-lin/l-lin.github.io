@@ -2,12 +2,12 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://l-lin.github.io/categories/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://l-lin.github.io/categories/</loc><lastmod>2021-03-01T15:39:02&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/tags/ffmpeg/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://l-lin.github.io/posts/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://l-lin.github.io/tags/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2021-03-01T15:39:02&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/posts/</loc><lastmod>2021-03-01T15:39:02&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/tags/</loc><lastmod>2021-03-01T15:39:02&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/tags/java/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
@@ -30,7 +30,7 @@
             <loc>https://l-lin.github.io/2020-04-13-playing_with_kafka/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2020-03-05-java-from_8_to_14/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2020-02-14-sed/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://l-lin.github.io/tags/terminal/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://l-lin.github.io/tags/terminal/</loc><lastmod>2021-03-01T15:39:02&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/2020-02-10-debug-with-vim-go/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/tags/golang/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/tags/vim/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
@@ -65,7 +65,7 @@
             <loc>https://l-lin.github.io/2018-08-05-retry_pattern/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2018-05-19-cqrs/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2018-05-13-event_sourcing/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://l-lin.github.io/2018-04-05-unix_terminal/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://l-lin.github.io/2018-04-05-unix_terminal/</loc><lastmod>2021-03-01T15:39:02&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/2018-04-04-sidecar/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2018-03-29-postgresql_insert_and_link_ids/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://l-lin.github.io/2018-03-11-gateway_routing/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
