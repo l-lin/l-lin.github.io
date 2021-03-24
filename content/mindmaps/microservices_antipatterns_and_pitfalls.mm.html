@@ -1,0 +1,645 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Microservices antipatterns and pitfalls</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+<p><span style="color: #000000;font-size: 166%;font-family: SansSerif, sans-serif; ">Microservices antipatterns and pitfalls</span>
+<ul><li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">grains of sand pitfall</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">define service granularity</span>
+
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why pitfall</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">when services are too fined-grained</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">when services carry too much responsibility</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">analyzing service scope and function</span>
+<ul><li><span style="color: #111111;">cohesion is a must</span>
+
+</li>
+<li><span style="color: #111111;">documenting or verbally stating scope helps</span>
+
+</li>
+<li><span style="color: #111111;">start out more coarse-grained &amp; move to fine-grained</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">analyzing database transactions</span>
+<ul><li><span style="color: #111111;">need for ACID transactions</span>
+<ul><li><span style="color: #111111;">atomicity</span>
+
+</li>
+<li><span style="color: #111111;">consistency</span>
+
+</li>
+<li><span style="color: #111111;">isolation</span>
+
+</li>
+<li><span style="color: #111111;">durability</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">difficult for distributed system for ACID transactions</span>
+
+</li>
+<li><span style="color: #111111;">if battling issue around ACID vs BASE</span>
+<ul><li><span style="color: #111111;">services too fine-grained</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">analyzing service choreography</span>
+<ul><li><span style="color: #111111;">communication between services</span>
+<ul><li><span style="color: #111111;">inter-service communication</span>
+
+</li>
+<li><span style="color: #111111;">can decrease overall performance</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">too much choreography</span>
+<ul><li><span style="color: #111111;">impact overall reliability</span>
+
+</li>
+<li><span style="color: #111111;">impact robustness</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">too many calls for a single business request</span>
+<ul><li><span style="color: #111111;">service too fined-grained</span>
+
+</li>
+<li><span style="color: #111111;">consolidate services</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">asynchronous parallel processing</span>
+<ul><li><span style="color: #111111;">increase overall responsiveness</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">developer without a cause pitfall</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">"developers know the benefits of everything and the tradeoffs of nothing"</span>
+
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why pitfall</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">ignore tradeoff</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">ask what is the most important</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">understand business drivers</span>
+<ul><li><span style="color: #111111;">why doing microservices?</span>
+
+</li>
+<li><span style="color: #111111;">what are the primary business drivers?</span>
+
+</li>
+<li><span style="color: #111111;">what architecture characteristics are most important?</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">reason to move to microservices</span>
+<ul><li><span style="color: #111111;">better time to market via effective deployment pipeline</span>
+
+</li>
+<li><span style="color: #111111;">increase overall reliability and robustness</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">jump on the bandwagon pitfall</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why pitfall</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">diving into microservices without analyzing</span>
+<ul><li><span style="color: #111111;">business needs</span>
+
+</li>
+<li><span style="color: #111111;">overall organizational structure</span>
+
+</li>
+<li><span style="color: #111111;">technology environment</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">understand pros &amp; cons</span>
+<ul><li><span style="color: #111111;">pros</span>
+<ul><li><span style="color: #111111;">ease of deployment</span>
+
+</li>
+<li><span style="color: #111111;">testability</span>
+
+</li>
+<li><span style="color: #111111;">change control</span>
+
+</li>
+<li><span style="color: #111111;">modularity</span>
+
+</li>
+<li><span style="color: #111111;">scalability</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">cons</span>
+<ul><li><span style="color: #111111;">organizational change</span>
+
+</li>
+<li><span style="color: #111111;">performance</span>
+
+</li>
+<li><span style="color: #111111;">reliability</span>
+
+</li>
+<li><span style="color: #111111;">devops</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">matching business needs</span>
+<ul><li><span style="color: #111111;">what are the business &amp; technical goals?</span>
+
+</li>
+<li><span style="color: #111111;">what am I trying to accomplish with microservices?</span>
+
+</li>
+<li><span style="color: #111111;">what are my current and foreseeable pain points?</span>
+
+</li>
+<li><span style="color: #111111;">what are the primary driving architcture characteristics?</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">other architecture patterns</span>
+<ul><li><span style="color: #111111;">service based architecture</span>
+
+</li>
+<li><span style="color: #111111;">service oriented architecture</span>
+
+</li>
+<li><span style="color: #111111;">layered architecture</span>
+
+</li>
+<li><span style="color: #111111;">microkernel architecture</span>
+
+</li>
+<li><span style="color: #111111;">space based architecture</span>
+
+</li>
+<li><span style="color: #111111;">event-driven architecture</span>
+
+</li>
+<li><span style="color: #111111;">pipeline architecture</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">static contract pitfall</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why pitfall</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">when fail to version service contracts from the very start</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">changing APIs may takes weeks</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">versioning at the header</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">versioning in the contract</span>
+<ul><li><span style="color: #111111;">independent of the protocol</span>
+
+</li>
+<li><span style="color: #111111;">must parse payload first</span>
+
+</li>
+<li><span style="color: #111111;">schemas can get complex</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">are we there yet pitfall</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why pitfall</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">call duration unknown</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">multiple remote calls</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">measure latency</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">comparing protocols</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">give it a rest pitfall</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why pitfall</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">using REST for every communication</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">messaging</span>
+<ul><li><span style="color: #111111;">asynchronous requests</span>
+
+</li>
+<li><span style="color: #111111;">fire and forget</span>
+
+</li>
+<li><span style="color: #111111;">broadcast</span>
+
+</li>
+<li><span style="color: #111111;">transacted requests</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">data-driven migration antipattern</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why antipattern</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">occurs mostly when migrating from monolith to microservices</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">service granularity not right the 1st time</span>
+<ul><li><span style="color: #111111;">frequently adujst</span>
+
+</li>
+<li><span style="color: #111111;">too many data migrations</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">data migrations are complex and error-prone</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">data over functionality</span>
+<ul><li><span style="color: #111111;">first migrate functionality</span>
+
+</li>
+<li><span style="color: #111111;">then adjust level of granularity</span>
+
+</li>
+<li><span style="color: #111111;">then migrate data</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">timeout antipattern</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why antipattern</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">challenges in distributed architecture</span>
+<ul><li><span style="color: #111111;">remote process availability</span>
+<ul><li><span style="color: #111111;">ability for a consumer to connect</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">remote process responsiveness</span>
+<ul><li><span style="color: #111111;">time for a service to respond</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">timeout value to prevent waiting indefinitely</span>
+<ul><li><span style="color: #111111;">calculate from db timeout</span>
+
+</li>
+<li><span style="color: #111111;">calculate from max time under load and double it</span>
+
+</li>
+<li><span style="color: #111111;">consumers have to wait just to find out the service is not responsive</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">circuit breaker pattern</span>
+<ul><li><span style="color: #111111;">open if service is not responding</span>
+<ul><li><span style="color: #111111;">reject requests to that service</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">close if service is responding</span>
+
+</li>
+<li><span style="color: #111111;">continually monitors remote service</span>
+<ul><li><span style="color: #111111;">with heartbeat checks</span>
+
+</li>
+<li><span style="color: #111111;">with synthetic transactions</span>
+
+</li>
+<li><span style="color: #111111;">with real-time user monitoring</span>
+<ul><li><span style="color: #111111;">check actual production transactions</span>
+
+</li>
+<li><span style="color: #111111;">check against a threshold</span>
+
+</li>
+<li><span style="color: #111111;">half-open state to allow limited nb of transactions</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">"I was taught to share" antipattern</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why antipattern</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">always some code to be shared between services</span>
+
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">dependency nightmare</span>
+<ul><li><span style="color: #111111;">breaks bounded context</span>
+
+</li>
+<li><span style="color: #111111;">introduce several issues</span>
+<ul><li><span style="color: #111111;">overall reliability</span>
+
+</li>
+<li><span style="color: #111111;">change control</span>
+
+</li>
+<li><span style="color: #111111;">testability</span>
+
+</li>
+<li><span style="color: #111111;">deployment</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">too many dependencies</span>
+<ul><li><span style="color: #111111;">more dep between services =&gt; harder to isolate service changes</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">shared library</span>
+<ul><li><span style="color: #111111;">versionned</span>
+<ul><li><span style="color: #111111;">better control on which version to use</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">violate the DRY principle</span>
+<ul><li><span style="color: #111111;">replicate the shared module</span>
+<ul><li><span style="color: #111111;">useful when module is very stable</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">service consolidation</span>
+<ul><li><span style="color: #111111;">consolidate functionality into a single service</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #0033ff;font-size: 150%;font-family: SansSerif, sans-serif; ">reach-in reporting antipattern</span>
+<ul><li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">why antipattern</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">3 techniques</span>
+<ul><li><span style="color: #111111;">database pull model</span>
+<ul><li><span style="color: #111111;">service pull the data directly from the other service db</span>
+
+</li>
+<li><span style="color: #111111;">leads to interdependence</span>
+
+</li>
+<li><span style="color: #111111;">no database ownership</span>
+
+</li>
+<li><span style="color: #111111;">break bounded context</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">HTTP pull model</span>
+<ul><li><span style="color: #111111;">service makes a HTTP call to the other service</span>
+
+</li>
+<li><span style="color: #111111;">preserves the bounded context</span>
+
+</li>
+<li><span style="color: #111111;">it's too slow</span>
+
+</li>
+<li><span style="color: #111111;">data volume might be too large for a simple HTTP call</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">batch pull model</span>
+<ul><li><span style="color: #111111;">use separate reporting db</span>
+
+</li>
+<li><span style="color: #111111;">populate reporting db through batch jobs</span>
+
+</li>
+<li><span style="color: #111111;">break bounded context</span>
+<ul><li><span style="color: #111111;">implement shared database integration</span>
+
+</li>
+
+</ul>
+</li>
+<li><span style="color: #111111;">not optimized for immediate data</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span style="color: #00b439;font-size: 133%;font-family: SansSerif, sans-serif; ">mitigation</span>
+<ul><li><span style="color: #990000;font-size: 116%;font-family: SansSerif, sans-serif; ">event-based push model</span>
+<ul><li><span style="color: #111111;">asynchronous event processing</span>
+
+</li>
+<li><span style="color: #111111;">complex to implement</span>
+
+</li>
+<li><span style="color: #111111;">preserve bounded context</span>
+
+</li>
+<li><span style="color: #111111;">requires contract between each services</span>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul></body>
+</html>

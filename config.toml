@@ -11,7 +11,7 @@ themesDir = "themes"
 
 # website title
 # 网站标题
-title = "Blog on software development"
+title = "Hello, world"
 
 # whether to use robots.txt
 # 是否使用 robots.txt
@@ -133,7 +133,7 @@ enableEmoji = true
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
-          subtitle = "Blog on software development"
+          subtitle = 'fmt.Println("Hello, world")'
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links

@@ -1,0 +1,382 @@
+<map version="1.1.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node COLOR="#000000" CREATED="1616400727933" ID="ID_1792978379" MODIFIED="1616572404267" TEXT="Microservices antipatterns and pitfalls">
+<font NAME="SansSerif" SIZE="20"/>
+<hook NAME="accessories/plugins/AutomaticLayout.properties"/>
+<node COLOR="#0033ff" CREATED="1616401938643" ID="ID_388709558" MODIFIED="1616572404215" POSITION="right" TEXT="data-driven migration antipattern">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616442330962" ID="ID_1326680529" MODIFIED="1616572404216" TEXT="why antipattern">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616402898810" ID="ID_489273940" MODIFIED="1616572404216" TEXT="occurs mostly when migrating from monolith to microservices">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616413791606" ID="ID_265464160" MODIFIED="1616572404218" TEXT="service granularity not right the 1st time">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616413942231" ID="ID_674119531" MODIFIED="1616572404218" TEXT="frequently adujst"/>
+<node COLOR="#111111" CREATED="1616414582930" ID="ID_1244028207" MODIFIED="1616572404218" TEXT="too many data migrations"/>
+</node>
+<node COLOR="#990000" CREATED="1616414604434" ID="ID_632336067" MODIFIED="1616572404218" TEXT="data migrations are complex and error-prone">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616414784451" ID="ID_1892291868" MODIFIED="1616572404219" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616414685577" ID="ID_880916542" MODIFIED="1616572404219" TEXT="data over functionality">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616414792093" ID="ID_1880382023" MODIFIED="1616572404219" TEXT="first migrate functionality"/>
+<node COLOR="#111111" CREATED="1616414885757" ID="ID_632412893" MODIFIED="1616572404220" TEXT="then adjust level of granularity"/>
+<node COLOR="#111111" CREATED="1616414898546" ID="ID_178877757" MODIFIED="1616572404220" TEXT="then migrate data"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616435399322" ID="ID_405583843" MODIFIED="1616572404220" POSITION="right" TEXT="timeout antipattern">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616442359822" ID="ID_476378113" MODIFIED="1616572404221" TEXT="why antipattern">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616435852669" ID="ID_693777526" MODIFIED="1616572404221" TEXT="challenges in distributed architecture">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616435539663" ID="ID_1557711617" MODIFIED="1616572404221" TEXT="remote process availability">
+<node COLOR="#111111" CREATED="1616435925014" ID="ID_1747569283" MODIFIED="1616572404221" TEXT="ability for a consumer to connect"/>
+</node>
+<node COLOR="#111111" CREATED="1616435875843" ID="ID_1459228288" MODIFIED="1616572404221" TEXT="remote process responsiveness">
+<node COLOR="#111111" CREATED="1616435909648" ID="ID_1956327618" MODIFIED="1616572404221" TEXT="time for a service to respond"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1616435947734" ID="ID_321069044" MODIFIED="1616572404222" TEXT="timeout value to prevent waiting indefinitely">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616436209874" ID="ID_844141907" MODIFIED="1616572404222" TEXT="calculate from db timeout"/>
+<node COLOR="#111111" CREATED="1616436273462" ID="ID_1145591032" MODIFIED="1616572404222" TEXT="calculate from max time under load and double it"/>
+<node COLOR="#111111" CREATED="1616436346114" ID="ID_1708739577" MODIFIED="1616572404222" TEXT="consumers have to wait just to find out the service is not responsive"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616522903206" ID="ID_1842957563" MODIFIED="1616572404223" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616522906692" ID="ID_1382693891" MODIFIED="1616572404223" TEXT="circuit breaker pattern">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616522923748" ID="ID_670824849" MODIFIED="1616572404223" TEXT="open if service is not responding">
+<node COLOR="#111111" CREATED="1616522936821" ID="ID_438056440" MODIFIED="1616572404223" TEXT="reject requests to that service"/>
+</node>
+<node COLOR="#111111" CREATED="1616522966161" ID="ID_1567203436" MODIFIED="1616572404223" TEXT="close if service is responding"/>
+<node COLOR="#111111" CREATED="1616522974711" ID="ID_1757041973" MODIFIED="1616572404223" TEXT="continually monitors remote service">
+<node COLOR="#111111" CREATED="1616523156136" ID="ID_1825186504" MODIFIED="1616572404223" TEXT="with heartbeat checks"/>
+<node COLOR="#111111" CREATED="1616523177828" ID="ID_589388136" MODIFIED="1616572404224" TEXT="with synthetic transactions"/>
+<node COLOR="#111111" CREATED="1616523196412" ID="ID_1183872504" MODIFIED="1616572404224" TEXT="with real-time user monitoring">
+<node COLOR="#111111" CREATED="1616523207850" ID="ID_1211074716" MODIFIED="1616572404224" TEXT="check actual production transactions"/>
+<node COLOR="#111111" CREATED="1616523217069" ID="ID_151151578" MODIFIED="1616572404224" TEXT="check against a threshold"/>
+<node COLOR="#111111" CREATED="1616523243551" ID="ID_1281004514" MODIFIED="1616572404224" TEXT="half-open state to allow limited nb of transactions"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616523279344" ID="ID_1575560425" MODIFIED="1616572404225" POSITION="right" TEXT="&quot;I was taught to share&quot; antipattern">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616523289232" ID="ID_1967072495" MODIFIED="1616572404225" TEXT="why antipattern">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616523313459" ID="ID_842215131" MODIFIED="1616572404226" TEXT="always some code to be shared between services">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616523331618" ID="ID_1010961881" MODIFIED="1616572404226" TEXT="dependency nightmare">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523346513" ID="ID_1260914260" MODIFIED="1616572404226" TEXT="breaks bounded context"/>
+<node COLOR="#111111" CREATED="1616523363252" ID="ID_1432542868" MODIFIED="1616572404226" TEXT="introduce several issues">
+<node COLOR="#111111" CREATED="1616523377995" ID="ID_1438071804" MODIFIED="1616572404226" TEXT="overall reliability"/>
+<node COLOR="#111111" CREATED="1616523388093" ID="ID_1404767361" MODIFIED="1616572404226" TEXT="change control"/>
+<node COLOR="#111111" CREATED="1616523391198" ID="ID_1036237003" MODIFIED="1616572404227" TEXT="testability"/>
+<node COLOR="#111111" CREATED="1616523394776" ID="ID_666802599" MODIFIED="1616572404227" TEXT="deployment"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1616523419594" ID="ID_976382394" MODIFIED="1616572404227" TEXT="too many dependencies">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523436424" ID="ID_824177839" MODIFIED="1616572404227" TEXT="more dep between services =&gt; harder to isolate service changes"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616523460730" ID="ID_73865019" MODIFIED="1616572404227" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616523486465" ID="ID_5834186" MODIFIED="1616572404228" TEXT="shared library">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523496049" ID="ID_1770524493" MODIFIED="1616572404228" TEXT="versionned">
+<node COLOR="#111111" CREATED="1616523510359" ID="ID_1233752343" MODIFIED="1616572404228" TEXT="better control on which version to use"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1616523522578" ID="ID_263302447" MODIFIED="1616572404228" TEXT="violate the DRY principle">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523529176" ID="ID_841428223" MODIFIED="1616572404229" TEXT="replicate the shared module">
+<node COLOR="#111111" CREATED="1616523539791" ID="ID_1649382591" MODIFIED="1616572404229" TEXT="useful when module is very stable"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1616523560851" ID="ID_1727193261" MODIFIED="1616572404229" TEXT="service consolidation">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523570580" ID="ID_1227495428" MODIFIED="1616572404229" TEXT="consolidate functionality into a single service"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616523597819" ID="ID_1326836787" MODIFIED="1616572404229" POSITION="right" TEXT="reach-in reporting antipattern">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616523618767" ID="ID_371301387" MODIFIED="1616572404230" TEXT="why antipattern">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616523654565" ID="ID_681294870" MODIFIED="1616572404230" TEXT="3 techniques">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523664578" ID="ID_594293599" MODIFIED="1616572404230" TEXT="database pull model">
+<node COLOR="#111111" CREATED="1616523702986" ID="ID_1331249063" MODIFIED="1616572404230" TEXT="service pull the data directly from the other service db"/>
+<node COLOR="#111111" CREATED="1616523729173" ID="ID_1295346207" MODIFIED="1616572404231" TEXT="leads to interdependence"/>
+<node COLOR="#111111" CREATED="1616523740516" ID="ID_1869629704" MODIFIED="1616572404231" TEXT="no database ownership"/>
+<node COLOR="#111111" CREATED="1616523750619" ID="ID_257807330" MODIFIED="1616572404231" TEXT="break bounded context"/>
+</node>
+<node COLOR="#111111" CREATED="1616523670226" ID="ID_275396287" MODIFIED="1616572404231" TEXT="HTTP pull model">
+<node COLOR="#111111" CREATED="1616523762476" ID="ID_637206039" MODIFIED="1616572404231" TEXT="service makes a HTTP call to the other service"/>
+<node COLOR="#111111" CREATED="1616523789342" ID="ID_1503370775" MODIFIED="1616572404231" TEXT="preserves the bounded context"/>
+<node COLOR="#111111" CREATED="1616523797824" ID="ID_1524360845" MODIFIED="1616572404231" TEXT="it&apos;s too slow"/>
+<node COLOR="#111111" CREATED="1616523806014" ID="ID_99353021" MODIFIED="1616572404231" TEXT="data volume might be too large for a simple HTTP call"/>
+</node>
+<node COLOR="#111111" CREATED="1616523675851" ID="ID_1696180878" MODIFIED="1616572404231" TEXT="batch pull model">
+<node COLOR="#111111" CREATED="1616523833712" ID="ID_918519421" MODIFIED="1616572404232" TEXT="use separate reporting db"/>
+<node COLOR="#111111" CREATED="1616523850812" ID="ID_285672435" MODIFIED="1616572404232" TEXT="populate reporting db through batch jobs"/>
+<node COLOR="#111111" CREATED="1616523880198" ID="ID_1483260891" MODIFIED="1616572404232" TEXT="break bounded context">
+<node COLOR="#111111" CREATED="1616524091142" ID="ID_1872912424" MODIFIED="1616572404232" TEXT="implement shared database integration"/>
+</node>
+<node COLOR="#111111" CREATED="1616524049808" ID="ID_624711672" MODIFIED="1616572404232" TEXT="not optimized for immediate data"/>
+</node>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616523893113" ID="ID_756971322" MODIFIED="1616572404232" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616523680148" ID="ID_1930560657" MODIFIED="1616572404233" TEXT="event-based push model">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616523917413" ID="ID_703887841" MODIFIED="1616572404233" TEXT="asynchronous event processing"/>
+<node COLOR="#111111" CREATED="1616523991060" ID="ID_803204385" MODIFIED="1616572404233" TEXT="complex to implement"/>
+<node COLOR="#111111" CREATED="1616523998030" ID="ID_1817698147" MODIFIED="1616572404233" TEXT="preserve bounded context"/>
+<node COLOR="#111111" CREATED="1616524018128" ID="ID_1799706181" MODIFIED="1616572404233" TEXT="requires contract between each services"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616524111279" ID="ID_1190212655" MODIFIED="1616572404234" POSITION="left" TEXT="grains of sand pitfall">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616524139563" ID="ID_1157747050" MODIFIED="1616572404235" TEXT="define service granularity">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1616524157585" ID="ID_667160595" MODIFIED="1616572404235" TEXT="why pitfall">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616524162899" ID="ID_964405179" MODIFIED="1616572404235" TEXT="when services are too fined-grained">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616524198648" ID="ID_807069790" MODIFIED="1616572404235" TEXT="when services carry too much responsibility">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616524228709" ID="ID_5218642" MODIFIED="1616572404236" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616524233743" ID="ID_1650129856" MODIFIED="1616572404236" TEXT="analyzing service scope and function">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616524261223" ID="ID_10701400" MODIFIED="1616572404236" TEXT="cohesion is a must"/>
+<node COLOR="#111111" CREATED="1616524278187" ID="ID_950728812" MODIFIED="1616572404236" TEXT="documenting or verbally stating scope helps"/>
+<node COLOR="#111111" CREATED="1616524316601" ID="ID_608622708" MODIFIED="1616572404236" TEXT="start out more coarse-grained &amp; move to fine-grained"/>
+</node>
+<node COLOR="#990000" CREATED="1616524340469" ID="ID_1595304425" MODIFIED="1616572404237" TEXT="analyzing database transactions">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616524356107" ID="ID_1380058045" MODIFIED="1616572404237" TEXT="need for ACID transactions">
+<node COLOR="#111111" CREATED="1616524373437" ID="ID_1256047958" MODIFIED="1616572404237" TEXT="atomicity"/>
+<node COLOR="#111111" CREATED="1616524379332" ID="ID_1136973120" MODIFIED="1616572404237" TEXT="consistency"/>
+<node COLOR="#111111" CREATED="1616524383405" ID="ID_1332791646" MODIFIED="1616572404237" TEXT="isolation"/>
+<node COLOR="#111111" CREATED="1616524386010" ID="ID_646748669" MODIFIED="1616572404237" TEXT="durability"/>
+</node>
+<node COLOR="#111111" CREATED="1616524396337" ID="ID_1257311771" MODIFIED="1616572404237" TEXT="difficult for distributed system for ACID transactions"/>
+<node COLOR="#111111" CREATED="1616569558049" ID="ID_895059193" MODIFIED="1616572404237" TEXT="if battling issue around ACID vs BASE">
+<node COLOR="#111111" CREATED="1616569573203" ID="ID_603240875" MODIFIED="1616572404237" TEXT="services too fine-grained"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1616569626358" ID="ID_783678947" MODIFIED="1616572404238" TEXT="analyzing service choreography">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616569642630" ID="ID_1504644820" MODIFIED="1616572404238" TEXT="communication between services">
+<node COLOR="#111111" CREATED="1616569659643" ID="ID_1897302474" MODIFIED="1616572404238" TEXT="inter-service communication"/>
+<node COLOR="#111111" CREATED="1616569672243" ID="ID_683896413" MODIFIED="1616572404238" TEXT="can decrease overall performance"/>
+</node>
+<node COLOR="#111111" CREATED="1616569689180" ID="ID_1347230703" MODIFIED="1616572404238" TEXT="too much choreography">
+<node COLOR="#111111" CREATED="1616569696875" ID="ID_1856784330" MODIFIED="1616572404239" TEXT="impact overall reliability"/>
+<node COLOR="#111111" CREATED="1616569709631" ID="ID_1353949032" MODIFIED="1616572404239" TEXT="impact robustness"/>
+</node>
+<node COLOR="#111111" CREATED="1616569725696" ID="ID_1859725130" MODIFIED="1616572404239" TEXT="too many calls for a single business request">
+<node COLOR="#111111" CREATED="1616569751412" ID="ID_1889842383" MODIFIED="1616572404239" TEXT="service too fined-grained"/>
+<node COLOR="#111111" CREATED="1616569774607" ID="ID_37483745" MODIFIED="1616572404239" TEXT="consolidate services"/>
+</node>
+<node COLOR="#111111" CREATED="1616569812345" ID="ID_360733413" MODIFIED="1616572404239" TEXT="asynchronous parallel processing">
+<node COLOR="#111111" CREATED="1616569831519" ID="ID_17636286" MODIFIED="1616572404239" TEXT="increase overall responsiveness"/>
+</node>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616569847449" ID="ID_556887466" MODIFIED="1616572404240" POSITION="left" TEXT="developer without a cause pitfall">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616569854132" ID="ID_609712410" MODIFIED="1616572404248" TEXT="&quot;developers know the benefits of everything and the tradeoffs of nothing&quot;">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1616570401701" ID="ID_1801174287" MODIFIED="1616572404250" TEXT="why pitfall">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616570421974" ID="ID_200255181" MODIFIED="1616572404250" TEXT="ignore tradeoff">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616570437813" ID="ID_747395849" MODIFIED="1616572404251" TEXT="ask what is the most important">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616570477142" ID="ID_1262075954" MODIFIED="1616572404251" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616570480141" ID="ID_840279752" MODIFIED="1616572404251" TEXT="understand business drivers">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616570491318" ID="ID_191041634" MODIFIED="1616572404251" TEXT="why doing microservices?"/>
+<node COLOR="#111111" CREATED="1616570506167" ID="ID_1254348904" MODIFIED="1616572404251" TEXT="what are the primary business drivers?"/>
+<node COLOR="#111111" CREATED="1616570513844" ID="ID_225569975" MODIFIED="1616572404252" TEXT="what architecture characteristics are most important?"/>
+</node>
+<node COLOR="#990000" CREATED="1616570539561" ID="ID_266657347" MODIFIED="1616572404252" TEXT="reason to move to microservices">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616570554562" ID="ID_848438876" MODIFIED="1616572404252" TEXT="better time to market via effective deployment pipeline"/>
+<node COLOR="#111111" CREATED="1616570584914" ID="ID_1126588786" MODIFIED="1616572404252" TEXT="increase overall reliability and robustness"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616571061227" ID="ID_122521880" MODIFIED="1616572404252" POSITION="left" TEXT="jump on the bandwagon pitfall">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616571211902" ID="ID_1051222681" MODIFIED="1616572404253" TEXT="why pitfall">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616571078415" ID="ID_1685959955" MODIFIED="1616572404253" TEXT="diving into microservices without analyzing">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616571233486" ID="ID_296803912" MODIFIED="1616572404253" TEXT="business needs"/>
+<node COLOR="#111111" CREATED="1616571236927" ID="ID_426131110" MODIFIED="1616572404253" TEXT="overall organizational structure"/>
+<node COLOR="#111111" CREATED="1616571256341" ID="ID_1584091090" MODIFIED="1616572404253" TEXT="technology environment"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616571201731" ID="ID_1477422851" MODIFIED="1616572404254" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616571299699" ID="ID_520213947" MODIFIED="1616572404254" TEXT="understand pros &amp; cons">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616571310773" ID="ID_1823381425" MODIFIED="1616572404254" TEXT="pros">
+<node COLOR="#111111" CREATED="1616571316942" ID="ID_918021584" MODIFIED="1616572404254" TEXT="ease of deployment"/>
+<node COLOR="#111111" CREATED="1616571322183" ID="ID_935108476" MODIFIED="1616572404254" TEXT="testability"/>
+<node COLOR="#111111" CREATED="1616571326791" ID="ID_341388406" MODIFIED="1616572404255" TEXT="change control"/>
+<node COLOR="#111111" CREATED="1616571331071" ID="ID_1803435649" MODIFIED="1616572404255" TEXT="modularity"/>
+<node COLOR="#111111" CREATED="1616571335071" ID="ID_1820944101" MODIFIED="1616572404255" TEXT="scalability"/>
+</node>
+<node COLOR="#111111" CREATED="1616571314574" ID="ID_1060603369" MODIFIED="1616572404255" TEXT="cons">
+<node COLOR="#111111" CREATED="1616571344161" ID="ID_1164467843" MODIFIED="1616572404255" TEXT="organizational change"/>
+<node COLOR="#111111" CREATED="1616571348616" ID="ID_231331544" MODIFIED="1616572404255" TEXT="performance"/>
+<node COLOR="#111111" CREATED="1616571352666" ID="ID_101734483" MODIFIED="1616572404255" TEXT="reliability"/>
+<node COLOR="#111111" CREATED="1616571356312" ID="ID_133837384" MODIFIED="1616572404255" TEXT="devops"/>
+</node>
+</node>
+<node COLOR="#990000" CREATED="1616571364794" ID="ID_1240685854" MODIFIED="1616572404255" TEXT="matching business needs">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616571375498" ID="ID_776413841" MODIFIED="1616572404256" TEXT="what are the business &amp; technical goals?"/>
+<node COLOR="#111111" CREATED="1616571538123" ID="ID_548313645" MODIFIED="1616572404256" TEXT="what am I trying to accomplish with microservices?"/>
+<node COLOR="#111111" CREATED="1616571552258" ID="ID_883834704" MODIFIED="1616572404256" TEXT="what are my current and foreseeable pain points?"/>
+<node COLOR="#111111" CREATED="1616571562968" ID="ID_1043311145" MODIFIED="1616572404256" TEXT="what are the primary driving architcture characteristics?"/>
+</node>
+<node COLOR="#990000" CREATED="1616571588410" ID="ID_542875976" MODIFIED="1616572404256" TEXT="other architecture patterns">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616571599530" ID="ID_178916300" MODIFIED="1616572404256" TEXT="service based architecture"/>
+<node COLOR="#111111" CREATED="1616571608013" ID="ID_1660845078" MODIFIED="1616572404256" TEXT="service oriented architecture"/>
+<node COLOR="#111111" CREATED="1616571615658" ID="ID_1639978422" MODIFIED="1616572404256" TEXT="layered architecture"/>
+<node COLOR="#111111" CREATED="1616571621103" ID="ID_1197566485" MODIFIED="1616572404257" TEXT="microkernel architecture"/>
+<node COLOR="#111111" CREATED="1616571625962" ID="ID_527656529" MODIFIED="1616572404257" TEXT="space based architecture"/>
+<node COLOR="#111111" CREATED="1616571631233" ID="ID_602286600" MODIFIED="1616572404257" TEXT="event-driven architecture"/>
+<node COLOR="#111111" CREATED="1616571639755" ID="ID_862804472" MODIFIED="1616572404257" TEXT="pipeline architecture"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616571646415" ID="ID_1443420079" MODIFIED="1616572404257" POSITION="left" TEXT="static contract pitfall">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616571656339" ID="ID_1369218216" MODIFIED="1616572404258" TEXT="why pitfall">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616571687029" ID="ID_767071808" MODIFIED="1616572404258" TEXT="when fail to version service contracts from the very start">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616571951853" ID="ID_1966573569" MODIFIED="1616572404258" TEXT="changing APIs may takes weeks">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616571984683" ID="ID_851054803" MODIFIED="1616572404259" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616571988553" ID="ID_850610066" MODIFIED="1616572404259" TEXT="versioning at the header">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616571995078" ID="ID_870673062" MODIFIED="1616572404259" TEXT="versioning in the contract">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616572019424" ID="ID_1141527343" MODIFIED="1616572404259" TEXT="independent of the protocol"/>
+<node COLOR="#111111" CREATED="1616572076210" ID="ID_685995551" MODIFIED="1616572404259" TEXT="must parse payload first"/>
+<node COLOR="#111111" CREATED="1616572126103" ID="ID_1058190966" MODIFIED="1616572404260" TEXT="schemas can get complex"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616572112292" ID="ID_468479541" MODIFIED="1616572404260" POSITION="left" TEXT="are we there yet pitfall">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616572143248" ID="ID_1195520825" MODIFIED="1616572404260" TEXT="why pitfall">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616572146583" ID="ID_885402717" MODIFIED="1616572404261" TEXT="call duration unknown">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616572188407" ID="ID_813614371" MODIFIED="1616572404261" TEXT="multiple remote calls">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616572175019" ID="ID_1183611982" MODIFIED="1616572404261" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616572178663" ID="ID_876853992" MODIFIED="1616572404261" TEXT="measure latency">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1616572214935" ID="ID_628807486" MODIFIED="1616572404261" TEXT="comparing protocols">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1616572231135" ID="ID_1358740073" MODIFIED="1616572404262" POSITION="left" TEXT="give it a rest pitfall">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1616572237981" ID="ID_1961704589" MODIFIED="1616572404262" TEXT="why pitfall">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616572242003" ID="ID_1736045182" MODIFIED="1616572404262" TEXT="using REST for every communication">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1616572264728" ID="ID_410421777" MODIFIED="1616572404263" TEXT="mitigation">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1616572307096" ID="ID_723758506" MODIFIED="1616572404263" TEXT="messaging">
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1616572270157" ID="ID_648631550" MODIFIED="1616572404263" TEXT="asynchronous requests"/>
+<node COLOR="#111111" CREATED="1616572291884" ID="ID_357960165" MODIFIED="1616572404263" TEXT="fire and forget"/>
+<node COLOR="#111111" CREATED="1616572326695" ID="ID_1694255532" MODIFIED="1616572404263" TEXT="broadcast"/>
+<node COLOR="#111111" CREATED="1616572342510" ID="ID_1242044685" MODIFIED="1616572404264" TEXT="transacted requests"/>
+</node>
+</node>
+</node>
+</node>
+</map>
