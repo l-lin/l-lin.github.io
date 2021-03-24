@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>xubuntu - Tag - Blog on software development</title>
+        <title>xubuntu - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/xubuntu/</link>
-        <description>xubuntu - Tag - Blog on software development</description>
+        <description>xubuntu - Tag - Hello, world</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 27 Aug 2015 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/xubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>How to share internet connexion to mobile using bluetooth USB key</title>
     <link>https://l-lin.github.io/2015-08-27-internet_sharing_with_bluetooth_usb_key/</link>

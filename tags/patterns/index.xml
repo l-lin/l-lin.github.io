@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>patterns - Tag - Blog on software development</title>
+        <title>patterns - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/patterns/</link>
-        <description>patterns - Tag - Blog on software development</description>
+        <description>patterns - Tag - Hello, world</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Sep 2018 10:38:53 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/patterns/" rel="self" type="application/rss+xml" /><item>
     <title>Throttling pattern</title>
     <link>https://l-lin.github.io/2018-09-13-throttling_pattern/</link>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>chrome - Tag - Blog on software development</title>
+        <title>chrome - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/chrome/</link>
-        <description>chrome - Tag - Blog on software development</description>
+        <description>chrome - Tag - Hello, world</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 28 Feb 2015 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://l-lin.github.io/tags/chrome/" rel="self" type="application/rss+xml" /><item>
     <title>Chrome extension and &#39;Access-Control-Allow-Origin&#39;</title>
     <link>https://l-lin.github.io/2015-02-28-chrome_extension_and_origin_not_allowed/</link>

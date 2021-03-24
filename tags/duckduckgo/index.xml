@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>duckduckgo - Tag - Blog on software development</title>
+        <title>duckduckgo - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/duckduckgo/</link>
-        <description>duckduckgo - Tag - Blog on software development</description>
+        <description>duckduckgo - Tag - Hello, world</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 02 Apr 2019 09:18:10 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/duckduckgo/" rel="self" type="application/rss+xml" /><item>
     <title>Download DDG image file with Go</title>
     <link>https://l-lin.github.io/2019-04-02-download_ddg_image_file_with_go/</link>

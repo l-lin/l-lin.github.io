@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>api - Tag - Blog on software development</title>
+        <title>api - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/api/</link>
-        <description>api - Tag - Blog on software development</description>
+        <description>api - Tag - Hello, world</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 24 Jun 2019 09:28:18 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/api/" rel="self" type="application/rss+xml" /><item>
     <title>Mind map - API management</title>
     <link>https://l-lin.github.io/2019-06-24-mind_map-api_management/</link>

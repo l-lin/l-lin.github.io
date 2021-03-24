@@ -1,9 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>post - Category - Blog on software development</title>
+        <title>post - Category - Hello, world</title>
         <link>https://l-lin.github.io/categories/post/</link>
-        <description>post - Category - Blog on software development</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+        <description>post - Category - Hello, world</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Mar 2021 08:56:03 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+    <title>Microservices antipatterns and pitfalls</title>
+    <link>https://l-lin.github.io/2021-03-24-microservices_antipatterns_and_pitfalls/</link>
+    <pubDate>Wed, 24 Mar 2021 08:56:03 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-03-24-microservices_antipatterns_and_pitfalls/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>FFmpeg - useful commands</title>
     <link>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</link>
     <pubDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</pubDate>
@@ -82,17 +89,5 @@ efficient Dockerfiles.</p>]]></description>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/518FqJvR9aL._SY445_QL70_ML2_.jpg" referrerpolicy="no-referrer">
             </div>]]></description>
-</item><item>
-    <title>Project structures</title>
-    <link>https://l-lin.github.io/2020-05-02-project-structures/</link>
-    <pubDate>Sat, 02 May 2020 19:37:18 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-05-02-project-structures/</guid>
-    <description><![CDATA[<p>Structuring a project is not really exciting, nor is it the main focus in a project life, but it&rsquo;s
-certainly one of the most important decision to make at the beginning of the project if you do not
-want to have a massive refactoring afterwards and if you want your project to be quickly understood
-and workable by other developers.</p>
-<p>If you want to directly check the code:
-<a href="https://github.com/l-lin/architecture-cheat-sheet/tree/master/project-structures" target="_blank" rel="noopener noreffer">Github project</a></p>]]></description>
 </item></channel>
 </rss>

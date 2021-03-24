@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>centos - Tag - Blog on software development</title>
+        <title>centos - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/centos/</link>
-        <description>centos - Tag - Blog on software development</description>
+        <description>centos - Tag - Hello, world</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Feb 2018 13:19:45 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/centos/" rel="self" type="application/rss+xml" /><item>
     <title>How to add a new Tomcat service on CentOS7</title>
     <link>https://l-lin.github.io/2018-02-23-centos7_add_new_tomcat_service/</link>
