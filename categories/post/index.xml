@@ -3,7 +3,16 @@
         <title>post - Category - Hello, world</title>
         <link>https://l-lin.github.io/categories/post/</link>
         <description>post - Category - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Mar 2021 08:56:03 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 05 Apr 2021 09:35:31 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+    <title>Kafka cheatsheet</title>
+    <link>https://l-lin.github.io/2021-04-05-kafka_cheatsheet/</link>
+    <pubDate>Mon, 05 Apr 2021 09:35:31 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-04-05-kafka_cheatsheet/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
     <title>Microservices antipatterns and pitfalls</title>
     <link>https://l-lin.github.io/2021-03-24-microservices_antipatterns_and_pitfalls/</link>
     <pubDate>Wed, 24 Mar 2021 08:56:03 &#43;0100</pubDate>
@@ -80,14 +89,5 @@ efficient Dockerfiles.</p>]]></description>
     <author>Author</author>
     <guid>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</guid>
     <description><![CDATA[]]></description>
-</item><item>
-    <title>The Pragmatic Programmer</title>
-    <link>https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/</link>
-    <pubDate>Sun, 17 May 2020 14:50:13 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-05-17-the_pragmatic_programmer/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/518FqJvR9aL._SY445_QL70_ML2_.jpg" referrerpolicy="no-referrer">
-            </div>]]></description>
 </item></channel>
 </rss>

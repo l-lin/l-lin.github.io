@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Kafka cheatsheet - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="Kafka cheatsheet" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2021-04-05-kafka_cheatsheet/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-04-05T09:35:31+02:00" />
+<meta property="article:modified_time" content="2021-04-05T15:10:12+02:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Kafka cheatsheet"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2021-04-05-kafka_cheatsheet/" /><link rel="prev" href="https://l-lin.github.io/2021-03-24-microservices_antipatterns_and_pitfalls/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Kafka cheatsheet",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2021-04-05-kafka_cheatsheet\/"
+        },"genre": "posts","wordcount":  2306 ,
+        "url": "https:\/\/l-lin.github.io\/2021-04-05-kafka_cheatsheet\/","datePublished": "2021-04-05T09:35:31+02:00","dateModified": "2021-04-05T15:10:12+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hello, world">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/resources/"> Resources </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hello, world">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/resources/" title="">Resources</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Kafka cheatsheet</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-05">2021-04-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2306 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png"
+        data-srcset="https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png, https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png 1.5x, https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png 2x"
+        data-sizes="auto"
+        alt="https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png"
+        title="https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#concepts">Concepts</a>
+      <ul>
+        <li><a href="#producers-and-consumers">Producers and consumers</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#consumer-groups">Consumer groups</a></li>
+        <li><a href="#rebalancing--repartition">Rebalancing / Repartition</a></li>
+        <li><a href="#partition-assignment-strategies">Partition assignment strategies</a>
+          <ul>
+            <li><a href="#rangeassignor">RangeAssignor</a></li>
+            <li><a href="#roundrobinassignor">RoundRobinAssignor</a></li>
+            <li><a href="#stickyassignor">StickyAssignor</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#useful-commands">Useful commands</a>
+      <ul>
+        <li><a href="#using-kafka-client-scripts">Using Kafka client scripts</a></li>
+        <li><a href="#using-docker">Using Docker</a></li>
+        <li><a href="#using-kafkactlhttpsgithubcomdeviceinsightkafkactl">Using <a href="https://github.com/deviceinsight/kafkactl">kafkactl</a></a></li>
+        <li><a href="#in-java">In Java</a></li>
+      </ul>
+    </li>
+    <li><a href="#docker-compose">docker-compose</a>
+      <ul>
+        <li><a href="#single-node">Single node</a></li>
+        <li><a href="#cluster-of-3-nodes">Cluster of 3 nodes</a></li>
+        <li><a href="#web-ui">Web UI</a></li>
+      </ul>
+    </li>
+    <li><a href="#partitions">Partitions</a>
+      <ul>
+        <li><a href="#how-to-choose-the-number-of-partitions-for-a-topic">How to choose the number of partitions for a topic</a></li>
+        <li><a href="#add-partitions-to-an-existing-topic">Add partitions to an existing topic</a></li>
+      </ul>
+    </li>
+    <li><a href="#checking-consumer-lags">Checking consumer lags</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="concepts">Concepts</h2>
+<p>Kafka is a distributed, replicated commit log:</p>
+<ul>
+<li><strong>Distributed</strong>: Kafka is deployed as a cluster of nodes, for both fault tolerance and scale</li>
+<li><strong>Replicated</strong>: messages are usually replicated across multiple nodes</li>
+<li><strong>Commit Log</strong>: messages are stored in partitioned, append only logs which are called Topics</li>
+</ul>
+<p>Kafka components:</p>
+<ul>
+<li>A Kafka cluster stores categories called <strong>Topics</strong></li>
+<li>A cluster consist of one or more servers called <strong>Brokers</strong></li>
+<li>Each Topic maintains a <strong>partitioned</strong> log</li>
+<li>A Topic may have <strong>many</strong> partitions which all act as the unit of parallelism</li>
+<li><strong>Replicas</strong> is the list of Brokers that replicate the log for this partition</li>
+</ul>
+<h3 id="producers-and-consumers">Producers and consumers</h3>
+<p><strong>Producers</strong> are client applications that publish events to Kafka.</p>
+<p><strong>Consumers</strong> are those that subscribe to these events.</p>
+<p>In Kafka, producers and consumers are fully decoupled and agnostic of each other, which is a key
+design element to achieve the high scalability (producers never need to wait for consumers).</p>
+<h3 id="topics">Topics</h3>
+<p>Events are organized and durably stored in <strong>Topics</strong>.</p>
+<p><strong>Topics</strong> are split into multiple <strong>Partitions</strong>. In a cluster, there a is only one leader
+partition, the rest are replicas.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">+---------+   +---------+
+| Topic A |   | Topic B |
+|         |   |         |
+|+-------+|   |+-------+|
+||Part 0 ||   ||Part 0 ||
+|+-------+|   |+-------+|
+|         |   |         |
+|+-------+|   |+-------+|
+||Part 1 ||   ||Part 1 ||
+|+-------+|   |+-------+|
+|         |   |         |
+|+-------+|   +---------+
+||Part 2 ||
+|+-------+|
+|         |
++---------+
+</code></pre></td></tr></table>
+</div>
+</div><p>Each partition is a separate data structure which guarantee message ordering, i.e. message ordering
+is only guarantee within a single partition.</p>
+<p>The producer just appends the message at the end of the partition.</p>
+<p>Consumers can consume from the same partition but they can read from different offsets.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> +--------+    writes
+ |producer|-----------+
+ +--------+           |
+       partition 1    v
+       +-+-+-+-+-+-+-+-+
+       | | | | | | | | |
+       +-+-+-+-+-+-+-+-+
+          ^     ^
+          |     |          +----------+
+          |     +----------|consumer 1|
+          |        reads   +----------+
+          |           +----------+
+          +-----------|consumer 2|
+            reads     +----------+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="consumer-groups">Consumer groups</h3>
+<p><strong>Consumer groups</strong> may contains multiple consumers where each one in the group will process a
+subset of all the messages in the topic.</p>
+<p>1 producer, 3 partitions and 1 consumer group with 3 consumers:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">            +--------+
+            |producer|
+            +--------+
+                |
+          +-----+-----+
+          |     |     |
+          v     v     v
+        +----------------+
+        |+--+  +--+  +--+|
+Topic A ||P0|  |P1|  |P2||
+        |+--+  +--+  +--+|
+        +----------------+
+          |     |     |
+          v     v     v
+        +----------------+
+        |+--+  +--+  +--+|
+        ||C0|  |C1|  |C2||
+        |+--+  +--+  +--+|
+        +----------------+
+          consumer group
+</code></pre></td></tr></table>
+</div>
+</div><p>1 producer, 5 partitions and 1 consumer group with 3 consumers:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                        +--------+
+                        |producer|
+                        +--------+
+                            |
+            +-------+-------+-------+-------+
+            |       |       |       |       |
+            v       v       v       v       v
+        +--------------------------------------+
+        |+----+  +----+  +----+  +----+  +----+|
+Topic A || P0 |  | P1 |  | P2 |  | P3 |  | P4 ||
+        |+----+  +----+  +----+  +----+  +----+|
+        +--------------------------------------+
+           |       |       |       |       |
+           +---+---+       |       +---+---+
+               |           |           |
+               v           v           v
+            +------------------------------+
+            | +--+        +--+        +--+ |
+            | |C0|        |C1|        |C2| |
+            | +--+        +--+        +--+ |
+            +------------------------------+
+                     consumer group
+</code></pre></td></tr></table>
+</div>
+</div><p>One idle consumer:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                +--------+
+                |producer|
+                +--------+
+                    |
+            +-------+-------+
+            |       |       |
+            v       v       v
+        +----------------------+
+        |+----+  +----+  +----+|
+Topic A || P0 |  | P1 |  | P2 ||
+        |+----+  +----+  +----+|
+        +----------------------+
+           |       |       |
+           v       v       v
+         +---------------------------+
+         |+--+    +--+    +--+   +--+|
+         ||C0|    |C1|    |C2|   |C3||
+         |+--+    +--+    +--+   +--+|
+         +---------------------------+
+                consumer group
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="rebalancing--repartition">Rebalancing / Repartition</h3>
+<p>Rebalancing is automatically triggered after:</p>
+<ul>
+<li>a consumer joins a consumer group</li>
+<li>a consumer leaves a consumer group</li>
+<li>new partitions are added</li>
+</ul>
+<p>Rebalancing will cause a short period of extra latency while consumers stop reading batches of
+messages and get assigned to different partitions.</p>
+<p>⚠️ Upon rebalancing, any memory data will be useless unless the consumer get assigned back to
+the same partition. Therefore consumers needs to implement a re-partitioning logic to either
+maintain the data state by persisting externally or to remove it from its memory.</p>
+<p>Consumer can implement the interface <code>org.apache.kafka.clients.consumer.ConsumerRebalanceListener</code>,
+which is a listener that will be called when a rebalancing occurs.</p>
+<h3 id="partition-assignment-strategies">Partition assignment strategies</h3>
+<p>Kafka clients provides 3 build-in strategies: <strong>RangeAssignor, RoundRobinAssignor and StickyAssignor</strong>.</p>
+<h4 id="rangeassignor">RangeAssignor</h4>
+<p>RangeAssignor is the default strategy.</p>
+<blockquote>
+<p>Strategy useful to join records from two topics which have the same number of partitions and the
+same key-partitioning logic.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">        Topic A       Topic B
+     +-----------+ +-----------+
+     |  P0   P1  | |  P0   P1  |
+     | +--+ +--+ | | +--+ +--+ |
+     | |  | |  | | | |  | |  | |
+     | |  | |  | | | |  | |  | |
+     | +--+ +--+ | | +--+ +--+ |
+     +-----------+ +-----------+
+        |     |       |    |
+        +++-----------+    |
+         ||   |+-----------+
+         ||   ||
+         vv   vv
+      +----------------+
+      | +--+ +--+ +--+ |
+      | |C1| |C2| |C3| |
+      | +--+ +--+ +--+ |
+      +----------------+
+        consumer group
+
+</code></pre></td></tr></table>
+</div>
+</div><p>Assignments:</p>
+<ul>
+<li><code>C1 = {A0, B0}</code></li>
+<li><code>C2 = {A1, B1}</code></li>
+<li><code>C3 = {}</code></li>
+</ul>
+<h4 id="roundrobinassignor">RoundRobinAssignor</h4>
+<blockquote>
+<p>Maximize the number of consumers used but does not attempt to reduce partition movements the
+number of consumers changes.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">        Topic A       Topic B
+     +-----------+ +-----------+
+     |  P0   P1  | |  P0   P1  |
+     | +--+ +--+ | | +--+ +--+ |
+     | |  | |  | | | |  | |  | |
+     | |  | |  | | | |  | |  | |
+     | +--+ +--+ | | +--+ +--+ |
+     +-----------+ +-----------+
+        |     |       |    |
+        +-+----------------+
+          |   |       |
+          |   |       |
+          |   |    +--+
+          |   |    |
+          v   v    v
+      +----------------+
+      | +--+ +--+ +--+ |
+      | |C1| |C2| |C3| |
+      | +--+ +--+ +--+ |
+      +----------------+
+        consumer group
+
+</code></pre></td></tr></table>
+</div>
+</div><p>Assignments:</p>
+<ul>
+<li><code>C1 = {A0, B1}</code></li>
+<li><code>C2 = {A1}</code></li>
+<li><code>C3 = {B0}</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">        Topic A       Topic B
+     +-----------+ +-----------+
+     |  P0   P1  | |  P0   P1  |
+     | +--+ +--+ | | +--+ +--+ |
+     | |  | |  | | | |  | |  | |
+     | |  | |  | | | |  | |  | |
+     | +--+ +--+ | | +--+ +--+ |
+     +-----------+ +-----------+
+        |     |       |    |
+        +-+-----------+    |
+          |   |            |
+          |   |            |
+          |   +----+-------+
+          |        |
+          v        v
+      +----------------+
+      | +--+ +--+ +--+ |
+      | |C1| |XX| |C3| |
+      | +--+ +--+ +--+ |
+      +----------------+
+        consumer group
+
+</code></pre></td></tr></table>
+</div>
+</div><p>The C2 dies, new assignments:</p>
+<ul>
+<li><code>C1 = {A0, B0}</code></li>
+<li><code>C2 = {}</code></li>
+<li><code>C3 = {A1, B1}</code></li>
+</ul>
+<p>=&gt; unnecessary partition movement may have an impact on consumer performance.</p>
+<h4 id="stickyassignor">StickyAssignor</h4>
+<blockquote>
+<p>Same as RoundRobinAssignor, but tries to minimize partition movements between two assignments.</p>
+</blockquote>
+<p>Same scenario as RoundRobinAssignor, and if C2 dies / leaves:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">        Topic A       Topic B
+     +-----------+ +-----------+
+     |  P0   P1  | |  P0   P1  |
+     | +--+ +--+ | | +--+ +--+ |
+     | |  | |  | | | |  | |  | |
+     | |  | |  | | | |  | |  | |
+     | +--+ +--+ | | +--+ +--+ |
+     +-----------+ +-----------+
+        |     |       |    |
+        +-+----------------+
+          |   |       |
+          |   |       |
+          |   +----+--+
+          |        |
+          v        v
+      +----------------+
+      | +--+ +--+ +--+ |
+      | |C1| |XX| |C3| |
+      | +--+ +--+ +--+ |
+      +----------------+
+        consumer group
+
+</code></pre></td></tr></table>
+</div>
+</div><p>The C2 dies, new assignments:</p>
+<ul>
+<li><code>C1 = {A0, B1}</code></li>
+<li><code>C2 = {}</code></li>
+<li><code>C3 = {A1, B0}</code></li>
+</ul>
+<p>C1 keeps assigned to the same partitions.</p>
+<h4 id="resources">Resources</h4>
+<ul>
+<li><a href="https://medium.com/streamthoughts/understanding-kafka-partition-assignment-strategies-and-how-to-write-your-own-custom-assignor-ebeda1fc06f3">https://medium.com/streamthoughts/understanding-kafka-partition-assignment-strategies-and-how-to-write-your-own-custom-assignor-ebeda1fc06f3</a></li>
+</ul>
+<h2 id="useful-commands">Useful commands</h2>
+<h3 id="using-kafka-client-scripts">Using Kafka client scripts</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># create topic</span>
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions <span class="m">1</span> --replication-factor <span class="m">1</span> --topic my-topic
+docker run -it --rm --network host 
+<span class="c1"># list topics</span>
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+<span class="c1"># modifying topics</span>
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic my-topic --partitions <span class="m">40</span>
+
+<span class="c1"># producers</span>
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic my-topic
+
+<span class="c1"># consumers</span>
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-topic
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="using-docker">Using Docker</h3>
+<p>Same as using Kafka client scripts, but using the docker image:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># e.g. list topics</span>
+docker run -it --rm --network host confluentinc/cp-kafka:5.4.1 <span class="se">\
+</span><span class="se"></span>  /usr/bin/kafka-topics --bootstrap-server localhost:9092 -list
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="using-kafkactlhttpsgithubcomdeviceinsightkafkactl">Using <a href="https://github.com/deviceinsight/kafkactl" target="_blank" rel="noopener noreffer">kafkactl</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># topics</span>
+kafkactl get topics
+kafkactl create topic my-topic --partitions<span class="o">=</span><span class="m">2</span>
+kafkactl alter topic my-topic -c retention.ms<span class="o">=</span><span class="m">99999</span>
+kafkactl describe topic my-topic
+kafkactl delete topic my-topic
+
+<span class="c1"># produce</span>
+<span class="nb">echo</span> <span class="s2">&#34;key##value&#34;</span> <span class="p">|</span> kafkactl produce my-topic --separator<span class="o">=</span><span class="c1">##</span>
+<span class="c1"># consume starting from the oldest offset</span>
+kafkactl consume my-topic --from-beginning
+<span class="c1"># print message key and timestamp as well as partition and offset in yaml format</span>
+kafkactl consume my-topic --print-keys --print-timestamp -o yaml
+<span class="c1"># print headers</span>
+kafkactl consume my-topic --print-headers -o yaml
+
+<span class="c1"># reset offset to my-group consumer group to oldest</span>
+kafkactl reset consumer-group-offset my-group --topic my-topic --oldest --execute
+<span class="c1"># show info on my-group consumer group, only on topics with lags</span>
+kafkactl describe consumer-group my-group --only-with-lag
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="in-java">In Java</h3>
+<p>Add kafka-clients dependency:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.kafka<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>kafka-clients<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Producer:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">lin.louis.demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.producer.KafkaProducer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.producer.ProducerConfig</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.producer.ProducerRecord</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.producer.RecordMetadata</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.common.serialization.StringSerializer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.UUID</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutionException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKafkaProducer</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ExecutionException</span><span class="o">,</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+        <span class="n">Properties</span> <span class="n">props</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">BOOTSTRAP_SERVERS_CONFIG</span><span class="o">,</span> <span class="s">&#34;localhost:9092&#34;</span><span class="o">);</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">CLIENT_ID_CONFIG</span><span class="o">,</span> <span class="n">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">ENABLE_IDEMPOTENCE_CONFIG</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">KEY_SERIALIZER_CLASS_CONFIG</span><span class="o">,</span> <span class="n">StringSerializer</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">VALUE_SERIALIZER_CLASS_CONFIG</span><span class="o">,</span> <span class="n">StringSerializer</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ProducerConfig</span><span class="o">.</span><span class="na">ACKS_CONFIG</span><span class="o">,</span> <span class="s">&#34;all&#34;</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">(</span><span class="n">KafkaProducer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">kafkaProducer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KafkaProducer</span><span class="o">&lt;&gt;(</span><span class="n">props</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">ProducerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">producerRecord</span> <span class="o">=</span>
+                    <span class="k">new</span> <span class="n">ProducerRecord</span><span class="o">&lt;&gt;(</span><span class="s">&#34;my-topic&#34;</span><span class="o">,</span> <span class="s">&#34;key&#34;</span><span class="o">,</span> <span class="s">&#34;value&#34;</span><span class="o">);</span>
+            <span class="n">RecordMetadata</span> <span class="n">recordMetadata</span> <span class="o">=</span> <span class="n">kafkaProducer</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">producerRecord</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;offset:&#34;</span> <span class="o">+</span> <span class="n">recordMetadata</span><span class="o">.</span><span class="na">offset</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Consumer:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">lin.louis.demo</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.consumer.ConsumerConfig</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.consumer.KafkaConsumer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.clients.consumer.StickyAssignor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.kafka.common.serialization.StringDeserializer</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.net.InetAddress</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.UnknownHostException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.Duration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoKafkaConsumer</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Duration</span> <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="n">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">UnknownHostException</span> <span class="o">{</span>
+        <span class="n">Properties</span> <span class="n">props</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">BOOTSTRAP_SERVERS_CONFIG</span><span class="o">,</span> <span class="s">&#34;localhost:9092&#34;</span><span class="o">);</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">GROUP_ID_CONFIG</span><span class="o">,</span> <span class="s">&#34;message-consumer&#34;</span><span class="o">);</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">CLIENT_ID_CONFIG</span><span class="o">,</span> <span class="n">InetAddress</span><span class="o">.</span><span class="na">getLocalHost</span><span class="o">().</span><span class="na">getHostName</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">AUTO_OFFSET_RESET_CONFIG</span><span class="o">,</span> <span class="s">&#34;earliest&#34;</span><span class="o">);</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">PARTITION_ASSIGNMENT_STRATEGY_CONFIG</span><span class="o">,</span> <span class="n">StickyAssignor</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">KEY_DESERIALIZER_CLASS_CONFIG</span><span class="o">,</span> <span class="n">StringDeserializer</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">VALUE_DESERIALIZER_CLASS_CONFIG</span><span class="o">,</span> <span class="n">StringDeserializer</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">MAX_POLL_RECORDS_CONFIG</span><span class="o">,</span> <span class="n">1</span><span class="o">);</span>
+        <span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">ConsumerConfig</span><span class="o">.</span><span class="na">ENABLE_AUTO_COMMIT_CONFIG</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">(</span><span class="n">KafkaConsumer</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">kafkaConsumer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KafkaConsumer</span><span class="o">&lt;&gt;(</span><span class="n">props</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">kafkaConsumer</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="n">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&#34;my-topic&#34;</span><span class="o">));</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">isInterrupted</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">kafkaConsumer</span><span class="o">.</span><span class="na">poll</span><span class="o">(</span><span class="n">TIMEOUT</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">consumerRecord</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span>
+                                <span class="s">&#34;key: &#34;</span> <span class="o">+</span> <span class="n">consumerRecord</span><span class="o">.</span><span class="na">key</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; - value: &#34;</span> <span class="o">+</span> <span class="n">consumerRecord</span><span class="o">.</span><span class="na">value</span><span class="o">()));</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="docker-compose">docker-compose</h2>
+<h3 id="single-node">Single node</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># ZOOKEEPER ------------------------------------------------------------------------------------</span><span class="w">
+</span><span class="w">  </span><span class="k">zk</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-zookeeper<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>zk<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">2181</span><span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_CLIENT_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_TICK_TIME</span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">  </span><span class="c"># KAFKA ----------------------------------------------------------------------------------------</span><span class="w">
+</span><span class="w">  </span><span class="k">kafka</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-kafka<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>kafka<span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- zk<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">9092</span><span class="p">:</span><span class="m">9092</span><span class="w">
+</span><span class="w">      </span>- <span class="m">29092</span><span class="p">:</span><span class="m">29092</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_BROKER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ZOOKEEPER_CONNECT</span><span class="p">:</span><span class="w"> </span>zk<span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_LISTENER_SECURITY_PROTOCOL_MAP</span><span class="p">:</span><span class="w"> </span>PLAINTEXT<span class="p">:</span>PLAINTEXT<span class="p">,</span>PLAINTEXT_HOST<span class="p">:</span>PLAINTEXT<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span>PLAINTEXT<span class="p">:</span>//kafka<span class="p">:</span><span class="m">29092</span><span class="p">,</span>PLAINTEXT_HOST<span class="p">:</span>//localhost<span class="p">:</span><span class="m">9092</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="cluster-of-3-nodes">Cluster of 3 nodes</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># ZOOKEEPERS ------------------------------------------------------------------------------------</span><span class="w">
+</span><span class="w">  </span><span class="k">zk1</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-zookeeper<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SERVER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_CLIENT_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_TICK_TIME</span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_INIT_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SYNC_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SERVERS</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;zk2<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;zk3<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span><span class="w">
+</span><span class="w">  </span><span class="k">zk2</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-zookeeper<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SERVER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_CLIENT_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_TICK_TIME</span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_INIT_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SYNC_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SERVERS</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;zk2<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;zk3<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span><span class="w">
+</span><span class="w">  </span><span class="k">zk3</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-zookeeper<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SERVER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_CLIENT_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_TICK_TIME</span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_INIT_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SYNC_LIMIT</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_SERVERS</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;zk2<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;zk3<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span><span class="w">
+</span><span class="w">  </span><span class="c"># KAFKAS ----------------------------------------------------------------------------------------</span><span class="w">
+</span><span class="w">  </span><span class="k">kafka1</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-kafka<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- zk1<span class="w">
+</span><span class="w">      </span>- zk2<span class="w">
+</span><span class="w">      </span>- zk3<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_BROKER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ZOOKEEPER_CONNECT</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2181</span><span class="p">,</span>zk2<span class="p">:</span><span class="m">2181</span><span class="p">,</span>zk3<span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span>PLAINTEXT<span class="p">:</span>//kafka1<span class="p">:</span><span class="m">9092</span><span class="w">
+</span><span class="w">  </span><span class="k">kafka2</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-kafka<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- zk1<span class="w">
+</span><span class="w">      </span>- zk2<span class="w">
+</span><span class="w">      </span>- zk3<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_BROKER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ZOOKEEPER_CONNECT</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2181</span><span class="p">,</span>zk2<span class="p">:</span><span class="m">2181</span><span class="p">,</span>zk3<span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span>PLAINTEXT<span class="p">:</span>//kafka2<span class="p">:</span><span class="m">9092</span><span class="w">
+</span><span class="w">  </span><span class="k">kafka3</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-kafka<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- zk1<span class="w">
+</span><span class="w">      </span>- zk2<span class="w">
+</span><span class="w">      </span>- zk3<span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_BROKER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ZOOKEEPER_CONNECT</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2181</span><span class="p">,</span>zk2<span class="p">:</span><span class="m">2181</span><span class="p">,</span>zk3<span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span>PLAINTEXT<span class="p">:</span>//kafka3<span class="p">:</span><span class="m">9092</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Note: we cannot exploit the docker-compose <code>--scale</code> feature as we need to configure the Kafka
+advertised listeners and Kafka Zookeeper connects.</p>
+<h3 id="web-ui">Web UI</h3>
+<p>Using <a href="https://github.com/cloudhut/kowl" target="_blank" rel="noopener noreffer">Kowl</a> as a web UI for exploring messages, consumers,
+configurations:</p>
+<p>Create a <code>config.yml</code> with the following content:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># See: https://github.com/cloudhut/kowl/tree/master/docs/config for reference config files.</span><span class="w">
+</span><span class="w"></span><span class="k">kafka</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">brokers</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- kafka<span class="p">:</span><span class="m">29092</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Add the service in the docker-compose.yml:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">kowl</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>quay.io/cloudhut/kowl<span class="p">:</span>v1<span class="m">.2.1</span><span class="w">
+</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>on-failure<span class="w">
+</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- config.yml<span class="p">:</span>/etc/kowl/config.yml<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">9080</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span><span class="w">    </span><span class="k">entrypoint</span><span class="p">:</span><span class="w"> </span>./kowl<span class="w"> </span>--config.filepath=/etc/kowl/config.yml<span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- kafka<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="partitions">Partitions</h2>
+<h3 id="how-to-choose-the-number-of-partitions-for-a-topic">How to choose the number of partitions for a topic</h3>
+<p><strong>Simple formula</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#Partitions = max(Np, Nc)
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>Np</code> is the number of required producers determined by calculating <code>Tt/Tp</code></li>
+<li><code>Nc</code> is the number of required consumers determined by calculating <code>Tt/Tc</code></li>
+<li><code>Tt</code> is the total expected throughput for the system</li>
+<li><code>Tp</code> is the max throughput of a single producer to a single partition</li>
+<li><code>Tc</code> is the max throughput of a single consumer from a single partition</li>
+</ul>
+<p><strong>Considerations</strong></p>
+<ul>
+<li>more partitions lead to higher throughput</li>
+<li>more partitions requires more open file handles</li>
+<li>more partitions may increase unavailability</li>
+<li>more partitions may increase end-to-end latency</li>
+<li>more partitions may require more memory in the client</li>
+</ul>
+<p><strong>Sources</strong></p>
+<ul>
+<li><a href="https://docs.cloudera.com/runtime/7.2.0/kafka-performance-tuning/topics/kafka-tune-sizing-partition-number.html">https://docs.cloudera.com/runtime/7.2.0/kafka-performance-tuning/topics/kafka-tune-sizing-partition-number.html</a></li>
+<li><a href="https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/">https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/</a></li>
+<li><a href="https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines">https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines</a></li>
+</ul>
+<h3 id="add-partitions-to-an-existing-topic">Add partitions to an existing topic</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># kafka client script</span>
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic my-topic --partitions <span class="m">40</span>
+<span class="c1"># with docker</span>
+docker run -it --rm --network host confluentinc/cp-kafka:5.4.1 <span class="se">\
+</span><span class="se"></span>  /usr/bin/kafka-topics --bootstrap-server localhost:9092 -alter --topic my-topic --partitions <span class="m">40</span>
+<span class="c1"># with kafkactl</span>
+kafkactl alter topic my-topic --partitions <span class="m">40</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>However, be aware of re-partitioning when using key:</p>
+<blockquote>
+<p>Be aware that one use case for partitions is to semantically partition data, and adding partitions doesn&rsquo;t change the partitioning of existing data so this may disturb consumers if they rely on that partition. That is if data is partitioned by hash(key) % number_of_partitions then this partitioning will potentially be shuffled by adding partitions but Kafka will not attempt to automatically redistribute data in any way.</p>
+</blockquote>
+<h2 id="checking-consumer-lags">Checking consumer lags</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># kafka client script</span>
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-group --new-consumer
+<span class="c1"># with docker</span>
+docker run -it --rm --network host confluentinc/cp-kafka:5.4.1 <span class="se">\
+</span><span class="se"></span>  /usr/bin/kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group --new-consumer
+<span class="c1"># with kafkactl</span>
+kafkactl describe consumer-group my-group --only-with-lag
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-04-05&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/628cca34ec94f6d7be825c5830ea2de111f965b7" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 628cca34ec94f6d7be825c5830ea2de111f965b7: post: add kafka cheatsheet">
+                                    <i class="fas fa-hashtag fa-fw"></i>628cca3</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2021-04-05-kafka_cheatsheet/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-03-24-microservices_antipatterns_and_pitfalls/" class="prev" rel="prev" title="Microservices antipatterns and pitfalls"><i class="fas fa-angle-left fa-fw"></i>Microservices antipatterns and pitfalls</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"l-lin/l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
