@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://l-lin.github.io/2021-04-05-kafka_cheatsheet/" />
 <meta property="og:image" content="https://l-lin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-04-05T09:35:31+02:00" />
-<meta property="article:modified_time" content="2021-04-05T15:10:12+02:00" />
+<meta property="article:modified_time" content="2021-04-16T20:37:25+02:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
 
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/l-lin.github.io\/2021-04-05-kafka_cheatsheet\/"
-        },"genre": "posts","wordcount":  2306 ,
-        "url": "https:\/\/l-lin.github.io\/2021-04-05-kafka_cheatsheet\/","datePublished": "2021-04-05T09:35:31+02:00","dateModified": "2021-04-05T15:10:12+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","wordcount":  2786 ,
+        "url": "https:\/\/l-lin.github.io\/2021-04-05-kafka_cheatsheet\/","datePublished": "2021-04-05T09:35:31+02:00","dateModified": "2021-04-16T20:37:25+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -106,8 +106,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Kafka cheatsheet</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-05">2021-04-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2306 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-05">2021-04-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2786 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;14 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -150,6 +150,16 @@
       <ul>
         <li><a href="#single-node">Single node</a></li>
         <li><a href="#cluster-of-3-nodes">Cluster of 3 nodes</a></li>
+        <li><a href="#sasl--ssl">SASL + SSL</a>
+          <ul>
+            <li><a href="#generate-certificates">Generate certificates</a></li>
+            <li><a href="#create-jaas-config-files-for-authentication">Create JAAS config files for authentication</a></li>
+            <li><a href="#launch-kafka-in-sasl_ssl-mode">Launch Kafka in SASL_SSL mode</a></li>
+            <li><a href="#connect-with-kafka-scripts">Connect with Kafka scripts</a></li>
+            <li><a href="#connect-using-kafkactl">Connect using Kafkactl</a></li>
+            <li><a href="#connect-using-java">Connect using Java</a></li>
+          </ul>
+        </li>
         <li><a href="#web-ui">Web UI</a></li>
       </ul>
     </li>
@@ -1124,7 +1134,345 @@ kafkactl describe consumer-group my-group --only-with-lag
 </div>
 </div><p>Note: we cannot exploit the docker-compose <code>--scale</code> feature as we need to configure the Kafka
 advertised listeners and Kafka Zookeeper connects.</p>
-<h3 id="web-ui">Web UI</h3>
+<h3 id="sasl--ssl">SASL + SSL</h3>
+<h4 id="generate-certificates">Generate certificates</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nb">set</span> -o nounset <span class="se">\
+</span><span class="se"></span>  -o errexit <span class="se">\
+</span><span class="se"></span>  -o verbose <span class="se">\
+</span><span class="se"></span>  -o xtrace
+
+<span class="c1"># Generate CA key</span>
+openssl req -new -x509 -keyout ca.key -out ca.crt -days <span class="m">9999</span> -subj <span class="s1">&#39;/CN=ca.test.localhost/OU=TEST/O=LOCAL/L=Paris/S=Ca/C=FR&#39;</span> -passin pass:ssl-secret -passout pass:ssl-secret
+
+<span class="c1"># kafkactl</span>
+openssl genrsa -out kafkactl.client.key <span class="m">2048</span>
+openssl req -passin <span class="s2">&#34;pass:ssl-secret&#34;</span> -passout <span class="s2">&#34;pass:ssl-secret&#34;</span> -key kafkactl.client.key -new -out kafkactl.client.req -subj <span class="s1">&#39;/CN=kafkactl.test.localhost/OU=TEST/O=LOCAL/L=Paris/S=Ca/C=FR&#39;</span>
+openssl x509 -req -CA ca.crt -CAkey ca.key -in kafkactl.client.req -out kafkactl-ca-signed.pem -days <span class="m">9999</span> -CAcreateserial -passin <span class="s2">&#34;pass:ssl-secret&#34;</span>
+
+<span class="k">for</span> i in kafka producer consumer
+<span class="k">do</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+  <span class="c1"># Create keystores</span>
+  keytool -genkey -noprompt <span class="se">\
+</span><span class="se"></span>    -alias <span class="nv">$i</span> <span class="se">\
+</span><span class="se"></span>    -dname <span class="s2">&#34;CN=</span><span class="nv">$i</span><span class="s2">.test.localhost, OU=TEST, O=LOCAL, L=Paris, S=Ca, C=FR&#34;</span> <span class="se">\
+</span><span class="se"></span>    -keystore <span class="nv">$i</span>.keystore.jks <span class="se">\
+</span><span class="se"></span>    -keyalg RSA <span class="se">\
+</span><span class="se"></span>    -storepass ssl-secret <span class="se">\
+</span><span class="se"></span>    -keypass ssl-secret
+
+  <span class="c1"># Create CSR, sign the key and import back into keystore</span>
+  keytool -keystore <span class="nv">$i</span>.keystore.jks -alias <span class="nv">$i</span> -certreq -file <span class="nv">$i</span>.csr -storepass ssl-secret -keypass ssl-secret
+
+  openssl x509 -req -CA ca.crt -CAkey ca.key -in <span class="nv">$i</span>.csr -out <span class="nv">$i</span>-ca-signed.crt -days <span class="m">9999</span> -CAcreateserial -passin pass:ssl-secret
+
+  keytool -keystore <span class="nv">$i</span>.keystore.jks -alias CARoot -import -file ca.crt -storepass ssl-secret -keypass ssl-secret -noprompt
+
+  keytool -keystore <span class="nv">$i</span>.keystore.jks -alias <span class="nv">$i</span> -import -file <span class="nv">$i</span>-ca-signed.crt -storepass ssl-secret -keypass ssl-secret -noprompt
+
+  <span class="c1"># Create truststore and import the CA cert.</span>
+  keytool -keystore <span class="nv">$i</span>.truststore.jks -alias CARoot -import -file ca.crt -storepass ssl-secret -keypass ssl-secret -noprompt
+
+  <span class="nb">echo</span> <span class="s2">&#34;ssl-secret&#34;</span> &gt; <span class="si">${</span><span class="nv">i</span><span class="si">}</span>_sslkey_creds
+  <span class="nb">echo</span> <span class="s2">&#34;ssl-secret&#34;</span> &gt; <span class="si">${</span><span class="nv">i</span><span class="si">}</span>_keystore_creds
+  <span class="nb">echo</span> <span class="s2">&#34;ssl-secret&#34;</span> &gt; <span class="si">${</span><span class="nv">i</span><span class="si">}</span>_truststore_creds
+<span class="k">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Execute the script to a folder <code>/path/to/kafka/secrets</code>.</p>
+<h4 id="create-jaas-config-files-for-authentication">Create JAAS config files for authentication</h4>
+<p>Add the JAAS conf files in the same <code>/path/to/kafka/secrets</code> folder.</p>
+<p><code>zk_jaas.conf</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">Server {
+  org.apache.zookeeper.server.auth.DigestLoginModule required
+  user_admin=&#34;admin-secret&#34;
+  user_kafka=&#34;kafka-secret&#34;;
+};
+</code></pre></td></tr></table>
+</div>
+</div><p><code>kafka_jaas.conf</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">KafkaServer {
+  org.apache.kafka.common.security.plain.PlainLoginModule required
+  username=&#34;admin&#34;
+  password=&#34;admin-secret&#34;
+  user_admin=&#34;admin-secret&#34;
+  user_producer=&#34;producer-secret&#34;
+  user_consumer=&#34;consumer-secret&#34;;
+};
+
+Client {
+  org.apache.zookeeper.server.auth.DigestLoginModule required
+  username=&#34;kafka&#34;
+  password=&#34;kafka-secret&#34;;
+};
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="launch-kafka-in-sasl_ssl-mode">Launch Kafka in SASL_SSL mode</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">zk-sasl</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-zookeeper<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>zk-sasl<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">12181</span><span class="p">:</span><span class="m">12181</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_CLIENT_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">12181</span><span class="w">
+</span><span class="w">      </span><span class="k">ZOOKEEPER_TICK_TIME</span><span class="p">:</span><span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_OPTS</span><span class="p">:</span><span class="w"> </span>-Djava.security.auth.login.config=/etc/kafka/sasl/zk_jaas.conf<span class="w">
+</span><span class="w">        </span>-Dzookeeper.authProvider<span class="m">.1</span>=org.apache.zookeeper.server.auth.SASLAuthenticationProvider<span class="w">
+</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- /path/to/kafka/sasl/zk_jaas.conf<span class="p">:</span>/etc/kafka/sasl/zk_jaas.conf<span class="w">
+</span><span class="w">  </span><span class="k">kafka-sasl-ssl</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>confluentinc/cp-kafka<span class="p">:</span><span class="m">5.4.1</span><span class="w">
+</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>kafka-sasl-ssl<span class="w">
+</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- zk-sasl<span class="w">
+</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">19092</span><span class="p">:</span><span class="m">19092</span><span class="w">
+</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_BROKER_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ZOOKEEPER_CONNECT</span><span class="p">:</span><span class="w"> </span>zk-sasl<span class="p">:</span><span class="m">12181</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span>SASL_SSL<span class="p">:</span>//localhost<span class="p">:</span><span class="m">19092</span><span class="w">
+</span><span class="w">      </span><span class="c"># encryption</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_KEYSTORE_FILENAME</span><span class="p">:</span><span class="w"> </span>kafka.keystore.jks<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_KEYSTORE_CREDENTIALS</span><span class="p">:</span><span class="w"> </span>kafka_keystore_creds<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_KEY_CREDENTIALS</span><span class="p">:</span><span class="w"> </span>kafka_sslkey_creds<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_TRUSTSTORE_FILENAME</span><span class="p">:</span><span class="w"> </span>kafka.truststore.jks<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_TRUSTSTORE_CREDENTIALS</span><span class="p">:</span><span class="w"> </span>kafka_truststore_creds<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SECURITY_INTER_BROKER_PROTOCOL</span><span class="p">:</span><span class="w"> </span>SASL_SSL<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34; &#34;</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SSL_CLIENT_AUTH</span><span class="p">:</span><span class="w"> </span>required<span class="w">
+</span><span class="w">      </span><span class="c"># authentication</span><span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL</span><span class="p">:</span><span class="w"> </span>PLAIN<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_SASL_ENABLED_MECHANISMS</span><span class="p">:</span><span class="w"> </span>PLAIN<span class="w">
+</span><span class="w">      </span><span class="k">KAFKA_OPTS</span><span class="p">:</span><span class="w"> </span>-Djava.security.auth.login.config=/etc/kafka/sasl/kafka_jaas.conf<span class="w">
+</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- /path/to/kafka/secrets<span class="p">:</span>/etc/kafka/secrets<span class="w">
+</span><span class="w">      </span>- /path/to/kafka/sasl/kafka_jaas.conf<span class="p">:</span>/etc/kafka/sasl/kafka_jaas.conf<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="connect-with-kafka-scripts">Connect with Kafka scripts</h4>
+<p>Create <code>client_security.properties</code> with the following content to connect to Kafka in SASL_SSL:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">security.protocol=SASL_SSL
+ssl.truststore.location=/path/to/kafka/secrets/consumer.truststore.jks
+ssl.truststore.password=ssl-secret
+ssl.endpoint.identification.algorithm=
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+    username=&#34;consumer&#34; \
+    password=&#34;consumer-secret&#34;;
+</code></pre></td></tr></table>
+</div>
+</div><p>Then:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">kafka-console-producer --broker-list kafka:19092 --topic test-topic --producer.config client_security.properties
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="connect-using-kafkactl">Connect using Kafkactl</h4>
+<p>Add the following context:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">contexts</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">default</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">brokers</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- localhost<span class="p">:</span><span class="m">9092</span><span class="w">
+</span><span class="w">  </span><span class="k">sasl-ssl</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">brokers</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- localhost<span class="p">:</span><span class="m">19092</span><span class="w">
+</span><span class="w">    </span><span class="k">sasl</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="k">mechanism</span><span class="p">:</span><span class="w"> </span>plaintext<span class="w">
+</span><span class="w">      </span><span class="k">password</span><span class="p">:</span><span class="w"> </span>admin-secret<span class="w">
+</span><span class="w">      </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>admin<span class="w">
+</span><span class="w">    </span><span class="k">tls</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span><span class="k">cert</span><span class="p">:</span><span class="w"> </span>/path/to/kafka/secrets/kafkactl-ca-signed.pem<span class="w">
+</span><span class="w">      </span><span class="k">certKey</span><span class="p">:</span><span class="w"> </span>/path/to/kafka/secrets/kafkactl.client.key<span class="w">
+</span><span class="w">      </span><span class="k">insecure</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="k">current-context</span><span class="p">:</span><span class="w"> </span>sasl-ssl<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="connect-using-java">Connect using Java</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// encryption
+</span><span class="c1"></span><span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">CommonClientConfigs</span><span class="o">.</span><span class="na">SECURITY_PROTOCOL_CONFIG</span><span class="o">,</span> <span class="s">&#34;SASL_SSL&#34;</span><span class="o">);</span>
+<span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">SslConfigs</span><span class="o">.</span><span class="na">SSL_TRUSTSTORE_LOCATION_CONFIG</span><span class="o">,</span> <span class="s">&#34;/path/to/kafka/secrets/producer.truststore.jks&#34;</span><span class="o">);</span>
+<span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">SslConfigs</span><span class="o">.</span><span class="na">SSL_TRUSTSTORE_PASSWORD_CONFIG</span><span class="o">,</span> <span class="s">&#34;ssl-secret&#34;</span><span class="o">);</span>
+<span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">SslConfigs</span><span class="o">.</span><span class="na">SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">);</span>
+<span class="c1">// authentication
+</span><span class="c1"></span><span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">SaslConfigs</span><span class="o">.</span><span class="na">SASL_MECHANISM</span><span class="o">,</span> <span class="s">&#34;PLAIN&#34;</span><span class="o">);</span>
+<span class="n">props</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">SaslConfigs</span><span class="o">.</span><span class="na">SASL_JAAS_CONFIG</span><span class="o">,</span> <span class="s">&#34;org.apache.kafka.common.security.plain.PlainLoginModule required username=\&#34;producer\&#34; password=\&#34;producer-secret\&#34;;&#34;</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="web-ui">Web UI</h3>
 <p>Using <a href="https://github.com/cloudhut/kowl" target="_blank" rel="noopener noreffer">Kowl</a> as a web UI for exploring messages, consumers,
 configurations:</p>
 <p>Create a <code>config.yml</code> with the following content:</p>
@@ -1255,8 +1603,8 @@ kafkactl describe consumer-group my-group --only-with-lag
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-04-05&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/628cca34ec94f6d7be825c5830ea2de111f965b7" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 628cca34ec94f6d7be825c5830ea2de111f965b7: post: add kafka cheatsheet">
-                                    <i class="fas fa-hashtag fa-fw"></i>628cca3</a></span>
+                <span>Updated on 2021-04-16&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/277f08a107aeb6f6d96350795643f1e34d4ebe57" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 277f08a107aeb6f6d96350795643f1e34d4ebe57: post: add kafka SASL_SSL">
+                                    <i class="fas fa-hashtag fa-fw"></i>277f08a</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
