@@ -585,6 +585,195 @@ services:
 Note: we cannot exploit the docker-compose `--scale` feature as we need to configure the Kafka
 advertised listeners and Kafka Zookeeper connects.
 
+### SASL + SSL
+#### Generate certificates
+
+```bash
+#!/bin/bash
+
+set -o nounset \
+  -o errexit \
+  -o verbose \
+  -o xtrace
+
+# Generate CA key
+openssl req -new -x509 -keyout ca.key -out ca.crt -days 9999 -subj '/CN=ca.test.localhost/OU=TEST/O=LOCAL/L=Paris/S=Ca/C=FR' -passin pass:ssl-secret -passout pass:ssl-secret
+
+# kafkactl
+openssl genrsa -out kafkactl.client.key 2048
+openssl req -passin "pass:ssl-secret" -passout "pass:ssl-secret" -key kafkactl.client.key -new -out kafkactl.client.req -subj '/CN=kafkactl.test.localhost/OU=TEST/O=LOCAL/L=Paris/S=Ca/C=FR'
+openssl x509 -req -CA ca.crt -CAkey ca.key -in kafkactl.client.req -out kafkactl-ca-signed.pem -days 9999 -CAcreateserial -passin "pass:ssl-secret"
+
+for i in kafka producer consumer
+do
+  echo $i
+  # Create keystores
+  keytool -genkey -noprompt \
+    -alias $i \
+    -dname "CN=$i.test.localhost, OU=TEST, O=LOCAL, L=Paris, S=Ca, C=FR" \
+    -keystore $i.keystore.jks \
+    -keyalg RSA \
+    -storepass ssl-secret \
+    -keypass ssl-secret
+
+  # Create CSR, sign the key and import back into keystore
+  keytool -keystore $i.keystore.jks -alias $i -certreq -file $i.csr -storepass ssl-secret -keypass ssl-secret
+
+  openssl x509 -req -CA ca.crt -CAkey ca.key -in $i.csr -out $i-ca-signed.crt -days 9999 -CAcreateserial -passin pass:ssl-secret
+
+  keytool -keystore $i.keystore.jks -alias CARoot -import -file ca.crt -storepass ssl-secret -keypass ssl-secret -noprompt
+
+  keytool -keystore $i.keystore.jks -alias $i -import -file $i-ca-signed.crt -storepass ssl-secret -keypass ssl-secret -noprompt
+
+  # Create truststore and import the CA cert.
+  keytool -keystore $i.truststore.jks -alias CARoot -import -file ca.crt -storepass ssl-secret -keypass ssl-secret -noprompt
+
+  echo "ssl-secret" > ${i}_sslkey_creds
+  echo "ssl-secret" > ${i}_keystore_creds
+  echo "ssl-secret" > ${i}_truststore_creds
+done
+```
+
+Execute the script to a folder `/path/to/kafka/secrets`.
+
+#### Create JAAS config files for authentication
+
+Add the JAAS conf files in the same `/path/to/kafka/secrets` folder.
+
+`zk_jaas.conf`:
+
+```text
+Server {
+  org.apache.zookeeper.server.auth.DigestLoginModule required
+  user_admin="admin-secret"
+  user_kafka="kafka-secret";
+};
+```
+
+`kafka_jaas.conf`:
+
+```text
+KafkaServer {
+  org.apache.kafka.common.security.plain.PlainLoginModule required
+  username="admin"
+  password="admin-secret"
+  user_admin="admin-secret"
+  user_producer="producer-secret"
+  user_consumer="consumer-secret";
+};
+
+Client {
+  org.apache.zookeeper.server.auth.DigestLoginModule required
+  username="kafka"
+  password="kafka-secret";
+};
+```
+
+#### Launch Kafka in SASL_SSL mode
+
+```yaml
+version: '3'
+services:
+  zk-sasl:
+    image: confluentinc/cp-zookeeper:5.4.1
+    container_name: zk-sasl
+    ports:
+      - 12181:12181
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 12181
+      ZOOKEEPER_TICK_TIME: 2000
+      KAFKA_OPTS: -Djava.security.auth.login.config=/etc/kafka/sasl/zk_jaas.conf
+        -Dzookeeper.authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+    volumes:
+      - /path/to/kafka/sasl/zk_jaas.conf:/etc/kafka/sasl/zk_jaas.conf
+  kafka-sasl-ssl:
+    image: confluentinc/cp-kafka:5.4.1
+    container_name: kafka-sasl-ssl
+    depends_on:
+      - zk-sasl
+    ports:
+      - 19092:19092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zk-sasl:12181
+      KAFKA_ADVERTISED_LISTENERS: SASL_SSL://localhost:19092
+      # encryption
+      KAFKA_SSL_KEYSTORE_FILENAME: kafka.keystore.jks
+      KAFKA_SSL_KEYSTORE_CREDENTIALS: kafka_keystore_creds
+      KAFKA_SSL_KEY_CREDENTIALS: kafka_sslkey_creds
+      KAFKA_SSL_TRUSTSTORE_FILENAME: kafka.truststore.jks
+      KAFKA_SSL_TRUSTSTORE_CREDENTIALS: kafka_truststore_creds
+      KAFKA_SECURITY_INTER_BROKER_PROTOCOL: SASL_SSL
+      KAFKA_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: " "
+      KAFKA_SSL_CLIENT_AUTH: required
+      # authentication
+      KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
+      KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
+      KAFKA_OPTS: -Djava.security.auth.login.config=/etc/kafka/sasl/kafka_jaas.conf
+    volumes:
+      - /path/to/kafka/secrets:/etc/kafka/secrets
+      - /path/to/kafka/sasl/kafka_jaas.conf:/etc/kafka/sasl/kafka_jaas.conf
+```
+
+#### Connect with Kafka scripts
+
+Create `client_security.properties` with the following content to connect to Kafka in SASL_SSL:
+
+```properties
+security.protocol=SASL_SSL
+ssl.truststore.location=/path/to/kafka/secrets/consumer.truststore.jks
+ssl.truststore.password=ssl-secret
+ssl.endpoint.identification.algorithm=
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \
+    username="consumer" \
+    password="consumer-secret";
+```
+
+Then:
+
+```bash
+kafka-console-producer --broker-list kafka:19092 --topic test-topic --producer.config client_security.properties
+```
+
+#### Connect using Kafkactl
+
+Add the following context:
+
+```yaml
+contexts:
+  default:
+    brokers:
+    - localhost:9092
+  sasl-ssl:
+    brokers:
+    - localhost:19092
+    sasl:
+      enabled: true
+      mechanism: plaintext
+      password: admin-secret
+      username: admin
+    tls:
+      enabled: true
+      cert: /path/to/kafka/secrets/kafkactl-ca-signed.pem
+      certKey: /path/to/kafka/secrets/kafkactl.client.key
+      insecure: true
+current-context: sasl-ssl
+```
+
+#### Connect using Java
+
+```java
+// encryption
+props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
+props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/path/to/kafka/secrets/producer.truststore.jks");
+props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "ssl-secret");
+props.put(SslConfigs.SSL_ENDPOINT_IDENTIFICATION_ALGORITHM_CONFIG, "");
+// authentication
+props.put(SaslConfigs.SASL_MECHANISM, "PLAIN");
+props.put(SaslConfigs.SASL_JAAS_CONFIG, "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"producer\" password=\"producer-secret\";");
+```
+
 ### Web UI
 
 Using [Kowl](https://github.com/cloudhut/kowl) as a web UI for exploring messages, consumers,
