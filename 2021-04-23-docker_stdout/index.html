@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>How to make a Docker application write to stdout - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="How to make a Docker application write to stdout" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2021-04-23-docker_stdout/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-04-23T14:25:55+02:00" />
+<meta property="article:modified_time" content="2021-04-23T15:15:47+02:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="How to make a Docker application write to stdout"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2021-04-23-docker_stdout/" /><link rel="prev" href="https://l-lin.github.io/2021-04-05-kafka_cheatsheet/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to make a Docker application write to stdout",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2021-04-23-docker_stdout\/"
+        },"genre": "posts","keywords": "docker","wordcount":  237 ,
+        "url": "https:\/\/l-lin.github.io\/2021-04-23-docker_stdout\/","datePublished": "2021-04-23T14:25:55+02:00","dateModified": "2021-04-23T15:15:47+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hello, world">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/resources/"> Resources </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hello, world">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/resources/" title="">Resources</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">How to make a Docker application write to stdout</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-23">2021-04-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;237 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="content" id="content"><p>Some applications do not redirect their logs to the stdout but rather to some files. Hence, when
+putting in a Docker image, the output of the docker logs doesn&rsquo;t display the logs of the
+application.</p>
+<p>In other cases, a docker image contains background processes and they are not attached to docker
+log collector, i.e. performing <code>docker log &lt;container_name&gt;</code> does not display their content.</p>
+<p>Having their logs displayed directly from the docker logs can be useful for various reasons:</p>
+<ul>
+<li>a simple <code>docker logs</code> will read the logs, instead of reading the log file in the container</li>
+<li>some tools leverages the docker logs to collect and aggregate into a logging system (e.g. ELK)</li>
+</ul>
+<p>If the application is running as PID 1, we can create a symbolic link to <code>/dev/stdout</code> from the log
+files that the application is writing to. The result will then not write into a file but go to
+<code>stdout</code> and <code>stderr</code>.</p>
+<p>Example of a Dockerfile that add this &ldquo;hack&rdquo;:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">FROM</span><span class="s"> debian</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># forward request and error logs to docker log collector</span><span class="err">
+</span><span class="err"></span><span class="c"># assuming the app is producing logs into access.log and error.log</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> ln -sf /dev/stdout /var/log/access.log <span class="se">\
+</span><span class="se"></span>  ln -sf /dev/stderr /var/log/error.log<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/app&#34;</span><span class="p">,</span> <span class="s2">&#34;--not-logging-to-stdout&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>If the application is not running as PID 1, instead of <code>/dev/stdout</code>, we can use <code>/proc/1/fd/1</code>
+instead.</p>
+<p>Note: we could directly use <code>/proc/1/fd/1</code> for both cases, but I prefer the <code>/dev/stdout</code> syntax as
+it&rsquo;s more understandable.</p>
+<p>Source: <a href="https://serverfault.com/questions/599103/make-a-docker-application-write-to-stdout">https://serverfault.com/questions/599103/make-a-docker-application-write-to-stdout</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-04-23&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/17407c2b46f452fa65add6bae18a9e9bbe5c998b" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 17407c2b46f452fa65add6bae18a9e9bbe5c998b: post: add how to make a docker application write to stdout">
+                                    <i class="fas fa-hashtag fa-fw"></i>17407c2</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2021-04-23-docker_stdout/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-04-05-kafka_cheatsheet/" class="prev" rel="prev" title="Kafka cheatsheet"><i class="fas fa-angle-left fa-fw"></i>Kafka cheatsheet</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"l-lin/l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -3,7 +3,14 @@
         <title>docker - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/docker/</link>
         <description>docker - Tag - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 20 Oct 2020 09:36:02 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Apr 2021 14:25:55 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>How to make a Docker application write to stdout</title>
+    <link>https://l-lin.github.io/2021-04-23-docker_stdout/</link>
+    <pubDate>Fri, 23 Apr 2021 14:25:55 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-04-23-docker_stdout/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Write secure and efficient Dockerfiles</title>
     <link>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</link>
     <pubDate>Tue, 20 Oct 2020 09:36:02 &#43;0200</pubDate>

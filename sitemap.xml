@@ -2,13 +2,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://l-lin.github.io/categories/</loc><lastmod>2021-04-16T20:37:25&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/categories/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/tags/docker/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/2021-04-23-docker_stdout/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/posts/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/tags/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/2021-04-05-kafka_cheatsheet/</loc><lastmod>2021-04-16T20:37:25&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2021-04-16T20:37:25&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://l-lin.github.io/posts/</loc><lastmod>2021-04-16T20:37:25&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://l-lin.github.io/2021-03-24-microservices_antipatterns_and_pitfalls/</loc><lastmod>2021-03-24T09:00:44&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>https://l-lin.github.io/tags/mindmaps/</loc><lastmod>2021-03-24T09:00:44&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>https://l-lin.github.io/tags/</loc><lastmod>2021-03-24T09:00:44&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>https://l-lin.github.io/2021-03-24-microservices_antipatterns_and_pitfalls/</loc><lastmod>2021-03-24T09:00:44&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>https://l-lin.github.io/tags/mindmaps/</loc><lastmod>2021-03-24T09:00:44&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://l-lin.github.io/tags/ffmpeg/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -17,7 +19,6 @@
             <loc>https://l-lin.github.io/tags/spring/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2020-10-31-nginx_cors/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/nginx/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/tags/docker/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2020-09-29-difficult_conversations/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

@@ -3,7 +3,14 @@
         <title>post - Category - Hello, world</title>
         <link>https://l-lin.github.io/categories/post/</link>
         <description>post - Category - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 05 Apr 2021 09:35:31 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Apr 2021 14:25:55 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+    <title>How to make a Docker application write to stdout</title>
+    <link>https://l-lin.github.io/2021-04-23-docker_stdout/</link>
+    <pubDate>Fri, 23 Apr 2021 14:25:55 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-04-23-docker_stdout/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Kafka cheatsheet</title>
     <link>https://l-lin.github.io/2021-04-05-kafka_cheatsheet/</link>
     <pubDate>Mon, 05 Apr 2021 09:35:31 &#43;0200</pubDate>
@@ -82,12 +89,5 @@ efficient Dockerfiles.</p>]]></description>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://s3-us-west-2.amazonaws.com/tabs.web.media/c/2/c2sk/c2sk-square-orig.jpg" referrerpolicy="no-referrer">
             </div>]]></description>
-</item><item>
-    <title>Some tips and tricks in Docker Compose</title>
-    <link>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</link>
-    <pubDate>Tue, 25 Aug 2020 09:18:05 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-08-25-docker-compose-tips-n-tricks/</guid>
-    <description><![CDATA[]]></description>
 </item></channel>
 </rss>
