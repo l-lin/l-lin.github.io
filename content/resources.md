@@ -193,4 +193,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Planning poker online](https://planningpokeronline.com/): secretly vote your estimation without influencing others
 - [Dollar Street](https://lectures.dollarstreet.org): see how families live around the world
 - [Linux one-liners](https://linuxcommandlibrary.com/basic/oneliners.html)
+- [Lofi cafe](https://lofi.cafe/)
 
