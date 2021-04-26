@@ -3,7 +3,18 @@
         <title>post - Category - Hello, world</title>
         <link>https://l-lin.github.io/categories/post/</link>
         <description>post - Category - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Apr 2021 14:25:55 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Apr 2021 10:12:38 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+    <title>From 8 to 16</title>
+    <link>https://l-lin.github.io/2021-04-26-java-from_8_to_16/</link>
+    <pubDate>Mon, 26 Apr 2021 10:12:38 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-04-26-java-from_8_to_16/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1" referrerpolicy="no-referrer">
+            </div><p><a href="https://jdk.java.net/16/" target="_blank" rel="noopener noreffer">Java 16</a> is released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+and begin to use the new language features Java brings with its versions.</p>
+<p>In this post, I will only cover some of the newest Java features.</p>]]></description>
+</item><item>
     <title>How to make a Docker application write to stdout</title>
     <link>https://l-lin.github.io/2021-04-23-docker_stdout/</link>
     <pubDate>Fri, 23 Apr 2021 14:25:55 &#43;0200</pubDate>
@@ -79,15 +90,6 @@ efficient Dockerfiles.</p>]]></description>
     <guid>https://l-lin.github.io/2020-09-29-difficult_conversations/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/418o27lNqRL._SX324_BO1,204,203,200_.jpg" referrerpolicy="no-referrer">
-            </div>]]></description>
-</item><item>
-    <title>The subtle art of not giving a fck</title>
-    <link>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</link>
-    <pubDate>Mon, 21 Sep 2020 09:26:31 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-09-21-not_giving_a_fuck/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://s3-us-west-2.amazonaws.com/tabs.web.media/c/2/c2sk/c2sk-square-orig.jpg" referrerpolicy="no-referrer">
             </div>]]></description>
 </item></channel>
 </rss>

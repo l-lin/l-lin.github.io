@@ -3,7 +3,18 @@
         <title>java - Tag - Hello, world</title>
         <link>https://l-lin.github.io/tags/java/</link>
         <description>java - Tag - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Feb 2021 15:21:47 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/tags/java/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Apr 2021 10:12:38 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/java/" rel="self" type="application/rss+xml" /><item>
+    <title>From 8 to 16</title>
+    <link>https://l-lin.github.io/2021-04-26-java-from_8_to_16/</link>
+    <pubDate>Mon, 26 Apr 2021 10:12:38 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-04-26-java-from_8_to_16/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1" referrerpolicy="no-referrer">
+            </div><p><a href="https://jdk.java.net/16/" target="_blank" rel="noopener noreffer">Java 16</a> is released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+and begin to use the new language features Java brings with its versions.</p>
+<p>In this post, I will only cover some of the newest Java features.</p>]]></description>
+</item><item>
     <title>How to extract thread and heap dump from running JRE in container</title>
     <link>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</link>
     <pubDate>Thu, 04 Feb 2021 15:21:47 &#43;0100</pubDate>
@@ -30,17 +41,6 @@ and workable by other developers.</p>
     <guid>https://l-lin.github.io/2020-04-15-docker-debug_java_container/</guid>
     <description><![CDATA[<p>Debugging a Java container is the same as debugging a remote Java application. All you need to do is
 to add some arguments to the JVM, run the Java application and attach the debugger.</p>]]></description>
-</item><item>
-    <title>From 8 to 14</title>
-    <link>https://l-lin.github.io/2020-03-05-java-from_8_to_14/</link>
-    <pubDate>Thu, 05 Mar 2020 09:13:03 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-03-05-java-from_8_to_14/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1" referrerpolicy="no-referrer">
-            </div><p><a href="https://jdk.java.net/14/" target="_blank" rel="noopener noreffer">Java 14</a> will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
-and begin to use the new language features Java brings with its versions.</p>
-<p>In this post, I will only cover some of the newest Java features.</p>]]></description>
 </item><item>
     <title>Custom validator for standard constraints</title>
     <link>https://l-lin.github.io/2018-12-04-custom_validator_for_standard_constraints/</link>

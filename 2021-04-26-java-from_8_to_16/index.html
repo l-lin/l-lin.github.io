@@ -5,36 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>From 8 to 14 - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="From 8 to 14" />
-<meta property="og:description" content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+        <title>From 8 to 16 - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="From 8 to 16" />
+<meta property="og:description" content="Java 16 is released and it&rsquo;s time to leave our good ol&rsquo; Java 8
 and begin to use the new language features Java brings with its versions.
 In this post, I will only cover some of the newest Java features." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/2020-03-05-java-from_8_to_14/" />
+<meta property="og:url" content="https://l-lin.github.io/2021-04-26-java-from_8_to_16/" />
 <meta property="og:image" content="https://l-lin.github.io/logo.png"/>
-<meta property="article:published_time" content="2020-03-05T09:13:03+01:00" />
-<meta property="article:modified_time" content="2021-02-10T17:11:09+01:00" />
+<meta property="article:published_time" content="2021-04-26T10:12:38+02:00" />
+<meta property="article:modified_time" content="2021-04-26T10:13:33+02:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
 
-<meta name="twitter:title" content="From 8 to 14"/>
-<meta name="twitter:description" content="Java 14 will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+<meta name="twitter:title" content="From 8 to 16"/>
+<meta name="twitter:description" content="Java 16 is released and it&rsquo;s time to leave our good ol&rsquo; Java 8
 and begin to use the new language features Java brings with its versions.
 In this post, I will only cover some of the newest Java features."/>
 <meta name="application-name" content="l-lin">
 <meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2020-03-05-java-from_8_to_14/" /><link rel="prev" href="https://l-lin.github.io/2020-02-14-sed/" /><link rel="next" href="https://l-lin.github.io/2020-04-13-playing_with_kafka/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2021-04-26-java-from_8_to_16/" /><link rel="prev" href="https://l-lin.github.io/2021-04-23-docker_stdout/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "From 8 to 14",
+        "headline": "From 8 to 16",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/l-lin.github.io\/2020-03-05-java-from_8_to_14\/"
-        },"genre": "posts","keywords": "java","wordcount":  1486 ,
-        "url": "https:\/\/l-lin.github.io\/2020-03-05-java-from_8_to_14\/","datePublished": "2020-03-05T09:13:03+01:00","dateModified": "2021-02-10T17:11:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/l-lin.github.io\/2021-04-26-java-from_8_to_16\/"
+        },"genre": "posts","keywords": "java","wordcount":  1638 ,
+        "url": "https:\/\/l-lin.github.io\/2021-04-26-java-from_8_to_16\/","datePublished": "2021-04-26T10:12:38+02:00","dateModified": "2021-04-26T10:13:33+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -108,10 +108,10 @@ In this post, I will only cover some of the newest Java features."/>
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">From 8 to 14</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">From 8 to 16</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-05">2020-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1486 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-26">2021-04-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1638 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -166,11 +166,19 @@ In this post, I will only cover some of the newest Java features."/>
       <ul>
         <li><a href="#pattern-matching-for-instanceof">Pattern matching for instanceof</a></li>
         <li><a href="#records">Records</a></li>
+        <li><a href="#helpful-nullpointerexceptions">Helpful NullPointerExceptions</a></li>
+        <li><a href="#jpackage">JPackage</a></li>
       </ul>
     </li>
+    <li><a href="#java-15">Java 15</a>
+      <ul>
+        <li><a href="#sealed-classes">Sealed classes</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-16">Java 16</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><a href="https://jdk.java.net/14/" target="_blank" rel="noopener noreffer">Java 14</a> will soon be released and it&rsquo;s time to leave our good ol&rsquo; Java 8
+            </div><div class="content" id="content"><p><a href="https://jdk.java.net/16/" target="_blank" rel="noopener noreffer">Java 16</a> is released and it&rsquo;s time to leave our good ol&rsquo; Java 8
 and begin to use the new language features Java brings with its versions.</p>
 <p>In this post, I will only cover some of the newest Java features.</p>
 <h2 id="java-9">Java 9</h2>
@@ -1010,18 +1018,106 @@ java --enable-preview YourJavaClass.java
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h3 id="helpful-nullpointerexceptions">Helpful NullPointerExceptions</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">record</span> <span class="nf">Pet</span><span class="o">(</span><span class="n">PetId</span> <span class="n">petId</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Pet</span> <span class="n">pet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pet</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+        <span class="c1">// will log the following:
+</span><span class="c1"></span>        <span class="c1">// Exception in thread &#34;main&#34; java.lang.NullPointerException: Cannot invoke &#34;lin.louis.demo.PetId.value()&#34; because the return value of &#34;lin.louis.demo.Pet.petId()&#34; is null
+</span><span class="c1"></span>	<span class="n">at</span> <span class="n">lin</span><span class="o">.</span><span class="na">louis</span><span class="o">.</span><span class="na">clean</span><span class="o">.</span><span class="na">domain</span><span class="o">.</span><span class="na">exception</span><span class="o">.</span><span class="na">Pet</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">Pet</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">8</span><span class="o">)</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pet</span><span class="o">.</span><span class="na">petId</span><span class="o">().</span><span class="na">value</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="jpackage">JPackage</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># create a deb installer file to install the application without needing to install Java</span>
+jpackage --input target/ <span class="se">\
+</span><span class="se"></span>  --name PetStoreApp <span class="se">\
+</span><span class="se"></span>  --main-jar PetStoreApp.jar <span class="se">\
+</span><span class="se"></span>  --main-class lin.louis.PetStoreApp <span class="se">\
+</span><span class="se"></span>  --type deb <span class="se">\
+</span><span class="se"></span>  --java-options <span class="s1">&#39;--enable-preview&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="java-15">Java 15</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/15/" target="_blank" rel="noopener noreffer"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/badge/Release-notes-green.svg"
+        data-srcset="https://img.shields.io/badge/Release-notes-green.svg, https://img.shields.io/badge/Release-notes-green.svg 1.5x, https://img.shields.io/badge/Release-notes-green.svg 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/Release-notes-green.svg"
+        title="Release notes" /></a></p>
+<h3 id="sealed-classes">Sealed classes</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// fine-grained control over inheritance
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="n">sealed</span> <span class="kd">class</span> <span class="nc">Pet</span> <span class="n">permits</span> <span class="n">Cat</span><span class="o">,</span> <span class="n">Dog</span> <span class="o">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span><span class="o">}</span>
+
+<span class="c1">// extending sealed class must itself be declared as &#34;sealed&#34;, &#34;non-sealed&#34; or &#34;final&#34;
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">extends</span> <span class="n">Pet</span> <span class="o">{}</span>
+
+<span class="kd">public</span> <span class="n">non</span><span class="o">-</span><span class="n">sealed</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Pet</span> <span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="java-16">Java 16</h2>
+<p><a href="https://openjdk.java.net/projects/jdk/16/" target="_blank" rel="noopener noreffer"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://img.shields.io/badge/Release-notes-green.svg"
+        data-srcset="https://img.shields.io/badge/Release-notes-green.svg, https://img.shields.io/badge/Release-notes-green.svg 1.5x, https://img.shields.io/badge/Release-notes-green.svg 2x"
+        data-sizes="auto"
+        alt="https://img.shields.io/badge/Release-notes-green.svg"
+        title="Release notes" /></a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-02-10&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/2c3a28753a7a7dd79ae33c81b6e8f5812a87661e" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 2c3a28753a7a7dd79ae33c81b6e8f5812a87661e: theme: move post to posts">
-                                    <i class="fas fa-hashtag fa-fw"></i>2c3a287</a></span>
+                <span>Updated on 2021-04-26&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/cad41bda2c1cbe020ad5442e38149175b8e342fc" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) cad41bda2c1cbe020ad5442e38149175b8e342fc: post: update java release notes">
+                                    <i class="fas fa-hashtag fa-fw"></i>cad41bd</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2020-03-05-java-from_8_to_14/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/2021-04-26-java-from_8_to_16/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
                 <span></span>
@@ -1036,8 +1132,7 @@ java --enable-preview YourJavaClass.java
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2020-02-14-sed/" class="prev" rel="prev" title="Sed"><i class="fas fa-angle-left fa-fw"></i>Sed</a>
-            <a href="/2020-04-13-playing_with_kafka/" class="next" rel="next" title="Playing with Kafka">Playing with Kafka<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2021-04-23-docker_stdout/" class="prev" rel="prev" title="How to make a Docker application write to stdout"><i class="fas fa-angle-left fa-fw"></i>How to make a Docker application write to stdout</a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
