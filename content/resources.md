@@ -75,6 +75,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [12-factor app](https://12factor.net/): methodology for building software-as-a-service apps
 - [Devops newsletters](https://devopsnewsletters.com/)
 - [AWS cheat sheets](https://tutorialsdojo.com/aws-cheat-sheets/)
+- [AWS flash cards](https://cloudbite.attejuvonen.fi/)
 
 ## Documentation
 
