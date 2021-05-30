@@ -194,4 +194,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Dollar Street](https://lectures.dollarstreet.org): see how families live around the world
 - [Linux one-liners](https://linuxcommandlibrary.com/basic/oneliners.html)
 - [Lofi cafe](https://lofi.cafe/)
+- [Than Average](https://thanaverage.xyz/)
 
