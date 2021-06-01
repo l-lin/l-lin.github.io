@@ -119,6 +119,8 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Postgresqlco.nf](https://postgresqlco.nf/en/doc/param/): `postgresql.conf` documentation for
   humans
 - [Joe Bot](https://postgres.ai/blog/joe-0.5/): a SQL query optimization assistant
+- [PostgreSQL's explain analyze made readable](https://explain.depesz.com/)
+- [PostgreSQL execution plan visualizer](https://explain.dalibo.com/)
 
 ## Legal stuff
 
@@ -193,5 +195,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Linux one-liners](https://linuxcommandlibrary.com/basic/oneliners.html)
 - [Lofi cafe](https://lofi.cafe/)
 - [Than Average](https://thanaverage.xyz/)
-
+- [RFC searcher](https://rfc.fyi/)
 
