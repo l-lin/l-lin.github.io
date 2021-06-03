@@ -85,6 +85,8 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Best practice for navigating API
   documentation](https://blog.bearer.sh/best-practices-for-navigating-api-documentation/)
 - [Best book summaries](https://www.bestbooksummaries.com): free book summaries
+- [Federal plain language guidelines](https://www.plainlanguage.gov/guidelines/): guidelines to help
+  write clearly
 
 ## Engineering career
 
