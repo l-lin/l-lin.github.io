@@ -36,6 +36,13 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [free-for.dev](https://free-for.dev/): list of softwares and other offerings that have free tiers
   for developers
 
+## Rust
+
+- [Rust book](https://www.rust-lang.org/)
+- [Rust cheatsheet](https://cheats.rs/)
+- [Tour of Rust](https://tourofrust.com/TOC_en.html)
+- [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
+
 ## Architecture
 
 - [Cloud design pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/): design
