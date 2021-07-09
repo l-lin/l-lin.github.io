@@ -3,7 +3,14 @@
         <title>All Posts - Hello, world</title>
         <link>https://l-lin.github.io/posts/</link>
         <description>All Posts | Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Apr 2021 10:12:38 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Jul 2021 13:48:12 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>2021 07 09 Manage_time</title>
+    <link>https://l-lin.github.io/2021-07-09-manage_time/</link>
+    <pubDate>Fri, 09 Jul 2021 13:48:12 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-07-09-manage_time/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>From 8 to 16</title>
     <link>https://l-lin.github.io/2021-04-26-java-from_8_to_16/</link>
     <pubDate>Mon, 26 Apr 2021 10:12:38 &#43;0200</pubDate>
@@ -82,14 +89,5 @@ reverse proxy behind the app that will add the headers.</p>]]></description>
             </div><p>This post covers some best practices for building secure and efficient docker images.
 This is not an exhaustive list, but covers most best practices for writing good enough secure &amp;
 efficient Dockerfiles.</p>]]></description>
-</item><item>
-    <title>Difficult conversations</title>
-    <link>https://l-lin.github.io/2020-09-29-difficult_conversations/</link>
-    <pubDate>Tue, 29 Sep 2020 09:31:07 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-09-29-difficult_conversations/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/418o27lNqRL._SX324_BO1,204,203,200_.jpg" referrerpolicy="no-referrer">
-            </div>]]></description>
 </item></channel>
 </rss>
