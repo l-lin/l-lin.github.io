@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/" />
 <meta property="og:image" content="https://l-lin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-02-05T10:56:06+01:00" />
-<meta property="article:modified_time" content="2021-02-10T17:11:09+01:00" />
+<meta property="article:modified_time" content="2021-08-06T08:50:32+02:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
 
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/l-lin.github.io\/2021-02-05-ffmpeg-useful_commands\/"
-        },"genre": "posts","keywords": "ffmpeg","wordcount":  257 ,
-        "url": "https:\/\/l-lin.github.io\/2021-02-05-ffmpeg-useful_commands\/","datePublished": "2021-02-05T10:56:06+01:00","dateModified": "2021-02-10T17:11:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "ffmpeg","wordcount":  362 ,
+        "url": "https:\/\/l-lin.github.io\/2021-02-05-ffmpeg-useful_commands\/","datePublished": "2021-02-05T10:56:06+01:00","dateModified": "2021-08-06T08:50:32+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">FFmpeg - useful commands</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-05">2021-02-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;257 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-05">2021-02-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;362 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="content" id="content"><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -139,6 +139,18 @@
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># show streams infos</span>
@@ -173,14 +185,26 @@ ffprobe -loglevel <span class="m">16</span> -show_streams -show_private_data -pr
 
 <span class="c1"># check I/P/B-frame type for each frame</span>
 ffprobe -loglevel <span class="m">16</span> -show_frames input.mp4 <span class="p">|</span> grep pict_type <span class="p">|</span> less
+
+<span class="c1"># generate video with timestamp &amp; pts drawn behind black screen</span>
+<span class="c1"># -re: read source at its native frame rate</span>
+<span class="c1"># -f lavfi -i color=size=1280x720:rate=25:color=black: create a black background</span>
+<span class="c1"># settb=AVTB: force timestamp to default AVTB which is 10e-6 to have timestamp in us</span>
+<span class="c1"># setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;: truncate</span>
+<span class="c1"># credit: https://stackoverflow.com/a/47551016/3612053</span>
+ffmpeg -f lavfi -re -i <span class="nv">color</span><span class="o">=</span><span class="nv">size</span><span class="o">=</span>1280x720:duration<span class="o">=</span>20:rate<span class="o">=</span>25:color<span class="o">=</span>black -vf <span class="s2">&#34;settb=AVTB,setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;,drawtext=text=&#39;%{localtime}.%{eif\:1M*t-1K*trunc(t*1K)\:d}&#39;:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=80:fontcolor=white,drawtext=text=&#39;%{pts}&#39;:x=(w-text_w)/2:y=500:fontsize=50:fontcolor=white@0.8&#34;</span> -y output.mp4
+
+<span class="c1"># live stream video with timestamp indefinitely (need a RTMP server)</span>
+<span class="c1"># -c:v libx264: encode in h264</span>
+ffmpeg -stream_loop <span class="m">1</span> -f lavfi -re -i <span class="nv">color</span><span class="o">=</span><span class="nv">size</span><span class="o">=</span>1280x720:rate<span class="o">=</span>25:color<span class="o">=</span>black -c:v libx264 -vf <span class="s2">&#34;settb=AVTB,setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;,drawtext=text=&#39;%{localtime}.%{eif\:1M*t-1K*trunc(t*1K)\:d}&#39;:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=80:fontcolor=white,drawtext=text=&#39;%{pts}&#39;:x=(w-text_w)/2:y=500:fontsize=50:fontcolor=white@0.8&#34;</span> -y -f flv rtmp://localhost:1935/live
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-02-10&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/2c3a28753a7a7dd79ae33c81b6e8f5812a87661e" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 2c3a28753a7a7dd79ae33c81b6e8f5812a87661e: theme: move post to posts">
-                                    <i class="fas fa-hashtag fa-fw"></i>2c3a287</a></span>
+                <span>Updated on 2021-08-06&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/f86067f67685777164a33b2a57eeeb37a0c22657" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) f86067f67685777164a33b2a57eeeb37a0c22657: post: add more ffmpeg commands">
+                                    <i class="fas fa-hashtag fa-fw"></i>f86067f</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
