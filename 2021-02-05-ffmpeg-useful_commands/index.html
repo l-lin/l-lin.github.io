@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/" />
 <meta property="og:image" content="https://l-lin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-02-05T10:56:06+01:00" />
-<meta property="article:modified_time" content="2021-08-06T08:50:32+02:00" />
+<meta property="article:modified_time" content="2021-08-07T19:00:08+02:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
 
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/l-lin.github.io\/2021-02-05-ffmpeg-useful_commands\/"
-        },"genre": "posts","keywords": "ffmpeg","wordcount":  362 ,
-        "url": "https:\/\/l-lin.github.io\/2021-02-05-ffmpeg-useful_commands\/","datePublished": "2021-02-05T10:56:06+01:00","dateModified": "2021-08-06T08:50:32+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "ffmpeg","wordcount":  623 ,
+        "url": "https:\/\/l-lin.github.io\/2021-02-05-ffmpeg-useful_commands\/","datePublished": "2021-02-05T10:56:06+01:00","dateModified": "2021-08-07T19:00:08+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">FFmpeg - useful commands</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-05">2021-02-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;362 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-05">2021-02-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;623 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="content" id="content"><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -151,6 +151,41 @@
 </span><span class="lnt">42
 </span><span class="lnt">43
 </span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># show streams infos</span>
@@ -187,24 +222,59 @@ ffprobe -loglevel <span class="m">16</span> -show_streams -show_private_data -pr
 ffprobe -loglevel <span class="m">16</span> -show_frames input.mp4 <span class="p">|</span> grep pict_type <span class="p">|</span> less
 
 <span class="c1"># generate video with timestamp &amp; pts drawn behind black screen</span>
-<span class="c1"># -re: read source at its native frame rate</span>
-<span class="c1"># -f lavfi -i color=size=1280x720:rate=25:color=black: create a black background</span>
-<span class="c1"># settb=AVTB: force timestamp to default AVTB which is 10e-6 to have timestamp in us</span>
-<span class="c1"># setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;: truncate</span>
-<span class="c1"># credit: https://stackoverflow.com/a/47551016/3612053</span>
-ffmpeg -f lavfi -re -i <span class="nv">color</span><span class="o">=</span><span class="nv">size</span><span class="o">=</span>1280x720:duration<span class="o">=</span>20:rate<span class="o">=</span>25:color<span class="o">=</span>black -vf <span class="s2">&#34;settb=AVTB,setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;,drawtext=text=&#39;%{localtime}.%{eif\:1M*t-1K*trunc(t*1K)\:d}&#39;:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=80:fontcolor=white,drawtext=text=&#39;%{pts}&#39;:x=(w-text_w)/2:y=500:fontsize=50:fontcolor=white@0.8&#34;</span> -y output.mp4
+ffmpeg <span class="se">\
+</span><span class="se"></span>  <span class="c1"># libavfilter input virtual device, needed to generate the black background</span>
+  -f lavfi <span class="se">\
+</span><span class="se"></span>  <span class="c1"># read source at its native frame rate</span>
+  -re <span class="se">\
+</span><span class="se"></span>  <span class="c1"># create a black background</span>
+  -i <span class="nv">color</span><span class="o">=</span><span class="nv">size</span><span class="o">=</span>1280x720:duration<span class="o">=</span>20:rate<span class="o">=</span>25:color<span class="o">=</span>black <span class="se">\
+</span><span class="se"></span>  <span class="c1"># settb=AVTB: force timestamp to default AVTB which is 10e-6 to have timestamp in us</span>
+  <span class="c1"># setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;: truncate</span>
+  <span class="c1"># credit: https://stackoverflow.com/a/47551016/3612053</span>
+  -vf <span class="s2">&#34;settb=AVTB,setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;,drawtext=text=&#39;%{localtime}.%{eif\:1M*t-1K*trunc(t*1K)\:d}&#39;:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=80:fontcolor=white,drawtext=text=&#39;%{pts}&#39;:x=(w-text_w)/2:y=500:fontsize=50:fontcolor=white@0.8&#34;</span> <span class="se">\
+</span><span class="se"></span>  output.mp4
 
 <span class="c1"># live stream video with timestamp indefinitely (need a RTMP server)</span>
-<span class="c1"># -c:v libx264: encode in h264</span>
-ffmpeg -stream_loop <span class="m">1</span> -f lavfi -re -i <span class="nv">color</span><span class="o">=</span><span class="nv">size</span><span class="o">=</span>1280x720:rate<span class="o">=</span>25:color<span class="o">=</span>black -c:v libx264 -vf <span class="s2">&#34;settb=AVTB,setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;,drawtext=text=&#39;%{localtime}.%{eif\:1M*t-1K*trunc(t*1K)\:d}&#39;:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=80:fontcolor=white,drawtext=text=&#39;%{pts}&#39;:x=(w-text_w)/2:y=500:fontsize=50:fontcolor=white@0.8&#34;</span> -y -f flv rtmp://localhost:1935/live
+ffmpeg <span class="se">\
+</span><span class="se"></span>  -stream_loop <span class="m">1</span> <span class="se">\
+</span><span class="se"></span>  <span class="c1"># libavfilter input virtual device, needed to generate the black background</span>
+  -f lavfi <span class="se">\
+</span><span class="se"></span>  <span class="c1"># read source at its native frame rate</span>
+  -re <span class="se">\
+</span><span class="se"></span>  <span class="c1"># create a black background</span>
+  -i <span class="nv">color</span><span class="o">=</span><span class="nv">size</span><span class="o">=</span>1280x720:rate<span class="o">=</span>25:color<span class="o">=</span>black <span class="se">\
+</span><span class="se"></span>  <span class="c1"># settb=AVTB: force timestamp to default AVTB which is 10e-6 to have timestamp in us</span>
+  <span class="c1"># setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;: truncate</span>
+  <span class="c1"># credit: https://stackoverflow.com/a/47551016/3612053</span>
+  -vf <span class="s2">&#34;settb=AVTB,setpts=&#39;trunc(PTS/1K)*1K+st(1,trunc(RTCTIME/1K))-1K*trunc(ld(1)/1K)&#39;,drawtext=text=&#39;%{localtime}.%{eif\:1M*t-1K*trunc(t*1K)\:d}&#39;:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=80:fontcolor=white&#34;</span> <span class="se">\
+</span><span class="se"></span>  <span class="c1"># use the libx264 for producing an optimized h264 file, with the &#34;High Profile&#34; setting, which is</span>
+  <span class="c1"># the primary profile for broadcast and disc storage applications, particulary for high-definition</span>
+  <span class="c1"># tv applications, and by using the veryfast preset</span>
+  -c:v libx264 -profile:v high -level:v 4.1 -preset veryfast <span class="se">\
+</span><span class="se"></span>  <span class="c1"># produce a file that stays in the 3000-6000 video bitrate range (required by YouTube for example)</span>
+  -b:v 3000k -maxrate 3000k -bufsize 6000k <span class="se">\
+</span><span class="se"></span>  <span class="c1"># use a specific chroma subsampling scheme named 4:2:0 planar, used for compatibility reasons,</span>
+  <span class="c1"># since output must be playable across differet players and platforms</span>
+  -pix_fmt yuv420p <span class="se">\
+</span><span class="se"></span>  <span class="c1"># abide to required 2s keyframe interval, this will set a value of 50 Group Of Pictures</span>
+  <span class="c1"># value must be = frame rate * 2</span>
+  -g <span class="m">50</span> <span class="se">\
+</span><span class="se"></span>  <span class="c1"># minimum distance between I-frames and must be the same as -g value</span>
+  -keyint_min <span class="m">50</span> <span class="se">\
+</span><span class="se"></span>  <span class="c1"># Scene Change Threshold</span>
+  <span class="c1"># option to make sure to not add any new keyframe when content of picture changes</span>
+  -sc_threshold <span class="m">0</span> <span class="se">\
+</span><span class="se"></span>  <span class="c1"># live stream to rtmp server</span>
+  -f flv rtmp://localhost:1935
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-08-06&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/f86067f67685777164a33b2a57eeeb37a0c22657" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) f86067f67685777164a33b2a57eeeb37a0c22657: post: add more ffmpeg commands">
-                                    <i class="fas fa-hashtag fa-fw"></i>f86067f</a></span>
+                <span>Updated on 2021-08-07&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/5994bdfa51687e21fa94072ea09ef5e0eaf91af0" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 5994bdfa51687e21fa94072ea09ef5e0eaf91af0: post: update ffmpeg commands">
+                                    <i class="fas fa-hashtag fa-fw"></i>5994bdf</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
