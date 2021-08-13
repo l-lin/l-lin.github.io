@@ -1,4 +1,4 @@
-# Mind map - Software documentation
+# Software documentation
 
 
 <!--more-->

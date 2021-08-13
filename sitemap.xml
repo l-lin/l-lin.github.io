@@ -2,12 +2,12 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://l-lin.github.io/2021-07-09-manage_time/</loc><lastmod>2021-07-09T13:52:40&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://l-lin.github.io/categories/</loc><lastmod>2021-08-07T19:00:08&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://l-lin.github.io/tags/mindmaps/</loc><lastmod>2021-07-09T13:52:40&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2021-08-07T19:00:08&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://l-lin.github.io/posts/</loc><lastmod>2021-08-07T19:00:08&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://l-lin.github.io/tags/</loc><lastmod>2021-08-07T19:00:08&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/categories/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/2021-07-09-manage_time/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/tags/mindmaps/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/posts/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/tags/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/2021-04-26-java-from_8_to_16/</loc><lastmod>2021-04-26T10:13:33&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/java/</loc><lastmod>2021-04-26T10:13:33&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/docker/</loc><lastmod>2021-04-23T15:15:47&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -38,13 +38,13 @@
             <loc>https://l-lin.github.io/2020-02-10-debug-with-vim-go/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/golang/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/vim/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/tags/documentation/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://l-lin.github.io/tags/documentation/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/2020-01-08-soft_skills/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2020-01-07-change-in-bulk-with-sed/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2019-07-19-nginx_fallback/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/tags/api/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/2019-06-24-mind_map-api_management/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/2019-06-24-software_documentation/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://l-lin.github.io/tags/api/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/2019-06-24-mind_map-api_management/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/2019-06-24-software_documentation/</loc><lastmod>2021-08-13T13:48:15&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/tags/ubuntu/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2019-04-12-ubuntu_custom_desktop_shortcuts/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/git/</loc><lastmod>2021-02-10T17:11:09&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

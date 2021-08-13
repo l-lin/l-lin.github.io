@@ -1,4 +1,4 @@
-# Mind map - API management
+# API management
 
 
 <!--more-->
