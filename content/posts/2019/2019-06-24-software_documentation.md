@@ -1,5 +1,5 @@
 ---
-title: "Mind map - Software documentation"
+title: "Software documentation"
 date: 2019-06-24T09:01:16+02:00
 featuredImage: ""
 tags: ["mindmaps", "documentation"]

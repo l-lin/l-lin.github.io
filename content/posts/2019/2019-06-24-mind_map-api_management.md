@@ -1,5 +1,5 @@
 ---
-title: "Mind map - API management"
+title: "API management"
 date: 2019-06-24T09:28:18+02:00
 featuredImage: ""
 tags: ["mindmaps", "api"]

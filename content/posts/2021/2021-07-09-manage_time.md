@@ -1,5 +1,5 @@
 ---
-title: "2021 07 09 Manage_time"
+title: "Manage time"
 date: 2021-07-09T13:48:12+02:00
 featuredImage: ""
 tags: ["mindmaps"]
