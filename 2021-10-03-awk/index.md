@@ -91,7 +91,7 @@ $ echo 'id,first name,last name
 3                        Patrick         Dupont
 4                        Chuck           Noris
 
-$ # AWK BEGING END
+$ # AWK BEGIN END
 $ echo '1,foo
 2,bar
 3,foobar' | awk -F',' '
