@@ -3,7 +3,16 @@
         <title>All Posts - Hello, world</title>
         <link>https://l-lin.github.io/posts/</link>
         <description>All Posts | Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Jul 2021 13:48:12 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 03 Oct 2021 15:11:28 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>awk</title>
+    <link>https://l-lin.github.io/2021-10-03-awk/</link>
+    <pubDate>Sun, 03 Oct 2021 15:11:28 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2021-10-03-awk/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" referrerpolicy="no-referrer">
+            </div>]]></description>
+</item><item>
     <title>Manage time</title>
     <link>https://l-lin.github.io/2021-07-09-manage_time/</link>
     <pubDate>Fri, 09 Jul 2021 13:48:12 &#43;0200</pubDate>
@@ -78,16 +87,5 @@ user id, with Spring MVC.</p>]]></description>
                 <img src="https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png" referrerpolicy="no-referrer">
             </div><p>Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
 reverse proxy behind the app that will add the headers.</p>]]></description>
-</item><item>
-    <title>Write secure and efficient Dockerfiles</title>
-    <link>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</link>
-    <pubDate>Tue, 20 Oct 2020 09:36:02 &#43;0200</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-10-20-dockerfile-best-practice/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://i.ytimg.com/vi/Q5POuMHxW-0/maxresdefault.jpg" referrerpolicy="no-referrer">
-            </div><p>This post covers some best practices for building secure and efficient docker images.
-This is not an exhaustive list, but covers most best practices for writing good enough secure &amp;
-efficient Dockerfiles.</p>]]></description>
 </item></channel>
 </rss>

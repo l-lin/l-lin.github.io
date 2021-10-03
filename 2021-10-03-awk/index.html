@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>awk - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="awk" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://l-lin.github.io/2021-10-03-awk/" />
+<meta property="og:image" content="https://l-lin.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-10-03T15:11:28+02:00" />
+<meta property="article:modified_time" content="2021-10-03T18:23:42+02:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="awk"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="l-lin">
+<meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2021-10-03-awk/" /><link rel="prev" href="https://l-lin.github.io/2021-07-09-manage_time/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "awk",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/l-lin.github.io\/2021-10-03-awk\/"
+        },"genre": "posts","keywords": "terminal","wordcount":  476 ,
+        "url": "https:\/\/l-lin.github.io\/2021-10-03-awk\/","datePublished": "2021-10-03T15:11:28+02:00","dateModified": "2021-10-03T18:23:42+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "l-lin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hello, world">l-lin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Archives </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/about/"> About me </a><a class="menu-item" href="/resources/"> Resources </a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hello, world">l-lin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Archives</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/about/" title="">About me</a><a class="menu-item" href="/resources/" title="">Resources</a><a class="menu-item" href="https://github.com/l-lin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">awk</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-03">2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;476 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260"
+        data-srcset="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260, https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260 1.5x, https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260 2x"
+        data-sizes="auto"
+        alt="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260"
+        title="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="s1">&#39;foo bar&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print }&#39;</span>
+foo bar
+
+$ <span class="nb">echo</span> <span class="s1">&#39;foo bar&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $0 }&#39;</span>
+foo bar
+
+$ <span class="nb">echo</span> <span class="s1">&#39;foo bar&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1 }&#39;</span>
+foo
+
+$ <span class="nb">echo</span> <span class="s1">&#39;foo bar&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $2 }&#39;</span>
+foo
+
+$ <span class="nb">echo</span> <span class="s1">&#39;foo
+</span><span class="s1">bar&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1 }&#39;</span>
+foo
+bar
+
+$ <span class="c1"># concat using commas to concat with spaces</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;1 2 3
+</span><span class="s1">4 5 6&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1,$2 }&#39;</span>
+<span class="m">1</span> <span class="m">2</span>
+<span class="m">4</span> <span class="m">5</span>
+
+$ <span class="c1"># concat with content</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;1 2 3
+</span><span class="s1">4 5 6&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1 &#34;,&#34; $2 }&#39;</span>
+1,2
+4,5
+
+$ <span class="c1"># NF == number of fields == last column</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;1 2 3
+</span><span class="s1">4 5 6&#39;</span> <span class="se">\
+</span><span class="se"></span><span class="p">|</span> awk <span class="s1">&#39;{ print $NF }&#39;</span>
+<span class="m">3</span>
+<span class="m">6</span>
+
+$ <span class="c1"># -F: flag to set the field separator, default space</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;foo bar,popo tutu&#39;</span> <span class="p">|</span> awk -F<span class="s1">&#39;,&#39;</span> <span class="s1">&#39;{ print $2 }&#39;</span>
+popo tutu
+
+$ <span class="c1"># working</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;id,first name,last name
+</span><span class="s1">1,foo,bar
+</span><span class="s1">2,Patrick,Dupont
+</span><span class="s1">3,Chuck,Noris&#39;</span> <span class="p">|</span> awk -F<span class="s1">&#39;,&#39;</span> <span class="s1">&#39;{ print $NF &#34;\t&#34; $(NF-1) }&#39;</span>
+last name       first name
+bar     foo
+Dupont  Patrick
+Noris   Chuck
+
+$ <span class="c1"># NR == number of rows</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;foo bar
+</span><span class="s1">one two&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print NR &#34; &#34; $2 }&#39;</span>
+<span class="m">1</span> bar
+<span class="m">2</span> two
+
+$ <span class="c1"># regexp</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;foo poo
+</span><span class="s1">foobar hello&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;/bar/ { print $2 }&#39;</span>
+hello
+
+$ <span class="c1"># match field</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;foo bar
+</span><span class="s1">popo titi&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;$2 == &#34;titi&#34; { print $1 }&#39;</span>
+popo
+
+$ <span class="c1"># match within specific field</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;foobar popo
+</span><span class="s1">titi tutu&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;$1~/ba/ { print $2 }&#39;</span>
+popo
+
+$ <span class="c1"># printf with substr (index starts from 1)</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;somelongstring
+</span><span class="s1">anotherlongstring&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ printf &#34;%s\n&#34;, substr($1,1,5) }&#39;</span>
+somel
+anoth
+
+$ <span class="c1"># using %-Ns to set the desired column with</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;id,first name,last name
+</span><span class="s1">1,foo,bar
+</span><span class="s1">2,Patrick,Dupont
+</span><span class="s1">3,Chuck,Noris&#39;</span> <span class="p">|</span> awk -F<span class="s1">&#39;,&#39;</span> <span class="s1">&#39;{ printf &#34;%-20s \t %-10s \t %s \n&#34;, NR, $2, $3 }&#39;</span>
+<span class="m">1</span>                        first name      last name
+<span class="m">2</span>                        foo             bar
+<span class="m">3</span>                        Patrick         Dupont
+<span class="m">4</span>                        Chuck           Noris
+
+$ <span class="c1"># AWK BEGING END</span>
+$ <span class="nb">echo</span> <span class="s1">&#39;1,foo
+</span><span class="s1">2,bar
+</span><span class="s1">3,foobar&#39;</span> <span class="p">|</span> awk -F<span class="s1">&#39;,&#39;</span> <span class="s1">&#39;
+</span><span class="s1">BEGIN { print &#34;computing average...&#34; }
+</span><span class="s1">      { total = total + $1 }
+</span><span class="s1">END   { print &#34;average is:&#34;, total/NR }&#39;</span>
+computing average...
+average is: <span class="m">2</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-10-03&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/13bc9ceb0ded0992d34fe008c8808525790546b1" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 13bc9ceb0ded0992d34fe008c8808525790546b1: post: add awk">
+                                    <i class="fas fa-hashtag fa-fw"></i>13bc9ce</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2021-10-03-awk/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/terminal/">terminal</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-07-09-manage_time/" class="prev" rel="prev" title="Manage time"><i class="fas fa-angle-left fa-fw"></i>Manage time</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.69.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":-1},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"l-lin/l-lin.github.io"}},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
