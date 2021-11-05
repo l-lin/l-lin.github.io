@@ -94,6 +94,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Best book summaries](https://www.bestbooksummaries.com): free book summaries
 - [Federal plain language guidelines](https://www.plainlanguage.gov/guidelines/): guidelines to help
   write clearly
+- [Excalidraw](https://excalidraw.com/): whiteboard tool to sketch diagrams
 
 ## Engineering career
 
