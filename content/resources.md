@@ -35,6 +35,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Command Line Interface Guidelines](https://clig.dev)
 - [free-for.dev](https://free-for.dev/): list of softwares and other offerings that have free tiers
   for developers
+- [aws cli builder](https://awsclibuilder.com/): build AWS CLI commands
 
 ## Rust
 
