@@ -97,6 +97,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Federal plain language guidelines](https://www.plainlanguage.gov/guidelines/): guidelines to help
   write clearly
 - [Excalidraw](https://excalidraw.com/): whiteboard tool to sketch diagrams
+- [Ira Design](https://iradesign.io/): build your own amazon illustrations
 
 ## Engineering career
 
