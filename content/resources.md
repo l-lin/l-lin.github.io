@@ -157,8 +157,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Mon compte formation](https://www.moncompteformation.gouv.fr)
 - [Calculatrice fiscale LMNP](https://www.lecoindulmnp.fr/statut-lmnp/fiscalite/simulateur/)
 - [Déclaration changement de coordonnées](https://psl.service-public.fr/mademarche/JeChangeDeCoordonnees/demarche?execution=e1s1)
-- [Agence nationale des titres sécurisés](https://ants.gouv.fr/): service to request new licences
-  (e.g. driving licence, passport, 
+- [Agence nationale des titres sécurisés](https://ants.gouv.fr/): service to request new licences (e.g. driving licence, passport, ...)
 
 ## Interviews
 
