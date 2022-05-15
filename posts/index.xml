@@ -3,7 +3,14 @@
         <title>All Posts - Hello, world</title>
         <link>https://l-lin.github.io/posts/</link>
         <description>All Posts | Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 03 Oct 2021 15:11:28 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 May 2022 14:29:26 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Makefile</title>
+    <link>https://l-lin.github.io/2022-05-15-makefile/</link>
+    <pubDate>Sun, 15 May 2022 14:29:26 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2022-05-15-makefile/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>awk</title>
     <link>https://l-lin.github.io/2021-10-03-awk/</link>
     <pubDate>Sun, 03 Oct 2021 15:11:28 &#43;0200</pubDate>
@@ -77,15 +84,5 @@ and begin to use the new language features Java brings with its versions.</p>
 information that can be useful for better tracking program execution.</p>
 <p>In this post, we will see how to include basic MDC, such as request information or the authenticated
 user id, with Spring MVC.</p>]]></description>
-</item><item>
-    <title>How to add CORS headers with Nginx</title>
-    <link>https://l-lin.github.io/2020-10-31-nginx_cors/</link>
-    <pubDate>Sat, 31 Oct 2020 16:59:51 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-10-31-nginx_cors/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://kinsta.com/wp-content/uploads/2018/03/what-is-nginx.png" referrerpolicy="no-referrer">
-            </div><p>Sometimes, you cannot change an app to support CORS, so in order to support CORS, we can put a small
-reverse proxy behind the app that will add the headers.</p>]]></description>
 </item></channel>
 </rss>

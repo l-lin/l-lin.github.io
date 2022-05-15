@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>make - Tag - Hello, world</title>
+        <link>https://l-lin.github.io/tags/make/</link>
+        <description>make - Tag - Hello, world</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 May 2022 14:29:26 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/tags/make/" rel="self" type="application/rss+xml" /><item>
+    <title>Makefile</title>
+    <link>https://l-lin.github.io/2022-05-15-makefile/</link>
+    <pubDate>Sun, 15 May 2022 14:29:26 &#43;0200</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2022-05-15-makefile/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
