@@ -18,6 +18,11 @@ JAVA_HOME?=/opt/java
 # stops commandline arguments from changing this variable
 override username=admin
 
+# variables can be used using $() or ${}
+echo-variables:
+	@echo ${app_name}
+	@echo $(project_name)
+
 # avoid phony rules breaking when a real file has the same name as the command
 .PHONY: help
 # command example that read the Makefile and print all lines with prefix ##
@@ -52,6 +57,11 @@ process: file*.txt  #using a wildcard to match filenames
 	@echo $<    # the first prerequisite listed
 	@echo $?    # only the dependencies that are out of date
 	@echo $+    # all dependencies including duplicates (unlike normal)
+
+multi-lines:
+	@curl https://httpbin.org/post \
+		-H "Content-Type: application/json" \
+		-d '{"foo": "bar"}'
 ```
 
 

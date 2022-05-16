@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/l-lin.github.io\/2022-05-15-makefile\/"
-        },"genre": "posts","keywords": "make","wordcount":  289 ,
+        },"genre": "posts","keywords": "make","wordcount":  324 ,
         "url": "https:\/\/l-lin.github.io\/2022-05-15-makefile\/","datePublished": "2022-05-15T14:29:26+02:00","dateModified": "2022-05-15T14:58:20+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Makefile</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;289 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;324 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -163,6 +163,16 @@
 </span><span class="lnt">45
 </span><span class="lnt">46
 </span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-make" data-lang="make"><span class="c"># command to execute if no argument
@@ -177,6 +187,11 @@
 </span><span class="c"></span><span class="nv">JAVA_HOME</span><span class="o">?=</span>/opt/java
 <span class="c"># stops commandline arguments from changing this variable
 </span><span class="c"></span><span class="err">override</span> <span class="nv">username</span><span class="o">=</span>admin
+
+<span class="c"># variables can be used using $() or ${}
+</span><span class="c"></span><span class="nf">echo-variables</span><span class="o">:</span>
+	@echo <span class="si">${</span><span class="nv">app_name</span><span class="si">}</span>
+	@echo <span class="k">$(</span>project_name<span class="k">)</span>
 
 <span class="c"># avoid phony rules breaking when a real file has the same name as the command
 </span><span class="c"></span><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">help</span>
@@ -212,14 +227,19 @@
 	@echo $&lt;    <span class="c1"># the first prerequisite listed</span>
 	@echo <span class="nv">$?</span>    <span class="c1"># only the dependencies that are out of date</span>
 	@echo $+    <span class="c1"># all dependencies including duplicates (unlike normal)</span>
+
+<span class="nf">multi-lines</span><span class="o">:</span>
+	@curl https://httpbin.org/post <span class="se">\
+</span><span class="se"></span>		-H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span><span class="se"></span>		-d <span class="s1">&#39;{&#34;foo&#34;: &#34;bar&#34;}&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-05-15&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/a7f6a010c82c087555b7c01398226d0eb61f97a1" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) a7f6a010c82c087555b7c01398226d0eb61f97a1: post: add makefile">
-                                    <i class="fas fa-hashtag fa-fw"></i>a7f6a01</a></span>
+                <span>Updated on 2022-05-15&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/cffa1918b61dfbf688a376e3702fcd8db518e6ca" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) cffa1918b61dfbf688a376e3702fcd8db518e6ca: post: add makefile">
+                                    <i class="fas fa-hashtag fa-fw"></i>cffa191</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
