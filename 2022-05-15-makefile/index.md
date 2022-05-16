@@ -58,10 +58,14 @@ process: file*.txt  #using a wildcard to match filenames
 	@echo $?    # only the dependencies that are out of date
 	@echo $+    # all dependencies including duplicates (unlike normal)
 
+# multi lines are possible, but the shell receives the whole command concatenated into a single
+# line, so we also need to terminate with a semi-colon
+#
+# escape with a $ for using bash scripts and variables
 multi-lines:
-	@curl https://httpbin.org/post \
-		-H "Content-Type: application/json" \
-		-d '{"foo": "bar"}'
+	@for f in $$(ls); do \
+		echo $$f; \
+	done
 ```
 
 
