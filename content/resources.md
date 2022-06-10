@@ -158,6 +158,8 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Calculatrice fiscale LMNP](https://www.lecoindulmnp.fr/statut-lmnp/fiscalite/simulateur/)
 - [Déclaration changement de coordonnées](https://psl.service-public.fr/mademarche/JeChangeDeCoordonnees/demarche?execution=e1s1)
 - [Agence nationale des titres sécurisés](https://ants.gouv.fr/): service to request new licences (e.g. driving licence, passport, ...)
+- [Modèle de documents](https://www.service-public.fr/particuliers/recherche?rubricFilter=serviceEnLigne&rubricTypeFilter=modeleLettre):
+  official document examples
 
 ## Interviews
 
