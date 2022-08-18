@@ -36,6 +36,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [free-for.dev](https://free-for.dev/): list of softwares and other offerings that have free tiers
   for developers
 - [aws cli builder](https://awsclibuilder.com/): build AWS CLI commands
+- [Design system](https://www.karanpratapsingh.com/courses/system-design)
 
 ## Rust
 
