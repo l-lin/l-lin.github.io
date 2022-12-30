@@ -3,7 +3,14 @@
         <title>post - Category - Hello, world</title>
         <link>https://l-lin.github.io/categories/post/</link>
         <description>post - Category - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 15 May 2022 14:29:26 &#43;0200</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 30 Dec 2022 19:18:27 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+    <title>AWS CLI with Unix password manager</title>
+    <link>https://l-lin.github.io/2022-12-30-aws_with_pass/</link>
+    <pubDate>Fri, 30 Dec 2022 19:18:27 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2022-12-30-aws_with_pass/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Makefile</title>
     <link>https://l-lin.github.io/2022-05-15-makefile/</link>
     <pubDate>Sun, 15 May 2022 14:29:26 &#43;0200</pubDate>
@@ -74,15 +81,5 @@ and begin to use the new language features Java brings with its versions.</p>
     <author>Author</author>
     <guid>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</guid>
     <description><![CDATA[]]></description>
-</item><item>
-    <title>MDC in Spring MVC</title>
-    <link>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</link>
-    <pubDate>Tue, 03 Nov 2020 09:16:28 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2020-11-03-spring_mvc_mdc/</guid>
-    <description><![CDATA[<p>Logging with Mapped Diagnostic Context (MDC) to provide a way to enrich log messages with pieces of
-information that can be useful for better tracking program execution.</p>
-<p>In this post, we will see how to include basic MDC, such as request information or the authenticated
-user id, with Spring MVC.</p>]]></description>
 </item></channel>
 </rss>

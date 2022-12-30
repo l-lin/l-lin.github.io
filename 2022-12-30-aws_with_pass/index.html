@@ -5,32 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Makefile - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="Makefile" />
+        <title>AWS CLI with Unix password manager - Hello, world</title><meta name="Description" content="A website on software development"><meta property="og:title" content="AWS CLI with Unix password manager" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://l-lin.github.io/2022-05-15-makefile/" />
+<meta property="og:url" content="https://l-lin.github.io/2022-12-30-aws_with_pass/" />
 <meta property="og:image" content="https://l-lin.github.io/logo.png"/>
-<meta property="article:published_time" content="2022-05-15T14:29:26+02:00" />
-<meta property="article:modified_time" content="2022-05-15T14:58:20+02:00" />
+<meta property="article:published_time" content="2022-12-30T19:18:27+01:00" />
+<meta property="article:modified_time" content="2022-12-30T20:39:40+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://l-lin.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Makefile"/>
+<meta name="twitter:title" content="AWS CLI with Unix password manager"/>
 <meta name="twitter:description" content=""/>
 <meta name="application-name" content="l-lin">
 <meta name="apple-mobile-web-app-title" content="l-lin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2022-05-15-makefile/" /><link rel="prev" href="https://l-lin.github.io/2021-10-03-awk/" /><link rel="next" href="https://l-lin.github.io/2022-12-30-aws_with_pass/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://l-lin.github.io/2022-12-30-aws_with_pass/" /><link rel="prev" href="https://l-lin.github.io/2022-05-15-makefile/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Makefile",
+        "headline": "AWS CLI with Unix password manager",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/l-lin.github.io\/2022-05-15-makefile\/"
-        },"genre": "posts","keywords": "make","wordcount":  367 ,
-        "url": "https:\/\/l-lin.github.io\/2022-05-15-makefile\/","datePublished": "2022-05-15T14:29:26+02:00","dateModified": "2022-05-15T14:58:20+02:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/l-lin.github.io\/2022-12-30-aws_with_pass\/"
+        },"genre": "posts","wordcount":  125 ,
+        "url": "https:\/\/l-lin.github.io\/2022-12-30-aws_with_pass\/","datePublished": "2022-12-30T19:18:27+01:00","dateModified": "2022-12-30T20:39:40+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,20 +101,11 @@
     <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Makefile</h1><div class="post-meta">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">AWS CLI with Unix password manager</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-15">2022-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;367 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><div class="highlight"><div class="chroma">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-12-30">2022-12-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;125 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="content" id="content"><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -147,113 +138,58 @@
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-make" data-lang="make"><span class="c"># command to execute if no argument
-</span><span class="c"></span><span class="nf">default</span><span class="o">:</span> <span class="n">help</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="c1"># first create gpg key</span>
+$ gpg --full-generate-key
 
-<span class="c"># set default variable
-</span><span class="c"># can be override by setting in argument: make app_name=popo
-</span><span class="c"></span><span class="nv">app_name</span><span class="o">=</span>foobar
-<span class="c"># set a variable from command
-</span><span class="c"></span><span class="nv">project_name</span><span class="o">=</span><span class="k">$(</span>shell basename <span class="s2">&#34;</span><span class="k">$(</span>PWD<span class="k">)</span><span class="s2">&#34;</span><span class="k">)</span>
-<span class="c"># only set variable if env variable is not already defined
-</span><span class="c"></span><span class="nv">JAVA_HOME</span><span class="o">?=</span>/opt/java
-<span class="c"># stops commandline arguments from changing this variable
-</span><span class="c"></span><span class="err">override</span> <span class="nv">username</span><span class="o">=</span>admin
+$ <span class="c1"># fetch gpg key id</span>
+$ gpg --list-key
+/home/foobar/.gnupg/pubring.kbx
+------------------------------
+pub   rsa3072 2022-12-30 <span class="o">[</span>SC<span class="o">]</span>
+      ABC &lt;-- this is the id
+uid           <span class="o">[</span>ultimate<span class="o">]</span> Foo &lt;foo@bar.ee&gt;
+sub   rsa3072 2022-12-30 <span class="o">[</span>E<span class="o">]</span>
 
-<span class="c"># variables can be used using $() or ${}
-</span><span class="c"></span><span class="nf">echo-variables</span><span class="o">:</span>
-	@echo <span class="si">${</span><span class="nv">app_name</span><span class="si">}</span>
-	@echo <span class="k">$(</span>project_name<span class="k">)</span>
+$ <span class="c1"># init pass</span>
+$ pass init &lt;gpg_id&gt;
 
-<span class="c"># avoid phony rules breaking when a real file has the same name as the command
-</span><span class="c"></span><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">help</span>
-<span class="c"># command example that read the Makefile and print all lines with prefix ##
-</span><span class="c"></span><span class="nf">help</span><span class="o">:</span> <span class="n">Makefile</span>
-	@echo
-	@echo <span class="s2">&#34; Choose a command run in &#34;</span><span class="k">$(</span>project_name<span class="k">)</span><span class="s2">&#34;:&#34;</span>
-	@echo
-	@sed -n <span class="s1">&#39;s/^##//p&#39;</span> $&lt; <span class="p">|</span> column -t -s <span class="s1">&#39;:&#39;</span> <span class="p">|</span>  sed -e <span class="s1">&#39;s/^/ /&#39;</span>
-	@echo
+$ <span class="c1"># insert AWS creds in pass</span>
+$ pass -m aws/default
+<span class="o">{</span>
+  <span class="s2">&#34;Version&#34;</span>: 1,
+  <span class="s2">&#34;AccessKeyId&#34;</span>: <span class="s2">&#34;ABC&#34;</span>,
+  <span class="s2">&#34;SecretAccessKey&#34;</span>: <span class="s2">&#34;XYZ&#34;</span>
+<span class="o">}</span>
 
-<span class="nf">foobar</span><span class="o">:</span>
-	cat foo &gt; foo.txt
-	<span class="c1"># @ stops the command from being echoed to stdout</span>
-	@cat foo &gt; foo.txt
-	<span class="c1"># - means that make will keep going even if there is an error</span>
-	-@cat foo &gt; foo.txt
+$ <span class="c1"># configure aws</span>
+$ cat <span class="s">&lt;&lt;EOF&gt;&gt; ~/.aws/credentials
+</span><span class="s">[default]
+</span><span class="s">credential_process = /usr/bin/pass aws/default
+</span><span class="s">EOF</span>
 
-
-<span class="nf">file0.txt</span><span class="o">:</span>
-	<span class="nb">echo</span> <span class="s2">&#34;foo&#34;</span> &gt; file0.txt
-
-<span class="c"># this rule will only run if the file0.txt is newer than file1.txt
-</span><span class="c"></span><span class="nf">file1.txt</span><span class="o">:</span> <span class="n">file</span>0.<span class="n">txt</span>
-	cat file0.txt &gt; file1.txt
-
-<span class="c"># a rule can have multiple targets and multiple prerequisites
-</span><span class="c"></span><span class="nf">all</span><span class="o">:</span> <span class="n">file</span>0.<span class="n">txt</span> <span class="n">file</span>1.<span class="n">txt</span>
-
-<span class="nf">process</span><span class="o">:</span> <span class="n">file</span>*.<span class="n">txt</span>  <span class="c">#using a wildcard to match filenames
-</span><span class="c"></span>	@echo $^    <span class="c1"># $^ is a variable containing the list of prerequisites</span>
-	@echo <span class="nv">$@</span>    <span class="c1"># prints the target name</span>
-	@echo $&lt;    <span class="c1"># the first prerequisite listed</span>
-	@echo <span class="nv">$?</span>    <span class="c1"># only the dependencies that are out of date</span>
-	@echo $+    <span class="c1"># all dependencies including duplicates (unlike normal)</span>
-
-<span class="c"># multi lines are possible, but the shell receives the whole command concatenated into a single
-</span><span class="c"># line, so we also need to terminate with a semi-colon
-</span><span class="c">#
-</span><span class="c"># escape with a $ for using bash scripts and variables
-</span><span class="c"></span><span class="nf">multi-lines</span><span class="o">:</span>
-	@for f in <span class="nv">$$</span><span class="o">(</span>ls<span class="o">)</span><span class="p">;</span> <span class="k">do</span> <span class="se">\
-</span><span class="se"></span>		<span class="nb">echo</span> <span class="nv">$$</span>f<span class="p">;</span> <span class="se">\
-</span><span class="se"></span>	<span class="k">done</span>
+$ <span class="c1"># use aws cli as usual</span>
+$ aws s3 ls
 </code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html">https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html</a></li>
+<li><a href="https://www.passwordstore.org/">https://www.passwordstore.org/</a></li>
+<li><a href="https://vitalyparnas.com/guides/pass/">https://vitalyparnas.com/guides/pass/</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-05-15&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/307d2ea24cbcd158b9761e08ee9c56590a0e7d20" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) 307d2ea24cbcd158b9761e08ee9c56590a0e7d20: post: add makefile">
-                                    <i class="fas fa-hashtag fa-fw"></i>307d2ea</a></span>
+                <span>Updated on 2022-12-30&nbsp;<a class="git-hash" href="https://github.com/l-lin/commit/e14a7fa8c8379e9a3e14a924ab51ee9d19d946de" target="_blank" title="commit by Louis Lin(lin.louis@pm.me) e14a7fa8c8379e9a3e14a924ab51ee9d19d946de: post: add aws cli with pass">
+                                    <i class="fas fa-hashtag fa-fw"></i>e14a7fa</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/2022-05-15-makefile/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/2022-12-30-aws_with_pass/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
                 <span></span>
@@ -262,14 +198,13 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/make/">make</a></section>
+        <section class="post-tags"></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/2021-10-03-awk/" class="prev" rel="prev" title="awk"><i class="fas fa-angle-left fa-fw"></i>awk</a>
-            <a href="/2022-12-30-aws_with_pass/" class="next" rel="next" title="AWS CLI with Unix password manager">AWS CLI with Unix password manager<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/2022-05-15-makefile/" class="prev" rel="prev" title="Makefile"><i class="fas fa-angle-left fa-fw"></i>Makefile</a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.

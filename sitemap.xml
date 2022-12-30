@@ -2,11 +2,12 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://l-lin.github.io/categories/</loc><lastmod>2022-05-15T14:58:20&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://l-lin.github.io/2022-12-30-aws_with_pass/</loc><lastmod>2022-12-30T20:39:40&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/categories/</loc><lastmod>2022-12-30T20:39:40&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2022-12-30T20:39:40&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://l-lin.github.io/posts/</loc><lastmod>2022-12-30T20:39:40&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://l-lin.github.io/tags/make/</loc><lastmod>2022-05-15T14:58:20&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2022-05-15-makefile/</loc><lastmod>2022-05-15T14:58:20&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/categories/post/</loc><lastmod>2022-05-15T14:58:20&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://l-lin.github.io/posts/</loc><lastmod>2022-05-15T14:58:20&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/</loc><lastmod>2022-05-15T14:58:20&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/2021-10-03-awk/</loc><lastmod>2021-10-03T18:23:42&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://l-lin.github.io/tags/terminal/</loc><lastmod>2021-10-03T18:23:42&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
