@@ -43,6 +43,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Rust cheatsheet](https://cheats.rs/)
 - [Tour of Rust](https://tourofrust.com/TOC_en.html)
 - [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
+- [Comprehensive Rust](https://google.github.io/comprehensive-rust/)
 
 ## Architecture
 
