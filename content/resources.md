@@ -46,6 +46,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Rust cheatsheet](https://cheats.rs/)
 - [Tour of Rust](https://tourofrust.com/TOC_en.html)
 - [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
+- [Comprehensive Rust](https://google.github.io/comprehensive-rust/)
 
 ## Architecture
 
@@ -188,6 +189,10 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Personal OKRs](https://mohitkhare.me/blog/personal-okrs/)
 - [The mediocre programmer](http://themediocreprogrammer.com/)
 
+## Video
+
+- [FFmpeg guide](https://ffmpeg.guide/): build ffmpeg filters without the headache
+
 ## Misc
 
 - [Ethical alternative & resources](https://ethical.net/resources/): alternative tools and softwares
@@ -218,3 +223,4 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Than Average](https://thanaverage.xyz/)
 - [RFC searcher](https://rfc.fyi/)
 - [Insanely useful websites](https://www.insanelyusefulwebsites.com/): a collection of links to some useful websites
+- [La France en chiffres](https://lafrance.enchiffres.fr/)
