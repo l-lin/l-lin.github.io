@@ -38,6 +38,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [aws cli builder](https://awsclibuilder.com/): build AWS CLI commands
 - [Design system](https://www.karanpratapsingh.com/courses/system-design)
 - [CNCF End User Technology Radar](https://radar.cncf.io/)
+- [Engineering Effectiveness handbook](https://www.okayhq.com/handbook/)
 
 ## Rust
 
