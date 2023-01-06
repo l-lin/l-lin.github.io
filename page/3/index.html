@@ -103,6 +103,40 @@
         alt="/images/yoo_jae_suk.png"
         title="/images/yoo_jae_suk.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/l-lin" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://stackoverflow.com/users/3612053/l-lin" title="Stack Overflow" target="_blank" rel="noopener noreffer me"><i class="fab fa-codepen fa-fw"></i></a><a href="mailto:lin.louis@pm.me" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/2020-04-15-psql-import_export_csv/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
+        data-srcset="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png, https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png 1.5x, https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png 2x"
+        data-sizes="auto"
+        alt="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
+        title="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/2020-04-15-psql-import_export_csv/">PostgreSQL - Import / export CSV</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-04-15">2020-04-15</time></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div><div class="content"><p>Export:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="err">\</span><span class="k">copy</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">your_table</span><span class="p">)</span>
+<span class="k">TO</span> <span class="s1">&#39;/tmp/your_table.csv&#39;</span> <span class="n">CSV</span> <span class="n">HEADER</span> <span class="k">FORCE</span> <span class="n">QUOTE</span> <span class="o">*</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Import:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="err">\</span><span class="k">copy</span> <span class="n">your_table</span> <span class="k">FROM</span> <span class="s1">&#39;/tmp/your_table.csv&#39;</span> <span class="n">CSV</span> <span class="n">HEADER</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer">
+        <a href="/2020-04-15-psql-import_export_csv/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/postgresql/">postgresql</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/2020-04-13-playing_with_kafka/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -229,20 +263,6 @@ not want to mount the whole ecosystem locally, just the services I&rsquo;m curre
 <p>You can do it by using a GUI, or you can do it using directly a terminal, which is the what we will be covering here.</p></div><div class="post-footer">
         <a href="/2019-04-12-ubuntu_custom_desktop_shortcuts/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ubuntu/">ubuntu</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/2019-04-08-git-url-shortcuts/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitforwindows.org/img/git_logo.png"
-        data-srcset="https://gitforwindows.org/img/git_logo.png, https://gitforwindows.org/img/git_logo.png 1.5x, https://gitforwindows.org/img/git_logo.png 2x"
-        data-sizes="auto"
-        alt="https://gitforwindows.org/img/git_logo.png"
-        title="https://gitforwindows.org/img/git_logo.png" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/2019-04-08-git-url-shortcuts/">Git URL Shortcuts</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>l-lin</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-04-08">2019-04-08</time></span>&nbsp;<span class="post-category">included in <a href="/categories/post/"><i class="far fa-folder fa-fw"></i>post</a></span></div><div class="content"><p>You can create shortcuts for git URL paths to clone without typing full URL.</p></div><div class="post-footer">
-        <a href="/2019-04-08-git-url-shortcuts/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/git/">git</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>

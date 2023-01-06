@@ -3,7 +3,14 @@
         <title>post - Category - Hello, world</title>
         <link>https://l-lin.github.io/categories/post/</link>
         <description>post - Category - Hello, world</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 30 Dec 2022 19:18:27 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Jan 2023 17:37:43 &#43;0100</lastBuildDate><atom:link href="https://l-lin.github.io/categories/post/" rel="self" type="application/rss+xml" /><item>
+    <title>AWS IAM and AWS organization</title>
+    <link>https://l-lin.github.io/2023-01-06-aws_iam_and_orga/</link>
+    <pubDate>Fri, 06 Jan 2023 17:37:43 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://l-lin.github.io/2023-01-06-aws_iam_and_orga/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>AWS CLI with Unix password manager</title>
     <link>https://l-lin.github.io/2022-12-30-aws_with_pass/</link>
     <pubDate>Fri, 30 Dec 2022 19:18:27 &#43;0100</pubDate>
@@ -73,13 +80,6 @@ and begin to use the new language features Java brings with its versions.</p>
     <pubDate>Fri, 05 Feb 2021 10:56:06 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2021-02-05-ffmpeg-useful_commands/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>How to extract thread and heap dump from running JRE in container</title>
-    <link>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</link>
-    <pubDate>Thu, 04 Feb 2021 15:21:47 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://l-lin.github.io/2021-02-04-jvm-how_to_extract_thread_and_heap_dump_from_running_jre_in_container/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
