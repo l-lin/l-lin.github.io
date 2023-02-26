@@ -142,6 +142,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Joe Bot](https://postgres.ai/blog/joe-0.5/): a SQL query optimization assistant
 - [PostgreSQL's explain analyze made readable](https://explain.depesz.com/)
 - [PostgreSQL execution plan visualizer](https://explain.dalibo.com/)
+- [PSQL tips](https://psql-tips.org)
 
 ## Legal stuff
 
