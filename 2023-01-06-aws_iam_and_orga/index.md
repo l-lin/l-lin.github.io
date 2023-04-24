@@ -1,6 +1,8 @@
 # AWS IAM and AWS organization
 
 
+{{< figure class="center" src="/images/2023-01-06/aws_iam.png" alt="AWS IAM" >}}
+
 <!--more-->
 
 ## AWS IAM user
@@ -16,6 +18,8 @@
 {{< figure class="center" src="/images/2023-01-06/aws_organization.png" alt="AWS organization" >}}
 
 ## AWS policy
+
+{{< figure class="center" src="/images/2023-01-06/aws_policy_category.png" alt="AWS policy categorye" >}}
 
 {{< figure class="center" src="/images/2023-01-06/aws_policy.png" alt="AWS policy" >}}
 
