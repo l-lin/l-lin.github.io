@@ -209,12 +209,11 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Developer excuses](http://developerexcuses.com/): some excuses a developer might say
 - [Windows 93](https://www.windows93.net): web emulation of Windows 93 (or some of it)
 - [PCE.js](https://jamesfriend.com.au/pce-js/): web emulation of classic computers
-- [CAAS](https://cataas.com/): Cat As A Service is a REST API to spread peace & love (or not) with
-  cats
+- [CAAS](https://cataas.com/): Cat As A Service is a REST API to spread peace & love (or not) with cats
 - [procatinator](https://procatinator.com/): random cat gifs with music
 - [The useless web](https://theuselessweb.com/): redirects you to an useless website
 - [Geek typer](http://geektyper.com): website to simulate what a "Hacker" do in movies
-- [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful in
+- [O'RLY cover generator](https://orly.nanmu.me/): generate "O'Reilly" Parody book cover (useful for presentations)
 - [Monitoror](https://monitoror.com/): unified monitoring wallboard
 - [GifCap](https://gifcap.dev): online animated GIFs creator from a screen recording
 - [Remote tools](https://www.remote.tools/): top remote tech products
