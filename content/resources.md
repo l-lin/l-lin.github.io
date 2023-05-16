@@ -40,6 +40,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [System design interview](https://interviewing.io/guides/system-design-interview)
 - [CNCF End User Technology Radar](https://radar.cncf.io/)
 - [Engineering Effectiveness handbook](https://www.okayhq.com/handbook/)
+- [Web frameworks benchmark](https://web-frameworks-benchmark.netlify.app)
 
 ## Rust
 
