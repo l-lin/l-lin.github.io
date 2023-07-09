@@ -42,6 +42,10 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Engineering Effectiveness handbook](https://www.okayhq.com/handbook/)
 - [Web frameworks benchmark](https://web-frameworks-benchmark.netlify.app)
 
+## Kafka
+
+- [Human readable Kafka properties](https://kafka-doc.moum.it/)
+
 ## Rust
 
 - [Rust book](https://www.rust-lang.org/)
