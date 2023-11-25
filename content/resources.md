@@ -234,3 +234,5 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Insanely useful websites](https://www.insanelyusefulwebsites.com/): a collection of links to some useful websites
 - [La France en chiffres](https://lafrance.enchiffres.fr/)
 - [Collection of free stuffs on the internet](https://fmhy.net/)
+- [Series of nonverbal algorithm assembly instructions](https://idea-instructions.com/)
+
