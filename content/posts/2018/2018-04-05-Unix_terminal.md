@@ -302,6 +302,24 @@ $ ls /srv
 $ # /home contains the user HOME directories
 $ ls /home
 l.lin
+
+$ # XDG base directories: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+$ # $XDG_DATA_HOME: User-specific data files; e.g. program databases, caches that persist through multiple program runs,
+$ # search indices, 'Trash' directory for desktop environments.
+$ echo "${XDG_DATA_HOME}"
+/home/l.lin/.local/share
+
+$ # $XDG_CONFIG_HOME: User-specific configuration files, including .*rc and .*env files; VS Code settings.json.
+$ echo "${XDG_CONFIG_HOME}"
+/home/l.lin/.config
+
+$ # $XDG_STATE_HOME: User-specific state files, such as terminal history files.
+$ echo "${XDG_STATE_HOME}"
+/home/l.lin/.local/state
+
+$ # $XDG_CACHE_HOME: Caches limited to single runs of a program, but can extend to persistent caches, e.g. user-installed package manager caches for pip, pacman AUR wrappers, vcpkg, etc.
+$ echo "${XDG_CACHE_HOME}"
+/home/l.lin/.cache
 ```
 
 ## File and folder permissions
