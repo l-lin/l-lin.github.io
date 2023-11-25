@@ -41,10 +41,13 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [CNCF End User Technology Radar](https://radar.cncf.io/)
 - [Engineering Effectiveness handbook](https://www.okayhq.com/handbook/)
 - [Web frameworks benchmark](https://web-frameworks-benchmark.netlify.app)
+- [Software Engineering at Google](https://abseil.io/resources/swe-book/html/toc.html)
+- [A gentle introduction to Open Search](https://opensearch.roundrobin.pub/#/)
 
 ## Kafka
 
 - [Human readable Kafka properties](https://kafka-doc.moum.it/)
+- [A gentle introduction to Kafka](https://www.gentlydownthe.stream/)
 
 ## Rust
 
