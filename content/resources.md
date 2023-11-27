@@ -43,6 +43,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Web frameworks benchmark](https://web-frameworks-benchmark.netlify.app)
 - [Software Engineering at Google](https://abseil.io/resources/swe-book/html/toc.html)
 - [A gentle introduction to Open Search](https://opensearch.roundrobin.pub/#/)
+- [Sqids](https://sqids.org/): open source library to generate YouTube-looking IDs from numbers
 
 ## Kafka
 
@@ -202,6 +203,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 ## Video
 
 - [FFmpeg guide](https://ffmpeg.guide/): build ffmpeg filters without the headache
+- [FFmprovisr](https://amiaopensource.github.io/ffmprovisr/): making `ffmpeg` easier
 
 ## Misc
 
