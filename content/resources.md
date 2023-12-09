@@ -36,8 +36,6 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [free-for.dev](https://free-for.dev/): list of softwares and other offerings that have free tiers
   for developers
 - [aws cli builder](https://awsclibuilder.com/): build AWS CLI commands
-- [Design system](https://www.karanpratapsingh.com/courses/system-design)
-- [System design interview](https://interviewing.io/guides/system-design-interview)
 - [CNCF End User Technology Radar](https://radar.cncf.io/)
 - [Engineering Effectiveness handbook](https://www.okayhq.com/handbook/)
 - [Web frameworks benchmark](https://web-frameworks-benchmark.netlify.app)
@@ -45,6 +43,12 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [A gentle introduction to Open Search](https://opensearch.roundrobin.pub/#/)
 - [Sqids](https://sqids.org/): open source library to generate YouTube-looking IDs from numbers
 - [DEDP](https://www.dedp.online/about-this-book.html): Data Engineering Design Patterns
+
+## System design
+
+- [System design courses](https://www.karanpratapsingh.com/courses/system-design)
+- [System design interview](https://interviewing.io/guides/system-design-interview)
+- [System design learning](https://github.com/karanpratapsingh/system-design): learn how to design systems at scale and prepare for system design interviews
 
 ## Kafka
 
@@ -116,6 +120,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Excalidraw](https://excalidraw.com/): whiteboard tool to sketch diagrams
 - [Ira Design](https://iradesign.io/): build your own amazon illustrations
 - [Diataxis](https://diataxis.fr/): a systematic approach to technical documentation authoring
+- [AWS icons](https://aws-icons.com/): download, copy and paste AWS icons in SVG and PNG formats
 
 ## Engineering career
 
@@ -240,4 +245,3 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [La France en chiffres](https://lafrance.enchiffres.fr/)
 - [Collection of free stuffs on the internet](https://fmhy.net/)
 - [Series of nonverbal algorithm assembly instructions](https://idea-instructions.com/)
-
