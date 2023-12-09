@@ -44,6 +44,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Software Engineering at Google](https://abseil.io/resources/swe-book/html/toc.html)
 - [A gentle introduction to Open Search](https://opensearch.roundrobin.pub/#/)
 - [Sqids](https://sqids.org/): open source library to generate YouTube-looking IDs from numbers
+- [DEDP](https://www.dedp.online/about-this-book.html): Data Engineering Design Patterns
 
 ## Kafka
 
@@ -71,6 +72,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   Record](https://github.com/joelparkerhenderson/architecture_decision_record): document to capture
   important architectural decision made along with its context and consequences
 - [ADR](https://adr.github.io/): Architectural Decision Record
+- [Architecture anti-patterns](https://architecture-antipatterns.tech/)
 
 ## Security
 
@@ -113,6 +115,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
   write clearly
 - [Excalidraw](https://excalidraw.com/): whiteboard tool to sketch diagrams
 - [Ira Design](https://iradesign.io/): build your own amazon illustrations
+- [Diataxis](https://diataxis.fr/): a systematic approach to technical documentation authoring
 
 ## Engineering career
 
