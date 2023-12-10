@@ -43,12 +43,17 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [A gentle introduction to Open Search](https://opensearch.roundrobin.pub/#/)
 - [Sqids](https://sqids.org/): open source library to generate YouTube-looking IDs from numbers
 - [DEDP](https://www.dedp.online/about-this-book.html): Data Engineering Design Patterns
+- [Data Oriented Design](https://www.dataorienteddesign.com/dodbook/)
 
 ## System design
 
 - [System design courses](https://www.karanpratapsingh.com/courses/system-design)
 - [System design interview](https://interviewing.io/guides/system-design-interview)
 - [System design learning](https://github.com/karanpratapsingh/system-design): learn how to design systems at scale and prepare for system design interviews
+
+## Retrospectives
+
+- [Jamie's reflections on a decade of coding](https://www.scattered-thoughts.net/writing/reflections-on-a-decade-of-coding/)
 
 ## Kafka
 
