@@ -9,10 +9,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 ## Development
 
 - [OOP design patterns](http://www.cheat-sheets.org/saved-copy/designpatternscard1.pdf)
-- [Technology radar](https://www.thoughtworks.com/radar): opinionated guide to technology frontiers
-  by Thoughtworks
-- [Java design patterns](https://java-design-patterns.com/): curated list of OOP design patterns
-  with some examples implemented in Java
+- [Technology radar](https://www.thoughtworks.com/radar): opinionated guide to technology frontiers by Thoughtworks
 - [SourceMaking Design patterns](https://sourcemaking.com/design_patterns)
 - [Frontend checklist](https://frontendchecklist.io/)
 - [Free programming notes](https://goalkicker.com/)
@@ -45,6 +42,20 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [DEDP](https://www.dedp.online/about-this-book.html): Data Engineering Design Patterns
 - [Data Oriented Design](https://www.dataorienteddesign.com/dodbook/)
 
+### Java
+
+- [Java design patterns](https://java-design-patterns.com/): curated list of OOP design patterns with some examples implemented in Java
+- [Modern Java practices](https://github.com/binkley/modern-java-practices)
+
+### Rust
+
+- [Rust book](https://www.rust-lang.org/)
+- [Rust cheatsheet](https://cheats.rs/)
+- [Tour of Rust](https://tourofrust.com/TOC_en.html)
+- [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
+- [Comprehensive Rust](https://google.github.io/comprehensive-rust/)
+
+
 ## System design
 
 - [System design courses](https://www.karanpratapsingh.com/courses/system-design)
@@ -59,14 +70,6 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 
 - [Human readable Kafka properties](https://kafka-doc.moum.it/)
 - [A gentle introduction to Kafka](https://www.gentlydownthe.stream/)
-
-## Rust
-
-- [Rust book](https://www.rust-lang.org/)
-- [Rust cheatsheet](https://cheats.rs/)
-- [Tour of Rust](https://tourofrust.com/TOC_en.html)
-- [Rust by example](https://doc.rust-lang.org/stable/rust-by-example/index.html)
-- [Comprehensive Rust](https://google.github.io/comprehensive-rust/)
 
 ## Architecture
 
