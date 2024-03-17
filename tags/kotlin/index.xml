@@ -9,18 +9,14 @@
     <pubDate>Sat, 10 Feb 2018 12:05:16 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2018-02-10-kotlin-classes_basics/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png" referrerpolicy="no-referrer">
-            </div>]]></description>
+    <description><![CDATA[]]></description>
 </item><item>
     <title>Kotlin Basics: syntax</title>
     <link>https://l-lin.github.io/2018-01-28-kotlin-basics_syntax/</link>
     <pubDate>Sun, 28 Jan 2018 17:37:03 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2018-01-28-kotlin-basics_syntax/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png" referrerpolicy="no-referrer">
-            </div><p>Kotlin is a great language but it&rsquo;s more like a subset of Java.</p>
+    <description><![CDATA[<p>Kotlin is a great language but it&rsquo;s more like a subset of Java.</p>
 <p>In this article, I will deal with Kotlin basics and see what&rsquo;s different with Java in terms of syntax, form and types.</p>]]></description>
 </item></channel>
 </rss>

@@ -9,9 +9,7 @@
     <pubDate>Wed, 15 Apr 2020 11:06:08 &#43;0200</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2020-04-15-psql-import_export_csv/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" referrerpolicy="no-referrer">
-            </div><p>Export:</p>
+    <description><![CDATA[<p>Export:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -38,9 +36,7 @@
     <pubDate>Fri, 31 Aug 2018 16:10:12 &#43;0200</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2018-08-31-postgresql_remove_idle_transactions/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" referrerpolicy="no-referrer">
-            </div><div class="highlight"><div class="chroma">
+    <description><![CDATA[<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -61,9 +57,7 @@
     <pubDate>Thu, 29 Mar 2018 11:25:34 &#43;0200</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2018-03-29-postgresql_insert_and_link_ids/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" referrerpolicy="no-referrer">
-            </div><p>When proceeding a database migration, I often had to create a temporary table that will contains
+    <description><![CDATA[<p>When proceeding a database migration, I often had to create a temporary table that will contains
 the data from the old database.</p>
 <p>However, after the migration, I still need to have links between the old IDs and the new IDs for
 various post migration operation.</p>
@@ -74,8 +68,6 @@ various post migration operation.</p>
     <pubDate>Thu, 04 Jun 2015 00:00:00 &#43;0000</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2015-06-04-postgresql_enable_remote_connexion/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png" referrerpolicy="no-referrer">
-            </div>]]></description>
+    <description><![CDATA[]]></description>
 </item></channel>
 </rss>

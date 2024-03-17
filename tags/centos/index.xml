@@ -9,9 +9,7 @@
     <pubDate>Fri, 23 Feb 2018 13:19:45 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2018-02-23-centos7_add_new_tomcat_service/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://i2.wp.com/www.mes-vms.fr/wp-content/uploads/2015/06/centos.jpg?resize=648%2C330&amp;ssl=1" referrerpolicy="no-referrer">
-            </div><p>Starting with version 7, CentOS is now using <a href="https://freedesktop.org/wiki/Software/systemd/" target="_blank" rel="noopener noreffer">systemd</a> as a service manager.
+    <description><![CDATA[<p>Starting with version 7, CentOS is now using <a href="https://freedesktop.org/wiki/Software/systemd/" target="_blank" rel="noopener noreffer">systemd</a> as a service manager.
 Adding a new service is no longer done by creating a SH script in the <code>/etc/init.d</code> folder.</p>]]></description>
 </item><item>
     <title>How to open firewall port on CentOS7</title>
@@ -19,8 +17,6 @@ Adding a new service is no longer done by creating a SH script in the <code>/etc
     <pubDate>Fri, 09 Feb 2018 16:56:55 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://l-lin.github.io/2018-02-09-centos7_open_port/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://i2.wp.com/www.mes-vms.fr/wp-content/uploads/2015/06/centos.jpg?resize=648%2C330&amp;ssl=1" referrerpolicy="no-referrer">
-            </div>]]></description>
+    <description><![CDATA[]]></description>
 </item></channel>
 </rss>
