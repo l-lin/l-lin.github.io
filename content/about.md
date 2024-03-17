@@ -12,8 +12,6 @@ watching the famous Korean variety show "Running man".
 This is my digital garden, dedicated to storing some tips and tricks, thoughts, ideas and all other
 stuffs I think I want to preserve somewhere in the web.
 
-Here's my [stackoverflow story view](https://stackoverflow.com/story/l-lin).
-
 # Overview of my side projects in Github
 
 ## 2021
