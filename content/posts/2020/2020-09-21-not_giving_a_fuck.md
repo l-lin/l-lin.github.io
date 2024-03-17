@@ -1,7 +1,7 @@
 ---
 title: "The subtle art of not giving a fck"
 date: 2020-09-21T09:26:31+02:00
-featuredImage: "https://s3-us-west-2.amazonaws.com/tabs.web.media/c/2/c2sk/c2sk-square-orig.jpg"
+featuredImage: ""
 tags: ["mindmaps"]
 categories: ["post"]
 ---

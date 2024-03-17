@@ -1,7 +1,7 @@
 ---
 title: "Do not prompt password and enable remote access"
 date: 2015-06-04
-featuredImage: "https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
+featuredImage: ""
 tags: ["postgresql"]
 categories: ["post"]
 ---

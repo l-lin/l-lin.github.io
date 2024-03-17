@@ -1,7 +1,7 @@
 ---
 title: "How to link old and new IDs when migrating data from one table to another"
 date: 2018-03-29T11:25:34+02:00
-featuredImage: "https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
+featuredImage: ""
 tags: ["postgresql"]
 categories: ["post"]
 ---

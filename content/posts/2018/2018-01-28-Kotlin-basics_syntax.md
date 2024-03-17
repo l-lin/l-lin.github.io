@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Basics: syntax"
 date: 2018-01-28T17:37:03+01:00
-featuredImage: "https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png"
+featuredImage: ""
 tags: ["kotlin", "learning"]
 categories: ["post"]
 toc:

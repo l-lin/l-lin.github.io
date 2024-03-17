@@ -1,7 +1,7 @@
 ---
 title: "How to add a new Tomcat service on CentOS7"
 date: 2018-02-23T13:19:45+01:00
-featuredImage: "https://i2.wp.com/www.mes-vms.fr/wp-content/uploads/2015/06/centos.jpg?resize=648%2C330&ssl=1"
+featuredImage: ""
 tags: ["centos"]
 categories: ["post"]
 ---

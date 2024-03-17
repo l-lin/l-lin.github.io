@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL - Import / export CSV"
 date: 2020-04-15T11:06:08+02:00
-featuredImage: "https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
+featuredImage: ""
 tags: ["postgresql"]
 categories: ["post"]
 ---

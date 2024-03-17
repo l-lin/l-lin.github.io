@@ -1,7 +1,7 @@
 ---
 title: "Kafka cheatsheet"
 date: 2021-04-05T09:35:31+02:00
-featuredImage: "https://24b4dt1v60e526bo2p349l4c-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/apache_kafka-card-tm.png"
+featuredImage: ""
 tags: []
 categories: ["post"]
 toc:

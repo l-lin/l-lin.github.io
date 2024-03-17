@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Basics - Classes "
 date: 2018-02-10T12:05:16+01:00
-featuredImage: "https://10clouds.com/wp-content/uploads/2017/05/kotlin_spotlight@2x.png"
+featuredImage: ""
 tags: ["kotlin", "learning"]
 categories: ["post"]
 toc:

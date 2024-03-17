@@ -1,7 +1,7 @@
 ---
 title: "Remove idle transactions"
 date: 2018-08-31T16:10:12+02:00
-featuredImage: "https://www.virtual-dba.com/media/postgresql-database-services-remote-dba.png"
+featuredImage: ""
 tags: ["postgresql"]
 categories: ["post"]
 ---
