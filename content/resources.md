@@ -41,6 +41,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [Sqids](https://sqids.org/): open source library to generate YouTube-looking IDs from numbers
 - [DEDP](https://www.dedp.online/about-this-book.html): Data Engineering Design Patterns
 - [Data Oriented Design](https://www.dataorienteddesign.com/dodbook/)
+- [lcl.host](https://lcl.host/): the fastest & easiest way to get HTTPS in your local development environment
 
 ### Java
 
