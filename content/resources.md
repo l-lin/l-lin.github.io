@@ -115,6 +115,7 @@ A curated collection of awesome tools, resources, libraries and softwares I foun
 - [AWS cheat sheets](https://tutorialsdojo.com/aws-cheat-sheets/)
 - [AWS certification cheat sheets](https://digitalcloud.training/aws-cheat-sheets/)
 - [AWS flash cards](https://cloudbite.attejuvonen.fi/)
+- [AWS EC2 prices](https://ec2.shop/)
 
 ## Documentation
 
