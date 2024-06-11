@@ -5,7 +5,7 @@ featuredImage: ""
 tags: ["til", "nixos"]
 categories: ["post"]
 toc:
-  enable: true
+  enable: false
 ---
 
 

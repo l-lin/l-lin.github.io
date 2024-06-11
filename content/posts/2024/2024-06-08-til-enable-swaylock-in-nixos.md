@@ -2,10 +2,10 @@
 title: "TIL: Enable SwayLock in NixOS"
 date: 2024-06-08T08:35:49+02:00
 featuredImage: ""
-tags: []
+tags: ["til", "nixos"]
 categories: ["post"]
 toc:
-  enable: true
+  enable: false
 ---
 
 Just enabling [SwayLock](https://github.com/swaywm/swaylock) in home-manager is not enough.

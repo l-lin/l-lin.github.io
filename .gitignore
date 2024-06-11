@@ -3,3 +3,4 @@
 public
 /content/mindmaps/.*.png
 resources
+.hugo_build.lock
