@@ -12,7 +12,7 @@
 # The sources are located in the `blog` branch
 git clone --recurse-submodules -b blog git@github.com:l-lin/l-lin.github.io
 # If you want to serve the website in localhost:1313
-hugo serve
+make serve
 ```
 
 ## Deployment
