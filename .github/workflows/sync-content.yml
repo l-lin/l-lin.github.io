@@ -6,6 +6,9 @@
 name: 'Submodules Sync'
 
 on:
+  schedule:
+    # Run at every minute 15 of every hour of every day.
+    - cron:  '15 * * * *'
   # Allows you to run this workflow manually from the Actions tab or through HTTP API
   workflow_dispatch:
 
