@@ -8,7 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      "Subscribe (RSS)": "https://l-lin.github.io/feed",
+      "Subscribe (RSS)": "https://l-lin.github.io/index.xml",
       GitHub: "https://github.com/l-lin/l-lin.github.io",
     },
   }),
