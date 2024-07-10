@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = gh:l-lin/technical-notes
