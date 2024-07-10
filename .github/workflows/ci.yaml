@@ -1,14 +1,13 @@
+---
 name: Build and Test
 
 on:
   pull_request:
     branches:
       - main
-      - quartz
   push:
     branches:
       - main
-      - quartz
   workflow_dispatch:
 
 jobs:
