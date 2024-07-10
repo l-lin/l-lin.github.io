@@ -22,6 +22,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta({ showReadingTime: false }),
     Component.TagList(),
   ],
+  afterBody: [
+    Component.RecentNotes({ limit: 5 }),
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -43,6 +46,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta({ showReadingTime: false }),
   ],
+  afterBody: [],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
