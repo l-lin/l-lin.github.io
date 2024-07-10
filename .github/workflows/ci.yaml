@@ -47,4 +47,3 @@ jobs:
 
       - name: Ensure Quartz builds, check bundle info
         run: npx quartz build --bundleInfo
-
