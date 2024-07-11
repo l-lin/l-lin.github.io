@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     analytics: null,
     locale: "en-US",
     baseUrl: "l-lin.github.io",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "triage", "attachments"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
