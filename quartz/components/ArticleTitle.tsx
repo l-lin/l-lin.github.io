@@ -2,12 +2,14 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import { classNames } from "../util/lang"
 
 const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  const title = fileData.frontmatter?.title
-  if (title) {
-    return <h1 class={classNames(displayClass, "article-title")}>{title}</h1>
-  } else {
-    return null
-  }
+  // const title = fileData.frontmatter?.title
+  // if (title) {
+  //   return <h1 class={classNames(displayClass, "article-title")}>{title}</h1>
+  // } else {
+  //   return null
+  // }
+  // NOTE: No need to display the title, I always put a h1 on all notes.
+  return null
 }
 
 ArticleTitle.css = `
