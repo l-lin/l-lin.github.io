@@ -24,4 +24,5 @@ However, there are some changes I needed to make to make the website more to my 
 
 - [704674ee](https://github.com/l-lin/l-lin.github.io/commit/704674ee966cbc989f06f37beaafb86edddd594f): add recent notes
 - [6d06787e](https://github.com/l-lin/l-lin.github.io/commit/6d06787e66b6d24dda67fbd9e820a3102fd5c7c3): do not display note title
+- [8685f45a](https://github.com/l-lin/l-lin.github.io/commit/8685f45a37bbf228b8526e4bc181107db1e0599b): do not add hyphen
 
