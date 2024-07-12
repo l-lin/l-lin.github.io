@@ -28,4 +28,5 @@ However, there are some changes I needed to make to make the website more to my 
 - [6d06787e](https://github.com/l-lin/l-lin.github.io/commit/6d06787e66b6d24dda67fbd9e820a3102fd5c7c3): do not display note title
 - [8685f45a](https://github.com/l-lin/l-lin.github.io/commit/8685f45a37bbf228b8526e4bc181107db1e0599b): do not add hyphen
 - [7860b9f9](https://github.com/l-lin/l-lin.github.io/commit/7860b9f9d5fc2df4f3fd13010647b0f0720b79ab): display [FontAwesome](https://fontawesome.com/) icons in footer links
+- [e086fc10](https://github.com/l-lin/l-lin.github.io/commit/e086fc10ce91ffb793e1e33a43a73fbb48331d98): change content meta + date format
 
