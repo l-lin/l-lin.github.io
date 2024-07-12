@@ -22,6 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          token: ${{ secrets.SYNCHRONIZE_CONTENT_TOKEN }}
           submodules: true
           fetch-depth: 0 # Fetch all history for git info
       - uses: actions/setup-node@v4
