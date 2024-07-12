@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "l-lin.github.io",
     ignorePatterns: ["private", "templates", ".obsidian", "triage", "attachments"],
-    defaultDateType: "created",
+    defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

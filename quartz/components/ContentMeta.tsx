@@ -30,7 +30,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       const segments: (string | JSX.Element)[] = []
 
       if (fileData.dates) {
-        segments.push(formatDate(getDate(cfg, fileData)!, cfg.locale))
+        const lastUpdatedAt = formatDate(getDate(cfg, fileData)!, cfg.locale)
+        segments.push(<span title={`Last updated at ${lastUpdatedAt}.`}>🖊️️ {lastUpdatedAt}</span>)
       }
 
       // Display reading time if enabled
@@ -41,6 +42,18 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         })
         segments.push(displayedTime)
       }
+
+      // Display file history.
+      segments.push(
+        <a
+          href={`https://github.com/l-lin/technical-notes/commits/main/${fileData.filePath?.replace(/^content\//, '')}`}
+          title="Check file history."
+          target="_blank"
+        >
+            &nbsp;🗓️ Log
+        </a>
+      )
+
 
       const segmentsElements = segments.map((segment) => <span>{segment}</span>)
 

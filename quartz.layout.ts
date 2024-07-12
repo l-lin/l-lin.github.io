@@ -8,7 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      "Subscribe (RSS)": {link: "https://l-lin.github.io/index.xml", icon: "fa-solid fa-square-rss", iconcolor: "orange"},
+      RSS: {link: "https://l-lin.github.io/index.xml", icon: "fa-solid fa-square-rss", iconcolor: "orange"},
       GitHub: {link: "https://github.com/l-lin", icon: "fa-brands fa-github", iconcolor: "black"},
       LinkedIn: {link: "https://www.linkedin.com/in/lin-louis/", icon: "fa-brands fa-linkedin", iconcolor: "#0A66C2"}
     },
@@ -20,7 +20,7 @@ export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs({ showCurrentPage: false }),
     Component.ArticleTitle(),
-    Component.ContentMeta({ showReadingTime: false }),
+    Component.ContentMeta({ showReadingTime: false, showComma: false }),
     Component.TagList(),
   ],
   afterBody: [
@@ -46,7 +46,7 @@ export const defaultListPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs({ showCurrentPage: false }),
     Component.ArticleTitle(),
-    Component.ContentMeta({ showReadingTime: false }),
+    Component.ContentMeta({ showReadingTime: false, showComma: false }),
   ],
   afterBody: [
     Component.RecentNotes({ limit: 5 }),
