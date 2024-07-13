@@ -10,6 +10,10 @@ serve:
   npm i
   npx quartz build --serve
 
+# update quartz
+update:
+  npx quartz update
+
 # ----------------------------------------------------------------------
 
 BLUE := '\033[1;30;44m'
