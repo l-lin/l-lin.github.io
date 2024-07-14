@@ -4,13 +4,7 @@ import { version } from "../../package.json"
 import { i18n } from "../i18n"
 
 interface Options {
-  links: Record<string, Option>
-}
-
-interface Option {
-  link: string,
-  icon: string,
-  iconcolor: string
+  links: Record<string, string>
 }
 
 export default ((opts?: Options) => {
@@ -24,12 +18,10 @@ export default ((opts?: Options) => {
           <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
         </p>
         <ul>
-          {Object.entries(links).map(([text, detail]) => {
-            const fontclass = detail.icon
-            const iconstyle = "color: " + detail.iconcolor
+          {Object.entries(links).map(([text, link]) => {
             return (
             <li>
-              <a href={detail.link}><i style={iconstyle} class={fontclass}></i> {text}</a>
+              <a href={link}>{text}</a>
             </li>
           )})}
         </ul>

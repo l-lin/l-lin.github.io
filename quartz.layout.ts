@@ -8,9 +8,9 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      RSS: {link: "https://l-lin.github.io/index.xml", icon: "fa-solid fa-square-rss", iconcolor: "orange"},
-      GitHub: {link: "https://github.com/l-lin", icon: "fa-brands fa-github", iconcolor: "black"},
-      LinkedIn: {link: "https://www.linkedin.com/in/lin-louis/", icon: "fa-brands fa-linkedin", iconcolor: "#0A66C2"}
+      RSS: "https://l-lin.github.io/index.xml",
+      GitHub: "https://github.com/l-lin",
+      LinkedIn: "https://www.linkedin.com/in/lin-louis/",
     },
   }),
 }

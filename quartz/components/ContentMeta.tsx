@@ -31,7 +31,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       if (fileData.dates) {
         const lastUpdatedAt = formatDate(getDate(cfg, fileData)!, cfg.locale)
-        segments.push(<span title={`Last updated at ${lastUpdatedAt}.`}><i class="fa-solid fa-pen-nib"></i> {lastUpdatedAt}</span>)
+        segments.push(<span title={`Last updated at ${lastUpdatedAt}.`}>✏️ {lastUpdatedAt}</span>)
       }
 
       // Display reading time if enabled
@@ -50,7 +50,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
           title="Check file history."
           target="_blank"
         >
-            &nbsp;<i class="fa-solid fa-calendar-days"></i> Log
+            &nbsp;🗓️️ Log
         </a>
       )
 
