@@ -30,8 +30,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       const segments: (string | JSX.Element)[] = []
 
       if (fileData.dates) {
-        const lastUpdatedAt = formatDate(getDate(cfg, fileData)!, cfg.locale)
-        segments.push(<span title={`Last updated at ${lastUpdatedAt}.`}>✏️ {lastUpdatedAt}</span>)
+        const createdAt = formatDate(getDate(cfg, fileData)!, cfg.locale)
+        segments.push(<span title={`Created at ${createdAt}.`}>✏️ {createdAt}</span>)
       }
 
       // Display reading time if enabled
