@@ -8,7 +8,6 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      RSS: "https://l-lin.github.io/index.xml",
       GitHub: "https://github.com/l-lin",
       LinkedIn: "https://www.linkedin.com/in/lin-louis/",
     },
@@ -24,7 +23,6 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   afterBody: [
-    Component.RecentNotes({ limit: 5 }),
     Component.MobileOnly(Component.Explorer()),
   ],
   left: [
@@ -49,7 +47,6 @@ export const defaultListPageLayout: PageLayout = {
     Component.ContentMeta({ showReadingTime: false, showComma: false }),
   ],
   afterBody: [
-    Component.RecentNotes({ limit: 5 }),
     Component.MobileOnly(Component.Explorer()),
   ],
   left: [
