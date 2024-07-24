@@ -77,7 +77,7 @@ const config: QuartzConfig = {
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),
-      Plugin.ContentIndex({ enableSiteMap: true }),
+      Plugin.ContentIndex({ enableSiteMap: true, enableRSS: false }),
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
