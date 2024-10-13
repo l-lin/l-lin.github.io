@@ -24,6 +24,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   afterBody: [
     Component.MobileOnly(Component.Explorer()),
+    Component.RecentNotes({ limit: 5 })
   ],
   left: [
     Component.PageTitle(),
